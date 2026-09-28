@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7a1c8e000a3a8dc9",
+        "id": "ef60fca928eef529",
         "type": "tabs",
         "children": [
           {
-            "id": "330407197a05e99d",
+            "id": "0db199dd69f3472f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Welcome"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Welcome.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,6 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Welcome.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -181,8 +188,48 @@
       "bases:Create new base": false
     }
   },
-  "active": "330407197a05e99d",
+  "active": "0db199dd69f3472f",
   "lastOpenFiles": [
+    "MAQC-7/Week_6_Mod_Questions.md",
+    "MAQC-7/Week_6_Brief.md",
+    "MAQC-7/Week_5_Mod_Questions.md",
+    "MAQC-7/Week_5_Brief.md",
+    "MAQC-7/Time_Formula_Sheet.md",
+    "MAQC-7/README.md",
+    "MAQC-7/plan.md",
+    "MAQC-7/MAQC_Knowledge_Base.md",
+    "MAQC-7/evidence/Screenshot_20260916_143723.png",
+    "MAQC-7/evidence/Screenshot_20260924_185314_lock_confirmed.png",
+    "MAQC-7/evidence/Screenshot_20260924_185252_team_brief_sent.png",
+    "MAQC-7/evidence/Screenshot_20260916_143758.png",
+    "MAQC-7/evidence/Screenshot_20260910_074204_Discord.jpg",
+    "MAQC-7/evidence/Screenshot_20260830_102725_Discord.jpg",
+    "MAQC-7/evidence/Screenshot_20260829_213505.png",
+    "MAQC-7/evidence/Screenshot_20260829_213403.png",
+    "MAQC-7/evidence/Screenshot_20260829_213012.png",
+    "MAQC-7/evidence/Screenshot_20260829_151028_Discord.jpg",
+    "MAQC-7/evidence/MAQC_Session_Handoff_Update_STALE.md",
+    "MAQC-7/evidence/MAQC_S7_Week6_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Week5_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Week4_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Week3_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Week2_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Week1_Matchmaking.pdf",
+    "MAQC-7/evidence/MAQC_S7_Team_Registration_Responses.csv",
+    "MAQC-7/evidence/MAQC_S7_Team_Information_Responses.xlsx",
+    "MAQC-7/evidence/MAQC_Information_Guide_v1.0.pdf",
+    "MAQC-7/evidence/Earlier_Chat_Export_W2-W4_drafts.txt",
+    "MAQC-7/evidence/AI_Session_Handoff_W1_era.md",
+    "MAQC-7/docs/Week_6.md",
+    "MAQC-7/docs/Week_5.md",
+    "MAQC-7/docs/Week_4.md",
+    "MAQC-7/docs/Week_3.md",
+    "MAQC-7/docs/Week_2.md",
+    "MAQC-7/docs/Week_1.md",
+    "MAQC-7/docs/Season_Overview.md",
+    "MAQC-7/AGENTS.md",
+    "Worksheet/README.md",
+    "Worksheet/Worksheet X-A.md",
     "README.md",
     "Worksheet X-A.md",
     "Welcome.md"

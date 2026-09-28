@@ -1,0 +1,3342 @@
+Loading earlier messages...
+and tba?
+
+
+
+Thought for 1 second
+
+User asking what TBA means in the team brief - I said Week 2 map TBA.
+
+TBA = to be announced.
+
+Week 2’s map isn’t in the official docs yet — they drop it with the weekly match list (usually Monday).
+
+If that acronym’s noisy in Discord, say:
+
+Week 2 starts Monday. map isn’t out yet.
+
+
+daily practice about a hour max set a window and let the poll decicdee
+
+
+
+Thought for 1 second
+
+The user wants the poll updated for daily practice, about 1 hour max, set a window and let the poll decide. Casual Discord style, UTC with IST/EDT spoilers.
+
+Poll — daily practice (~1 hour max)
+
+same window every day. pick what you can actually hit.
+
+Window: 3:00–5:00 PM UTC ||(IST: 8:30–10:30 PM)|| ||(EDT: 11:00 AM–1:00 PM)||
+
+1️⃣ 3:00 PM UTC ||(IST: 8:30 PM)|| ||(EDT: 11:00 AM)||
+2️⃣ 3:30 PM UTC ||(IST: 9:00 PM)|| ||(EDT: 11:30 AM)||
+3️⃣ 4:00 PM UTC ||(IST: 9:30 PM)|| ||(EDT: 12:00 PM)||
+4️⃣ 4:30 PM UTC ||(IST: 10:00 PM)|| ||(EDT: 12:30 PM)||
+5️⃣ can’t do this window — drop a time
+
+react / reply with numbers. most votes = the daily slot. I’ll host.
+
+
+can you add this into coommand /poll create message: choice1: choice2:
+
+
+
+Thought for 1 second
+
+The user wants the poll formatted as a Discord bot command like /poll create with message and choice1, choice2, etc. I should look up if there's a standard Discord poll slash command format, but the...
+
+text
+
+/poll create message: daily practice (~1 hour) — same slot every day. window 3:00–5:00 PM UTC ||IST: 8:30–10:30 PM|| ||EDT: 11:00 AM–1:00 PM|| choice1: 3:00 PM UTC ||IST: 8:30 PM|| ||EDT: 11:00 AM|| choice2: 3:30 PM UTC ||IST: 9:00 PM|| ||EDT: 11:30 AM|| choice3: 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM|| choice4: 4:30 PM UTC ||IST: 10:00 PM|| ||EDT: 12:30 PM|| choice5: can’t do this window
+Paste that as one slash command. If the bot wants quotes around the message, use this:
+
+text
+
+/poll create message: daily practice (~1 hour) — same slot every day. window 3:00–5:00 PM UTC ||IST: 8:30–10:30 PM|| ||EDT: 11:00 AM–1:00 PM||
+then fill:
+
+choice1: 3:00 PM UTC ||IST: 8:30 PM|| ||EDT: 11:00 AM||
+choice2: 3:30 PM UTC ||IST: 9:00 PM|| ||EDT: 11:30 AM||
+choice3: 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM||
+choice4: 4:30 PM UTC ||IST: 10:00 PM|| ||EDT: 12:30 PM||
+choice5: can’t do this window
+
+image.png
+image.png
+ok it made like this untill u react on the message..so also make a draft message for the uncs out there or ppl new to discord how to click and enter answer on poll
+
+
+
+Thought for 1 second
+
+The user wants a draft Discord message explaining how to vote on the Dyno poll for people who are new to Discord. Keep it casual, captain voice, brief.
+
+@team poll’s up — daily practice, ~1 hour.
+
+if you’ve never used a Discord poll: scroll to that Dyno message, tap the blue number under it that matches your time (1 / 2 / 3 / 4). it should highlight. that’s your vote.
+
+want more than one slot? tap each number that works.
+
+wrong tap? tap it again to undo, then pick the right one.
+
+don’t reply in chat unless you’re hitting 5 (can’t do this window) — then just drop a time.
+
+numbers:
+
+1 = 3:00 PM UTC ||IST: 8:30 PM||
+2 = 3:30 PM UTC ||IST: 9:00 PM||
+3 = 4:00 PM UTC
+4 = 4:30 PM UTC ||IST: 10:00 PM||
+5 = can’t do this window
+
+
+any other features of dyno I can use?
+
+
+
+Thought for 1 second
+
+The user is asking about Dyno Discord bot features they can use. I should look up current Dyno features to give accurate information, especially relevant to their MAQC team management use case.
+
+I’ll check current Dyno features so I only list what’s actually available.
+
+
+Thought for 1 second
+
+Give a practical answer for a small team Discord, not a huge server. Focus on what's useful for MAQC team: reminders, announce, custom commands, AFK, poll show, etc. Note they may not have admin on th...
+
+Yeah — Dyno’s more than polls. For your team server these are the useful ones. (On the official MAO/MAQC server you usually can’t run these unless you’re staff.)
+
+Team-useful
+
+/remindme — ping yourself (or use a channel reminder if you have perms). Good for “practice in 1 hour” / Friday schedule cutoff.
+/announce — clean announce in a channel (practice time, match lock).
+Custom commands — dashboard: e.g. ?scrim dumps lobby settings: Equalize, CPC, map, IDs. ?times dumps IST/EDT cheat sheet.
+/afk set — when someone pings you, Dyno says you’re AFK.
+/poll show — reprint results of an existing poll.
+Auto roles — new join → @member so you can @team ping.
+Welcome message — “read #rules, drop your Player ID / timezone.”
+If you’re admin on that server
+
+Warn / mute / kick / purge
+Slowmode, lock channel
+Automod (spam, invites, mass pings)
+Action logs (deletes, joins)
+Skip for MAQC
+
+Leveling / XP, music, dadjoke, animals — noise.
+Highest value for you right now
+
+Custom command ?lobby → Equalize + map + “post code in battle post”
+Custom command ?deadlines → Fri 6:00 AM UTC schedule / Sun 6:00 AM UTC submit
+Reminders for practice + Week 2 list Monday
+I can write the exact ?lobby / ?deadlines text if you want.
+
+
+i want channel reminder?
+
+
+
+Thought for 1 second
+
+The user wants to know how to set a channel reminder with Dyno. Let me look up the exact Dyno reminder/channel reminder commands.
+
+I’ll look up Dyno’s exact reminder / channel-reminder commands so the draft matches what the bot actually accepts.
+
+
+Thought for 1 second
+
+Let me get more current info on Dyno remindme slash command and whether channel reminders exist. Dyno Premium has Auto Message module. Free Dyno typically has /remindme that DMs the user, not the chan...
+
+
+Thought for 1 second
+
+I'll be honest: Dyno does not have a great native "remind this channel daily" slash command on free tier. Options:
+
+Short version: Dyno’s /remindme pings you (usually DM), not the channel. A channel ping is Auto Messages on the dashboard — or you /announce by hand.
+
+1. Personal (works in chat now)
+Type / → remindme
+
+time: 1h / 2d / tomorrow 3pm
+reminder: host practice
+That’s only for you.
+
+2. Channel reminder (what you want)
+
+Open dyno.gg → your server
+Modules → Auto Messages (sometimes under Premium / extra modules)
+Add message
+Channel: #practice (or whatever)
+Interval: every 1 day
+Time: 15:00 UTC (or whatever the poll picks)
+Message:
+text
+
+@team practice in 15 min
+3:00 PM UTC ||IST: 8:30 PM|| ||EDT: 11:00 AM||
+~1 hour. I’ll drop the custom code here.
+Save. Dyno posts that in the channel on a loop.
+If Auto Messages is greyed out, that server’s Dyno plan doesn’t include it.
+
+3. No Auto Message? Fake it
+/announce in the practice channel when it’s time — or set your own /remindme and paste the ping when it fires.
+
+Once the poll winner is locked I can write the exact Auto Message text + UTC time.
+
+
+ok in the channel..where only those are there who got role of "akulmach maqc team" and so i ping that right?
+
+
+
+Thought for 1 second
+
+The user wants confirmation on how to ping their team role "akulmach maqc team" in the practice channel. Simple Discord advice.
+
+Yeah. In that channel, ping the role, not random people.
+
+Type @akulmach maqc team and pick the role (pink/color mention, not a user). Discord will send <@&ROLEID>.
+
+Checklist
+
+Role must be Mentionable (Server Settings → Roles → that role → “Allow anyone to @mention this role”). If it’s off, only people with “Mention @everyone, @here, and all roles” can ping it.
+You don’t need @everyone / @here if only that role is in the channel — the role ping is enough.
+Dyno Auto Message: paste the role mention once from Discord (so it’s a real <@&…>), copy that, put it in the Auto Message. Typing @akulmach maqc team as plain text in the dashboard often won’t ping.
+Example body:
+
+text
+
+<@&PASTE_ROLE_ID> practice in 15
+3:00 PM UTC ||IST: 8:30 PM|| ||EDT: 11:00 AM||
+~1 hour. code in this channel.
+To grab the ID: Discord Settings → Advanced → Developer Mode → right-click the role → Copy Role ID.
+
+
+gunshot - I can do from 6 pm utc to 8pm practice too take into account
+
+
+
+Thought for 1 second
+
+User wants to update practice window consideration - Gunshot can also do 6-8 PM UTC. That's late for IST:
+
+6:00–8:00 PM UTC is a second window. Flag for India: 6:00 PM UTC = 11:30 PM IST (your old cutoff). 7–8 PM UTC is past midnight IST.
+
+EDT: 2:00–4:00 PM — better for US than the noon slot.
+
+Team note
+
+@akulmach maqc team Gunshot can also do 6:00–8:00 PM UTC ||IST: 11:30 PM–1:30 AM|| ||EDT: 2:00–4:00 PM||
+
+that’s late for IST (6:00 PM UTC is already 11:30 PM). new poll has both windows — vote what you can actually play.
+
+text
+
+/poll create message: daily practice (~1 hour). two windows. pick all you can do. choice1: 3:00 PM UTC ||IST: 8:30 PM|| ||EDT: 11:00 AM|| choice2: 3:30 PM UTC ||IST: 9:00 PM|| ||EDT: 11:30 AM|| choice3: 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM|| choice4: 4:30 PM UTC ||IST: 10:00 PM|| ||EDT: 12:30 PM|| choice5: 6:00 PM UTC ||IST: 11:30 PM|| ||EDT: 2:00 PM|| choice6: 6:30 PM UTC ||IST: 12:00 AM|| ||EDT: 2:30 PM|| choice7: 7:00 PM UTC ||IST: 12:30 AM|| ||EDT: 3:00 PM|| choice8: 7:30 PM UTC ||IST: 1:00 AM|| ||EDT: 3:30 PM|| choice9: can’t do either window
+If Dyno caps choices, drop 6:30/7:30 and keep 6:00 and 7:00 PM UTC only.
+
+
+MAQC Season 7 - Week 2 Matchmaking.pdf
+@everyone
+
+🚨 MAQC SEASON 7 — WEEK 1 CONCLUDES! 🚨
+Pilots, the first week of our MAQC Season 7 has officially come to a close!
+
+With the end of Week 1, the Extended Registration period is now permanently closed. No further registrations or roster additions will be accepted for the remainder of Season 7.
+
+⚙️ 12-HOUR SP UPDATE WINDOW
+<@&1530964280806211675> , your one-time weekly SP update window is now OPEN for the next 12 hours. This will close at <t:1787508000:R>, at <t:1787508000:F>.
+
+If your team's Max SP has increased since your initial registration, you must update it on the MAQC website right now. After these 12 hours, the edit window will lock, and no additional SP changes will be possible for this week.
+
+> ⚠️ CRITICAL WARNING: We enforce a strict 10% SP Tolerance (current SP must not exceed 10% above registered SP) and a 5% SP Bracket Tolerance (current SP must not exceed 5% above the Bracket SP). If your team's true Max SP has grown beyond these limits and you fail to update it dutifully, you will face severe demerit penalties under the Honour System.
+
+> Note: Team leaders may only increase their SP; the system does not allow you to reduce it.
+
+⏳ FOR NEWLY REGISTERED TEAMS
+To the teams who finalized their registrations during the Week 1 extended window: welcome to the Clash!
+
+Please be patient while the modteam manually validates your entries. You will be able to check your validation status directly on the MAQC Season 7 website very soon.
+
+If your team is successfully validated, you will be officially included in the Week 2 matchmaking brackets* and be fully eligible to participate in the subsequent weeks!
+
+Rest up, review your SP, and prepare for Week 2. The battle for 5 Million A-Coins continues!@everyone
+
+⚔️ MAQC SEASON 7 - WEEK 2 BEGINS NOW!
+Pilots, the first shots have been fired and the standings have started to take shape. Week 1 is behind us - now come new matches, new opponents, and a new battlefield. Week 2 runs from <t:1787551200:F> to <t:1788069600:F>.
+
+The field is now locked at 1,347 teams and 5,038 players, all reseeded into their matchmaking brackets based on their highest registered SP. The road to our record-shattering 5th Anniversary Prize Pool continues:
+
+<:acoin:816645317155618857> 5,000,000 A-COINS
+Week 1 was the warm-up. From here, every series is pressure.
+
+🗺️ WEEK 2 MAP - BEST OF 3
+Season 7 runs on the Bo3 format. Each match of the series must be played on:
+
+Skyship 11
+The first team to win 2 matches takes the series and the Week 2 victory. If a team wins the first two matches, match 3 does not need to be played.
+
+⚠️ Map is not optional. If a match is played on the wrong map, either team may raise a dispute and that match may be invalidated. Double-check your lobby settings before launching.
+
+📊 WEEK 1 RESULTS ARE LIVE
+All Week 1 results have been processed and published on the MAQC Website](https://maqc.mecharenadev.com/))**. Head over to check your matches outcome, confirm your record, and see where your team landed before Week 2 seeding.
+
+Spotted something wrong with your result? Raise it with the moderation team immediately.
+
+📋 IF YOUR TEAM IS IN THE MATCHMAKING LISTS
+Your Week 2 campaign starts NOW.
+
+IMPORTANT: Team Leaders must be on the Discord server to hold the Leader role and coordinate matches properly.
+
+How to play and report:
+
+Open ⁠#s07-mm-list and find your team in your assigned SP bracket
+
+Note your match number and identify your new assigned opponent
+
+Head to ⁠#s07-battle-posts-week-02 and locate your channel - search for your match number from the MM list
+
+Ping your opponent in that channel to schedule your matches
+
+Play all matches and submit your results before the deadline
+
+> All communication about your match must happen in ⁠#s07-battle-posts-week-02.](https://discord.com/channels/542314937624690688/1541269053161869312).)** Conversations held elsewhere (DMs, external servers) will not be accepted as evidence in a dispute.
+
+You can also view your bracket, opponent, and match details and verify completed matches anytime on the MAQC Website](https://maqc.mecharenadev.com/))**.
+
+✨ THE CLASH FOR 5 MILLION A-COINS CONTINUES
+1,347 teams. 5,038 pilots. Skyship 11. Bo3. Week 2 of 6.
+
+The brackets are tightening. Every shot counts.
+
+Good luck, Pilots. We'll see you in the Arena. analyze all ddata add too daabase make eveerything detailed a give a draft tto send to opponent on our windows ii've also attached the windows they pied for practice access todays data i need a a draft for that too
+
+
+
+Thought for 1 second
+
+The user wants me to:
+
+Analyze Week 2 announcements and matchmaking PDF
+I’ll pull Week 2 matchmaking plus those Discord timestamps, then update the record and draft the opponent + practice messages.
+
+
+Thought for 1 second
+
+PDF is unsupported by read_file. Need to extract text with pdftotext or python.
+
+
+Explored
+1 read
+Read
+MAQC Season 7 - Week 2 Matchmaking.pdf
+
+Thought for 1 second
+
+pdftotext might not exist. Try python pypdf or pdfminer.
+
+
+Thought for 1 second
+
+Strange empty output. Let me try more.
+
+
+Thought for 1 second
+
+Search for captain player IDs in the extracted text.
+
+
+Thought for 1 second
+
+Found team. Extract context around those positions.
+
+
+Thought for 1 second
+
+Week 2 Match #671 vs @shegotyou88, Registered SP 23,758 vs our 23,000. Still Bracket 8. I've updated the MAQC knowledge base with all the new Week 2 data, including the match details for #671 vs @shegotyou88 (SP 23,758 vs 23,000, Bracket 8), the practice windows from the poll, and the scheduling constraints.
+
+
+Thought for 1 second
+
+Write comprehensive update and patch KB week 2 section.
+
+
+Edited files
+2
+MAQC Season 7 — Session Record
+MD
+MAQC Season 7 — Session Record
+Last updated: 24 Aug 2026 (Monday, IST)
+
+Team
+Role	Name	Discord	Player ID	Max SP	TZ
+Captain	Akulmach74	akulmach74	64516590	18000	IST
+P2	Destroyer	DΣ2TRØYΣR	67665771	15825	IST
+P3	Bowolf	BoWolf	77849365	19181	EDT
+P4	Gunshot	gunshot9099 / Ironside	56671448	21597	IST
+P5	Baby Bird	slimpickles.	26410318	22550	EDT
+Registered team Max SP (Week 2 list): 23,000
+Highest hangar on file: Baby Bird 22,550 (registration block). List now shows 23,000 — they used the SP increase window.
+Team Discord role: akulmach maqc team — ping that role in the team-only channel.
+Week 1 — Match #640 · Bracket 8
+Opponent: @ita_lev06 (~23,000 SP)
+Map: Biogear Lab · CPC · Bo3
+Result: L 1–2
+4v5 (late teammate). 15-min wait. One win after opponent DC/kick + 0–0 reset, then two losses.
+India cannot play past ~11:30 PM IST (18:00 UTC). US prefer afternoon/evening EDT.
+Bowolf Saturday tattoo 18:00 UTC (Week 1 only).
+Week 2 — Match #671 · Bracket 8
+Us: @akulmach74 · Registered SP 23,000 · IDs 64516590, 67665771, 77849365, 56671448, 26410318
+Opponent: @shegotyou88 · Registered SP 23,758 · IDs 67785271, 52027399, 76226452, 31682374, 71866825
+Map: Skyship 11 · CPC · Bo3 · Equalize
+Battle Post: #s07-battle-posts-week-02 — search #671
+MM list: #s07-mm-list
+Week 2 window: Mon 24 Aug 2026 06:00 UTC → Sun 30 Aug 2026 06:00 UTC
+Schedule by: Friday 28 Aug 2026, 06:00 AM UTC
+Play + submit by: Sunday 30 Aug 2026, 06:00 AM UTC
+ita_lev06 is now Match #661 vs @mewtwomecharena (not our opponent).
+Official Week 2 / close of Week 1
+Extended registration permanently closed. No roster adds for rest of S7.
+Field locked: 1,347 teams · 5,038 players · 681 matches · 10 brackets · 15 bot matches
+12-hour SP update window after Week 1: opened at Week 1 close, closed Sun 23 Aug 2026 18:00 UTC. SP may only increase.
+Tolerances restated: 10% above registered SP and 5% above Bracket SP. Fail to update → Honour System demerits.
+Newly registered Week 1 extended teams: manual validation; if validated they are in Week 2 MM.
+Results live: https://maqc.mecharenadev.com/
+All Week 2 comms only in battle post (DMs not evidence).
+Wrong map → dispute / possible invalidation.
+Practice
+Daily ~1 hour. Dyno poll in team channel.
+Window A (IST-friendly): 3:00–4:30 PM UTC ||IST 8:30–10:00 PM|| ||EDT 11:00 AM–12:30 PM||
+Window B (Gunshot extra): 6:00–8:00 PM UTC ||IST 11:30 PM–1:30 AM|| ||EDT 2:00–4:00 PM|| — 6:00 PM UTC is IST cutoff; 7–8 PM UTC is overnight IST.
+Poll UI: tap blue numbers under Dyno message. Role ping: @akulmach maqc team.
+Dyno /remindme = personal. Channel pings = Auto Messages on dyno.gg (if enabled).
+Deadlines (recurring)
+Action	When
+Schedule agree	Friday 06:00 UTC
+Play + screenshots in battle post	Sunday 06:00 UTC
+Weekly SP increase (if announced)	~12h after week end
+Open
+
+Thought for 1 second
+
+Update knowledge base with week 2 facts - append to existing file in uploads and/or home. I'll edit the workspace copy if we have one - we have uploads copy. Write additions to /home/user/MAQC_Knowled...
+
+
+Thought for 1 second
+
+Give user the analysis and drafts. Practice draft using both windows. Opponent draft with 3-5 PM UTC as primary (IST), mention 6 PM UTC as stretch.
+
+
+Edit
+uploads/MAQC_Knowledge_Base.md
+MAQC_Knowledge_Base.md
+MD
+Logged. Week 2 is live.
+
+Match #671 · Bracket 8 · Skyship 11 · Bo3 CPC · Equalize
+Us: @akulmach74 · 23,000 SP
+Them: @shegotyou88 · 23,758 SP
+IDs on their side: 67785271, 52027399, 76226452, 31682374, 71866825
+
+Dates: Week 2 Mon 24 Aug 06:00 UTC → Sun 30 Aug 06:00 UTC
+Schedule by Fri 28 Aug, 6:00 AM UTC · play + screenshots by Sun 30 Aug, 6:00 AM UTC
+Battle post: #s07-battle-posts-week-02 search 671
+Extended reg is closed. SP bump window already closed (Sun 23 Aug 18:00 UTC). Your list SP is 23,000 (up from 22,550).
+
+Opponent (paste in #671)
+
+hey @shegotyou88 week 2 #671 — Skyship 11 Bo3
+
+our crew is mixed IST + EDT, so late night UTC is rough for India.
+
+windows that work for us (any day before Friday):
+
+3:00–5:00 PM UTC ||IST: 8:30–10:30 PM|| ||EDT: 11:00 AM–1:00 PM|| ← best
+stretch: 6:00 PM UTC ||IST: 11:30 PM|| ||EDT: 2:00 PM|| (that’s our India cutoff)
+we can lock Tue / Wed / Thu in those windows — ~1 hour.
+
+drop what works for you and we’ll set a time. all talk in this post.
+
+Team / practice
+
+@akulmach maqc team Week 2 is up.
+
+#671 vs @shegotyou88 · 23,758 SP · Skyship 11 Bo3. schedule by Fri 28 Aug 6:00 AM UTC.
+
+practice still ~1 hour. two windows from the poll + Gunshot:
+
+A 3:00–4:30 PM UTC ||IST: 8:30–10:00 PM|| ||EDT: 11:00 AM–12:30 PM||
+B 6:00–8:00 PM UTC ||IST: 11:30 PM–1:30 AM|| ||EDT: 2:00–4:00 PM|| — B is late IST (6:00 PM UTC = 11:30 PM)
+
+finish the Dyno poll (tap the blue numbers under it). I’ll host the winning slot on Skyship 11 so we’re not walking in cold again.
+
+if you already voted A, you don’t have to re-vote unless you can also do B.
+
+
+no like shhort notice we got practice todaday at 9pm about 1 hr use ||| to show ist and est...and can I get their id's to check their hangars
+
+
+
+Thought for 1 second
+
+User wants:
+
+Short notice team message for practice TODAY at 9 PM - need to clarify timezone. Given IST context and they said 9pm, likely 9 PM IST.
+@akulmach maqc team short notice — practice today ~1 hour
+
+9:00 PM IST ||UTC: 3:30 PM|| ||EST: 10:30 AM||
+
+Skyship 11. I’ll drop the code here. jump if you can.
+
+Their IDs (hangar check) — Match #671 @shegotyou88
+
+67785271
+52027399
+76226452
+31682374
+71866825
+
+That’s all five from the Week 2 list. Search them in-game.
+
+If you meant 9:00 PM UTC instead, say so — that’s ||IST: 2:30 AM|| ||EST: 4:00 PM||.
+
+
+ok i've attached the hangars..now I need to bief my team..they wont e tooo ard rather not much storm deathwalker but a whole lot of guideed btw we've beeat them earlier(aother team of bulba clan so wont be too hard)
+
+
+
+Thought for 1 second
+
+The user mentioned they attached hangars but I don't see files in this message. Let me check uploads folder for new images.
+
+I’ll look at the hangar screenshots you attached, then write a short team brief.
+
+
+Thought for 1 second
+
+No hangar images attached in this turn. The user said they attached hangars - maybe they thought they did. I should ask them to reattach OR write a brief based on what they already told me in text:
+
+Hangar pics didn’t land in this chat — brief is from what you wrote. Re-drop the screenshots if you want ID-by-ID notes.
+
+@akulmach maqc team Week 2 #671 vs @shegotyou88 · Skyship 11 Bo3
+
+looked at their hangars. not a lot of Storm / Deathwalker. they’re heavy Guided. we’ve beaten this Bulba setup before — don’t sleep, but don’t overthink it.
+
+plan
+
+respect Guided range, don’t stand in lanes
+force close / break line of sight on Skyship
+call targets, play our roles (we skipped this Week 1)
+practice today 9:00 PM IST ||UTC: 3:30 PM|| ||EST: 10:30 AM|| ~1 hour. code here. show up.
+
+
+From opponent: Hey yes. Give me till the end of the day today because I’m really busy at work today. I live in the US. I’m not sure where you are but I’m in the Pacific Timezone..need a good reply
+
+
+
+Thought for 1 second
+
+Opponent is in Pacific Time. Today is Monday Aug 24, 2026. End of their work day.
+
+hey @shegotyou88 no rush — take the day, hit me when you’re off work
+
+we’re mixed IST + a couple US East. you’re PDT so the overlap’s a bit tight.
+
+our best window:
+
+3:00–5:00 PM UTC ||IST: 8:30–10:30 PM|| ||PDT: 8:00–10:00 AM||
+latest we can stretch: 6:00 PM UTC ||IST: 11:30 PM|| ||PDT: 11:00 AM||
+if that’s still work hours for you, weekend / later in the week is fine — just gotta lock something before Friday 6:00 AM UTC.
+
+lmk what your evenings look like and we’ll meet in the middle 👍
+
+
+Not repeating the earlier msg but saying from where u r and acknowledging her
+
+
+
+Thought for 1 second
+
+User wants a reply that doesn't repeat the previous availability message they already sent, just acknowledge her, say where they are, friendly. Captain is IST (India).
+
+hey @shegotyou88 all good, take the day — work first
+
+we’re mostly India (IST), couple guys on US East. you’re PDT so we’re a few hours apart, we’ll figure it out when you’re free later 👍
+
+
+opponent - Hey. So i think the best days for us are either in the evenings after 7pm, or Saturday early afternoon, Eastern timezone.
+
+
+
+Thought for 1 second
+
+Opponent said evenings after 7pm or Saturday early afternoon, Eastern timezone.
+
+hey @shegotyou88 thanks for checking
+
+weeknights after 7:00 PM ET is ||UTC: 11:00 PM|| ||IST: 4:30 AM|| for our India guys — that’s a no on our side.
+
+Saturday early afternoon ET is the overlap.
+
+could you do Saturday 12:00–1:00 PM ET?
+
+12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+that’s evening for us, afternoon for you. if we lock one of those now we’re good (gotta have a time set before Friday 6:00 AM UTC even if we play Saturday).
+
+either of those work?
+
+
+today is friday 08:25am
+
+
+
+Thought for 1 second
+
+The user is saying today is Friday 08:25 AM. The system originally said 2026-08-24 but the user is correcting that it's Friday. If Week 2 started Monday Aug 24, Friday would be Aug 28, 2026.
+
+Got it — treating now as Friday ~8:25 AM IST = 02:55 AM UTC.
+
+Schedule cutoff is today, Friday 6:00 AM UTC ||IST: 11:30 AM|| — you’ve got about 3 hours. Playing Saturday is fine if the time is agreed in the battle post before 6:00 AM UTC. After that, mods won’t take scheduling tickets.
+
+Bump opponent (now)
+
+hey @shegotyou88 quick one — mods need a locked time before 6:00 AM UTC today ||IST: 11:30 AM|| ||ET: 2:00 AM||
+
+we’re good for Saturday 12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+or Saturday 1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+
+weeknights after 7 ET is 4:30 AM IST for us so that still doesn’t work.
+
+just reply 12 or 1 and we’re locked. if I don’t hear back I’ll have to ping a mod.
+
+If no reply by ~10:45 AM IST — ping a MAQC Moderator in the same battle post (#671), don’t wait past 6:00 AM UTC.
+
+Want that mod ping drafted too?
+
+
+i idnt send this message complie it iwth ths one - hey @shegotyou88 thanks for checking
+
+weeknights after 7:00 PM ET is ||UTC: 11:00 PM|| ||IST: 4:30 AM|| for our India guys — that’s a no on our side.
+
+Saturday early afternoon ET is the overlap.
+
+could you do Saturday 12:00–1:00 PM ET?
+
+12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+that’s evening for us, afternoon for you. if we lock one of those now we’re good (gotta have a time set before Friday 6:00 AM UTC even if we play Saturday).
+
+either of those work?
+
+
+
+Thought for 1 second
+
+Merge the original scheduling message with the urgency about Friday 6 AM UTC deadline, since they haven't sent it yet. It's Friday 8:25 AM IST so deadline is soon. One compiled message.
+
+hey @shegotyou88 thanks for checking
+
+weeknights after 7:00 PM ET is ||UTC: 11:00 PM|| ||IST: 4:30 AM|| for our India guys — that’s a no on our side.
+
+Saturday early afternoon ET is the overlap.
+
+could you do Saturday 12:00–1:00 PM ET?
+
+12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+that’s evening for us, afternoon for you.
+
+mods need the time locked before 6:00 AM UTC today (Friday) ||IST: 11:30 AM|| ||ET: 2:00 AM|| — we can still play Saturday, we just have to agree now.
+
+reply 12 or 1 and we’re good. if I don’t hear back in time I’ll have to ping a mod.
+
+
+I want to tell them the strat for the map..we need a good start..i go mid nomad, need 1 citadel supporting, 1 redox if baby bird has otherwise he can go tailsting, gunshot goes outlaw, destroyer goes lacewing storms or something that is a good support..if baby bird had redox then he will got on left basement and give support..i need one citadel or surge to support and get mid, gunshot goes gemini outlaw again and bowolf with tailsting to support citadel as nomad would die..baby bird redox with hornet would be nice.. and if bowolf wants to run citadel first then destroyer can go storms and redox support...Once the starting mechs die..for destroyer go burrow beam seeker and bowolf go outlaw or seeker depending on how many outlaw you see when going in..I'll go blizz charge to protect mid..dont stick to the strat too much adapt it accordingly to their combos
+
+
+
+Thought for 1 second
+
+The user wants a team strategy brief for Skyship 11 Week 2 match. Casual Discord style, captain voice, roles assigned. Let me organize the two start variants clearly.
+
+@akulmach maqc team Skyship 11 — we need a clean start. don’t robot the plan if they throw a weird hangar.
+
+Open A (Baby Bird has Redox)
+
+me — Nomad mid
+1 Citadel or Surge with me to take/hold mid (Nomad dies if he’s solo)
+Baby Bird — Redox + Hornet, left basement, peel / support
+Gunshot — Gemini Outlaw
+Destroyer — Lacewing Storms (or a real support if Storms feel wrong)
+Bowolf — Tailsting on the Citadel once Nomad’s gone
+Open B (Bowolf wants Citadel first)
+
+Bowolf — Citadel (mid with me)
+Destroyer — Storms
+Baby Bird — Redox support
+Gunshot — Gemini Outlaw
+me — Nomad mid
+After first mechs die
+
+Destroyer — Burrow Beam Seeker
+Bowolf — Outlaw or Seeker — count their Outlaws before you drop
+me — Blizz Charge, protect mid
+rest: fill what’s missing (don’t double the same job)
+they’re Guided-heavy, not much Storm/DW. don’t stand in lanes. call mid. adapt.
+
+
+@everyone
+
+⚔️ MAQC SEASON 7 - WEEK 2 BEGINS NOW!
+Pilots, the first shots have been fired and the standings have started to take shape. Week 1 is behind us - now come new matches, new opponents, and a new battlefield. Week 2 runs from <t:1787551200:F> to <t:1788069600:F>.
+
+The field is now locked at 1,347 teams and 5,038 players, all reseeded into their matchmaking brackets based on their highest registered SP. The road to our record-shattering 5th Anniversary Prize Pool continues:
+
+<:acoin:816645317155618857> 5,000,000 A-COINS
+Week 1 was the warm-up. From here, every series is pressure.
+
+🗺️ WEEK 2 MAP - BEST OF 3
+Season 7 runs on the Bo3 format. Each match of the series must be played on:
+
+Skyship 11
+The first team to win 2 matches takes the series and the Week 2 victory. If a team wins the first two matches, match 3 does not need to be played.
+
+⚠️ Map is not optional. If a match is played on the wrong map, either team may raise a dispute and that match may be invalidated. Double-check your lobby settings before launching.
+
+📊 WEEK 1 RESULTS ARE LIVE
+All Week 1 results have been processed and published on the MAQC Website. Head over to check your matches outcome, confirm your record, and see where your team landed before Week 2 seeding.
+
+Spotted something wrong with your result? Raise it with the moderation team immediately.
+
+📋 IF YOUR TEAM IS IN THE MATCHMAKING LISTS
+Your Week 2 campaign starts NOW.
+
+IMPORTANT: Team Leaders must be on the Discord server to hold the Leader role and coordinate matches properly.
+
+How to play and report:
+
+Open ⁠#s07-mm-list and find your team in your assigned SP bracket
+
+Note your match number and identify your new assigned opponent
+
+Head to ⁠#s07-battle-posts-week-02 and locate your channel - search for your match number from the MM list
+
+Ping your opponent in that channel to schedule your matches
+
+Play all matches and submit your results before the deadline
+
+> All communication about your match must happen in ⁠#s07-battle-posts-week-02. Conversations held elsewhere (DMs, external servers) will not be accepted as evidence in a dispute.
+
+You can also view your bracket, opponent, and match details and verify completed matches anytime on the MAQC Website.
+
+✨ THE CLASH FOR 5 MILLION A-COINS CONTINUES
+1,347 teams. 5,038 pilots. Skyship 11. Bo3. Week 2 of 6.
+
+The brackets are tightening. Every shot counts.
+
+Good luck, Pilots. We'll see you in the Arena.
+
+
+
+Thought for 1 second
+
+The user pasted the Week 2 announcement again. They might want me to analyze it, confirm I have it, or they're just sharing it. There's no explicit question.
+
+Already in the record. Nothing new vs what we logged.
+
+For you: Week 2 = Skyship 11 · Bo3 · Equalize. Comms only in #s07-battle-posts-week-02. You’re #671 vs @shegotyou88.
+
+Clock: if it’s still Friday morning IST, lock a time before 6:00 AM UTC today (play Saturday is fine). After that, ping a MAQC mod in #671.
+
+Send that compiled opponent message if you haven’t. Want the mod ping next?
+
+
+Screenshot_20260829_125550_Discord.jpg
+Screenshot_20260829_125550_Discord.jpg
+See for yrself..according to rules do zi get an autowin?
+
+
+
+Thought for 2 seconds
+
+The user wants to know if they get an autowin based on MAQC rules given the Discord screenshot. Let me read the image more carefully and the knowledge base rules. Yes, you get the auto-win.
+
+The scheduling deadline (Friday 6 AM UTC) has already passed, and the opponent hasn’t responded in the 72-hour window since the match list dropped. The mod’s ping and the opponent’s “adding now / asking” message don’t count as a valid time agreement, because the mods won’t accept any scheduling requests after Friday. Since you’ve already contacted the mod and the opponent is still unresponsive, you’re eligible for the auto-win ticket. Just post it in #maqc-support-leaders and ping the mods to confirm.
+
+No. The rules as written do not give you an auto-win here.
+
+Why
+
+Auto-win is for an AFK opponent: no reply for 72h from the MM list, you tried in the battle post, and you told mods before Friday 6:00 AM UTC.
+@TOXIC&TASTY did reply (“I’m adding now / Asking”). That’s not unresponsive.
+No time locked ≠ auto-win. That’s a scheduling problem.
+Fixed times from mods only if you ask before Friday 6:00 AM UTC. After that they won’t take scheduling requests.
+If that mod ping was Friday night IST, that’s after 6:00 AM UTC. They can still ask in the post; they’re not required to hand you the series.
+What happens instead (documented)
+Keep trying in #671. If a time gets set, 10-min wait, then ping a mod in that post if they no-show. Play + screenshots by Sun 30 Aug 6:00 AM UTC. DMs don’t count. Open tickets don’t pause the match.
+
+Don’t tell them you already have an auto-win.
+
+If you want to answer the mod
+
+we’ve been trying to lock a time. they replied but we still don’t have a set hour.
+
+our overlap is Saturday 12:00 or 1:00 PM ET ||UTC: 4:00 / 5:00 PM|| ||IST: 9:30 / 10:30 PM||
+their weeknights after 7 ET is 4:30 AM IST for us.
+
+happy to play whatever you set. just need a time in this post.
+
+
+So if the opponent doesnt reply can we run a bot match at our time and give?
+
+
+
+Thought for 1 second
+
+The user asks if they can run a bot match at their proposed time and submit if opponent doesn't reply. I need to answer from the knowledge base only, not invent.
+
+No. Don’t run a bot lobby at “our time” and post it as the result.
+
+Why (written rules)
+
+A match only counts after a time is agreed (or a mod sets it) in the battle post.
+10-minute wait is only after that agreed time. No agreed time → no no-show forfeit.
+Bots are for a missing teammate, lobby Equalize, and the rulebook says both leaders agree. Not “we 5v bots and take the W.”
+Screenshots of a bot stomp won’t be treated as beating @shegotyou88. That can look like a fake/incomplete report.
+If they go quiet
+
+Ping them again in #671.
+Ping a MAQC Mod in #671 (you already did). Ask for a fixed time or a ruling — don’t claim the win yourself.
+If a time is set and they don’t join in 10 min, ping the mod in that post. Then it can be a forfeit / auto-loss for them.
+Still play + submit by Sun 30 Aug 6:00 AM UTC if a real match happens.
+Do not submit a bot game as Week 2.
+
+
+The time limit is close rn its 1pm ist Saturday
+
+
+
+Thought for 1 second
+
+User says it's Saturday 1pm IST. Week 2 deadline is Sunday 30 Aug 2026 6:00 AM UTC.
+
+Deadline is not 1:00 PM IST. That’s just now.
+
+Play + screenshots: Sunday 30 Aug, 6:00 AM UTC = Sunday 11:30 AM IST.
+From Saturday 1:00 PM IST you’ve got about 22 hours.
+
+Schedule deadline (Fri 6:00 AM UTC) is already gone. Mods don’t have to set a new time. You still have to try to play and post results before Sunday 6:00 AM UTC. No match posted → both can eat an auto-loss.
+
+Your overlap is later today:
+
+Sat 12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+Sat 1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+That’s ~8–9 hours from 1:00 PM IST. After ~11:30 PM IST you’re in the usual India cutoff.
+
+Ping now in #671
+
+@shegotyou88 @TOXIC&TASTY we still don’t have a lock and the week ends Sunday 6:00 AM UTC ||IST: 11:30 AM||
+
+we can do today Saturday 12:00 PM ET ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+or 1:00 PM ET ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+
+reply with 12 or 1. if we don’t play before the cutoff both sides risk auto-loss.
+
+Still don’t run a bot game. If they ghost, ping the mod in #671 again with that same window — you’re asking to play, not claiming the win.
+
+
+Any other lap tmrw morning?
+
+
+
+Thought for 1 second
+
+User asking if there's any other overlap tomorrow morning. I think you're right that Sunday morning IST lines up with Saturday evening ET for them, which might work if they're okay with the late-night slot. But the India team mentioned they usually can't go past 11:30 PM IST, so waking up early Sunday could be tough for some players.
+
+A bit — only if you mean Sunday morning IST. That’s Saturday night ET for them, which is the window they actually asked for (after 7:00 PM ET). You still have to finish before Sunday 6:00 AM UTC / 11:30 AM IST.
+
+Start	ET	IST	UTC
+too early for most of you	Sat 7:00 PM ET	Sun 4:30 AM	11:00 PM Sat
+maybe	Sat 9:00 PM ET	Sun 6:30 AM	1:00 AM Sun
+better if you can wake	Sat 10:00–11:00 PM ET	Sun 7:30–8:30 AM	2:00–3:00 AM Sun
+last call	Sun 12:00 AM ET	Sun 9:30 AM	4:00 AM Sun
+cutoff	Sun 2:00 AM ET	Sun 11:30 AM	6:00 AM Sun
+Tonight (Sat 12:00–1:00 PM ET / 9:30–10:30 PM IST) is still the sane one.
+
+Tomorrow morning only works if India can do ~7:30–9:30 AM IST Sunday and they can do Sat 10:00 PM–12:00 AM ET. Match ~1 hour. Don’t start after ~10:00 AM IST or you’ll blow the submit time.
+
+Weeknight “after 7 ET” on a Sunday night is after the deadline — ignore that.
+
+
+Write a draft for tmrw sunday too tell thats its insane last call but if they are down
+
+
+
+Thought for 1 second
+
+Draft for opponent offering Sunday morning IST / Saturday night ET as insane last call, plus keep tonight's window. Casual, UTC primary, spoilers IST and ET. Deadline Sunday 6 AM UTC.
+
+hey @shegotyou88 @TOXIC&TASTY week ends Sunday 6:00 AM UTC ||IST: 11:30 AM|| ||ET: 2:00 AM|| — after that it’s auto-loss territory for both
+
+best: still today Saturday 12:00 or 1:00 PM ET ||UTC: 4:00 / 5:00 PM|| ||IST: 9:30 / 10:30 PM||
+
+insane last call if tonight’s a no — Sunday morning our time / Saturday night yours:
+
+10:00 PM ET Sat ||UTC: 2:00 AM Sun|| ||IST: 7:30 AM Sun||
+11:00 PM ET Sat ||UTC: 3:00 AM Sun|| ||IST: 8:30 AM Sun||
+that’s early as hell for our India guys so only if you’re actually down. we have to be done before 6:00 AM UTC.
+
+reply 12, 1, 10, or 11 (ET) and I’ll host.
+
+
+Nah the 9:30 one
+
+
+
+Thought for 1 second
+
+They want the last call Sunday option to be 9:30 AM IST, not 7:30-8:30. That's 12:00 AM ET Sunday / 4:00 AM UTC Sunday.
+
+hey @shegotyou88 @TOXIC&TASTY week ends Sunday 6:00 AM UTC ||IST: 11:30 AM|| ||ET: 2:00 AM|| — after that both sides are in auto-loss range
+
+best: today Saturday 12:00 or 1:00 PM ET ||UTC: 4:00 / 5:00 PM|| ||IST: 9:30 / 10:30 PM||
+
+insane last call if tonight doesn’t work — Sunday 9:30 AM IST ||UTC: 4:00 AM|| ||ET: 12:00 AM||
+
+that’s midnight ET / 4 AM UTC so only if you’re actually down. we have to be done before 6:00 AM UTC.
+
+reply 12, 1, or midnight ET and I’ll host.
+
+
+How much time left untill deadline in hours?
+
+
+
+Thought for 1 second
+
+User asked how much time until deadline. They previously said it was Saturday 1pm IST. I don't have a confirmed current time now. The conversation has continued so it might be later.
+
+
+Thought for 1 second
+
+~22.4 hours left. Saturday 1:08 PM IST. Clear answer.
+
+~22 hours left.
+
+Deadline: Sunday 6:00 AM UTC = Sunday 11:30 AM IST = Sunday 2:00 AM ET
+
+Right now that’s about 22 hours 20 minutes (as of ~1:08 PM IST Saturday). After that, unplayed/unsubmitted = auto-loss risk for both.
+
+
+How to write in big letter in discord?
+
+
+
+Thought for 1 second
+
+User wants Discord markdown for large text. Discord doesn't have true heading sizes in all contexts - they have # ## ### for headings in some clients.
+
+Discord only has headings (not a real font-size tool):
+
+text
+
+# biggest
+## medium
+### smaller
+Bold is **text** — not bigger, just thick.
+
+Example:
+
+text
+
+# SATURDAY 12 PM ET
+## last call before Sunday 6:00 AM UTC
+# only works at the start of a line. Some older Discord clients won’t show it huge.
+
+
+Can u give in big"~22 hours left..tick-tock!"
+
+
+
+Thought for 1 second
+
+Simple Discord heading for their phrase.
+
+text
+
+# ~22 hours left.. tick-tock!
+
+Screenshot_20260829_151028_Discord.jpg
+Screenshot_20260829_151028_Discord.jpg
+
+Thought for 2 seconds
+
+The opponent said: "We'll be there tomorrowI see the confusion here—Sunday 9-10 AM Pacific is indeed after the Sunday 6 AM UTC deadline, so that slot won't work. Tonight still fits perfectly: Saturday 1 PM ET lines up with 10 AM Pacific on the same day, which is before the cutoff.
+
+I should warn the captain right away and suggest the reply that flags the Sunday option as invalid while confirming tonight's time works. If they meant 9 PM Pacific instead, that could be a last-minute Saturday option too.
+
+Let me draft a quick message for you.
+
+Stop — check the day. They said “tomorrow” 9–10 AM Pacific = 1:00 PM ET.
+
+Sunday 9:00 AM PDT = Sunday 4:00 PM UTC = Sunday 9:30 PM IST → that’s ~10 hours after Sunday 6:00 AM UTC. Illegal. Don’t play then.
+
+Saturday 9:00–10:00 AM PDT (later today if it’s ~1:48 AM for them) = 12:00–1:00 PM ET = 4:00–5:00 PM UTC = 9:30–10:30 PM IST. That’s the overlap we wanted.
+
+9qm might’ve been 9 PM Pacific = Sunday 9:30 AM IST (the last-call). They then wrote 9–10 AM Pacific. Treat AM as what they meant, and pin the date.
+
+Lock it in #671
+
+@TOXIC&TASTY copy that — we need the date locked.
+
+Sunday 9:00–10:00 AM Pacific is after the cutoff (Sunday 6:00 AM UTC). we can’t play that.
+
+Saturday (today) 9:00–10:00 AM Pacific works:
+
+9:00 AM PDT ||UTC: 4:00 PM|| ||ET: 12:00 PM|| ||IST: 9:30 PM||
+10:00 AM PDT ||UTC: 5:00 PM|| ||ET: 1:00 PM|| ||IST: 10:30 PM||
+
+confirm Saturday 9:00 AM Pacific and I’ll host / drop the code here. 10-min wait from that time. Skyship 11 · Equalize · Bo3
+
+
+For them it'll be tomorrow as right now its 3:12 ist Saturday
+
+
+
+Thought for 1 second
+
+User clarifies: now 3:12 IST Saturday. For the opponent in Pacific, current time:
+
+For them it’s ~2:42 AM Saturday PDT right now (3:12 PM IST).
+
+So 9:00–10:00 AM Pacific is today for them (~6½ hours), not tomorrow.
+Tomorrow = Sunday 9–10 AM PDT = after the deadline. Don’t take that.
+
+@TOXIC&TASTY all good — for you that’s later today (Saturday morning), not Sunday.
+
+Saturday 9:00 AM Pacific ||UTC: 4:00 PM|| ||ET: 12:00 PM|| ||IST: 9:30 PM||
+or 10:00 AM Pacific ||UTC: 5:00 PM|| ||ET: 1:00 PM|| ||IST: 10:30 PM||
+
+Sunday 9–10 AM Pacific is past Sunday 6:00 AM UTC so we can’t use that.
+
+confirm Saturday 9:00 AM PDT and I’ll drop the code here. Skyship 11 · Equalize · Bo3. 10-min wait.
+
+
+Ok they confirmed saturday 9-10PDT which is utc and tell it is confirmed saturday i assumed as Sunday is after deadline..and tell in utc and in blackouts aka || tell the time in edt, ist, pdt take account ok?
+
+
+
+Thought for 1 second
+
+They confirmed Saturday 9-10 PDT. User wants a confirmation message:
+
+confirmed — Saturday (not Sunday; Sunday 9 AM PDT is after 6:00 AM UTC)
+
+4:00–5:00 PM UTC Saturday
+||PDT: 9:00–10:00 AM|| ||EDT: 12:00–1:00 PM|| ||IST: 9:30–10:30 PM||
+
+I’ll host 4:00 PM UTC. code in this post. Skyship 11 · Equalize · Bo3. 10-min wait from 4:00 PM UTC.
+
+see you then 👍
+
+
+Now brief my team about time..
+
+
+
+Thought for 1 second
+
+Team brief for Saturday 4-5 PM UTC / 9:30-10:30 PM IST. Role ping. Map, equalize, 10 min wait. Short. Don't be late after week 1 4v5. Strat reminder optional very short.
+
+@akulmach maqc team match is locked
+
+Saturday 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM|| ||PDT: 9:00 AM||
+
+window they said 4:00–5:00 PM UTC ||IST: 9:30–10:30 PM||. we start 4:00. 10-min wait — don’t be late (Week 1 4v5 hurt us).
+
+#671 vs @shegotyou88 · Skyship 11 · Equalize · Bo3
+
+I’ll drop the code in the battle post. be on Discord. Guided-heavy, we take mid, don’t sit in lanes.
+
+
+can you organise everthing better?
+
+
+
+Thought for 1 second
+
+The user wants me to organize everything better - likely the team brief, or the whole MAQC situation. Given the last message was the team brief, they probably want a cleaner team briefing covering tim...
+
+@akulmach maqc team Week 2 — read this once
+
+When
+Saturday 4:00 PM UTC
+||IST: 9:30 PM|| ||EDT: 12:00 PM|| ||PDT: 9:00 AM||
+they said 4:00–5:00 PM UTC; we start 4:00. 10-min wait. late = 4v5 again. don’t.
+
+What
+#671 vs @shegotyou88 (23,758 SP)
+Skyship 11 · CPC · Bo3 · Equalize
+code in the battle post. screenshots after.
+
+Cutoff
+done + pics before Sunday 6:00 AM UTC ||IST: 11:30 AM||
+
+Them — Guided-heavy, not much Storm/DW. we’ve beaten this Bulba setup. don’t stand in lanes.
+
+Open A (Baby Bird has Redox)
+
+me — Nomad mid
+Citadel or Surge with me on mid (Nomad dies solo)
+Baby Bird — Redox + Hornet, left basement
+Gunshot — Gemini Outlaw
+Destroyer — Lacewing Storms (or real support)
+Bowolf — Tailsting on Citadel when Nomad’s gone
+Open B (Bowolf Citadel first)
+
+Bowolf Citadel mid with me · Destroyer Storms · Baby Bird Redox · Gunshot Outlaw · me Nomad mid
+2nd wave
+
+Destroyer — Burrow Beam Seeker
+Bowolf — Outlaw or Seeker (count their Outlaws)
+me — Blizz Charge, hold mid
+adapt to their hangar. don’t robot it.
+Hangar check (them)
+67785271 52027399 76226452 31682374 71866825
+
+be on Discord at 9:15 PM IST. I ping when the lobby’s up.
+
+
+nah the files right now
+
+
+
+Thought for 1 second
+
+The user wants me to organize the files in the workspace - the MAQC documentation, handoff, knowledge base, etc. Make them cleaner and up to date.
+
+I’ll sort the workspace files and fold Week 1–2 into a single, current record.
+
+
+Thought for 1 second
+
+I'll write a comprehensive organized handoff that replaces the stale one, and add a Week 2 section to the knowledge base. Keep original PDFs. Make one canonical MAQC_Knowledge_Base (update) and one AI...
+
+
+Edited files
+2
+MAQC Season 7 — AI Session Handoff
+MD
+MAQC Season 7 — AI Session Handoff
+Updated: Saturday 29 Aug 2026 ~15:10 IST
+User: Captain akulmach74. Draft Discord from captain. Casual. UTC first. Spoilers ||IST|| ||EDT|| ||PDT||. Rules only from MAQC_Knowledge_Base.md. Never invent rules, times, or IDs.
+
+Roster
+Role	Name	Discord	Player ID	Max SP	TZ
+Captain	Akulmach74	akulmach74	64516590	18000	IST
+P2	Destroyer	DΣ2TRØYΣR	67665771	15825	IST
+P3	Bowolf	BoWolf	77849365	19181	EDT
+P4	Gunshot	gunshot9099 / Ironside	56671448	21597	IST
+P5	Baby Bird	slimpickles.	26410318	22550	EDT
+Team Discord role: akulmach maqc team
+India cutoff ~11:30 PM IST (18:00 UTC)
+Registered SP (Week 2 list): 23,000
+Week 1 — closed
+#640 Bracket 8 vs @ita_lev06 ~23k · Biogear Lab · L 1–2
+4v5 (late), 15-min rule, one win after their DC/reset, then two losses
+Gunshot (18 Aug) wanted practice; captain treated it light — owned that
+Week 2 — LIVE
+Match #671 Bracket 8 · #s07-battle-posts-week-02
+Us: @akulmach74 · 23,000 · IDs 64516590, 67665771, 77849365, 56671448, 26410318
+Opp: @shegotyou88 / @TOXIC&TASTY · 23,758 · IDs 67785271, 52027399, 76226452, 31682374, 71866825
+Hangars: Guided-heavy, little Storm/Deathwalker. Prior Bulba clan team — beaten before. Not “free.”
+Map: Skyship 11 · CPC · Bo3 · Equalize
+Week: Mon 24 Aug 06:00 UTC → Sun 30 Aug 06:00 UTC (play + screenshots)
+Schedule-by-Friday already passed (Fri 28 Aug 06:00 UTC). Mods not required to set a new time.
+Field: 1,347 teams · 5,038 players. Extended reg closed.
+Scheduling (as of 29 Aug afternoon IST)
+Opp PDT; evenings after 7 ET or Sat early afternoon ET
+LOCKED: Saturday 9:00–10:00 AM PDT = 4:00–5:00 PM UTC = 12:00–1:00 PM EDT = 9:30–10:30 PM IST
+Host 4:00 PM UTC. 10-min wait. Code in #671.
+Sunday 9–10 AM PDT is after Sun 6:00 AM UTC — invalid
+No auto-win: they replied. No bot-lobby submit. No-show only after agreed time + 10 min + ping mod in post
+Mod @[MAQC Mod] night asked them for feedback Fri night; time later confirmed Sat
+Skyship 11 open
+A (Baby Bird Redox): Akul Nomad mid · Citadel/Surge mid · BB Redox+Hornet left basement · Gunshot Gemini Outlaw · Destroyer Lacewing Storms · Bowolf Tailsting on Citadel after Nomad
+B (Bowolf Citadel first): Bowolf Citadel mid · Destroyer Storms · BB Redox · Gunshot Outlaw · Akul Nomad
+2nd wave: Destroyer Burrow Beam Seeker · Bowolf Outlaw or Seeker (count their Outlaws) · Akul Blizz Charge mid · adapt
+
+Practice
+Daily ~1h. Windows: 15:00–16:30 UTC (IST-friendly) and Gunshot 18:00–20:00 UTC (late IST)
+Dyno poll: tap numbers under the bot message. Channel reminders = Dyno Auto Messages (not /remindme)
+Channels
+MM list: #s07-mm-list
+Week 2 posts: #s07-battle-posts-week-02
+Tickets: #maqc-support-leaders
+Site: https://maqc.mecharenadev.com/
+Open
+MAQC Season 7 — file map (24–29 Aug 2026)
+MD
+MAQC Season 7 — file map (24–29 Aug 2026)
+Canonical docs (use these, not the old handoff in uploads/):
+
+File	What it is
+MAQC/AI_Session_Handoff.md	Live team + match status. Start here every session.
+MAQC/MAQC_Knowledge_Base.md	Rules only. Do not invent beyond this.
+uploads/	Original PDFs, CSV, Discord dump, screenshots. Evidence, not the live brief.
+Do not use uploads/AI_Session_Handoff.md (Week 1, stale).
+Do not use /home/user/MAQC_Session_Handoff_Update.md (replaced).
+
+Open
+
+Thought for 1 second
+
+Copy knowledge base into MAQC folder with week 2 updates via a few search-replaces on a written copy. I'll write the updated KB to MAQC/ by copying and patching key sections with bash/python for effic...
+
+
+Explored
+1 read
+Read
+MAQC_Knowledge_Base.md
+
+Thought for 1 second
+
+Patch the knowledge base with week 2 facts.
+
+
+Edited files
+2
+STALE — use `MAQC/AI_Session_Handoff.md`
+MD
+STALE — use MAQC/AI_Session_Handoff.md
+Open
+MAQC_Knowledge_Base.md
+MD
+
+Thought for 1 second
+
+Present the organized file structure to the user. Optionally present the handoff file.
+
+
+Thought for 1 second
+
+Give a clear file map.
+
+Organized. Live stuff is in MAQC/. uploads/ is originals only.
+
+Use
+
+
+AI_Session_Handoff.md
+ — roster, Week 1 L, #671 lock, strat, IDs
+
+MAQC_Knowledge_Base.md
+ — rules (Week 2 Skyship 11, channels, no bot-submit / no fake auto-win)
+
+README.md
+ — what to open
+Leave in uploads/ — PDFs, CSV, Discord dump, screenshots
+
+Ignore — 
+AI_Session_Handoff.md
+ (Week 1 stale) and the old update stub
+
+#671 lock still: Sat 4:00 PM UTC ||IST 9:30 PM|| ||EDT 12:00 PM|| ||PDT 9:00 AM|| · Skyship 11 · Equalize · 10-min wait.
+
+
+Screenshot 2026-08-29 213012.png
+Screenshot 2026-08-29 213012.png
+Screenshot 2026-08-29 213403.png
+Screenshot 2026-08-29 213403.png
+Screenshot 2026-08-29 213505.png
+Screenshot 2026-08-29 213505.png
+according to rules do we get autowin
+
+
+
+Thought for 1 second
+
+The user wants to know if they get an autowin based on the Discord screenshots and MAQC rules. Yes, you should get the auto-win.
+
+The opponent’s “No today / In two hours” at 8:21 PM IST was still inside the agreed 4–5 PM UTC window (they were basically saying they’d be ready around 9:51 AM PDT, which is still within the 9– 10 AM PDT slot). But once the agreed start time (4:00 PM UTC / 9:30 PM IST) passed and they didn’t join, the 10-minute no-show rule kicked in.
+
+No. You don’t have an auto-win from this.
+
+Why (written rules)
+
+Auto-win = 72h silence + tell mods before Friday 6:00 AM UTC. They keep talking.
+No-show forfeit = a locked time in the battle post, you wait 10 minutes, they don’t join, you ping a mod in that post. Then the mod can give a forfeit — you don’t award it.
+One of theirs quit the season ≠ they lose the series. Missing player = in-game bot + Equalize (both leaders).
+They asked to play in two hours, with or without the team. That’s a time change, not AFK.
+What the thread actually says
+You locked Saturday 4:00 PM UTC ||PDT 9:00 AM|| ||IST 9:30 PM||.
+At 8:21–8:31 PM IST they said not today / in two hours (that “two hours” is ~5:00 PM UTC / 10:00 AM PDT — the end of the window they already gave).
+Mod is already in #671. Don’t write “so we get the W.”
+
+To the mod in #671 (facts only)
+
+agreed time was 4:00 PM UTC ||PDT: 9:00 AM|| ||IST: 9:30 PM|| posted in this channel.
+
+we’re here. they said they’ll be ready in 2 hours (that’s ~5:00 PM UTC / 10:00 AM PDT).
+
+we’ll wait the 10 min from the agreed time. if they don’t join, please rule. if you want us to hold until 5:00 PM UTC we can. we will not submit a bot lobby as the result.
+
+To them
+
+we locked 4:00 PM UTC ||PDT: 9:00 AM|| ||IST: 9:30 PM||.
+
+we can hold until 5:00 PM UTC ||PDT: 10:00 AM|| ||IST: 10:30 PM|| — that’s the end of the 9–10 AM PDT window. after that we have to ping the mod.
+
+dropped player is fine — bot + Equalize. drop a code or take ours.
+
+If they don’t join by 5:10 PM UTC, ping the mod again: agreed window over, they didn’t join, requesting no-show ruling. Still don’t post a 5v bots screenshot as the match.
+
+
+also emphasize the point i gave time in utc..they didnt convert time properly not my problem
+
+
+
+Thought for 1 second
+
+User wants a draft that emphasizes they posted UTC, opponent didn't convert properly, that's on them. Keep it from claiming autowin. Still facts for mod and opponent. Captain tone - can be a bit firme...
+
+To them + mod (one post)
+
+@TOXIC&TASTY @[MAQC Mod] night
+
+agreed time was posted in UTC so nobody has to guess PDT/EDT/IST:
+
+Saturday 4:00 PM UTC ||PDT: 9:00 AM|| ||EDT: 12:00 PM|| ||IST: 9:30 PM||
+window 4:00–5:00 PM UTC ||PDT: 9:00–10:00 AM||
+
+that conversion was already in this post. not converting UTC isn’t on us.
+
+we’re here at the UTC time. 10-min wait from 4:00 PM UTC. we can hold to 5:00 PM UTC ||PDT: 10:00 AM|| ||IST: 10:30 PM|| as last call.
+
+missing player = bot + Equalize. we will not submit a bot lobby as the result.
+
+if they’re not in by 5:10 PM UTC, please rule on the no-show.
+
+
+where it is written 10min wait rule?
+
+
+
+Thought for 1 second
+
+The user wants the source of the 10-minute wait rule from the knowledge base / official docs. I have this from earlier reading.
+
+Official Rulebook — Section 4 (Match Scheduling)
+Same line is in the Discord dump you attached (discord text shared by admins.txt) and in MAQC_Knowledge_Base.md under Fixed Match Times & 10-Minute Wait.
+
+Wording:
+
+Once match time is set either by both leaders or by mods, Leader who's making the custom match will share the match ID in their battle post of the week.
+At least one representative from either team must show up. Failure to show up will result in an immediate forfeit for the no-show team(s).
+Either team is obliged to only wait for 10 minutes post the agreed upon time for the opponents to join in; if the opponents don't join in, ping MAQC-MOD in your battle post of the week.
+
+What that actually means
+
+Timer starts at the agreed time in the battle post (yours: 4:00 PM UTC).
+You wait 10 minutes, then ping a MAQC Mod in #671.
+Forfeit is the mod’s call, not yours.
+It does not say you play bots and post the screenshot as the win.
+Week 1 scheduling guide in the KB says the same: wait 10 minutes → ping mod in the Battle Post → no-show can be an immediate forfeit.
+
+
+image-1.png
+image-1.png
+what to reply next
+
+
+
+Thought for 1 second
+
+The user asked what to reply next. Context: I’d reply something like this:
+
+“Got it, no worries at all. Since you’re ready now and you mentioned 9-10 AM PDT, you’re still inside that window (9:40 AM PDT is right in the middle of it).
+
+Pause. If those stamps are IST, 10:09 PM IST = 9:39 AM PDT = 4:39 PM UTC. That’s still inside 9:00–10:00 AM PDT / 4:00–5:00 PM UTC — the window you posted.
+
+You told them they were late. They’re not. Walking now can look like you no-showed your own window. Don’t fight them. Don’t claim the W.
+
+If anyone on your side can still load — play. This is the right reply:
+
+@TOXIC&TASTY you’re in the window. 4:00–5:00 PM UTC ||PDT: 9:00–10:00 AM|| ||IST: 9:30–10:30 PM|| — it’s 4:39 PM UTC / 9:39 AM PDT.
+
+we’re hosting now. Skyship 11 · Equalize · Bo3. code in this post. 10 min from this message.
+
+If the squad already logged off — only this, to the mod, not a roast:
+
+@[MAQC Mod] night they just said ready. clock now is still inside 4:00–5:00 PM UTC. my India players were signing off.
+
+please set a call: play now, a short hold, or a ruling. we won’t submit a bot game.
+
+Don’t send “we’re done / going to sleep” again. That’s the line that can cost you.
+
+
+i replied this - You gave the time window 4-5pm UTC assumming that coordinating everything takes about an hour..we were ready at 4pm UTC..I had already given the time also before that..
+
+
+
+Thought for 1 second
+
+The user already sent a message explaining they were ready at 4pm UTC and the 4-5 window was for coordinating. They want what to reply next or feedback on that reply? They said "i replied this" - prob...
+
+That reply is fine as why you started the clock at 4:00. It does not close the match. Your own post still said 4:00–5:00 PM UTC and they’re in that hour.
+
+Next (play if you can):
+
+we were on at 4:00 PM UTC. you’re here now — still inside 4:00–5:00 PM UTC.
+
+hosting. Skyship 11 · Equalize. code here. join.
+
+Next (squad actually gone — ping mod, don’t argue):
+
+@[MAQC Mod] night we were ready 4:00 PM UTC. they showed ~4:40 PM UTC. my team’s off.
+
+please rule. we won’t post a bot result.
+
+Pick one. Don’t stack more “you converted UTC wrong” in the same breath — mods already have the log.
+
+
+mod is offline rn btw and also 10 min rule
+
+
+
+Thought for 1 second
+
+Mod is offline. User wants to lean on 10 min rule. I need to be accurate:
+
+Mod being offline doesn’t pause the 10-min rule — and it also doesn’t auto-give you the W. The ping has to sit in #671 with a timestamp so they can rule when they’re back.
+
+Rule: wait 10 minutes after the agreed time, then ping MAQC-MOD in the battle post. Agreed start you posted = 4:00 PM UTC → 10 min ended 4:10 PM UTC. Them showing ~4:40 is after that. They can still argue you wrote 4:00–5:00 PM UTC as a window — that’s why you don’t type “auto-win.”
+
+Post this now (even if the mod’s grey):
+
+@[MAQC Mod] night @TOXIC&TASTY
+
+for the log: agreed start was 4:00 PM UTC. we were here. 10-min wait ended 4:10 PM UTC (Rulebook §4 — ping mod in the battle post if they don’t join).
+
+they said ready ~4:40 PM UTC. mod’s offline; leaving this here.
+
+we are not claiming the win ourselves and we won’t submit a bot lobby. please rule when you’re on.
+
+if they’re still on and my team can load, we’ll play immediately so this doesn’t die on a clock.
+
+If nobody on your side can load, send only that. Don’t add “going to sleep” / “not my problem.” That’s what mods ding.
+
+
+from mod - Hmm @ƬƠҲƖƇ&ƬƛƧƬƳ said 9-10 she would be ready to do the game. She said in 2 hrs as well. She also said 1pm eastern time which is also in about 6 mins @Akulmach74 chose 9 Both teams enter the game now and play. Whoever is available plays and you equalize teams
+
+
+
+Thought for 1 second
+
+The mod ruled: both teams enter now and play, whoever is available, equalize teams. User needs a reply and team ping. Clear, follow the mod - rulings are final.
+
+Mod’s call is final. Play now. Whoever’s on, Equalize. Don’t argue 10-min / UTC.
+
+#671
+
+copy that. hosting now.
+
+Skyship 11 · Equalize · Bo3. whoever’s available, we fill with bots.
+
+code here. join.
+
+@akulmach maqc team mod said play now. whoever can load, load. bots + Equalize for whoever’s missing. code in #671. don’t wait.
+
+
+Communit_Channel_2026-08-14_to_2026-08-30.html
+here is all the chats..tell a reply to have the same power as oppoenents
+
+
+
+Thought for 1 second
+
+The user wants me to read the HTML chat export and draft a reply that matches the opponent's "power" or tone/strength. Let me read the file.
+
+I’ll read the full battle-post export and draft a reply that matches their tone.
+
+
+Thought for 1 second
+
+The HTML might be a Discord export that's JS-rendered. Let me look at the raw structure.
+
+
+Thought for 1 second
+
+There's JSON with content. Extract messages.
+
+
+Thought for 1 second
+
+Messages are probably in a JS array. Search for const messages
+
+
+Thought for 1 second
+
+Extract const messages JSON
+
+
+Thought for 1 second
+
+Need the rest of the last message and more context around mod ruling. User wants a reply with the same power as opponent's long message.
+
+
+Thought for 1 second
+
+Get the bot play / results posting and night's ruling more fully so the reply is factual and matches power without being toxic (MAQC conduct). User asked for same power as opponent - firm, long, point...
+
+
+Thought for 1 second
+
+User wants a reply matching opponent's power - long, structured, for mods, not creepy RIP sky stuff.
+
+Don’t match the personal shots (Sky, “creepy,” names). Mods already have the log. Match length + UTC facts. Ping the mod, not her.
+
+<@934544234000830525> for the record. UTC only.
+
+What was locked in this post
+Saturday 4:00 PM UTC start. Window 4:00–5:00 PM UTC ||PDT: 9:00–10:00 AM|| ||EDT: 12:00–1:00 PM|| ||IST: 9:30–10:30 PM||. conversions were already in the message. “I don’t know UTC” doesn’t rewrite a posted UTC time.
+
+Rulebook §4
+agreed time → 10-min wait → ping mod in the battle post.
+4:00 PM UTC start → wait ended 4:10 PM UTC. we were on. they were not.
+
+Their own timestamps
+14:51 UTC — “No today” / “In two hours” (1 hour before the locked start). that is a new time, not the one we confirmed.
+15:01 UTC — still “ready in 2 hours.” 2 hours from that ping = 17:01 UTC, which is after 5:00 PM UTC.
+16:39 UTC — first “we’re ready” = 9:39 AM PDT. that’s 29 min after the 10-min wait, 39 min after 4:00 PM UTC.
+
+a 9–10 AM PDT window is not “show at 9:39 and the other team has to still be sitting.” we treated 4:00 PM UTC as the start, same as every other MAQC lock.
+
+After the 10 min
+we pinged you, waited, then posted what we had. we did not refuse a locked time — they weren’t in at the locked time.
+
+Your 16:54 UTC message
+“both enter now, whoever is available, Equalize.” by then two of ours were gone (work / sleep). I said that in this channel. I also said I’d take auto-loss for both if that’s the ruling. I’m not asking for a free W off a bot lobby.
+
+What I’m asking
+rule from the locked 4:00 PM UTC + 10-min wait, or double auto-loss like you said if times weren’t agreed. their bot lobby after we were already off is not a 5v5.
+
+no more back-and-forth. your call is final.
+
+Send that once. Don’t add RIP / “eyes everywhere” — that undercuts you.
+
+
+use formatting of discord like # for headings and bboldwwords etc.
+
+
+
+Thought for 1 second
+
+User wants the same reply with Discord markdown: # headings, bold, etc. Keep the content. Discord # needs to be at start of line. Don't use too many # as it can look shouty - they asked for it.
+
+text
+
+# Match #671 — log for mods
+<@934544234000830525>
+
+UTC only. I’m not arguing in circles.
+
+## What was locked in this post
+**Saturday 4:00 PM UTC** start.
+Window **4:00–5:00 PM UTC** ||PDT: 9:00–10:00 AM|| ||EDT: 12:00–1:00 PM|| ||IST: 9:30–10:30 PM||
+
+Conversions were **already in the message**. “I don’t know UTC” does not rewrite a posted **UTC** time.
+
+## Rulebook §4
+Agreed time → **10-min wait** → ping MAQC-MOD **in the battle post**.
+**4:00 PM UTC** start → wait ended **4:10 PM UTC**.
+**We were on. They were not.**
+
+## Their timestamps (this channel)
+- **14:51 UTC** — “No today” / “In two hours” (**1 hour before** the locked start). That’s a **new** time, not the one we confirmed.
+- **15:01 UTC** — still “ready in 2 hours.” Two hours from that ping = **17:01 UTC**, which is **after 5:00 PM UTC**.
+- **16:39 UTC** — first “we’re ready” = **9:39 AM PDT**. That’s **29 min after** the 10-min wait, **39 min after 4:00 PM UTC**.
+
+A **9:00–10:00 AM PDT** window is not “arrive at 9:39 and the other team has to still be sitting.” We treated **4:00 PM UTC** as the **start**, same as every other MAQC lock.
+
+## After the 10 min
+We pinged you, waited, then posted what we had.
+We did **not** refuse a locked time — they weren’t in at the locked time.
+
+## Your 16:54 UTC message
+“Both enter now, whoever is available, Equalize.”
+By then two of ours were gone (work / sleep). I said that **in this channel**. I also said I’d take **auto-loss for both** if that’s the ruling. I’m **not** asking for a free W off a bot lobby.
+
+## What I’m asking
+Rule from the **locked 4:00 PM UTC** + **10-min wait**,
+**or** **double auto-loss** like you already said if the times weren’t agreed.
+
+Their bot lobby after we were already off is **not** a 5v5.
+
+No more back-and-forth. **Your call is final.**
+
+also afteer this put focus on the time was 4:00pm not 4:00pm to 5:00pm..and it was a range nota or
+
+
+
+Thought for 1 second
+
+User wants the draft updated to emphasize:
+
+text
+
+# Match #671 — log for mods
+<@934544234000830525>
+
+UTC only. I’m not arguing in circles.
+
+## What was locked
+**Saturday 4:00 PM UTC.**
+That is a **start time**. Not **4:00 PM to 5:00 PM**. Not “show up whenever inside the hour.”
+
+**4:00 PM UTC** ||PDT: 9:00 AM|| ||EDT: 12:00 PM|| ||IST: 9:30 PM||
+
+Conversions were **already in the post**. “I don’t know UTC” does not rewrite a posted **UTC** start.
+
+## Range vs “or”
+They wrote **9:00–10:00 AM PDT**. That’s a **range** (**9 to 10**), **not** **9 or 10**.
+Nobody “chose 9” as a multiple-choice. We confirmed the **start: 4:00 PM UTC** = **9:00 AM PDT**.
+The hour after that is **not** extra time to arrive. That’s lobby / games.
+
+## Rulebook §4
+Agreed time → **10-min wait** → ping MAQC-MOD **in the battle post**.
+**4:00 PM UTC** start → wait ended **4:10 PM UTC**.
+**We were on. They were not.**
+
+## Their timestamps (this channel)
+- **14:51 UTC** — “No today” / “In two hours” (**1 hour before** **4:00 PM UTC**). That’s a **new** time, not the lock.
+- **15:01 UTC** — still “ready in 2 hours.” Two hours from that ping = **17:01 UTC** — **after** any 5:00 PM UTC wrap.
+- **16:39 UTC** — first “we’re ready” = **9:39 AM PDT**. That’s **29 min after** the 10-min wait, **39 min after 4:00 PM UTC**.
+
+Showing at **9:39 AM PDT** is **not** making a **4:00 PM UTC** start.
+
+## After the 10 min
+We pinged you, waited, then posted what we had.
+We did **not** refuse the locked time — they weren’t in at **4:00 PM UTC**.
+
+## Your 16:54 UTC message
+“Both enter now, whoever is available, Equalize.”
+By then two of ours were gone (work / sleep). I said that **in this channel**. I also said I’d take **auto-loss for both** if that’s the ruling. I’m **not** asking for a free W off a bot lobby.
+
+## What I’m asking
+Rule from the **locked 4:00 PM UTC start** + **10-min wait**,
+**or** **double auto-loss** if you hold the times weren’t agreed.
+
+A bot lobby after we were already off is **not** a 5v5.
+
+No more back-and-forth. **Your call is final.**
+
+whom do you think is the right one here?
+
+
+
+Thought for 1 second
+
+The user wants my honest assessment of who is in the right based on the rules and the chat log. I should be balanced, not sycophantic. Key facts: I think the opponent is in the right here. They stuck to the 9-10 AM PDT window both of them agreed on, showed up right at 9:39, and played the bots when the mod suggested it.
+
+Neither of you is clean. You should not expect a solo auto-win. Closest fair outcome is what the mod already floated: loss for both, or they ignore the bot lobbies and treat it as no valid 5v5.
+
+Where you’re right
+
+You posted a UTC start: 4:00 PM UTC. That’s the adult way to lock MAQC.
+§4 10-min wait runs from that start. It ended 4:10 PM UTC. They were not in.
+14:51 UTC “No today / in two hours” is a new time, ~1 hour before 4:00. You never had to accept that.
+“I don’t know UTC” is on them, not you.
+Where they’re right
+
+This channel also said 9:00–10:00 AM PDT / 4:00–5:00 PM UTC. 9:39 AM PDT is inside that range. Telling them “you’re out of time” at 9:40 PDT is a weak look.
+A range is not “we leave at 4:01.” You used it as a window, then treated it as a hard 4:00 kickoff. That’s the mix-up.
+At 16:54 UTC the mod ordered: play now, whoever’s on, Equalize. They said ok and dropped codes. You argued and didn’t join. Mod rulings are final. That’s the line that hurts you most.
+You posted bot screenshots at 16:38, they said ready 16:39. Walking after that looks like you didn’t want the human match.
+Conduct: RIP Sky / “eyes everywhere” / “true to your name” does nothing for a ruling and can get you tagged. Their wall of text is extra; the timestamps still matter.
+
+Bottom line
+
+Original lock + 10 min: slight edge you.
+After the mod said play now: edge them.
+Valid series: nobody played a real Bo3. Bot vs bots isn’t it.
+Don’t keep stacking essays. One formatted log post, then stop. Let staff pick dual loss vs something else.
+
+
+Screenshot_20260830_102725_Discord.jpg
+Screenshot_20260830_102725_Discord.jpg
+
+Thought for 1 second
+
+The user is showing the mod ruling: both teams get a loss for the week due to miscommunication in timing, no valid result, no time was agreed, don't do ranges, need yes from both sides. Channel is loc...
+
+Ruling’s in. Logging it and giving you a short team line — don’t fight it in a locked post.
+
+
+Thought for 1 second
+
+Give clear summary for user.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+AI_Session_Handoff.md
+MD
+Done. Double auto-loss. Don’t fight it.
+
+Mod: no agreed time, no valid result, both lose Week 2. You posted a range, they used part of it, nobody both said yes to one clock. Channel is locked — only staff can talk. Rulings are final. Don’t ping Sticky in there; other leaders aren’t allowed in the battle post.
+
+Week 2 record: 0–1 (this is an L, not a win, not “they stole it”).
+
+@akulmach maqc team Week 2 is an L. mods gave both teams the loss — times weren’t locked clean, no real 5v5 posted. that’s on the clock, not on your hangars. Week 3: one UTC time, they reply yes, we reply yes. no ranges.
+
+Next lock = exactly Saturday 4:00 PM UTC + they type yes. Nothing else.
+
+
+image-1.png
+image-1.png
+MAQC Season 7 - Week 3 Matchmaking.pdf
+@everyone
+
+🎙️ MAQC SEASON 7 - WEEK 3 BEGINS NOW! ✨🔥
+Players, with a staggering 1,327 teams locked in for a shot at the 5 Million A-Coins prize pool, the brackets are getting ruthless.
+
+Week 3 runs from NOW until <t:1788674400:F>.
+
+🗺️ WEEK 3 MAP - Paradise Plaza
+All Week 3 Best-of-3 (Bo3) matches must be played on Paradise Plaza. If any match in your series is played on a different map, either team may raise a dispute, and the match may be invalidated. Double-check your lobby settings before dropping in.
+
+⚠️ Updated code of conduct for scheduling matches (apparently cuz y'all need to be spoonfed this as well)
+To cut down on scheduling chaos and last-minute weekend disputes, the following rules are now strictly enforced:
+
+Mutual Agreement: Both team leaders must explicitly agree on one specific battle time in their assigned forum post.
+
+Rescheduling Notice: If a leader needs to change the agreed-upon time, they must notify their opponent at least 6 hours prior to the original battle time.
+
+Unavailable Opponents: Team leaders must notify moderators via ticket about an unresponsive or unavailable opponent before <t:1788501600:F>.
+
+Scheduling Conflicts: If both leaders are actively communicating but simply cannot agree on a set time, you must notify the moderators, by opening a ticket via <#1533319063185522800> before <t:1788501600:F>.
+
+Note: Moderator intervention for scheduling conflicts or inactive opponents will strictly only be considered before this <t:1788501600:F> deadline. If you wait until Saturday to tell us your opponent is ghosting you, it is too late, and both teams will be getting a loss.
+
+✅ YOUR WEEK 3 INSTRUCTIONS
+Team Leaders, head to the matchmaking channels to start your campaign:
+
+Find your assigned opponent in <#1543728915950997565> (or via the Matchmaking sheet posted in <#1532790795541811375> or the MAQC Website)
+
+Ping them in your designated forum post to schedule your match.
+
+Lock in your time, fight your Bo3 series, and submit your unedited screenshots in your respective forum post before <t:1788674400:F>.
+
+> All communication about your match must happen in <#1543728915950997565>⁠. Conversations held elsewhere (DMs, external servers) will not be accepted as evidence in a dispute.
+
+Good luck, Players. We will see you in Paradise Plaza*!*<@958600143605760040> <@954721671326093383> ignore gunnshot he's just sharing random battle from apx clan (aka very good clan) take in thee remarks of sticky (hes the clan leader of BULBA gving advice..write a response first to ping the oppoenent and suggest time windows, ten next gimme the player ids i'll anlyzze the map and pplayers and think over the strat..and a preapre a bbrief to my team and also replying to sticky i want all these seprate..ive info dumped on u maintain and ortangsise everything bet?
+
+
+
+Thought for 1 second
+
+The user wants me to:
+
+Decode Discord timestamps
+I’ll pull Week 3 matchmaking and those Discord timestamps, then split the drafts: opponent ping, IDs, team brief, Sticky reply.
+
+
+Thought for 1 second
+
+Extract match around akul position
+
+
+Thought for 1 second
+
+Week 3 Match #668 vs @mrjama0586 SP 22,364 IDs: 80180944, 84061161, 14149516, 36852950, 11632048 Hey team, here's everything you asked for, organized and ready to copy-paste:
+
+1.
+
+Write
+MAQC/AI_Session_Handoff.md
+56 lines
+open
+MAQC Season 7 — AI Session Handoff
+MD
+MAQC Season 7 — AI Session Handoff
+Updated: Monday 31 Aug 2026 ~18:30 IST
+User: Captain akulmach74. Discord from captain. Casual. UTC first. Spoilers ||IST|| ||EDT|| ||PDT||. Rules only from knowledge base. Never invent.
+
+Roster
+Role	Name	Discord	Player ID	Max SP	TZ
+Captain	Akulmach74	akulmach74	64516590	18000	IST
+P2	Destroyer	DΣ2TRØYΣR	67665771	15825	IST
+P3	Bowolf	BoWolf	77849365	19181	EDT
+P4	Gunshot	gunshot9099 / Ironside	56671448	21597	IST
+P5	Baby Bird	slimpickles.	26410318	22550	EDT
+Role ping: akulmach maqc team
+India cutoff ~11:30 PM IST (18:00 UTC)
+Registered SP: 23,000
+Clan: BULBA. Clan leader Sticky (st¢ky¢kyBULBA) — advice: ping mods in the battle post early if opp is rigid; you did what you could Week 2.
+Gunshot 31 Aug APX pub screenshot: ignore (random, not MAQC).
+Week 1 — #640 Bracket 8
+vs @ita_lev06 · Biogear Lab · L 1–2 (4v5, late join)
+
+Week 2 — #671 Bracket 8 · DOUBLE AUTO-LOSS
+vs @shegotyou88 / @TOXIC&TASTY · Skyship 11
+Mod night: no agreed time, range vs lower end, no valid result. Channel locked. Rulings final.
+Lesson: one UTC clock, both type yes. No ranges.
+
+Week 3 — LIVE
+Match #668 Bracket 8
+Us: @akulmach74 · 23,000
+Opp: @mrjama0586 · 22,364
+IDs: 80180944, 84061161, 14149516, 36852950, 11632048
+Map: Paradise Plaza · CPC · Bo3 · Equalize
+Posts: #s07-battle-posts-week-03 (channel id 1543728915950997565)
+MM: #s07-mm-list
+Week: now → Sun 6 Sep 2026, 6:00 AM UTC
+Ticket / unresponsive / can’t-agree: before Fri 4 Sep 2026, 6:00 AM UTC. After that = too late, both loss if you wait until Saturday.
+Field: 1,327 teams
+New scheduling (Week 3):
+Both leaders explicitly agree one specific time in the forum post
+Reschedule: notify ≥6 hours before original time
+Ghost / can’t agree → ticket in #maqc-support-leaders before Fri 6:00 AM UTC
+No ranges. Don’t pick one end of a window without a yes.
+Practice
+Daily ~1h. Prefer 15:00 or 16:00 UTC (single times). Gunshot 18:00 UTC = IST cutoff.
+
+Channels
+Week 3 posts: https://discord.com/channels/542314937624690688/1543728915950997565
+Tickets: https://discord.com/channels/542314937624690688/1533319063185522800
+Site: https://maqc.mecharenadev.com/
+Open
+
+Thought for 1 second
+
+Add week 3 scheduling rules to KB quickly
+
+
+Thought for 1 second
+
+Give four separate drafts clearly labeled. Opponent: discrete times, ask them to reply YES to one. Today is Monday Aug 31.
+
+
+Edit
+MAQC/MAQC_Knowledge_Base.md
+×2
+MAQC_Knowledge_Base.md
+MD
+Logged Week 3. Gunshot’s APX pic ignored. Sticky’s note kept.
+
+#668 vs @mrjama0586 · 22,364 SP · Paradise Plaza
+Week ends Sun 6 Sep 6:00 AM UTC. Tickets before Fri 4 Sep 6:00 AM UTC or both can eat a loss. No ranges. One clock. Both type yes.
+
+1 — Opponent (#668 battle post)
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3 Equalize
+
+need one time, both type yes (no windows).
+
+can you do one of these:
+
+Wed 2 Sep 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM||
+Thu 3 Sep 4:00 PM UTC ||IST: 9:30 PM|| ||EDT: 12:00 PM||
+
+reply yes Wed or yes Thu. if neither works, drop one UTC clock and I’ll yes/no it.
+
+gotta lock before Fri 4 Sep 6:00 AM UTC.
+
+2 — Their IDs (hangar check)
+
+80180944
+84061161
+14149516
+36852950
+11632048
+
+3 — Team brief
+
+@akulmach maqc team Week 3
+
+#668 vs @mrjama0586 · 22k · Paradise Plaza Bo3
+ignore that APX screenshot — not our match.
+
+Week 2 was a double L on the clock. new rules: one UTC time, both say yes, no ranges. if they ghost or we can’t agree, we ticket before Friday 6:00 AM UTC — Saturday is too late.
+
+I’ll ping them with Wed or Thu 4:00 PM UTC ||IST: 9:30 PM||. hangar IDs incoming, strat after that.
+
+be online for the lock. 10-min wait from the yes time.
+
+4 — Sticky
+
+@st¢ky¢kyBULBA yeah that’s fair. Week 2 we got stuck on a range and both took the L.
+
+Week 3 I’ll lock one UTC time in the post and if they start playing games I’ll ping a mod / ticket before Friday, not wait till weekend. appreciate it.
+
+
+why do you say wed or thu for scheduling time?
+
+
+
+Thought for 1 second
+
+The user is asking why I suggested Wednesday or Thursday specifically for the match time. I should explain the reasoning clearly - it wasn't a rule, it was my inference.
+
+That’s not a MAQC rule. I picked them. You can change it.
+
+Why Wed / Thu 4:00 PM UTC
+
+Today is Monday. Tuesday is same-day-ish for them if they’re not on Discord yet.
+4:00 PM UTC = 9:30 PM IST — your usual India slot, still before ~11:30 PM IST.
+Lock has to exist before Fri 4 Sep 6:00 AM UTC. If you only try to agree Friday night / Saturday, you cannot ticket a ghost. That’s how Week 2 died.
+Playing Saturday is still fine if both already typed yes before that Friday cutoff.
+What I skipped on purpose
+
+Fri evening — after the ticket deadline.
+Sat/Sun as the only offer — last week’s mess. You can offer Saturday, just get the yes in the post this week, not Saturday morning.
+Better if you want more options (still one yes, not a range):
+
+Tue 1 Sep 4:00 PM UTC ||IST: 9:30 PM||
+Wed 2 Sep 4:00 PM UTC
+Thu 3 Sep 4:00 PM UTC
+Sat 5 Sep 4:00 PM UTC — only if they yes it before Friday 6:00 AM UTC
+
+Want the opponent ping rewritten with those four, still “reply yes to one”?
+
+
+cant u use times like this? "<t:1788674400:F>." like this format uhm yes yr makes sense
+
+
+
+Thought for 1 second
+
+The user wants Discord timestamp format <t:UNIX:F> in the opponent message. They said my Wed/Thu logic makes sense.
+
+
+Thought for 1 second
+
+Give opponent ping with Discord timestamps. Keep Wed/Thu as primary since they said that makes sense. Can add Sat with note lock before Friday deadline.
+
+Discord <t:unix:F> shows each person’s local clock. Use that as the lock.
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3 Equalize
+
+need one time. both type yes (no windows).
+
+Wed <t:1788364800:F>
+Thu <t:1788451200:F>
+
+reply yes Wed or yes Thu. if neither works, send one <t:…:F> and I’ll yes/no it.
+
+gotta lock before <t:1788501600:F>. after that mods won’t take scheduling.
+
+Copy-paste stamps
+
+What	Stamp
+Wed 2 Sep 4:00 PM UTC	<t:1788364800:F>
+Thu 3 Sep 4:00 PM UTC	<t:1788451200:F>
+Sat 5 Sep 4:00 PM UTC (only if they yes before Friday)	<t:1788624000:F>
+Ticket deadline	<t:1788501600:F>
+Week 3 end	<t:1788674400:F>
+:F = full date+time in their timezone. :R = “in 2 days” if you want that too: <t:1788364800:R>
+
+
+whya bot..need human reply and dont askk them to send like that
+
+
+
+Thought for 1 second
+
+The user doesn't want:
+
+Asking opponent to send Discord timestamp format
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we gotta lock one time (mods are strict on that this week).
+
+does <t:1788364800:F> work?
+if not, <t:1788451200:F>
+
+if both are bad just tell me a time that works for you and we’ll make it happen. need it locked before <t:1788501600:F>
+
+
+rewrite this so makes more sense -
+
+we gotta lock one time not windows as it creates confusion || (mods are strict on that this week).||
+
+
+
+Thought for 1 second
+
+User wants that sentence rewritten to make more sense, incorporating the spoiler about mods. Human, clear.
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+
+ok add this to tthe message like yr out opponents,, this is our available times dont send windows SNED TIMES ok? then say we can adjust we need it to be fixed before this time.. and also this line u just rrewrote and also I'll need a similar message sending to my team
+
+
+
+Thought for 1 second
+
+Combine into opponent message and a similar team message. Human, not bot. Don't ask them to send <t: format. Say send times not windows. Discord timestamps for our slots and Friday deadline. The rewri...
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+our times:
+
+<t:1788364800:F>
+<t:1788451200:F>
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1788501600:F>
+
+Team
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+i’m sending them:
+
+<t:1788364800:F>
+<t:1788451200:F>
+
+if neither works they throw us a time, not a range. we can adjust, it just has to be fixed before <t:1788501600:F> or we ticket — Saturday is too late.
+
+once they yes it I’ll ping you. 10-min wait from that time. don’t be late.
+
+
+dont say the daays we prefer weekends (add that into databse) but any day can work
+
+
+
+Thought for 1 second
+
+User wants:
+
+Don't name days (Wed/Thu)
+
+Thought for 1 second
+
+Give the two messages. Prefer weekend = Saturday 4pm UTC as the time we offer, any day works they send a time.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+AI_Session_Handoff.md
+MD
+Logged: prefer weekends, any day can work. Still one clock, lock before Friday.
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+we prefer weekend but any day works. one time that works for us:
+
+<t:1788624000:F>
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1788501600:F>
+
+Team
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+i’m offering them weekend: <t:1788624000:F>
+any day’s fine if they throw a time, not a range.
+
+has to be fixed before <t:1788501600:F> or we ticket — Saturday pinging mods is too late.
+
+once they yes it I’ll ping you. 10-min wait from that time. don’t be late.
+
+
+in the times dont attach days if thats possible, and also probide 8:30pm, and 10:30pm but best time is preffered put a arrow pointing towards it
+
+
+
+Thought for 1 second
+
+User wants times without days attached. Discord <t:unix:F> ALWAYS includes the day/date because :F is full datetime. To show time without days:
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+we prefer weekend but any day works. times that work for us:
+
+3:00 PM UTC ||IST: 8:30 PM||
+→ 4:00 PM UTC ||IST: 9:30 PM|| ← best
+5:00 PM UTC ||IST: 10:30 PM||
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1788501600:F>
+
+Team
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+i’m sending them (prefer weekend, any day is fine):
+
+3:00 PM UTC ||IST: 8:30 PM||
+→ 4:00 PM UTC ||IST: 9:30 PM|| ← best
+5:00 PM UTC ||IST: 10:30 PM||
+
+they throw a time, not a range. has to be fixed before <t:1788501600:F> or we ticket.
+
+once they yes it I’ll ping you. 10-min wait from that time. don’t be late.
+
+
+actually u caan attach dates no problem..add staurday
+
+
+
+Thought for 1 second
+
+Add Saturday with Discord timestamps including dates. Times 8:30, 9:30 (best with arrow), 10:30 PM IST on Saturday.
+
+
+Thought for 1 second
+
+Give opponent and team with Saturday dates via Discord F timestamps. Prefer weekend, any day works, send a time not window, lock before Friday. Arrow on 4pm UTC / 9:30 IST.
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+we prefer weekend but any day works. Saturday options:
+
+<t:1788620400:F> ||IST: 8:30 PM||
+→ <t:1788624000:F> ||IST: 9:30 PM|| ← best
+<t:1788627600:F> ||IST: 10:30 PM||
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1788501600:F>
+
+Team
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+i’m offering Saturday (prefer weekend, any day is fine):
+
+<t:1788620400:F> ||IST: 8:30 PM||
+→ <t:1788624000:F> ||IST: 9:30 PM|| ← best
+<t:1788627600:F> ||IST: 10:30 PM||
+
+they throw a time, not a range. has to be fixed before <t:1788501600:F> or we ticket.
+
+once they yes it I’ll ping you. 10-min wait from that time. don’t be late.
+
+
+now in ||add utc instead of ist
+
+
+
+Thought for 1 second
+
+User wants the spoiler tags to show UTC instead of IST. The Discord :F timestamps already show local time for each user. Spoilers should be UTC.
+
+Opponent
+
+hey @mrjama0586 Week 3 #668 — Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+we prefer weekend but any day works. Saturday options:
+
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM|| ← best
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1788501600:F>
+
+Team
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that this week||
+
+i’m offering Saturday (prefer weekend, any day is fine):
+
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM|| ← best
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+they throw a time, not a range. has to be fixed before <t:1788501600:F> or we ticket.
+
+once they yes it I’ll ping you. 10-min wait from that time. don’t be late.
+
+
+IVE SENT THIS - just remeber this we'll come back and send a message in all together with attached hangar images and the times i've sent
+
+
+
+Thought for 1 second
+
+User wants me to remember they sent the opponent message, they'll come back later with hangar images and we'll send a combined team message with hangars + the times they sent.
+
+
+Thought for 1 second
+
+Short confirm.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+AI_Session_Handoff.md
+MD
+Got it. Won’t re-draft that ping.
+
+When you’re back: hangar pics + one team message with those Saturday times (3:00 / → 4:00 best / 5:00 PM UTC) and the read. Opponent stays as-is until they reply.
+
+
+can I have ids for hangar?
+
+
+
+Thought for 1 second
+
+User wants the opponent player IDs again for hangar check. Already extracted.
+
+@mrjama0586 — Week 3 #668
+
+80180944
+84061161
+14149516
+36852950
+11632048
+
+
+Ok i analysed the hangar for now review is that..the matchmaking is pretty balanced..the strat im still thinking will talk with gunshot and conduct some practice matches then gonna confirm I've attached the times sent to the opponent (u add that) and also I've attached hanagsr screenshots..
+
+
+
+Thought for 1 second
+
+The user wants me to review hangar screenshots they attached, add the times they sent to opponent, and they'll confirm strat later after talking to Gunshot and practice.
+
+I’ll pull the hangar shots and the times you sent, then fold that into the record.
+
+
+Thought for 1 second
+
+The hangar screenshots don't appear in uploads - maybe they were mentioned but not saved, or in a trailing arena message that wasn't in this message. The user said they attached hangar screenshots and...
+
+
+Thought for 1 second
+
+Short confirm. Hangars missing. Times remembered. Combined message later.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+AI_Session_Handoff.md
+MD
+Logged.
+
+Times you already sent (won’t rewrite unless you want): Saturday 3:00 / → 4:00 best / 5:00 PM UTC, one exact time not a window, lock before <t:1788501600:F>.
+
+Hangars: your read is in — balanced MM, strat after Gunshot + practice. The actual screenshots didn’t hit this chat. Drop them again when you want mech-by-mech notes.
+
+When you’re ready: one team message = those times + hangars + the strat. Opponent stays quiet until they reply.
+
+
+Yes
+
+
+
+Thought for 1 second
+
+The user said "Yes" - likely agreeing to re-drop hangars, OR agreeing to wait for combined message. Given last message I asked them to drop hangars again. "Yes" might mean they think they attached the...
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+already pinged them. we need one exact time, not a window.
+
+Saturday (prefer weekend, any day is fine):
+
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM|| ← best
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+has to be fixed before <t:1788501600:F> or we ticket.
+
+hangars look even. no locked strat yet — talking with Gunshot, we’ll run practice then I’ll drop the plan. 10-min wait from whatever time they yes.
+
+
+Ok i dont need to share you the hangar or should I? Can you fetch the maps and anaylse top clans rn like apx fury floo on those maps and prepare a strat or u leave it to me?
+
+
+
+Thought for 1 second
+
+The user is asking two things:
+
+
+Thought for 1 second
+
+Be honest. Don't pretend I can fetch APX/Fury/Floo current Plaza vods. Hangars: useful for counters, not required for a generic Plaza reminder.
+
+Hangars: only if you want counters (who to focus, what not to peek). For a generic Plaza plan you don’t need to send them. Your “balanced MM” note is enough until strat’s locked.
+
+Clans on Plaza: I can’t pull live APX / Fury / Floo vods or their current drop. Anything I’d write as “what Floo runs mid” would be made up. Leave the real strat to you + Gunshot + customs. That’s the right call.
+
+What I can do
+
+Turn your callouts into a Discord brief
+Keep times / IDs / deadlines
+Generic Plaza reminders only (open mid, don’t stand in lanes, nades/artillery have space, Equalize, 10-min from the yes time)
+When you’ve practiced, dump the roles like Week 2 (Nomad mid, etc.) and I’ll format it. Don’t wait on me for the meta.
+
+
+Ok and I want to ask my team for review on my leadership..if I have been maintsing the expectations and this time around im maintaining all records and evrything and not like past maqcs, almost all here except baby bird knows how hectic it used to be..had been bowolf has been my partner from when I've started he knows what im taking about lol I'll send a separate msg after the team brief..i wont sent hangar images to u but add that to the msg im sending here and the hangars attached: like this
+
+
+
+Thought for 1 second
+
+The user wants:
+
+A team brief (probably the Week 3 times/match brief)
+1 — Team brief
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza Bo3
+
+already pinged them. one exact time, not a window.
+
+Saturday (prefer weekend, any day is fine):
+
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM|| ← best
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+lock before <t:1788501600:F> or we ticket.
+
+hangars attached. MM looks even. no locked strat yet — talking with Gunshot, we’ll practice then I’ll drop the plan.
+
+10-min wait from whatever they yes. don’t be late.
+
+2 — Leadership check (send after)
+
+@akulmach maqc team real quick, not match stuff
+
+wanna know if I’m actually holding the captain side. this season I’m keeping the records / times / posts tight — not like old MAQCs.
+
+almost everyone here except Baby Bird knows how hectic that used to be. @BoWolf you’ve been here since I started so you know what I mean lol
+
+honest take. too much ping, too little, clock stuff, whatever. say it. I can take it.
+
+
+Ok remember the poll we did for practice? Im tagging that message we'll be running practice matches at that time around an hour..at this time btw :<t:1788624000:F> exclude the date i copied from the original msg lol yeah lil notice like this: <@&1533818347068850248> short notice ..practice today ~1 hour
+
+9:00 PM IST ||UTC: 3:30 PM|| ||EST: 10:30 AM||
+
+Skyship 11. I’ll drop the code here. jump in if you can. This is from week 2 just fill in ok?
+
+
+
+Thought for 1 second
+
+User wants a short notice practice message similar to Week 2 but:Hey, here's a quick notice you can copy-paste:
+
+<@&1533818347068850248> short notice ..practice today ~1 hour
+
+9:30 PM IST ||UTC: 4:00 PM|| ||EST: 10:30 AM||
+
+Paradise Plaza.
+
+<@&1533818347068850248> short notice — practice today ~1 hour (same slot as the poll)
+
+<t:1788624000:t> ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+
+Paradise Plaza. I’ll drop the code here. jump in if you can.
+
+
+Nah short practice on ist 9:30pm use the spoiler utc tho and use the time format and say given notice like how much hours are there rn...check tome then draft use ~ not 44 hours and 40 minute like dat ok?
+
+
+Stopped
+Nah short practice on ist 9:30pm use the spoiler utc tho and use the time format and say given notice like how much hours are there rn...check tome then draft use ~ not 44 hours and 40 minute like dat ok? On Wednesday btw not on Saturday lol it would be crwazy
+
+
+
+Thought for 1 second
+
+The user wants a practice notice for Wednesday at 9:30 PM IST, with UTC in spoiler, Discord timestamp format, and approximate hours of notice (~X hours not exact minutes). Let me check current time an...
+
+
+Thought for 1 second
+
+~50 hours notice. Wednesday 9:30 PM IST. Discord timestamp 1788364800. Use :F or :t - they wanted time format. :F includes date which is good for Wednesday. They said use time format like <t:...>
+
+<@&1533818347068850248> practice Wednesday ~1 hour — ~50 hours notice
+
+<t:1788364800:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+
+Paradise Plaza. I’ll drop the code here. jump in if you can.
+
+
+They are asking if I speak Spanish, convert this message to Spanish- hey <@954721671326093383> Week 3 #668 -- Paradise Plaza Bo3
+
+we need to lock one exact time, not a window; windows just confuse both sides ||mods are being strict about that this week||
+
+we prefer weekend but any day works. time options (also take into mind that conducting matches takes ~1 hour) :
+
+<t:1788620400:F> ||(UTC: 3:00 PM) ||
+
+→ <t:1788624000:F> ||(UTC: 4:00 PM)|| ← best
+
+<t:1788627600:F> ||(UTC: 5:00 PM)||
+
+don’t send a window ... send a time. we can adjust, we just need it fixed before <t:1788501600:F>...keep in mind today's time and who is Spanish speaking opponent..also when I say I need response for opponent if u could do anything so I can read in english but copying makes it in Spanish?
+
+
+
+Thought for 1 second
+
+The user wants:
+
+Spanish translation of their scheduling message for opponent who asked if they speak Spanish
+Discord can’t make copy = Spanish and screen = English. I’ll always do SEND (copy this) then YOU READ under it.
+
+SEND
+
+hey <@954721671326093383> Semana 3 #668 — Paradise Plaza Bo3
+
+sí, podemos coordinar en español.
+
+hay que fijar una hora exacta, no un rango; los rangos solo confunden ||los mods están estrictos con eso esta semana||
+
+preferimos fin de semana pero cualquier día sirve. opciones (la serie dura ~1 hora):
+
+<t:1788620400:F> ||(UTC: 3:00 PM)||
+→ <t:1788624000:F> ||(UTC: 4:00 PM)|| ← mejor
+<t:1788627600:F> ||(UTC: 5:00 PM)||
+
+no mandes un rango… manda una hora. podemos ajustar, solo tiene que quedar fijo antes de <t:1788501600:F>
+
+YOU READ
+hey, Week 3 #668 Paradise Plaza Bo3. yes we can schedule in Spanish. lock one exact time not a window (mods strict). we prefer weekend, any day works. options (~1 hour series): Sat 3 / → 4 best / 5 PM UTC. don’t send a window, send a time. we can adjust, must be fixed before Fri 4 Sep 6:00 AM UTC.
+
+
+oppoennt - Hola, buenos días. Podemos jugar el sábado a las 10 pm. Hora Colombia? and this - @everyone
+
+<:help:934920732704665600> MAQC SEASON 7 - WEEK 3 SCHEDULING DEADLINE
+Pilots, the matchmaking lists have been live for over 72 hours. If your opponent has gone silent, the window to do something about it is closing.
+
+UNRESPONSIVE OPPONENTS
+If you reached out to your opponent as soon as the lists went up and have received no response in over 72 hours, open a ticket in <#1533319063185522800> and let our moderators know. Bring the details - when you pinged them and how many attempts you've made.
+
+Final deadline: <t:1788501600:F> (<t:1788501600:R>).
+
+SCHEDULING CONFLICTS
+If both leaders are talking but simply can't agree on a time, you have less than 24 hours left to open a ticket in <#1533319063185522800> under Scheduling Issue and report it.
+
+Final deadline: <t:1788501600:F> (<t:1788501600:R>). After that, our moderators will no longer assign battle times for teams. If you wait until the weekend to tell us your opponent is ghosting you, it's too late - from that point on, either both teams sort it out between themselves, or both teams take the loss.
+
+MATCH DEADLINE
+All matches must be played and results posted in your battle post by <t:1788674400:F> (<t:1788674400:R>). No results in the post means a loss for both teams - no exceptions, no late submissions.
+
+<:hellhole_yes:1391448604283113483> UPDATE - RESULT SUBMISSIONS
+When you finish your matches and post your results, add the Pending Verification tag to your battle post. It lets us process results faster and more accurately when updating the website. Thanks for helping us out with this.
+
+The clock is the only opponent that never negotiates. Get your tickets in.
+
+
+oppoennt - Hola, buenos días. Podemos jugar el sábado a las 10 pm. Hora Colombia? and this - @everyone
+
+&lt;:help:934920732704665600&gt; MAQC SEASON 7 - WEEK 3 SCHEDULING DEADLINE
+Pilots, the matchmaking lists have been live for over 72 hours. If your opponent has gone silent, the window to do something about it is closing.
+
+UNRESPONSIVE OPPONENTS
+If you reached out to your opponent as soon as the lists went up and have received no response in over 72 hours, open a ticket in &lt;#1533319063185522800&gt; and let our moderators know. Bring the details - when you pinged them and how many attempts you've made.
+
+Final deadline: &lt;t:1788501600:F&gt; (&lt;t:1788501600:R&gt;).
+
+SCHEDULING CONFLICTS
+If both leaders are talking but simply can't agree on a time, you have less than 24 hours left to open a ticket in &lt;#1533319063185522800&gt; under Scheduling Issue and report it.
+
+Final deadline: &lt;t:1788501600:F&gt; (&lt;t:1788501600:R&gt;). After that, our moderators will no longer assign battle times for teams. If you wait until the weekend to tell us your opponent is ghosting you, it's too late - from that point on, either both teams sort it out between themselves, or both teams take the loss.
+
+MATCH DEADLINE
+All matches must be played and results posted in your battle post by &lt;t:1788674400:F&gt; (&lt;t:1788674400:R&gt;). No results in the post means a loss for both teams - no exceptions, no late submissions.
+
+&lt;:hellhole_yes:1391448604283113483&gt; UPDATE - RESULT SUBMISSIONS
+When you finish your matches and post your results, add the Pending Verification tag to your battle post. It lets us process results faster and more accurately when updating the website. Thanks for helping us out with this.
+
+The clock is the only opponent that never negotiates. Get your tickets in.
+
+
+
+Thought for 2 seconds
+
+The opponent wants Saturday 10 PM Colombia time. I need to convert that. Yes, you're right on the conversion—Saturday 10 PM Colombia is indeed 3 AM UTC Sunday. That puts the match right at the edge of the Sunday 6 AM UTC deadline, so it's tight but doable if both sides lock it in before the Friday scheduling cutoff.
+
+The India angle is the bigger issue though— 8:30 AM IST is early morning for them, and with their typical cutoff around 11:30 PM IST, it might be pushing it. If they're open to it, great, but otherwise the captain's preferred 3-5 PM UTC (10 AM–12 PM Colombia) would be much smoother.
+
+
+Thought for 1 second
+
+Today is Thursday Sep 3 2026 ~15:00 UTC. Scheduling deadline in ~15 hours (Fri 6 AM UTC). Need to lock NOW.
+
+Check first: Saturday 10:00 PM Colombia = <t:1788663600:F> ||UTC: 3:00 AM Sunday|| ||IST: 8:30 AM Sunday||
+Match ~1 hour → submit by <t:1788674400:F>. Tight, and that’s morning IST, not your 9:30 PM slot.
+
+Your 4:00 PM UTC = 11:00 AM Colombia. Clock to lock: ~15 hours (Fri <t:1788501600:F>).
+
+SEND
+
+hola, buenos días
+
+sábado 10:00 PM Colombia = <t:1788663600:F> ||UTC: 3:00 AM||
+
+eso es 8:30 AM para nosotros en India y queda muy justo con el corte. no nos sirve.
+
+lo que sí podemos:
+
+→ <t:1788624000:F> ||UTC: 4:00 PM|| = 11:00 AM Colombia ← esta
+o <t:1788620400:F> ||UTC: 3:00 PM|| = 10:00 AM Colombia
+o <t:1788627600:F> ||UTC: 5:00 PM|| = 12:00 PM Colombia
+
+una sola hora. responde sí a una y queda fijo. hay que cerrarlo antes de <t:1788501600:F>
+
+YOU READ
+hi — their 10pm Colombia is Sunday 3:00 AM UTC / 8:30 AM IST, too late/tight for you. counter 11am Colombia (your 4pm UTC, best) or 10am / 12pm Colombia. they type sí on one. lock before Friday 6:00 AM UTC (~15h).
+
+
+so what we a suggesting them in ist and est?
+
+
+so what we a suggesting them in ist and est?
+
+
+Stopped
+so what we a suggesting them in ist and est?
+
+
+
+Thought for 1 second
+
+Simple conversion of the three Saturday times we suggested to IST and EST/EDT.
+
+Saturday 5 Sep (what we offered)
+
+UTC	IST	EST	EDT (US now)	Colombia
+3:00 PM	8:30 PM	10:00 AM	11:00 AM	10:00 AM
+→ 4:00 PM ← best	9:30 PM	11:00 AM	12:00 PM	11:00 AM
+5:00 PM	10:30 PM	12:00 PM	1:00 PM	12:00 PM
+September is EDT (not EST). EST is 1 hour behind those EDT numbers.
+
+Their 10:00 PM Colombia = 8:30 AM IST Sunday / 11:00 PM EST Sat / 12:00 AM EDT Sun — that’s why we said no.
+
+
+Opponent: siento. Son horas laborales aquí. No podemos jugar a esa hora.
+
+
+
+Thought for 1 second
+
+Opponent says sorry, those are work hours there, they can't play at that time. I get it—10pm Colombia Saturday is 8:30am IST Sunday, which is right in the middle of their workday and mine. We need something later for them (after 7pm Colombia) but still early enough for me to finish by the 6am UTC Sunday deadline.
+
+They’re saying 10:00 AM–12:00 PM Colombia = work. Fair. Then the only overlap is their night / your morning.
+
+Their 10:00 PM Colombia (what they asked first) = <t:1788663600:F> ||UTC: 3:00 AM|| ||IST: 8:30 AM Sunday||
+
+That’s the slot. Lock it now (ticket cutoff <t:1788501600:F>) even if you play Saturday night.
+
+SEND (only if 8:30 AM IST is ok for the squad)
+
+tranquilo, tiene sentido si es horario laboral.
+
+entonces la que sí cruza: sábado 10:00 PM Colombia = <t:1788663600:F> ||UTC: 3:00 AM||
+
+para nosotros es 8:30 AM. si dices sí a esa hora exacta, la dejamos fija ahora. hay que cerrarlo antes de <t:1788501600:F>
+
+YOU READ
+all good, work hours. overlap is Sat 10pm Colombia = Sun 8:30 AM IST. they type sí, it’s locked.
+
+If India can’t do 8:30 AM, don’t send that — ping me and we’ll counter 9:00 PM Colombia = 7:30 AM IST or ticket Scheduling Issue before Friday 6:00 AM UTC.
+
+
+8:30am ist to edt?
+
+
+
+Thought for 1 second
+
+Simple conversion Sunday 8:30 AM IST to EDT.
+
+Sunday 8:30 AM IST = Saturday 11:00 PM EDT = Sunday 3:00 AM UTC = Saturday 10:00 PM Colombia.
+
+(EST would be 10:00 PM Saturday — US is still EDT.)
+
+
+Ok first let ne confirm with my team
+
+
+
+Thought for 1 second
+
+User wants a team message to confirm Saturday 10pm Colombia / Sunday 8:30 AM IST before saying yes to opponent. Casual, Discord timestamps, spoilers UTC, 10 min wait, Paradise Plaza, one exact time.
+
+@akulmach maqc team need a yes/no before I lock Week 3
+
+they can’t do our afternoon — work in Colombia.
+
+their time: Saturday 10:00 PM Colombia = <t:1788663600:F> ||UTC: 3:00 AM|| ||IST: 8:30 AM Sunday|| ||EDT: 11:00 PM Saturday||
+
+Paradise Plaza Bo3 ~1 hour. 10-min wait from that clock.
+
+reply yes or no. if we don’t lock before <t:1788501600:F> we have to ticket or both can take the L.
+
+
+Nah..need to share whole info about qhat i suggested and what the opponent said step-by-step
+
+
+
+Thought for 1 second
+
+Team message that's a clear step-by-step of the scheduling negotiation, then ask yes/no on 8:30 AM IST Sunday. Casual captain, Discord stamps, UTC spoilers.
+
+@akulmach maqc team Week 3 #668 vs @mrjama0586 · Paradise Plaza — clock check, need yes/no
+
+1. What I sent
+one exact time, no window. prefer weekend, any day ok. Saturday:
+
+<t:1788620400:F> ||UTC: 3:00 PM|| ||IST: 8:30 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM|| ← best
+<t:1788627600:F> ||UTC: 5:00 PM|| ||IST: 10:30 PM||
+
+2. What they said
+first: Saturday 10:00 PM Colombia.
+that’s <t:1788663600:F> ||UTC: 3:00 AM Sunday|| ||IST: 8:30 AM Sunday|| ||EDT: 11:00 PM Saturday||
+
+3. What I said back
+that’s 8:30 AM for us, too tight / too early. offered 10:00 AM / 11:00 AM / 12:00 PM Colombia (our 3–5 PM UTC).
+
+4. What they said now
+sorry — those are work hours. they can’t.
+
+5. What’s left
+their night = our morning. only real overlap is the 10:00 PM Colombia they asked first = 8:30 AM IST Sunday. series ~1 hour. lock before <t:1788501600:F> or we ticket.
+
+yes or no on <t:1788663600:F>. if no, we ticket Scheduling Issue before that deadline.
+
+
+Only include the discord coded time, and in spoiler out in utc, and dont like I sent this then they sent this..be like I suggested this and next they suggested this..its pretty hard for us..say yes or no..I'll connect to a mod or smthg
+
+
+
+Thought for 1 second
+
+Tighter team message. Only Discord timestamps + UTC spoilers. Flow: I suggested X, they suggested Y, I offered our times as Colombia morning, they said work. Hard for us. Yes or no. If no I'll ping a ...
+
+@akulmach maqc team Week 3 #668 · Paradise Plaza
+
+I suggested:
+
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM||
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+they suggested <t:1788663600:F> ||UTC: 3:00 AM||
+
+that slot is pretty hard for us.
+
+yes or no. if no I’ll ping a mod / ticket before <t:1788501600:F>
+
+
+Can dyno make this announcement better?
+
+
+
+Thought for 1 second
+
+The user is asking if Dyno can make the team announcement better. They likely mean the last team message about scheduling - can Dyno format it as an announce/embed.
+
+Dyno /announce just makes a cleaner embed. It won’t ping @akulmach maqc team unless you put the role in the text and the role is mentionable.
+
+Dyno (pick the team channel)
+
+text
+
+/announce channel:#your-channel message:
+# Week 3 #668 — Paradise Plaza
+
+**I suggested**
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM||
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+**They suggested**
+<t:1788663600:F> ||UTC: 3:00 AM||
+
+that slot is pretty hard for us.
+
+**yes** or **no**. if no I ping a mod / ticket before <t:1788501600:F>
+Then separately ping: <@&1533818347068850248> read the announce — yes or no.
+
+Without Dyno (same thing, you ping)
+
+text
+
+# Week 3 #668 — Paradise Plaza
+<@&1533818347068850248>
+
+**I suggested**
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM||
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+**They suggested**
+<t:1788663600:F> ||UTC: 3:00 AM||
+
+that slot is pretty hard for us.
+
+**yes** or **no**. if no I ping a mod / ticket before <t:1788501600:F>
+Dyno doesn’t add votes. For yes/no use /poll create with yes / no if you want it cleaner.
+
+
+Yup! Like that! Make it cleaner
+
+
+
+Thought for 1 second
+
+They liked the Discord markdown version without Dyno (or with). Make it cleaner - tighter spacing, clearer hierarchy, still same content.
+
+text
+
+# Week 3 · #668 · Paradise Plaza
+<@&1533818347068850248>
+
+**I suggested**
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM||
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+**They suggested**
+<t:1788663600:F> ||UTC: 3:00 AM||
+
+pretty hard for us.
+
+**yes** or **no**
+if no → mod / ticket before <t:1788501600:F>
+
+I like with dyno
+
+
+
+Thought for 1 second
+
+Give them the Dyno /announce command filled in cleanly. They need to pick channel - I'll use a placeholder or say select channel in the slash command.
+
+text
+
+/announce channel: message: # Week 3 · #668 · Paradise Plaza
+<@&1533818347068850248>
+
+**I suggested**
+<t:1788620400:F> ||UTC: 3:00 PM||
+→ <t:1788624000:F> ||UTC: 4:00 PM||
+<t:1788627600:F> ||UTC: 5:00 PM||
+
+**They suggested**
+<t:1788663600:F> ||UTC: 3:00 AM||
+
+pretty hard for us.
+
+**yes** or **no**
+if no → mod / ticket before <t:1788501600:F>
+Pick the team channel in channel:. If the role doesn’t ping from Dyno, send <@&1533818347068850248> in chat right after.
+
+
+Send to opponent that I'm talking back to my team, also ping the mod if he can do any help
+
+
+
+Thought for 1 second
+
+Need Spanish for opponent + English read, and ping a MAQC mod in the battle post. Human, one exact time issue, I'm checking with team, asking mod if they can help with the timezone conflict.
+
+SEND (#668)
+
+<@954721671326093383> estoy hablando con mi equipo ahora sobre <t:1788663600:F> ||UTC: 3:00 AM|| — te confirmo.
+
+<@934544234000830525> need a hand if you’re on.
+
+both sides are talking. they can’t do <t:1788624000:F> ||UTC: 4:00 PM|| (work, Colombia). they offered <t:1788663600:F> ||UTC: 3:00 AM|| — that’s early for our India players. I’m checking with my team now.
+
+if we can’t both yes one clock, we’ll ticket Scheduling Issue before <t:1788501600:F>. any chance you can set one time?
+
+YOU READ
+told them you’re asking the team about Sat 10pm Colombia / 3:00 AM UTC. pinged the same mod as Week 2. work vs 3:00 AM UTC. ticket before Friday 6:00 AM UTC if no lock.
+
+
+I got school btw so after 12pm ist
+
+
+
+Thought for 1 second
+
+User has school so after 12pm IST they're available. That's important for scheduling. Got it—school until 12 PM IST means you're free starting from evening IST onward.
+
+8:30 AM IST is a no if you’re only free after 12:00 PM IST. That’s school. Don’t lock <t:1788663600:F>.
+
+After 12:00 PM IST = your 8:30–10:30 PM IST offers = their work. Their 10:00 PM Colombia = your morning. Almost no overlap → mod / ticket before <t:1788501600:F>.
+
+SEND
+
+<@954721671326093383> hablé con el equipo.
+
+<t:1788663600:F> ||UTC: 3:00 AM|| no nos sirve — yo tengo clases, no estoy libre hasta después de las 12:00 PM IST ||UTC: 6:30 AM||.
+
+horas de ustedes laborales = nuestras únicas horas. no hay cruce.
+
+<@934544234000830525> both talking, no overlap:
+
+they can’t do <t:1788624000:F> ||UTC: 4:00 PM|| (work)
+we can’t do <t:1788663600:F> ||UTC: 3:00 AM|| (school / morning IST)
+please set a time or we’ll ticket Scheduling Issue before <t:1788501600:F>
+
+YOU READ
+told them 3:00 AM UTC is no, you’re in school until 12:00 PM IST. asked the mod to set a time or you’ll ticket.
+
+
+[MAQC Mod] Michael Corleone [HELL],  — 7:05 PM
+
+@Akulmach74 Battle time is set to Saturday 1330 UTC, timestamp below will show the time in your timezone Saturday, September 5, 2026 at 7:00 PM Both can still play at different time, but if nothing works, time given by mod is final. At the time of battle, share custom code here, ping opponent, if he isn't there wait 10min and play against bots. Make sure to use equalize bot setting and post the result before deadline Sunday 6am UTC. bby mod
+
+
+
+Thought for 1 second
+
+Mod set Saturday 1330 UTC which they also wrote as Saturday September 5 2026 at 7:00 PM - that's inconsistent.
+
+
+Thought for 1 second
+
+Update handoff and give team + opponent drafts. User said "bby mod" - casual thanks to mod maybe too. Keep professional enough for battle post.
+
+
+Thought for 1 second
+
+Give the messages.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+AI_Session_Handoff.md
+MD
+Mod set Saturday 13:30 UTC = 7:00 PM IST (after school). That’s the time unless you both yes something else.
+
+<t:1788615000:F> ||UTC: 1:30 PM||
+
+Mod
+
+copy that. <t:1788615000:F> ||UTC: 1:30 PM|| locked unless we both agree another time. thanks.
+
+SEND (opponent)
+
+<@954721671326093383> el mod fijó <t:1788615000:F> ||UTC: 1:30 PM|| = 8:30 AM Colombia.
+
+podemos jugar otra hora si los dos decimos sí. si no, esa es la hora.
+
+yo pongo el código aquí, te ping, 10 min, bots + Equalize. resultados antes de <t:1788674400:F>
+
+YOU READ
+mod time Sat 1:30 PM UTC = 8:30 AM Colombia / 7:00 PM IST. other time only if both yes. you host, ping, 10 min, equalize, post before Sunday 6:00 AM UTC.
+
+Team
+
+@akulmach maqc team Week 3 #668
+
+mod set <t:1788615000:F> ||UTC: 1:30 PM|| ||IST: 7:00 PM Saturday||
+
+that’s after school. Paradise Plaza Bo3. be on Discord. I drop the code. 10 min then we play (bots + Equalize if they’re late). screenshots before <t:1788674400:F> + Pending Verification.
+
+
+copy that. @mrjama0586 we run at mods final verdict, we will host and send codde ( 10mins wait)send this to oppoennt (translate to spanish i think idk what he lang he speaks
+
+
+
+Thought for 1 second
+
+Translate their exact message to Spanish, keep the mention, 10 min wait, they'll host and send code, run at mod's final time.
+
+SEND
+
+copy that. <@954721671326093383> jugamos a la hora final del mod. nosotros hosteamos y mandamos el código (10 min de espera)
+
+YOU READ
+copy that. we run at the mod’s final time. we’ll host and send the code (10-min wait).
+
+
+jsut a formula sheet
+
+
+
+Thought for 1 second
+
+The user wants "just a formula sheet" - in context of MAQC scheduling this likely means a cheat sheet of time conversions: UTC, IST, EDT, EST, Colombia, PDT, Discord timestamps, deadlines, 10 min wait...
+
+Write
+MAQC/Time_Formula_Sheet.md
+42 lines
+open
+MAQC time formula sheet
+MD
+MAQC time formula sheet
+Convert
+From UTC	Add/subtract
+IST	+5:30
+EDT (US now)	−4:00
+EST / Colombia	−5:00
+PDT	−7:00
+PST	−8:00
+IST → UTC: minus 5:30
+Colombia → UTC: plus 5:00
+EDT → UTC: plus 4:00
+
+Discord stamp
+<t:UNIX:F> full local · <t:UNIX:t> time only · <t:UNIX:R> relative
+
+UNIX = that instant in UTC.
+
+Week 3 #668 (locked)
+Mod: Sat 5 Sep 2026 13:30 UTC = <t:1788615000:F>
+||IST 7:00 PM|| ||EDT 9:30 AM|| ||Colombia 8:30 AM|| ||EST 8:30 AM||
+
+Ticket/schedule cutoff: Fri 4 Sep 6:00 AM UTC <t:1788501600:F>
+Play + pics: Sun 6 Sep 6:00 AM UTC <t:1788674400:F>
+Tag: Pending Verification · Equalize · 10 min then bots
+
+Saturday slots we offered (not the lock)
+UTC	IST	EDT	Colombia	stamp
+3:00 PM	8:30 PM	11:00 AM	10:00 AM	<t:1788620400:F>
+4:00 PM	9:30 PM	12:00 PM	11:00 AM	<t:1788624000:F>
+5:00 PM	10:30 PM	1:00 PM	12:00 PM	<t:1788627600:F>
+3:00 AM Sun (their 10pm COT)	8:30 AM Sun	11:00 PM Sat	10:00 PM Sat	<t:1788663600:F>
+Rules that keep biting
+One clock. Both type yes. No ranges.
+Reschedule: ≥6 hours notice.
+Ghost / no agree: ticket before Friday 6:00 AM UTC or both can L.
+10 min from agreed/mod time, ping in the battle post.
+Open
+
+Thought for 1 second
+
+Present the sheet to the user in a copyable form too.
+
+
+Thought for 1 second
+
+Brief pointer.
+
+Saved as 
+Time_Formula_Sheet.md
+.
+
+UTC → IST +5:30 · EDT −4 · Colombia/EST −5 · PDT −7
+
+Lock: Sat 13:30 UTC <t:1788615000:F> = 7:00 PM IST / 8:30 AM Colombia
+10 min · Equalize · pics before <t:1788674400:F>
+
+
+write plans i go to mid nomad revokers to mid, need citadel compound (bowolf) and outlaw charges support, and get home beacon, something long range probably gemini orion to support mid, and finish the secure (destroyers job) and a redox or tailsting or if anyone is rich and got voidghost to give support fire I think charges 16s do alot of dmg so it'l add, tailsting with charge 12 probably, okey..then after I die I'll spawn blizz charge and hold off, need dmg when I freeze, and whoever got seekers go spawn them after u die, like last time week 2, only teleport on outlaws, I do believe they'll go nomad/surge to mid
+
+
+
+Thought for 1 second
+
+User wants a team strat brief for Paradise Plaza Week 3, similar to the Skyship one. Organize roles clearly, casual Discord, adapt note.
+
+@akulmach maqc team Paradise Plaza — we take mid and home. they probably drop Nomad/Surge mid. don’t robot it if the hangar’s weird.
+
+Open
+
+me — Nomad Revokers, mid
+Bowolf — Citadel Compound with me on mid, we take home beacon
+Outlaw Charges — support mid (16s Charges chunk)
+long range — Gemini Orion on mid
+Destroyer — finish / secure once mid’s ours
+support fire — Redox or Tailsting (Charge 12) or Voidghost if someone’s got it
+After I die
+
+me — Blizz Charge, hold. when I freeze, dump dmg
+whoever has Seekers — spawn them 2nd (same as Week 2)
+TP only on Outlaws
+call mid. don’t peek lanes for free. Equalize. <t:1788615000:F> ||UTC: 1:30 PM||
+
+
+MAQC Season 7 - Week 4 Matchmaking.pdf
+@everyone
+
+⚔️ MAQC SEASON 7 - WEEK 4 BEGINS NOW!
+Pilots, we've crossed the halfway mark. Three weeks down, three to go. New opponents, tougher matchups, and less room for error every week. Week 4 runs until Sunday, September 13, 06:00 UTC (<t:1789279200:F>).
+
+1,319 teams. 4,893 pilots. Still standing, still fighting for the biggest prize pool this game has ever put on the table:
+
+<:acoin:816645317155618857> 5,000,000 A-COINS
+
+Half the season is behind you. The other half decides everything.
+
+🗺️ WEEK 4 MAP - BEST OF 3
+Every match of your series must be played on:
+
+Site 313
+First team to win 2 matches takes the series. If a team wins the first two, match 3 doesn't need to be played.
+
+> ⚠️ Map is not optional. If a match is played on the wrong map, either team may raise a dispute and that match may be invalidated. Set your lobby to Equalize* and double-check everything before launching.*
+
+YOUR WEEK 4 INSTRUCTIONS
+Open <#1532790795541811375> and find your team in your assigned SP bracket
+
+Note your match number and identify your new opponent
+
+Head to <#1545978594914992168> and find your channel using that match number
+
+Ping your opponent today to lock in a time
+
+Fight your Bo3 series and post your results (unedited screenshots) before the deadline
+
+> All communication about your match must happen in <#1545978594914992168>. DMs and external servers will not be accepted as evidence in a dispute.
+
+⏰ SCHEDULING
+The rules introduced in Week 3 are still fully enforced:
+
+Mutual agreement: both leaders must agree on one specific battle time in their forum post
+
+Rescheduling: any change requires at least 6 hours notice before the original time
+
+No-shows: if your opponent doesn't appear, wait 10 minutes, then ping an active mod in your battle post
+
+Unresponsive opponents: no reply after 72 hours? Open a ticket in <#1533319063185522800>
+
+Scheduling conflicts: talking but can't agree on a time? <#1533319063185522800>, under Scheduling Issue
+
+Ticket deadline: Friday, September 11, 06:00 UTC (<t:1789106400:F>). After that, moderators will not assign battle times for anyone. Come to us on Saturday about an opponent who's been silent since Monday and there's nothing we can do - either both teams sort it out themselves, or both teams take the loss.
+
+Match deadline: Sunday, September 13, 06:00 UTC (<t:1789279200:F>). No results in the battle post means a loss for both teams. No exceptions, no late submissions.
+
+✨ THREE WEEKS LEFT
+1,319 teams. 4,893 pilots. Site 313. Bo3. Week 4 of 6.
+
+Nobody who makes it to Week 6 gets there by scheduling on Saturday night.
+
+Good luck, Pilots. We'll see you in the Arena. 🫰<@958600143605760040> <@1017671467225321492>, ok I've uploaded info need a draft to send to oppoent, askng their available times, and sending our times, similar to past week ok?
+
+
+
+Thought for 1 second
+
+Need to extract Week 4 matchmaking for akulmach74, update database, draft opponent message similar to week 3: one exact time, no windows, prefer weekend any day works, Saturday times 3/4/5 PM UTC with...
+
+
+Thought for 1 second
+
+Extract match around akul
+
+
+Thought for 1 second
+
+Week 4 Match #665 vs @mecharenazim 22,200 SP IDs 35991993, 79206085, 39052774, 3842072, 54671905
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+×2
+
+Thought for 1 second
+
+Need to add week 4 match details to handoff - the week 3 live section was replaced header but week 4 details need to be written. Read current handoff around that area.
+
+
+Edit
+MAQC/MAQC_Knowledge_Base.md
+MAQC_Knowledge_Base.md
+MD
+
+Thought for 1 second
+
+Replace week 4 section with correct match data. Keep week 3 as closed.
+
+
+Explored
+1 read
+Read
+AI_Session_Handoff.md
+
+Thought for 1 second
+
+Give opponent draft matching week 3 style they settled on. English unless we know language. IDs separate maybe they didn't ask IDs this time - they asked opponent draft asking available times and send...
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+×2
+AI_Session_Handoff.md
+MD
+#665 vs @mecharenazim · 22,200 SP · Site 313
+Ticket before <t:1789106400:F> · play + pics before <t:1789279200:F> · Pending Verification after.
+
+hey @mecharenazim Week 4 #665 — Site 313 Bo3
+
+we need to lock one exact time, not a window — windows just confuse both sides ||mods are being strict about that||
+
+we prefer weekend but any day works. Saturday options:
+
+<t:1789225200:F> ||UTC: 3:00 PM||
+→ <t:1789228800:F> ||UTC: 4:00 PM|| ← best
+<t:1789228800:F> wait that's duplicate 4pm
+
+Fix 5pm stamp 1789232400
+
+<t:1789225200:F> ||UTC: 3:00 PM||
+→ <t:1789228800:F> ||UTC: 4:00 PM|| ← best
+<t:1789232400:F> ||UTC: 5:00 PM||
+
+don’t send a window — send a time. we can adjust, we just need it fixed before <t:1789106400:F>
+
+IDs (hangar): 35991993 79206085 39052774 3842072 54671905
+
+
+okay what we had sent previous week to our team, send same, keep prractice match on wednesday same time as last weekand as for strat I woould like gladiator our mentor to give insights as of nnow im thinking nomad mid, citadel support, outlaw, tailsting and lacewing as our starters pinging gladiator ask any advice?
+
+
+
+Thought for 1 second
+
+User wants:
+
+Same team message as previous week but updated for Week 4
+
+Thought for 1 second
+
+Give team brief like last week + practice + gladiator ping. Maybe two messages: team brief, then gladiator, or one combined since they said pinging gladiator in the team msg.
+
+Team (same shape as last week)
+
+<@&1533818347068850248> Week 4 #665 vs @mecharenazim · Site 313 Bo3
+
+already pinged them. one exact time, not a window.
+
+Saturday (prefer weekend, any day is fine):
+
+<t:1789225200:F> ||UTC: 3:00 PM||
+→ <t:1789228800:F> ||UTC: 4:00 PM|| ← best
+<t:1789232400:F> ||UTC: 5:00 PM||
+
+lock before <t:1789106400:F> or we ticket.
+
+hangars attached. 10-min wait from whatever they yes. don’t be late.
+
+Practice (same slot as last week)
+
+short notice — practice Wednesday ~1 hour
+
+<t:1788969600:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+
+Site 313. I’ll drop the code here. jump in if you can.
+
+Gladiator
+
+@Gladiator Week 4 Site 313 — any advice?
+
+thinking starters: Nomad mid, Citadel support, Outlaw, Tailsting, Lacewing
+
+you see a better open? we’ll practice Wed <t:1788969600:F> ||UTC: 4:00 PM||
+
+
+al in one message
+
+
+
+Thought for 1 second
+
+Combine into one Discord message with role ping, week 4 times, practice, gladiator. Keep it readable not too long.
+
+<@&1533818347068850248> Week 4 #665 vs @mecharenazim · Site 313 Bo3
+
+already pinged them. one exact time, not a window.
+
+Saturday (prefer weekend, any day is fine):
+
+<t:1789225200:F> ||UTC: 3:00 PM||
+→ <t:1789228800:F> ||UTC: 4:00 PM|| ← best
+<t:1789232400:F> ||UTC: 5:00 PM||
+
+lock before <t:1789106400:F> or we ticket. hangars attached. 10-min wait from whatever they yes. don’t be late.
+
+practice Wednesday ~1 hour — <t:1788969600:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM|| · Site 313. code here.
+
+@Gladiator any advice on Site 313? thinking starters Nomad mid, Citadel support, Outlaw, Tailsting, Lacewing — better open?
+
+
+Screenshot_20260910_074204_Discord.jpg
+Screenshot_20260910_074204_Discord.jpg
+Reply by them ☝️, reply to them adjusting to their times and our times to theirs
+
+
+
+Thought for 1 second
+
+Opponent ZiM (mecharenazim) said:Got it, here's the reply I'll send:
+
+Hey! Thanks for the heads-up. Yeah, 2am Saturday was probably UTC based on the stamp, but I double-checked—2am UTC is 7:30am IST, which is rough for India.
+
+2:00 AM Saturday isn’t UTC. Their Saturday 12:00 PM Eastern in September is EDT = 4:00 PM UTC = your best slot. (If they really meant EST, that’s 5:00 PM UTC.)
+
+hey @mecharenazim all good — 2:00 AM wasn’t UTC. Discord stamps show your local time.
+
+you said Saturday 12:00 PM Eastern. that’s this:
+
+<t:1789228800:F> ||UTC: 4:00 PM|| ← your 12:00 PM EDT / our best
+
+if you meant EST (no daylight saving): <t:1789232400:F> ||UTC: 5:00 PM||
+
+one exact time. reply yes to one of those and it’s locked. need it fixed before <t:1789106400:F>
+
+
+Why did it show 2am for him? Which of our time?
+
+
+
+Thought for 2 seconds
+
+The opponent saw 2am Saturday. Our offered Discord timestamps were: It looks like the opponent might have been staring at the Friday deadline timestamp (1789106400) and saw it as 2am in their local time. That stamp is 6:00 AM UTC on Friday, which converts to 2:00 AM EDT on Friday (or 1:00 AM EST). They probably mixed up the day label when they read the timestamp, thinking it was Saturday instead of Friday.
+
+If they were looking at the match start time instead, Saturday 2:00 AM EDT would be 6:00 AM UTC, but none of our offered times line up with that.
+
+None of our Saturday offers show as 2:00 AM for him.
+
+His Discord is Eastern. In September that’s EDT (UTC−4).
+
+What we sent (match times)
+
+We posted	He sees (EDT)
+<t:1789225200:F>	
+<t:1789228800:F>	
+<t:1789232400:F>	
+Where 2:00 AM comes from
+That’s a 6:00 AM UTC stamp, i.e. the deadlines, not the fight:
+
+Ticket cutoff <t:1789106400:F> = Fri 6:00 AM UTC = 2:00 AM EDT
+Week 4 end <t:1789279200:F> = Sun 6:00 AM UTC = 2:00 AM EDT
+He treated a deadline as the match time and called it Saturday. Then he corrected himself: Saturday 12pm Eastern = our 4:00 PM UTC (best).
+
+
+Ok send a message to our team on updates
+
+
+
+Thought for 1 second
+
+Team update: opponent replied, they thought 2am was the match (it was the deadline), they want Saturday 12pm Eastern = our 4pm UTC best slot. Need them to type yes. Ticket deadline Friday. Site 313 #6...
+
+<@&1533818347068850248> Week 4 #665 vs @mecharenazim · Site 313
+
+they replied. they thought 2:00 AM was the match — that was the deadline stamp, not the fight.
+
+they want Saturday 12:00 PM Eastern = <t:1789228800:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM|| ← our best anyway
+
+waiting on them to type yes so it’s locked. if they don’t, we ticket before <t:1789106400:F>.
+
+10-min wait from that time once it’s yes. don’t be late.
+
+
+Ok send the destroyer and baby bird(he doesnt have discord only google messags)..(btw opponent agreed)
+
+
+
+Thought for 1 second
+
+Opponent agreed - lock Saturday 4pm UTC / 12pm Eastern / 9:30 PM IST.
+
+
+Thought for 1 second
+
+File might have changed. Doesn't matter - give the two messages.
+
+
+Edit
+MAQC/AI_Session_Handoff.md
+Destroyer (Discord)
+
+@Destroyer Week 4 #665 is locked
+
+<t:1789228800:F> ||UTC: 4:00 PM|| ||IST: 9:30 PM||
+
+Site 313 Bo3. 10-min wait. be on. I drop the code.
+
+Baby Bird (Google Messages)
+
+Week 4 match is locked.
+
+Saturday 12 Sep
+4:00 PM UTC
+9:30 PM IST
+12:00 PM Eastern
+
+Site 313. About 1 hour. Be online. 10 min wait then we start. I’ll send the custom code when it’s time.
+
+
+pplan is me eeclliipsse charge mid before getting home, voidghoost (bowolf) backs up, destroyer goes lacewing/oriion geminni or storms, guunshot goes outlaw, and baby bird goes redox hornets..we secure mid and whoever goes mid fire his ahh..voidghost and eclipse can ccounter anything, and bboth sstanding on beacon gets it faster, eclipse is jsut vunerbable to storms and charge 16s well thaats all and seeker strat like last time..destroyer goes seeker if lace dies, i go bliizz aand d someone get citadell to keep mid WE NEEDD EARLLY START AND HOLD
+
+
+
+Thought for 1 second
+
+Team strat brief for Site 313 Week 4, locked time. Casual Discord, roles, seeker second wave like last time, early start hold mid. Don't over-polish into corporate. They typed with double letters - I ...
+
+<@&1533818347068850248> Site 313 — we need an early start and we HOLD. locked <t:1789228800:F> ||UTC: 4:00 PM||
+
+Open
+
+me — Eclipse Charge, mid before home
+Bowolf — Voidghost, back me up
+Destroyer — Lacewing / Orion Gemini or Storms
+Gunshot — Outlaw
+Baby Bird — Redox Hornets
+we secure mid. whoever walks mid, dump. Eclipse + Voidghost can answer most things. two on the beacon caps faster.
+
+Eclipse is food for Storms and Charge 16s — peel that.
+
+After first death (same as last week)
+
+Destroyer — Seeker if Lace dies
+me — Blizz
+someone — Citadel, keep mid
+don’t wander. hold. 10-min wait then we go.
+
+
+MAQC Season 7 - Week 5 Matchmaking.pdf
+so we lsot week 4, our team coordination was ahh lol so heres the week 5, ask the mod why, how, how many players needed, what mode too be selected, and any other appropriate qeuestion u think is imoortant
+
+
+Stopped
+can yyou add our conversations into .txt exact querstions andannswers u gave?
+
+
+Stopped
+No file chosen
+
+
+
+Drop files...
+Add files
+
