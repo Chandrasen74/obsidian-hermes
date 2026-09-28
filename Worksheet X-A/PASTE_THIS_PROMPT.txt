@@ -1,18 +1,3 @@
-# Worksheet X-A Template
-
-This `Worksheet X-A` template is an autonomous worksheet generator for Delhi Public School, Gurugram. It can research, build its own knowledge base, and deliver a finished worksheet and answer key for any subject and grade.
-
-## How to Use:
-1. Open `MASTER_Worksheet_Engine.md` for the full documentation.
-2. For quick access, use the prompt below (also available in `PASTE_THIS_PROMPT.txt`).
-3. Edit only the `CONFIGURATION` block at the top.
-4. Paste the entire prompt into any AI with web search enabled, and attach the `MASTER_Worksheet_Engine.md` file (and the logo if available).
-
-The AI will then autonomously generate the worksheet and answer key.
-
-## Quick Paste Prompt
-
-```
 ╔══════════════════════════════════════════════════════════════════════╗
 ║   DPS AUTONOMOUS WORKSHEET GENERATOR                                 ║
 ║   Delhi Public School, Gurugram — Sector 67A                         ║
@@ -331,4 +316,3 @@ the worksheet. Then stop.
 ╔══════════════════════════════════════════════════════════════════════╗
 ║   END OF PROMPT                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
-```
