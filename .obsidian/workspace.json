@@ -8,17 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0db199dd69f3472f",
+            "id": "e8264a689176d484",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Welcome.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Welcome"
+              "title": "New tab"
             }
           }
         ]
@@ -188,8 +184,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "0db199dd69f3472f",
+  "active": "0a12ad660f096bf1",
   "lastOpenFiles": [
+    "04-Archives/MAQC-7-Source-Files/Screenshot_20260929_164252_Chrome.webp",
+    "04-Archives/MAQC-7-Source-Files/maqc mod message.md",
+    "04-Archives/MAQC-7-Source-Files/MAQC Season 07 Rewards List.pdf",
+    "04-Archives/MAQC-7-Source-Files",
+    "01-Projects/MAQC-7/Gratitude_Announcement_Draft.md",
+    "01-Projects/MAQC-7/Season_7_Rewards_Log.md",
+    "00-Inbox/MAQC Season 07 Rewards List.pdf",
+    "00-Inbox/maqc mod message.md",
     "omniroute startup.txt",
     "Worksheet X-A/PASTE_THIS_PROMPT.txt",
     "Worksheet X-A/MASTER_Worksheet_Engine.md",
@@ -217,10 +221,6 @@
     "MAQC-7/evidence/MAQC_S7_Week5_Matchmaking.pdf",
     "MAQC-7/evidence/MAQC_S7_Week4_Matchmaking.pdf",
     "MAQC-7/evidence/MAQC_S7_Week3_Matchmaking.pdf",
-    "MAQC-7/evidence/MAQC_S7_Week2_Matchmaking.pdf",
-    "MAQC-7/evidence/MAQC_S7_Week1_Matchmaking.pdf",
-    "MAQC-7/evidence/MAQC_S7_Team_Registration_Responses.csv",
-    "MAQC-7/evidence/MAQC_S7_Team_Information_Responses.xlsx",
     "MAQC-7/evidence/AI_Session_Handoff_W1_era.md",
     "MAQC-7/docs/Week_6.md",
     "MAQC-7/docs/Week_5.md",
@@ -231,9 +231,6 @@
     "MAQC-7/docs/Season_Overview.md",
     "MAQC-7/AGENTS.md",
     "Worksheet/README.md",
-    "Worksheet/Worksheet X-A.md",
-    "README.md",
-    "Worksheet X-A.md",
-    "Welcome.md"
+    "Worksheet/Worksheet X-A.md"
   ]
 }
