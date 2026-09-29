@@ -15,7 +15,7 @@
 
 **Current Archives:**
 - MAQC-7/ (Gaming Tournament - COMPLETED 2026-09-29)
-- Worksheet-Template/ (Template System - COMPLETED 2026-09-29)
+- Worksheet-Generator/ (Worksheet Generator System - COMPLETED 2026-09-29)
 
 ---
 
@@ -23,7 +23,7 @@
 
 **Completed Archives:**
 - [x] MAQC-7 - fully archived with all source files
-- [x] Worksheet-Template - archived with templates preserved
+- [x] Worksheet-Generator - archived with worksheet generation system preserved
 
 **Archive Maintenance:**
 - [ ] Review archives periodically for relevance
