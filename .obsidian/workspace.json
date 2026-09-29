@@ -11,12 +11,10 @@
             "id": "e8264a689176d484",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "00-Inbox/MAQC Season 07 Rewards List.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "MAQC Season 07 Rewards List"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
