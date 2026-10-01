@@ -50,4 +50,4 @@ Resources support both projects and areas but are not actionable themselves.
 
 ---
 
-*Last Updated: 2026-09-29*
+*Last Updated: 2026-10-01*
