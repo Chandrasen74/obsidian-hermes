@@ -14,14 +14,16 @@
 - Searchable but out of active workflow
 
 **Current Archives:**
-- MAQC-7/ (Gaming Tournament - COMPLETED 2026-09-29)
-- Worksheet-Generator/ (Worksheet Generator System - COMPLETED 2026-09-29)
+- [Learn/](Learn/) (AI Learning System - COMPLETED 2026-10-01)
+- [MAQC-7/](MAQC-7/) (Gaming Tournament - COMPLETED 2026-09-29)
+- [Worksheet-Generator/](Worksheet-Generator/) (Worksheet Generator System - COMPLETED 2026-09-29)
 
 ---
 
 ## To-Do List
 
 **Completed Archives:**
+- [x] Learn - fully archived with architecture docs, source files, demo lessons, and agent guidelines
 - [x] MAQC-7 - fully archived with all source files
 - [x] Worksheet-Generator - archived with worksheet generation system preserved
 
@@ -56,4 +58,4 @@ Each archived project should have:
 
 ---
 
-*Last Updated: 2026-09-29*
+*Last Updated: 2026-10-01*

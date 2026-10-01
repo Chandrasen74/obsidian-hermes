@@ -11,7 +11,7 @@
 
 Below is the complete multi-tier engineering architecture of Git's internal subsystem:
 
-![[git-internals-architecture.svg]]
+![[git-internals-architecture.svg|700]]
 
 ```mermaid
 flowchart LR

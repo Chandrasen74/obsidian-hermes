@@ -15,9 +15,7 @@
 - When completed, move to 04-Archives
 
 **Current Projects:**
-- [AI Learning System (Learn)](01-Projects/Learn/) - Interactive pedagogy, probing, visual subagents, and Obsidian logging
-- [Worksheet Engine](01-Projects/Worksheet/) - Autonomous worksheet generator
-- [MAQC-7](01-Projects/MAQC-7/) - Project management and materials
+*(No active projects in progress. Ready for next project.)*
 
 ---
 
@@ -27,8 +25,9 @@
 - [ ] Add new projects here as they begin
 
 **Completed & Archived:**
+- [x] AI Learning System (Learn) - moved to `04-Archives/Learn/`
 - [x] MAQC-7 - moved to `04-Archives/MAQC-7/`
-- [x] Worksheet - moved to `04-Archives/Worksheet-Template/`
+- [x] Worksheet-Generator - moved to `04-Archives/Worksheet-Generator/`
 
 ---
 
@@ -53,4 +52,4 @@ When a project is complete, move it to `04-Archives/` with organized subfolders.
 
 ---
 
-*Last Updated: 2026-09-29*
+*Last Updated: 2026-10-01*

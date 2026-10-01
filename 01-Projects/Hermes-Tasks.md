@@ -11,11 +11,11 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [x] Configured obsidian-second-brain skill (already existed)
 - [x] PARA folder structure implemented (Projects, Areas, Resources, Archives, Inbox)
 - [x] MAQC Season 7 rewards processed and logged
+- [x] AI Learning System (Learn) adapted, demoed, and archived to `04-Archives/Learn/`
 
 ## Current Focus
-- [ ] AI Learning System (Learn) adaptation into Hermes & Obsidian
-- [ ] Second brain skill utilization guidance
 - [ ] Task list maintenance (this note)
+- [ ] Ready for next active project or learning topic
 
 ## Next Steps / Ideas
 - [ ] Explore Obsidian plugins for visualization (Dataview, Excalidraw, Calendar)
@@ -27,17 +27,15 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ### Session: 2026-10-01
 
-**AI Learning System (Learn) Ingestion:**
+**AI Learning System (Learn) Adaptation, Demo & Archival:**
 - Cloned and analyzed upstream repo `amosblomqvist/learn.git`.
 - Ran SLOC code inspection via `pygount` (16 files, 1,784 SLOC code lines, 500 doc lines).
-- Created dedicated project directory: `01-Projects/Learn/`.
-- Generated project documentation:
-  - `01-Projects/Learn/README.md`
-  - `01-Projects/Learn/Codebase-Analysis.md`
-  - `01-Projects/Learn/Architecture-and-Components.md`
-  - `01-Projects/Learn/Adaptation-Plan.md`
-- Staged source files in `01-Projects/Learn/Source/`.
-- Updated project index and task log.
+- Created native `teach` skill in Hermes with diagnostic probes, Socratic checkpoints, and strict user consent for vault files.
+- Completed full interactive demonstration on "Git Internals (Blobs, Trees, Commits)".
+- Created 6-tier system architecture vector diagram (`git-internals-architecture.svg`) and embedded Mermaid architecture flowcharts.
+- Generated 11 Spaced Repetition flashcards (`#card` and cloze deletions) in lesson note.
+- Formatted and organized full project archive in `04-Archives/Learn/` following MAQC-7 standard with `AGENTS.md`, `Project-Files/`, `Source-Files/`, `Lessons/`, and `Assets/`.
+- Cleared active project folder `01-Projects/Learn/` and updated PARA indices.
 
 ### Session: 2026-09-29
 
@@ -73,4 +71,4 @@ This skill loads automatically when we discuss:
 
 ---
 
-*Last updated: 2026-09-29*
+*Last updated: 2026-10-01*
