@@ -13,6 +13,7 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [x] MAQC Season 7 rewards processed and logged
 
 ## Current Focus
+- [ ] AI Learning System (Learn) adaptation into Hermes & Obsidian
 - [ ] Second brain skill utilization guidance
 - [ ] Task list maintenance (this note)
 
@@ -23,6 +24,20 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [ ] Configure graph view optimization tips
 
 ## Session Notes
+
+### Session: 2026-10-01
+
+**AI Learning System (Learn) Ingestion:**
+- Cloned and analyzed upstream repo `amosblomqvist/learn.git`.
+- Ran SLOC code inspection via `pygount` (16 files, 1,784 SLOC code lines, 500 doc lines).
+- Created dedicated project directory: `01-Projects/Learn/`.
+- Generated project documentation:
+  - `01-Projects/Learn/README.md`
+  - `01-Projects/Learn/Codebase-Analysis.md`
+  - `01-Projects/Learn/Architecture-and-Components.md`
+  - `01-Projects/Learn/Adaptation-Plan.md`
+- Staged source files in `01-Projects/Learn/Source/`.
+- Updated project index and task log.
 
 ### Session: 2026-09-29
 

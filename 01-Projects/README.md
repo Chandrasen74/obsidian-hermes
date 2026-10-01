@@ -15,6 +15,7 @@
 - When completed, move to 04-Archives
 
 **Current Projects:**
+- [AI Learning System (Learn)](01-Projects/Learn/) - Interactive pedagogy, probing, visual subagents, and Obsidian logging
 - [Worksheet Engine](01-Projects/Worksheet/) - Autonomous worksheet generator
 - [MAQC-7](01-Projects/MAQC-7/) - Project management and materials
 
