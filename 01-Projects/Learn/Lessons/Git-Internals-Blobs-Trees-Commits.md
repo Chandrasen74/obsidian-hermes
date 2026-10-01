@@ -7,52 +7,90 @@
 
 ---
 
-## 1. Lesson Dependency Roadmap
+## 1. System Architecture Flowchart
 
-```mermaid
-graph TD
-    classDef axiom fill:#1e293b,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
-    classDef mechanism fill:#0f172a,stroke:#64748b,stroke-width:2px,color:#f8fafc;
-    classDef outcome fill:#1e3a8a,stroke:#60a5fa,stroke-width:2px,color:#f8fafc;
+Below is the complete multi-tier engineering architecture of Git's internal subsystem:
 
-    A[Unconditional Truth: Content-Addressable Storage<br/>Hash = SHA-1/256 of Header + Bytes]:::axiom --> B[Node 1: Blob Object<br/>Pure Raw Bytes - No Names/Paths]:::mechanism
-    B --> C[Node 2: Tree Object<br/>Directory Listing: Mode + Name -> Hash]:::mechanism
-    C --> D[Node 3: Commit Object<br/>Snapshot Root Tree + Parent Hash + Metadata]:::mechanism
-    D --> E[Node 4: Refs & HEAD<br/>41-Byte Mutable Pointer Files]:::outcome
-```
-
----
-
-## 2. Visual Architecture & Core Mechanisms
-
-### Diagram 1: The Three Areas of Git Lifecycle
-Every routine Git command simply synchronizes state across three separate regions:
+![[git-internals-architecture.svg]]
 
 ```mermaid
 flowchart LR
-    classDef disk fill:#1e293b,stroke:#475569,stroke-width:2px,color:#f8fafc;
-    classDef stage fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#f8fafc;
-    classDef repo fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    classDef client fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    classDef staging fill:#0f766e,stroke:#2dd4bf,stroke-width:2px,color:#fff;
+    classDef engine fill:#581c87,stroke:#c084fc,stroke-width:2px,color:#fff;
+    classDef dag fill:#4c1d95,stroke:#a78bfa,stroke-width:2px,color:#fff;
+    classDef ref fill:#831843,stroke:#f43f5e,stroke-width:2px,color:#fff;
+    classDef storage fill:#78350f,stroke:#fbbf24,stroke-width:2px,color:#fff;
 
-    WT["1. Working Tree<br/>(Files on Disk you edit)"]:::disk
-    IDX["2. Index / Staging<br/>(.git/index binary file)"]:::stage
-    OBJ["3. Object Store<br/>(.git/objects/ immutable graph)"]:::repo
-    REF["4. References<br/>(.git/refs/heads/ branch tips)"]:::repo
+    subgraph Tier1 ["1. Client & Workspace"]
+        User["User Edits<br/>(Working Tree)"]:::client
+        CLI["Porcelain Commands<br/>(add, commit, checkout)"]:::client
+    end
 
-    WT -->|"git add <file><br/>(Computes hash, writes blob)"| IDX
-    IDX -->|"git commit<br/>(Writes trees & commit object)"| OBJ
-    OBJ -->|"Moves pointer"| REF
-    REF -.->|"git checkout / restore"| WT
+    subgraph Tier2 ["2. Staging & Pipeline"]
+        Index[".git/index<br/>Binary Stat Cache &amp; Staged Paths"]:::staging
+        Hasher["hash-object<br/>Header + SHA Calculator"]:::staging
+    end
+
+    subgraph Tier3 ["3. Object Synthesis Engine"]
+        BlobBuilder["Blob Builder<br/>Pure Byte Stream"]:::engine
+        TreeBuilder["Tree Builder<br/>write-tree Hierarchy Index"]:::engine
+        CommitBuilder["Commit Builder<br/>commit-tree + Parent Linker"]:::engine
+    end
+
+    subgraph Tier4 ["4. Content-Addressed DAG"]
+        RootTree["Root Tree Object<br/>(8fa3c9b...)"]:::dag
+        SubTrees["Sub-Tree Objects<br/>(src/, lib/)"]:::dag
+        Blobs["Blob Objects<br/>(Raw byte storage)"]:::dag
+        CommitObj["Commit Object<br/>(Metadata + Tree + Parents)"]:::dag
+    end
+
+    subgraph Tier5 ["5. References & State"]
+        HeadRef["HEAD File<br/>(ref: refs/heads/main)"]:::ref
+        BranchRef["Branch Tip File<br/>(.git/refs/heads/main)"]:::ref
+    end
+
+    subgraph Tier6 ["6. Disk Persistence"]
+        Loose["Loose Objects Store<br/>.git/objects/xx/ (zlib)"]:::storage
+        Packfiles["Packfile Subsystem<br/>.pack (delta) + .idx (offsets)"]:::storage
+        Reflog["Reflog Engine<br/>.git/logs/HEAD"]:::storage
+    end
+
+    User -->|"1. git add"| CLI
+    CLI --> Hasher
+    Hasher -->|"Writes staged SHA"| Index
+    Hasher -->|"Writes loose object"| BlobBuilder
+    BlobBuilder --> Blobs
+    Blobs --> Loose
+
+    CLI -->|"2. git commit"| TreeBuilder
+    Index --> TreeBuilder
+    TreeBuilder --> RootTree
+    RootTree --> SubTrees
+    SubTrees --> Blobs
+
+    TreeBuilder --> CommitBuilder
+    CommitBuilder --> CommitObj
+    CommitObj --> RootTree
+    CommitObj --> Loose
+
+    CommitBuilder -->|"3. Moves tip"| BranchRef
+    HeadRef --> BranchRef
+    CommitBuilder -->|"Appends history"| Reflog
+
+    Loose -.->|"git gc (compaction)"| Packfiles
 ```
 
 ---
 
-### Diagram 2: Inside a Blob & Content Deduplication
-A **Blob** stores *only raw bytes*. The filename and path live outside the blob in directory trees.
+## 2. Deep-Dive Visual Mechanisms
+
+### A. Inside a Blob & Deduplication
+A **Blob** stores *only raw bytes*. Filenames and paths live outside the blob in directory trees.
 
 ```mermaid
 flowchart TD
-    classDef file fill:#334155,stroke:#94a3b8,stroke-width:2px,color:#fff;
+    classDef file fill:#1e293b,stroke:#94a3b8,stroke-width:2px,color:#fff;
     classDef hash fill:#7c2d12,stroke:#f97316,stroke-width:2px,color:#fff;
     classDef blob fill:#065f46,stroke:#10b981,stroke-width:2px,color:#fff;
 
@@ -68,40 +106,14 @@ flowchart TD
     H --> B
 ```
 
-> [!abstract] Unconditional Invariant 1: Blobs
+> [!abstract] Unconditional Invariant: Blobs
 > $\text{Blob Hash} = \text{SHA}\left(\text{"blob "} + \text{byte\_length} + \text{"\0"} + \text{content}\right)$
 > - Because identical files share the exact same byte hash, Git **deduplicates automatically at zero extra storage cost**.
 > - The blob does **not** know what it is named or what folder it lives in.
 
 ---
 
-### Diagram 3: How Trees Recreate Directory Hierarchies
-A **Tree Object** maps filenames and permission modes to Blob hashes and child Tree hashes:
-
-```mermaid
-graph TD
-    classDef commit fill:#4c1d95,stroke:#a78bfa,stroke-width:2px,color:#fff;
-    classDef tree fill:#1e3a8a,stroke:#60a5fa,stroke-width:2px,color:#fff;
-    classDef blob fill:#065f46,stroke:#34d399,stroke-width:2px,color:#fff;
-
-    C["Commit Object (d4e5f6...)<br/>tree: 8fa3c9b..."]:::commit
-    T_Root["Root Tree (8fa3c9b...)<br/>• 100644 blob README.md<br/>• 040000 tree src/"]:::tree
-    T_Src["Sub-Tree src/ (7e8f9a0...)<br/>• 100644 blob app.py<br/>• 100755 blob run.sh"]:::tree
-
-    B_Readme["Blob (d67046...)<br/>'# My Project'"]:::blob
-    B_App["Blob (f1e2d3...)<br/>'import sys...'"]:::blob
-    B_Run["Blob (5d6e7f...)<br/>'#!/bin/bash...'"]:::blob
-
-    C --> T_Root
-    T_Root -->|100644 README.md| B_Readme
-    T_Root -->|040000 src/| T_Src
-    T_Src -->|100644 app.py| B_App
-    T_Src -->|100755 run.sh| B_Run
-```
-
----
-
-### Diagram 4: What Actually Happens During a New Commit (Immutability)
+### B. What Actually Happens During a Commit (Immutability)
 Git **never overwrites** old objects. Modifying 1 line in `app.py` creates a brand-new blob and new parent trees, while unchanged blobs are cleanly reused:
 
 ```mermaid
@@ -158,7 +170,7 @@ flowchart TD
 
 ## 4. Spaced Repetition Flashcards
 
-### Basic Concept Cards
+### Foundational Concept Cards
 What does a Git Blob object store? #card
 Only the raw byte contents of a file. It does NOT store filenames, directory paths, or file permissions.
 <!--ID: 1727800000001-->
@@ -185,6 +197,19 @@ A plain 41-byte text file located at `.git/refs/heads/<branch-name>` containing 
 What does a Git Commit object point to to represent the repository state? #card
 It points directly to a single **Root Tree object**, which represents the complete snapshot of the project at that moment in time.
 <!--ID: 1727800000006-->
+
+### Practical & Architectural Cards
+What is the function of the `.git/index` staging file? #card
+It acts as a binary stat cache and staging buffer that records the paths, modes, and Blob SHA hashes representing the proposed state of the *next* commit.
+<!--ID: 1727800000010-->
+
+How does Git prevent redundant storage when the same 50MB file is committed across 100 different commits without edits? #card
+The root Tree for each new commit simply points to the same pre-existing Blob SHA hash. The file is stored only once in `.git/objects/`.
+<!--ID: 1727800000011-->
+
+What happens when `git gc` runs? #card
+It compresses individual loose objects from `.git/objects/xx/` into packfiles (`.pack`) using delta compression and generates binary offset indexes (`.idx`).
+<!--ID: 1727800000012-->
 
 ### Cloze Deletion Cards
 Git is not a diff tracker; it is a ==content-addressable== filesystem that stores a directed acyclic graph of immutable ==snapshots==. #card
