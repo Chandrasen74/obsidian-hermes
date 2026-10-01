@@ -2,7 +2,7 @@
 
 **Topic:** Git Internals (Blobs, Trees, Commits, Refs)
 **Date:** 2026-10-01
-**Related Notes:** [[01-Projects/Learn/README|AI Learning System]] | [[01-Projects/Learn/Architecture-and-Components|Architecture & Components]] | [[01-Projects/README|Projects Index]]
+**Related Notes:** [[04-Archives/Learn/README|Learn Archive]] | [[04-Archives/Learn/Docs/Architecture-and-Components|Architecture & Components]] | [[04-Archives/Learn/Docs/Pedagogical-Framework|Pedagogical Framework]]
 **Goal:** Build a robust, intuitive mental model of Git's internal object store, immutability guarantees, and pointer architecture.
 
 ---

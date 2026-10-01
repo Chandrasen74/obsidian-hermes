@@ -18,30 +18,43 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 
 ---
 
-## Archive Structure
+## 🗂️ Archive Navigation & Map
 
 ```
 04-Archives/Learn/
-├── README.md                          # Master archive index & summary
-├── Project-Files/                     # Architecture, analysis & operating rules
-│   ├── AGENTS.md                      # Instructions & guidelines for future AI agents
-│   ├── Adaptation-Plan.md             # Hermes tool mapping & technical roadmap
-│   ├── Architecture-and-Components.md # In-depth component & sub-agent analysis
-│   ├── Codebase-Analysis.md           # SLOC breakdown & structural inspection
-│   ├── plan.md                        # Project execution log & lifecycle
-│   └── README.md                      # Project files folder index
-├── Lessons/                           # Live generated lesson notes & demos
-│   ├── Git-Internals-Blobs-Trees-Commits.md # Complete demo lesson note
-│   └── README.md                      # Lessons folder index
-├── Assets/                            # Standalone vector diagrams & visuals
-│   ├── git-internals-architecture.svg # Multi-tier Git internal architecture SVG
-│   └── README.md                      # Assets folder index
-└── Source-Files/                      # Upstream repository source backup
-    ├── agents/                        # Upstream subagent definitions (researcher, mermaid-maker, svg-maker)
-    ├── extensions/                    # Upstream CLI tools (quiz, md-log, visual-tools)
-    ├── skills/                        # Upstream skill files (teach, visualize)
-    └── README.md                      # Source files folder index
+├── README.md                           # Master archive index & summary (this note)
+├── Docs/                               # Technical & pedagogical documentation
+│   ├── README.md                       # Docs folder index
+│   ├── Pedagogical-Framework.md        # Teaching philosophy, Socratic loops & probes
+│   ├── Architecture-and-Components.md  # Upstream subsystems & sub-agent analysis
+│   ├── Adaptation-Plan.md              # Hermes tool mapping & technical roadmap
+│   └── Codebase-Analysis.md            # SLOC breakdown & structural inspection
+├── Lessons/                            # Live generated lesson notes & demos
+│   ├── README.md                       # Lessons folder index
+│   └── Git-Internals-Blobs-Trees-Commits.md # Complete demo lesson note
+├── Assets/                             # Standalone vector diagrams & visual artifacts
+│   ├── README.md                       # Assets folder index
+│   └── git-internals-architecture.svg  # 6-Tier Git internal architecture SVG
+├── Project-Files/                      # AI operating rules & project lifecycle
+│   ├── README.md                       # Project files folder index
+│   ├── AGENTS.md                       # Canonical guidelines for future AI agents
+│   └── plan.md                         # Milestone execution log & lifecycle
+└── Source-Files/                       # Upstream repository source backup
+    ├── README.md                       # Original repository README
+    ├── agents/                         # Upstream subagent definitions (researcher, svg, mermaid)
+    ├── extensions/                     # Upstream CLI tools (quiz, md-log, visual-tools)
+    └── skills/                         # Upstream skill files (teach, visualize)
 ```
+
+---
+
+## 🚀 Quick Links to Core Artifacts
+
+- **Live Demonstration Note:** [[04-Archives/Learn/Lessons/Git-Internals-Blobs-Trees-Commits|Git Internals Lesson (Visuals + 11 Cards)]]
+- **Vector Architecture Diagram:** [[04-Archives/Learn/Assets/git-internals-architecture.svg|Git Engine Architecture SVG]]
+- **AI Operating Manual:** [[04-Archives/Learn/Project-Files/AGENTS|AGENTS.md]]
+- **Pedagogical Spec:** [[04-Archives/Learn/Docs/Pedagogical-Framework|Pedagogical Framework]]
+- **Architecture Spec:** [[04-Archives/Learn/Docs/Architecture-and-Components|Architecture & Components]]
 
 ---
 
