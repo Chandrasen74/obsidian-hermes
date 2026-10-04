@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/gaming"]
+---
 # MAQC-7 Archive
 
 **Status:** COMPLETED
@@ -73,7 +77,7 @@ MAQC-7/
 
 ## Notes for Next AI/Human
 
-- All original project files are preserved in `Project-Files/`
+- All original project files are preserved in [[04-Archives/MAQC-7/Project-Files/README|README]]
 - Evidence and source materials are in `Source-Files/`
 - Weekly documentation available in `Docs/`
 - This project is COMPLETE - no further action needed
@@ -82,3 +86,6 @@ MAQC-7/
 ---
 
 *Last Updated: 2026-09-29*
+
+## See also
+[[04-Archives/README|README]]

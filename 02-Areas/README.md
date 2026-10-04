@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/active", "#type/index", "#domain/productivity"]
+---
 # 02-Areas
 
 **Definition:** Ongoing responsibilities with a standard to maintain.
@@ -8,7 +12,7 @@
 - Examples: Health, Finance, Learning, Career
 
 **Current Areas:**
-- [Hermes Tools](02-Areas/) - Omniroute launcher and automation tools
+- **Hermes Tools** - Omniroute launcher and automation tools
 - Task Management
 - Learning & Development
 

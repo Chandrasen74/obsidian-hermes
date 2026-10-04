@@ -1,3 +1,7 @@
+---
+name: Week_6
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 6 — Match #630 vs BOT (charliebrown0002 Disqualified)
 
 **Map:** Imperial Temple | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -56,7 +60,7 @@ Ruling forwarded to battle post #630 at 8:21 PM IST.
 - Gunshot: Outlaw (Gemini Outlaw) — crash anyone pushing mid.
 - Akulmach74: Eclipse — effect support, secure mid.
 
-Source: Gladiator's advice (22 Sep 12:30 AM IST), verbatim in `Week_6_Brief.md` section 7.
+Source: Gladiator's advice (22 Sep 12:30 AM IST), verbatim in [[Week_6_Brief]] section 7.
 
 ---
 
@@ -64,5 +68,9 @@ Source: Gladiator's advice (22 Sep 12:30 AM IST), verbatim in `Week_6_Brief.md` 
 
 Lock confirmation screenshot: `evidence/Screenshot_20260924_185314_lock_confirmed.png`
 Team brief screenshot: `evidence/Screenshot_20260924_185252_team_brief_sent.png`
-Ticket #267 transcript: `Week_6_Mod_Questions.md`
-Full scheduling log and all drafts: `Week_6_Brief.md`
+Ticket #267 transcript: [[Week_6_Mod_Questions]]
+Full scheduling log and all drafts: [[Week_6_Brief]]
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

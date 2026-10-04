@@ -1,3 +1,7 @@
+---
+name: Season_Overview
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # MAQC Season 7 — Full Season Overview (Team akulmach74)
 
 **Season:** Mech Arena Quarterly Clash (MAQC) Season 7
@@ -98,3 +102,12 @@ Team SP after removal: 22,700 (corrected from erroneous 20,723).
 | 24 Sep 2026 | Ticket #267 filed and resolved; charliebrown0002 DQ'd |
 | 25 Sep 2026 | Last ticket/scheduling cutoff of the season (Fri 06:00 UTC) |
 | 27 Sep 2026 | Season end and results deadline (Sun 06:00 UTC) |
+
+## See also
+[[Week_1]]
+[[Week_2]]
+[[Week_3]]
+[[Week_4]]
+[[Week_5]]
+[[Week_6]]
+[[04-Archives/MAQC-7/README|README]]

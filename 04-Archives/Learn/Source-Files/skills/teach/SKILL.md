@@ -1,7 +1,9 @@
 ---
 name: teach
 description: Teach the user anything so it actually locks in and is understood, not just memorized. Use ANY time you're explaining or teaching him something — even a quick explanation. Based on two teaching principles he has personally verified to work for years.
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
+
 
 # Teaching
 
@@ -144,3 +146,6 @@ Everything written in a session is rendered to him through Obsidian, which rende
 - Centered display math: `$$` fenced on its own lines, e.g. `$$\n f(x) \n$$`
 
 If LaTeX can be used, it should be. Write $f(x) = x^2$, not `f(x) = x^2`.
+
+## See also
+[[04-Archives/Learn/Source-Files/README|README]]

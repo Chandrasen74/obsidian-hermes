@@ -1,3 +1,7 @@
+---
+name: Week_5
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 5 — Match #665 vs BOT
 
 **Map:** Forbidden City | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -20,7 +24,7 @@ Team akulmach74 was assigned a bot match for Week 5. Before playing, the captain
 7. Match uses the assigned map (Forbidden City) and CPC gamemode.
 8. Host the lobby yourself; post the code in the battle post.
 
-Full Q&A: `Week_5_Mod_Questions.md`
+Full Q&A: [[Week_5_Mod_Questions]]
 
 ## Match result
 
@@ -36,8 +40,12 @@ During Week 5, the roster cleanup was executed:
 - SP corrected from erroneous 20,723 to 22,700.
 - Final roster: Akulmach74 + Gunshot + BoWolf (3 players, valid).
 
-Full ticket transcript: `Week_5_Mod_Questions.md` (W6 Prep section)
+Full ticket transcript: [[Week_5_Mod_Questions]] (W6 Prep section)
 
 ## Evidence
 
 Official MM list: `evidence/MAQC_S7_Week5_Matchmaking.pdf`
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

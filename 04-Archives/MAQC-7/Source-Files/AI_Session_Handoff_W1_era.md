@@ -1,3 +1,7 @@
+---
+name: AI_Session_Handoff_W1_era
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # MAQC Season 7 — AI Session Handoff Document
 
 **Created:** August 19, 2026  
@@ -10,7 +14,7 @@
 
 You are continuing an ongoing MAQC Season 7 tournament management session. Read this document fully before responding to any user request. Key rules:
 
-- **Answer only using the MAQC Knowledge Base** (`MAQC_Knowledge_Base.md`) for any rule-related questions.
+- **Answer only using the MAQC Knowledge Base** ([[MAQC_Knowledge_Base]]) for any rule-related questions.
 - **Never invent rules, deadlines, or player data.**
 - **All team data** comes from the Google Form CSV responses file.
 - **All ongoing match info** (opponent, timing negotiations) is captured in this handoff document.
@@ -28,7 +32,7 @@ All files are located at: `c:/Users/Kanchan Verma/OneDrive/Desktop/MAQC S7/`
 
 | File | Description |
 | :--- | :--- |
-| `MAQC_Knowledge_Base.md` | **Primary source of truth.** All rules, workflows, deadlines, glossary, FAQs. Always consult this first. |
+| [[MAQC_Knowledge_Base]] | **Primary source of truth.** All rules, workflows, deadlines, glossary, FAQs. Always consult this first. |
 | `MAQC Season 7 - Week 1 Matchmaking.pdf` | Official Week 1 matchmaking bracket PDF. Team is in Bracket 8, Match #640. |
 | `MAQC Season 7 Team Information (Responses) - Form responses 1 (1).csv` | Google Form responses with all 5 player details. |
 | `Mech Arena Quarterly Clash - Information Guide.pdf` | Original official MAQC information guide PDF. |
@@ -150,3 +154,6 @@ Player 5: Baby Bird — 26410318
 - **No over-formatting** in casual messages. Avoid headers and long tables in Discord drafts.
 - **Internal team messages:** Slightly more detailed, can include bullet points.
 - **Opponent messages:** Keep it brief, friendly, and to the point.
+
+## See also
+[[04-Archives/MAQC-7/README|README]]

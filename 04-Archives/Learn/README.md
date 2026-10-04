@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/ai-learning"]
+---
 # AI Learning System (Learn) Archive
 
 **Status:** COMPLETED
@@ -65,14 +69,14 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 - [x] Implemented interactive diagnostic quizzes via Hermes `clarify` tool.
 - [x] Verified live web fact-checking via `web_search` and `web_extract`.
 - [x] Generated multi-tier system architecture SVG vector diagram (`git-internals-architecture.svg`).
-- [x] Produced live demonstration lesson note (`Git-Internals-Blobs-Trees-Commits.md`) with 6-tier architecture Mermaid diagrams and 11 Spaced Repetition flashcards.
+- [x] Produced live demonstration lesson note ([[Git-Internals-Blobs-Trees-Commits]]) with 6-tier architecture Mermaid diagrams and 11 Spaced Repetition flashcards.
 - [x] Enforced strict user-consent policy for vault file scanning and study resource inputs.
 
 ---
 
 ## Notes for Next AI / Pair Programmer
 
-- **Operating Rules:** Read `Project-Files/AGENTS.md` before executing any teaching workflows or modifying skills.
+- **Operating Rules:** Read [[04-Archives/Learn/Project-Files/AGENTS|AGENTS]] before executing any teaching workflows or modifying skills.
 - **Skill Location:** The active `teach` skill is installed in the Hermes pedagogy profile. Run `skill_view(name='teach')` to inspect or execute it.
 - **Visual Standards:** User strictly prefers multi-tiered visual diagrams (similar to cloud/system architecture flowcharts) over long prose.
 - **Flashcard Standard:** Always format flashcard blocks with Obsidian Spaced Repetition syntax (`Question #card` / `Q::A` or `==cloze== #card`).
@@ -81,3 +85,6 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 ---
 
 *Last Updated: 2026-10-01*
+
+## See also
+[[04-Archives/README|README]]

@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/productivity"]
+---
 # Worksheet-Generator Archive
 
 **Status:** COMPLETED
@@ -46,7 +50,7 @@ Worksheet-Generator/
 ## Notes for Next AI/Human
 
 - The `Worksheet X-A.md` in `Templates/` is the main worksheet template
-- `Project-Files/README.md` contains original usage instructions and paste-ready prompts
+- [[04-Archives/Worksheet-Generator/Project-Files/README|README]] contains original usage instructions and paste-ready prompts
 - This was a complete worksheet generation system, not just a template
 - Safe to use as reference for building similar worksheet generators
 - All components preserved for future worksheet projects
@@ -54,3 +58,6 @@ Worksheet-Generator/
 ---
 
 *Last Updated: 2026-09-29*
+
+## See also
+[[04-Archives/README|README]]

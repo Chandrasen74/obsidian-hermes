@@ -1,3 +1,7 @@
+---
+name: Week_1
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 1 — Match #640 vs @ita_lev06
 
 **Map:** Biogear Lab | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -16,3 +20,7 @@
 
 No specific screenshot evidence archived for this week.
 Official MM list: `evidence/MAQC_S7_Week1_Matchmaking.pdf`
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

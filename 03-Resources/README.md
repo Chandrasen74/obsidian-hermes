@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/active", "#type/index", "#domain/productivity"]
+---
 # 03-Resources
 
 **Definition:** Topics or interests that may be useful in the future.
@@ -8,8 +12,8 @@
 - Examples: Research topics, reference articles, templates
 
 **Current Resources:**
-- [Documentation](03-Resources/) - README files and guides
-- [Templates](03-Resources/Templates/) - Worksheet X-A and other templates
+- **Documentation** - README files and guides
+- **Templates** - `[[04-Archives/Worksheet-Generator/Templates/Worksheet X-A|Worksheet X-A]]` and other templates
 - Welcome notes
 
 **Organization:**

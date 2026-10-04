@@ -1,3 +1,7 @@
+---
+name: plan
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
+---
 # Project Plan & Execution Lifecycle (Learn Adaptation)
 
 **Status:** Completed
@@ -20,7 +24,7 @@
 - [x] **Milestone 1: Repository Ingestion & SLOC Analysis**
   - Cloned `amosblomqvist/learn` into scratch storage.
   - Ran `pygount` analysis across 16 files (1,784 SLOC TypeScript/Markdown).
-  - Documented components in `Architecture-and-Components.md` and `Codebase-Analysis.md`.
+  - Documented components in [[Architecture-and-Components]] and [[Codebase-Analysis]].
 
 - [x] **Milestone 2: Hermes `teach` Skill Authoring**
   - Implemented 4-phase pedagogical lifecycle in Hermes skill format.
@@ -34,5 +38,8 @@
   - Generated Obsidian Spaced Repetition flashcard deck (`#card`).
 
 - [x] **Milestone 4: Vault Archival**
-  - Reorganized project into `04-Archives/Learn/` following MAQC-7 format.
-  - Created `AGENTS.md` and folder READMEs for future AI handoff.
+  - Reorganized project into [[04-Archives/Learn/README|README]] following MAQC-7 format.
+  - Created [[04-Archives/Learn/Project-Files/AGENTS|AGENTS]] and folder READMEs for future AI handoff.
+
+## See also
+[[04-Archives/Learn/Project-Files/README|README]]

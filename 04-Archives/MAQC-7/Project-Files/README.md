@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/gaming"]
+---
 # MAQC Season 7 — Team akulmach74 Tournament Database
 
 **Tournament:** Mech Arena Quarterly Clash (MAQC) Season 7
@@ -10,15 +14,15 @@
 
 | What you need | Go to |
 | :--- | :--- |
-| Current week status and checklist | `Week_6_Brief.md` |
-| W6 mod ticket and DQ ruling | `Week_6_Mod_Questions.md` |
-| All MAQC rules (canonical, never invent beyond this) | `MAQC_Knowledge_Base.md` |
-| Time zones and Discord timestamps | `Time_Formula_Sheet.md` |
-| Workflow and file maintenance guide | `plan.md` |
-| Agent operating rules | `AGENTS.md` |
+| Current week status and checklist | [[Week_6_Brief]] |
+| W6 mod ticket and DQ ruling | [[Week_6_Mod_Questions]] |
+| All MAQC rules (canonical, never invent beyond this) | [[MAQC_Knowledge_Base]] |
+| Time zones and Discord timestamps | [[Time_Formula_Sheet]] |
+| Workflow and file maintenance guide | [[04-Archives/MAQC-7/Project-Files/plan|plan]] |
+| Agent operating rules | [[04-Archives/MAQC-7/Project-Files/AGENTS|AGENTS]] |
 | Agent tasks and memory | `.agent/PLANS.md` · `.agent/MEMORY.md` · `.agent/USER.md` |
-| Full season summary | `docs/Season_Overview.md` |
-| Per-week match summaries | `docs/Week_1.md` through `docs/Week_6.md` |
+| Full season summary | [[Season_Overview]] |
+| Per-week match summaries | [[Week_1]] through [[Week_6]] |
 | PDFs, screenshots, exports | `evidence/` folder |
 
 ---
@@ -66,12 +70,12 @@ Team mentor: Gladiator (`gladiator_22837`, `<@1217130504357413015>`)
 
 | File | Purpose |
 | :--- | :--- |
-| `Week_6_Brief.md` | W6 live status: match #630, bot match checklist, thread log, DQ details, strat |
-| `Week_6_Mod_Questions.md` | Ticket #267 full transcript and disqualification ruling |
-| `MAQC_Knowledge_Base.md` | Canonical rules reference v1.2. Do not invent beyond this. |
-| `Time_Formula_Sheet.md` | UTC conversions, Discord `<t:UNIX:F>` timestamps, weekly slot tables |
-| `plan.md` | When to read, update, and sync every file. Read at session start. |
-| `AGENTS.md` | Repo-wide conventions and agent invariants |
+| [[Week_6_Brief]] | W6 live status: match #630, bot match checklist, thread log, DQ details, strat |
+| [[Week_6_Mod_Questions]] | Ticket #267 full transcript and disqualification ruling |
+| [[MAQC_Knowledge_Base]] | Canonical rules reference v1.2. Do not invent beyond this. |
+| [[Time_Formula_Sheet]] | UTC conversions, Discord `<t:UNIX:F>` timestamps, weekly slot tables |
+| [[04-Archives/MAQC-7/Project-Files/plan|plan]] | When to read, update, and sync every file. Read at session start. |
+| [[04-Archives/MAQC-7/Project-Files/AGENTS|AGENTS]] | Repo-wide conventions and agent invariants |
 
 ### Agent memory (`.agent/`)
 
@@ -86,10 +90,10 @@ Team mentor: Gladiator (`gladiator_22837`, `<@1217130504357413015>`)
 
 | File | Purpose |
 | :--- | :--- |
-| `Week_5_Brief.md` | W5 operations, roster saga (Ticket #583), W5 2-0 bot match details |
-| `Week_5_Mod_Questions.md` | 8 mod Q&As on bot match procedure; full Ticket #583 transcript |
-| `docs/Season_Overview.md` | Full 6-week season summary: results, roster changes, all precedents |
-| `docs/Week_1.md` through `docs/Week_6.md` | Per-week match summaries with context and evidence links |
+| [[Week_5_Brief]] | W5 operations, roster saga (Ticket #583), W5 2-0 bot match details |
+| [[Week_5_Mod_Questions]] | 8 mod Q&As on bot match procedure; full Ticket #583 transcript |
+| [[Season_Overview]] | Full 6-week season summary: results, roster changes, all precedents |
+| [[Week_1]] through [[Week_6]] | Per-week match summaries with context and evidence links |
 
 ### Evidence (`evidence/`)
 
@@ -101,7 +105,7 @@ Team mentor: Gladiator (`gladiator_22837`, `<@1217130504357413015>`)
 | `Discord_Admin_Announcements_and_Rulebook.txt` | Raw Discord announcements and rulebook text |
 | `Discord_Community_Channel_2026-08-14_to_2026-08-30.html` | W2 #671 battle-post export (double-loss case study) |
 | `Earlier_Chat_Export_W2-W4_drafts.txt` | AI chat export, W2-W4 drafts and style reference |
-| `AI_Session_Handoff_W1_era.md` | Week 1 era handoff (roster, style guide) |
+| [[AI_Session_Handoff_W1_era]] | Week 1 era handoff (roster, style guide) |
 | `Screenshot_20260924_185314_lock_confirmed.png` | W6 Draft 6 sent (match time locked, mod thumbs-up) |
 | `Screenshot_20260924_185252_team_brief_sent.png` | W6 Draft 7 sent (team strategy brief) |
 | `Screenshot_20260916_*.png` | W4/W5 era screenshots |
@@ -133,12 +137,15 @@ Team mentor: Gladiator (`gladiator_22837`, `<@1217130504357413015>`)
 
 All Markdown files use consistent heading levels and keyword phrases:
 
-- Rules and rulings: search `MAQC_Knowledge_Base.md` for rule name, "Penalty", or "precedent"
+- Rules and rulings: search [[MAQC_Knowledge_Base]] for rule name, "Penalty", or "precedent"
 - Match scheduling: search `Week_N_Brief.md` for "Draft", "SENT", "locked", or "UTC"
-- Time conversions: search `Time_Formula_Sheet.md` by week number or timezone abbreviation
+- Time conversions: search [[Time_Formula_Sheet]] by week number or timezone abbreviation
 - Mod tickets: search `Week_N_Mod_Questions.md` for "Ticket #", "Ruling", or "night fury"
 - Open tasks: search `.agent/PLANS.md` for `[ ]` (open) or `[x]` (done)
 - Player info: search `.agent/USER.md` by player name or in-game ID
 - Evidence files: `evidence/` filenames use YYYYMMDD format for date-sorted browsing
 
 **Search keywords:** Mech Arena Quarterly Clash, MAQC Season 7, MAQC S7, akulmach74, Imperial Temple, Forbidden City, Bo3 CPC, Bracket 10, Squad Power, charliebrown0002, night fury, Ticket #267, Ticket #583, mod ruling, disqualification, gross misconduct, scheduling, Discord timestamps, UTC IST EDT AKDT
+
+## See also
+[[04-Archives/MAQC-7/README|README]]

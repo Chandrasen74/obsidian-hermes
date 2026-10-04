@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/productivity"]
+---
 # Worksheet X-A Template
 
 This `Worksheet X-A` template is an autonomous worksheet generator for Delhi Public School, Gurugram. It can research, build its own knowledge base, and deliver a finished worksheet and answer key for any subject and grade.
@@ -332,3 +336,6 @@ the worksheet. Then stop.
 ║   END OF PROMPT                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
+
+## See also
+[[04-Archives/Worksheet-Generator/README|README]]

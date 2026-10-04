@@ -1,3 +1,7 @@
+---
+name: OMNIROUTE_STARTUP
+tags: ["#status/active", "#type/doc", "#domain/productivity"]
+---
 # Omniroute Startup Guide
 
 **Purpose:** Quick-start command for launching your Obsidian second brain with logging
@@ -29,3 +33,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; omniroute --log
 
 ---
 *Startup guide for Obsidian second brain initialization*
+
+## See also
+- [[Hermes-Tasks]]
+- [[01-Projects/README|README]]

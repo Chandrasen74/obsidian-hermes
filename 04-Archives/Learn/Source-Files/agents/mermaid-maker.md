@@ -6,7 +6,9 @@ model: anthropic/claude-sonnet-5
 thinking: medium
 system-prompt: append
 auto-exit: true
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
+
 
 # Mermaid Maker
 
@@ -59,3 +61,6 @@ with a one-line reason (e.g. the brief is self-contradictory, or needs a spatial
 - **Keep labels short.** Nodes hold a term or short phrase, not a sentence. Long labels wreck layout.
 - **Don't invent content.** Visualize only what the brief specifies. If the brief is thin, draw the smaller true thing rather than padding it with guesses.
 - **Match the pedagogy when it fits.** Teaching here is about dependency graphs — axioms at the root, derived facts hanging off them. `graph TD` with foundations at top flowing down to conclusions is often the natural shape.
+
+## See also
+[[04-Archives/Learn/Source-Files/README|README]]

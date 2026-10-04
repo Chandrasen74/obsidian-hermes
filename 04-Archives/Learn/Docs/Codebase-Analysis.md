@@ -1,3 +1,7 @@
+---
+name: Codebase-Analysis
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
+---
 # Codebase & SLOC Analysis: amosblomqvist/learn
 
 **Source Repo:** https://github.com/amosblomqvist/learn.git
@@ -30,13 +34,13 @@
 | `extensions/visual-tools/tools/svg_tools.ts` | TypeScript | 124 | SVG authoring, rendering, and PNG export tools |
 | `extensions/visual-tools/tools/_common.ts` | TypeScript | 93 | Common file/renderer utilities for visual tools |
 | `extensions/visual-tools/index.ts` | TypeScript | 27 | Visual tools extension registration entrypoint |
-| `skills/visualize/SKILL.md` | Markdown | 23 | Directing subagents to create minimal, verified diagrams |
-| `agents/mermaid-maker.md` | Markdown | 18 | Prompt & tool specs for Mermaid diagram generator subagent |
-| `agents/svg-maker.md` | Markdown | 18 | Prompt & tool specs for precise geometric SVG subagent |
-| `README.md` | Markdown | 13 | Upstream project overview and installation instructions |
-| `skills/teach/SKILL.md` | Markdown | 9 | Core pedagogical skill: axioms, motivated discovery, probe-plan-teach |
+| [[04-Archives/Learn/Source-Files/skills/visualize/SKILL|SKILL]] | Markdown | 23 | Directing subagents to create minimal, verified diagrams |
+| [[mermaid-maker]] | Markdown | 18 | Prompt & tool specs for Mermaid diagram generator subagent |
+| [[svg-maker]] | Markdown | 18 | Prompt & tool specs for precise geometric SVG subagent |
+| [[04-Archives/Learn/Docs/README|README]] | Markdown | 13 | Upstream project overview and installation instructions |
+| [[04-Archives/Learn/Source-Files/skills/teach/SKILL|SKILL]] | Markdown | 9 | Core pedagogical skill: axioms, motivated discovery, probe-plan-teach |
 | `extensions/visual-tools/package.json` | JSON | 13 | Node dependencies for Mermaid rendering tools |
-| `agents/researcher.md` | Markdown | 2 | Spec for web search & truth verification subagent |
+| [[researcher]] | Markdown | 2 | Spec for web search & truth verification subagent |
 | `assets/thumbnail.png` | Binary | 0 | Video cover asset |
 | `extensions/visual-tools/package-lock.json` | Generated | 0 | Dependency lockfile |
 
@@ -50,3 +54,6 @@
    - `@mermaid-js/mermaid-cli` (Chromium-backed rendering).
    - `rsvg-convert` / ImageMagick for SVG to PNG conversion.
 4. **Markdown Bridge:** Live appending of conversation and quiz states into Obsidian-compatible markdown callouts (`[!quote]`, `[!abstract]`, `[!question]`, `[!success]`, `[!failure]`).
+
+## See also
+[[Pedagogical-Framework]]

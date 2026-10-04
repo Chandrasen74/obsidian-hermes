@@ -1,3 +1,7 @@
+---
+name: Pedagogical-Framework
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
+---
 # Pedagogical Framework & Teaching Principles
 
 This document specifies the pedagogical architecture adapted from Amos Blomqvist's `learn` system into the Hermes ecosystem.
@@ -45,3 +49,9 @@ When crafting checkpoint quizzes via `clarify`:
 - **Distractor C (Path/Naming Trap):** Reflects confusing content bytes with metadata paths.
 
 When a distractor is selected, the system logs the misconception directly in the session notes and provides a targeted mental model repair.
+
+## See also
+[[Architecture-and-Components]]
+[[Adaptation-Plan]]
+[[Codebase-Analysis]]
+[[04-Archives/Learn/Docs/README|README]]

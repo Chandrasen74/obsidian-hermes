@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/productivity"]
+---
 # 04-Archives
 
 **Definition:** Inactive items from the other three categories.
@@ -14,9 +18,9 @@
 - Searchable but out of active workflow
 
 **Current Archives:**
-- [Learn/](Learn/) (AI Learning System - COMPLETED 2026-10-01)
-- [MAQC-7/](MAQC-7/) (Gaming Tournament - COMPLETED 2026-09-29)
-- [Worksheet-Generator/](Worksheet-Generator/) (Worksheet Generator System - COMPLETED 2026-09-29)
+- [[04-Archives/Learn/README|README]] (AI Learning System - COMPLETED 2026-10-01)
+- [[04-Archives/MAQC-7/README|README]] (Gaming Tournament - COMPLETED 2026-09-29)
+- [[04-Archives/Worksheet-Generator/README|README]] (Worksheet Generator System - COMPLETED 2026-09-29)
 
 ---
 
