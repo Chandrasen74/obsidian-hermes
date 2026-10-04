@@ -1,3 +1,7 @@
+---
+name: Week_6_Brief
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 6 Brief — Team akulmach74 (FINAL WEEK · Match Week 6 #630 · Imperial Temple)
 
 **Created:** Mon 21 Sep 2026 (Week 6 Day 1) · **Season:** MAQC S7, Week 6 of 6 — the last one
@@ -122,3 +126,7 @@ Announcement rules: lobby bots on **Equalize** — check twice, launch once. All
 - **Wrong map = match won't count** — Imperial Temple, check twice, launch once.
 - **Lobby setting: Equalize with bots, always.**
 - **Player Conduct / Harassment:** Do not engage in toxic DMs. Take screenshots, open a ticket under Player Conduct, and allow moderation to enforce Code of Conduct.
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]
+[[Week_6]] (per-week match summary)

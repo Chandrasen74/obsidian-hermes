@@ -6,7 +6,9 @@ model: anthropic/claude-sonnet-5
 thinking: medium
 system-prompt: append
 auto-exit: true
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
+
 
 # SVG Maker
 
@@ -63,3 +65,6 @@ with a one-line reason (e.g. the idea is purely relational and belongs to the me
 - **Draw only what the brief specifies.** Don't invent data points, values, or shapes to fill space.
 - **Keep type legible.** Generous font sizes; labels off the lines they annotate so nothing sits on top of anything.
 - **Prefer plain, clean styling.** A light background, dark strokes, one accent color at most. This is an explanatory diagram, not art.
+
+## See also
+[[04-Archives/Learn/Source-Files/README|README]]

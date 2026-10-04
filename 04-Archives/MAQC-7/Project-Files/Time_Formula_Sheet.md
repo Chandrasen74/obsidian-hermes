@@ -1,3 +1,7 @@
+---
+name: Time_Formula_Sheet
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # MAQC time formula sheet
 
 ## Convert
@@ -90,3 +94,6 @@ Sat anchor slots (Sat 19 Sep):
 | 3:00 PM ⭐ | 8:30 PM | 11:00 AM | `<t:1789830000:F>` |
 | 4:00 PM ⭐ | 9:30 PM | 12:00 PM | `<t:1789833600:F>` |
 | 5:00 PM stretch | 10:30 PM | 1:00 PM | `<t:1789837200:F>` |
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]

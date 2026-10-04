@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/archived", "#type/index", "#domain/ai-learning"]
+---
 # Documentation Index (Learn Subsystem)
 
 This folder contains comprehensive architectural breakdowns, codebase SLOC inspections, porting plans, and pedagogical rules for the Learn system.

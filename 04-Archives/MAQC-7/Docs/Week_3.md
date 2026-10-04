@@ -1,3 +1,7 @@
+---
+name: Week_3
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 3 — Match #668 vs @mrjama0586
 
 **Map:** Paradise Plaza | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -18,3 +22,7 @@ Match went to 3 games. Team won one, lost two. Result confirmed by captain 16 Se
 
 Official MM list: `evidence/MAQC_S7_Week3_Matchmaking.pdf`
 Early-season screenshots: `evidence/Screenshot_20260829_*.png`
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

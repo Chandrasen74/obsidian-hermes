@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/active", "#type/index", "#domain/productivity"]
+---
 # 01-Projects
 
 **Definition:** Active endeavors with a specific goal and deadline.
@@ -25,9 +29,9 @@
 - [ ] Add new projects here as they begin
 
 **Completed & Archived:**
-- [x] AI Learning System (Learn) - moved to `04-Archives/Learn/`
-- [x] MAQC-7 - moved to `04-Archives/MAQC-7/`
-- [x] Worksheet-Generator - moved to `04-Archives/Worksheet-Generator/`
+- [x] AI Learning System (Learn) - moved to [[04-Archives/Learn/README|README]]
+- [x] MAQC-7 - moved to [[04-Archives/MAQC-7/README|README]]
+- [x] Worksheet-Generator - moved to [[04-Archives/Worksheet-Generator/README|README]]
 
 ---
 
@@ -39,7 +43,7 @@ Projects should have:
 3. Actionable next steps
 4. Regular progress updates
 
-When a project is complete, move it to `04-Archives/` with organized subfolders.
+When a project is complete, move it to [[04-Archives/README|README]] with organized subfolders.
 
 ---
 
@@ -47,7 +51,7 @@ When a project is complete, move it to `04-Archives/` with organized subfolders.
 
 - Check this folder first for active work
 - Each project should have its own subfolder
-- Update `Hermes-Tasks.md` with project progress
+- Update [[Hermes-Tasks]] with project progress
 - Archive completed projects promptly to keep this folder clean
 
 ---

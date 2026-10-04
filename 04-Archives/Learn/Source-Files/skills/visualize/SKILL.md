@@ -1,7 +1,9 @@
 ---
 name: visualize
 description: "Add a correct, minimal visual to a lesson — a diagram or geometric picture — that renders inline in the Obsidian log. Use when an idea is genuinely clearer as a picture: a dependency graph, system/flow, sequence, state machine, tree, comparison, or a spatial/geometric thing (coordinate geometry, number line, vectors, a plot, a physical layout). Outsources authoring+rendering to a maker subagent that verifies the image by looking at it, then you embed the returned file."
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
+
 
 # Visualize
 
@@ -76,3 +78,6 @@ That's all. The `md-log` extension mirrors your reply text verbatim into the lin
 - Unique filenames keep Obsidian's by-filename embed resolution unambiguous.
 
 > The makers render through the project's `visual-tools` extension (Mermaid via a bundled `@mermaid-js/mermaid-cli` + installed Chrome; SVG via `rsvg-convert`, fallback ImageMagick). You don't render anything yourself — you only brief the maker and embed the filename it returns.
+
+## See also
+[[04-Archives/Learn/Source-Files/README|README]]

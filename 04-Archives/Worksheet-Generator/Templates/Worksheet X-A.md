@@ -1,3 +1,7 @@
+---
+name: Worksheet X-A
+tags: ["#status/archived", "#type/template", "#domain/productivity"]
+---
 &lt;div align="center"&gt;
 
 # DPS MASTER WORKSHEET ENGINE
@@ -899,3 +903,6 @@ per template : ~200 coordinate pairs × ~6 contexts × 3 asks ≈ 3,600
 One autonomous prompt · self-researching · logo · house format · worksheet · answer key
 
 &lt;/div&gt;
+
+## See also
+[[04-Archives/Worksheet-Generator/README|README]]

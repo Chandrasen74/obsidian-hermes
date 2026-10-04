@@ -1,3 +1,13 @@
+---
+name: Git-Internals-Blobs-Trees-Commits
+tags:
+  - "#status/archived"
+  - "#type/lesson"
+  - "#domain/ai-learning"
+  - "#card"
+feature: 04-Archives/Learn/Assets/git-internals-architecture.svg
+thumbnail: 04-Archives/Learn/Assets/git-internals-architecture.svg
+---
 # Lesson: How Git Works Under the Hood
 
 **Topic:** Git Internals (Blobs, Trees, Commits, Refs)
@@ -220,3 +230,7 @@ When 100 identical files exist across different directories in a Git repository,
 
 A Git commit's parent pointer creates a ==directed acyclic graph (DAG)== where history can only grow forward because a commit's hash depends on its ==parent's hash==. #card
 <!--ID: 1727800000009-->
+
+## See also
+[[Pedagogical-Framework]]
+[[04-Archives/Learn/Lessons/README|README]]

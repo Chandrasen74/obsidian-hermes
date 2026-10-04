@@ -1,3 +1,7 @@
+---
+name: Week_4
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 4 — Match #665 vs @mecharenazim / ZiM
 
 **Map:** Site 313 | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -23,3 +27,7 @@ After the match, ZiM DM'd the captain with accusations of "hiding behind rules" 
 
 Official MM list: `evidence/MAQC_S7_Week4_Matchmaking.pdf`
 Screenshots: `evidence/Screenshot_20260910_074204_Discord.jpg` and `evidence/Screenshot_20260916_*.png`
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

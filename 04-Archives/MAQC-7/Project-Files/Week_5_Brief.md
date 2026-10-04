@@ -1,3 +1,7 @@
+---
+name: Week_5_Brief
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 5 Brief — Team akulmach74 (Reg SP 23,000 → ✅ 22,700 post-removal, mod-corrected 20 Sep)
 
 **Created:** Mon 14 Sep 2026 (Week 5 Day 1)
@@ -10,7 +14,7 @@
 > teammate's 22,700 figure; mod: "ok, raised now" — screenshot supplied). Bracket 10 to be re-verified
 > on the W6 MM PDF (drops Mon 21 Sep 6:00 AM UTC `<t:1789970400:F>`) — PDF is source of truth.
 > mikeyyy_007 = night fury's username (same person). Ticket #583 CLOSED. Full transcript in
-> `Week_5_Mod_Questions.md` W6 PREP.
+> [[Week_5_Mod_Questions]] W6 PREP.
 
 ---
 
@@ -80,7 +84,7 @@ Strategy: offer **Tue/Wed/Thu 3–5 PM UTC** for an early lock, keep **Sat 3–4
 - **Week 1 bot-rules announcement** says lobby MUST be **"Equalize"**.
 - **Week 2 mod live ruling** (night fury): *"Whoever is available plays and you equalize teams."*
 
-→ Default to **Equalize**, confirm with opponent in the post, and ask the mod to confirm for Week 5 (Q in `Week_5_Mod_Questions.md`).
+→ Default to **Equalize**, confirm with opponent in the post, and ask the mod to confirm for Week 5 (Q in [[Week_5_Mod_Questions]]).
 
 ---
 
@@ -135,7 +139,7 @@ i would like to get yr thoughts on this before matchmaking is shared tmrw so we 
 
 - **Recipient:** Gunshot (Discord DM). **Date:** Sun 20 Sep 2026, 9:20 AM + 9:35 AM (device-local = IST, confirmed via t: render 20 Sep). Transcribed verbatim from screenshot (typos preserved). `(edited)` tag on line 4 = Discord edit indicator, not message text.
 - **"the 2" = Destroyer + Baby Bird** (captain-confirmed 20 Sep). Context: W6 roster decision wanted before MM drops Mon 21 Sep 6:00 AM UTC (`<t:1789970400:F>`). **20 Sep: neither replied by the 10:00 PM IST team deadline → captain counts both OUT of Week 6** → ✅ REMOVED by night fury 10:49 PM IST same night (ticket #583).
-- **Status:** SENT only — no reply recorded as of 20 Sep. Roster questions sent to mods same day via Ticket Tool #583 (see `Week_5_Mod_Questions.md` W6 PREP).
+- **Status:** SENT only — no reply recorded as of 20 Sep. Roster questions sent to mods same day via Ticket Tool #583 (see [[Week_5_Mod_Questions]] W6 PREP).
 
 ### TEAM PING — 20 Sep (sent wording not captured — no screenshot; OUTCOME 20 Sep: no replies from Destroyer or Baby Bird)
 
@@ -215,3 +219,7 @@ Notes: verified facts only — 22,700 SP, removals done by the mod, 3-man squad 
 3. ~~W1 result~~ ✅ loss. ~~W4 detail~~ ✅ played, lost 1-2.
 4. ~~W3 (#668) result~~ ✅ settled: LOSS 1-2 (corrected 16 Sep). Record 1–4.
 5. ~~Week 5 announcement screenshot~~ — not needed, mod answered directly. ✅
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]
+[[Week_5]] (per-week match summary)

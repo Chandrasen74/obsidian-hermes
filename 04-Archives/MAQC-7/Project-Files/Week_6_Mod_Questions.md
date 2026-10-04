@@ -1,3 +1,7 @@
+---
+name: Week_6_Mod_Questions
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Moderator Log & Ticket #267 — Week 6 (Team akulmach74)
 
 **Match:** Week 6 **#630** · Bracket 10 · Map: **Imperial Temple** · Bo3 CPC (Equalize)  
@@ -52,3 +56,7 @@
 1. **Disqualification:** Charlie Brown's entire team is disqualified from MAQC Season 7 for gross misconduct and Code of Conduct violations.
 2. **Match Format for Team akulmach74:** Play Bo3 match on **Imperial Temple** with the **Equalize** teams option selected against bots.
 3. **Submission:** Take unedited screenshots of every game result and post in `#s07-battle-posts-week-06` thread **#630** before the season deadline (**Sun 27 Sep 06:00 UTC** `<t:1790488800:F>`).
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]
+[[Week_6]] (per-week match summary)

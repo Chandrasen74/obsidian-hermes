@@ -1,3 +1,7 @@
+---
+name: Week_2
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Week 2 — Match #671 vs @shegotyou88 / TӨXIC&TƛƧTY
 
 **Map:** Skyship 11 | **Mode:** Bo3 CPC | **Lobby:** Equalize
@@ -18,3 +22,7 @@ Offering a range and having the other side pick part of it does not count. Lesso
 
 Battle-post export: `evidence/Discord_Community_Channel_2026-08-14_to_2026-08-30.html`
 Official MM list: `evidence/MAQC_S7_Week2_Matchmaking.pdf`
+
+## See also
+[[Season_Overview]]
+[[04-Archives/MAQC-7/README|README]]

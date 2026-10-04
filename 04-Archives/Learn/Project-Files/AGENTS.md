@@ -1,3 +1,7 @@
+---
+name: AGENTS
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
+---
 # AGENTS.md — Operating Rules & Guidelines (Learn System)
 
 Use this guide whenever an AI agent is tasked with teaching, generating study notes, or extending the pedagogy subsystem.
@@ -35,11 +39,11 @@ Use this guide whenever an AI agent is tasked with teaching, generating study no
 
 | Path | Purpose |
 |---|---|
-| `04-Archives/Learn/README.md` | Master archive summary and status |
-| `04-Archives/Learn/Project-Files/` | System design, SLOC analysis, adaptation plans, and agent rules |
-| `04-Archives/Learn/Lessons/` | Generated live markdown lesson notes with embedded diagrams and cards |
-| `04-Archives/Learn/Assets/` | Vector SVG architecture diagrams and visual artifacts |
-| `04-Archives/Learn/Source-Files/` | Upstream TypeScript and prompt source files from `amosblomqvist/learn` |
+| [[04-Archives/Learn/README|README]] | Master archive summary and status |
+| [[04-Archives/Learn/Project-Files/README|README]] | System design, SLOC analysis, adaptation plans, and agent rules |
+| [[04-Archives/Learn/Lessons/README|README]] | Generated live markdown lesson notes with embedded diagrams and cards |
+| [[04-Archives/Learn/Assets/README|README]] | Vector SVG architecture diagrams and visual artifacts |
+| [[04-Archives/Learn/Source-Files/README|README]] | Upstream TypeScript and prompt source files from `amosblomqvist/learn` |
 
 ---
 
@@ -49,14 +53,14 @@ Use this guide whenever an AI agent is tasked with teaching, generating study no
 |---|---|
 | `extensions/quiz.ts` (TUI quiz) | `clarify` tool (single-choice & open-ended questions) |
 | `extensions/md-log.ts` | Direct Obsidian `.md` file generation via `write_file` / `patch` |
-| `agents/researcher.md` | `web_search` and `web_extract` for live technical verification |
-| `agents/mermaid-maker.md` | Inline Mermaid architecture diagrams with custom styling |
-| `agents/svg-maker.md` | Standalone SVG vector generation in `Assets/` |
+| [[researcher]] | `web_search` and `web_extract` for live technical verification |
+| [[mermaid-maker]] | Inline Mermaid architecture diagrams with custom styling |
+| [[svg-maker]] | Standalone SVG vector generation in `Assets/` |
 
 ---
 
 ## 4. Vault Conventions
 
 - All Git commits in the vault repository must use `akulmach74` as the author name.
-- Keep `README.md` files updated across all PARA directories (`00-Inbox`, `01-Projects`, `02-Areas`, `03-Resources`, `04-Archives`).
+- Keep [[04-Archives/Learn/Project-Files/README|README]] files updated across all PARA directories (`00-Inbox`, `01-Projects`, `02-Areas`, `03-Resources`, `04-Archives`).
 - Avoid em dashes (`—`) in draft outputs.

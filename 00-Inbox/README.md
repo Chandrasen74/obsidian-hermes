@@ -1,3 +1,7 @@
+---
+name: README
+tags: ["#status/inbox", "#type/index", "#domain/productivity"]
+---
 # 00-Inbox
 
 This is your inbox for unprocessed notes and incoming files.
@@ -24,3 +28,9 @@ This is your inbox for unprocessed notes and incoming files.
 - Archives: Inactive items from the other three categories
 
 **Note:** Keep this folder as empty as possible. Process items to zero regularly.
+
+## See also
+- [[01-Projects/README|README]]
+- [[02-Areas/README|README]]
+- [[03-Resources/README|README]]
+- [[04-Archives/README|README]]

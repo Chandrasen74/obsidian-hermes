@@ -1,3 +1,7 @@
+---
+name: Week_5_Mod_Questions
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Questions for the MAQC Mod — Week 5 (Team akulmach74)
 
 **Our match:** Week 5 **#665** (⚠️ same number as W4 — always say "Week 5") · Bracket 10 · **vs BOT** · Map: **Forbidden City**
@@ -198,7 +202,7 @@ During week 6: Uneven pair
 (Mon 21 Sep 6:00 AM UTC `<t:1789970400:F>`) for an even pair; during the week = uneven pair.
 ⚠️ Q4: SP/bracket CAN change if the removed player was the highest SP — Baby Bird had the highest
 Max SP at registration (22,550). Captain's 20 Sep "SP stays the same" check turned out WRONG — see
-resolution below. Ruling filed in `MAQC_Knowledge_Base.md` (Mid-Season Player Removal + FAQ).
+resolution below. Ruling filed in [[MAQC_Knowledge_Base]] (Mid-Season Player Removal + FAQ).
 
 **Captain's follow-up #1 — hold-off — ✅ SENT Sun 20 Sep, 11:08 AM export-time (UTC; ≈ 4:38 PM IST) (verbatim from Ticket Tool export):**
 
@@ -274,3 +278,7 @@ Ticket Tool 5:31 PM: Ticket Closed
 - Operational read: with SP now 22,700 (was 23,000), Bracket 10 status for W6 to be re-verified on the MM PDF tomorrow — the PDF is the source of truth.
 
 **Captain's follow-up #3 — SP question to mikeyyy_007 — ⏭️ SUPERSEDED (sent conversationally in-ticket, wording changed; see full transcript below)**
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]
+[[Week_5]] (per-week match summary)

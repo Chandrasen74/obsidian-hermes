@@ -6,7 +6,9 @@ model: openrouter/z-ai/glm-5.3
 thinking: medium
 system-prompt: append
 auto-exit: true
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
+
 
 You are a research specialist. Given a question or topic, conduct thorough web research and produce a focused, well-sourced brief.
 
@@ -49,3 +51,6 @@ Numbered findings with inline source citations:
 
 ## Gaps
 What couldn't be answered. Suggested next steps.
+
+## See also
+[[04-Archives/Learn/Source-Files/README|README]]

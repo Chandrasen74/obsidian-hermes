@@ -1,3 +1,7 @@
+---
+name: Architecture-and-Components
+tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
+---
 # Architecture & Components: AI Learning System
 
 **Repository:** `amosblomqvist/learn`
@@ -59,3 +63,7 @@ graph TD
 - **`quiz`:** Interactive, graded multiple-choice / multi-select tool with instant feedback, explanations, and an explicit "I don't know" knowledge gap option.
 - **`ask-user-question`:** Non-graded interactive prompt for decisions, branching, and open-ended input.
 - **`md-log`:** Real-time logging pipe that writes session transcripts, formatted Q&A blocks, and LaTeX math into Obsidian markdown notes with rich callouts.
+
+## See also
+[[Pedagogical-Framework]]
+[[04-Archives/Learn/Docs/README|README]]

@@ -1,3 +1,7 @@
+---
+name: MAQC_Knowledge_Base
+tags: ["#status/archived", "#type/doc", "#domain/gaming"]
+---
 # Mech Arena Quarterly Clash (MAQC) Season 7 Knowledge Base
 
 **Version**: 1.2
@@ -228,7 +232,7 @@ do not need to execute the removal in-game; giving the mod the IDs is sufficient
 **updated the team's max SP** after removal (confirming the Q4 recalc "It can" does happen). He
 added it "doesnt really matter atp" — implying SP no longer materially affects this team's W6
 standings (casual remark, not a formal ruling).
-#### Resolution Addendum (Sun 20 Sep 2026, night, same ticket — full transcript in `Week_5_Mod_Questions.md`)
+#### Resolution Addendum (Sun 20 Sep 2026, night, same ticket — full transcript in [[Week_5_Mod_Questions]])
 - SP recalc DID happen: mod first set 20,723, captain flagged it (teammate's figure: 22,700) with a
   screenshot, mod raised it → **team max SP confirmed 22,700** (was 23,000 at registration).
 - **mikeyyy_007 = night fury's Discord username** — one person, not a separate mod.
@@ -607,3 +611,6 @@ The AI should:
 - **Mention when documentation is incomplete** by stating "The official documentation does not specify this."
 - **Distinguish between documented facts and inference.**
 - **Treat this markdown as the canonical project documentation.**
+
+## See also
+[[04-Archives/MAQC-7/Project-Files/README|README]]

@@ -1,3 +1,12 @@
+---
+name: README
+tags:
+  - "#status/archived"
+  - "#type/index"
+  - "#domain/ai-learning"
+feature: thumbnails/youtube/kzcI5F4tGiU.webp
+thumbnail: thumbnails/resized/e2b4e9cf3c4ccbfab9bd721277450172_86cf658e.webp
+---
 # learn
 
 [![video](assets/thumbnail.png)](https://www.youtube.com/watch?v=kzcI5F4tGiU)
@@ -29,7 +38,7 @@ Then open pi in that directory. (Or copy the pieces you want into your existing 
 ## Requirements
 
 - [pi](https://github.com/earendil-works/pi)
-- A subagent implementation, so the system can spawn the researcher and the visual makers. Recommended: [pi-interactive-subagents](https://github.com/amosblomqvist/pi-interactive-subagents) (tmux only). With it, everything works out of the box. Any other implementation works too, but expect to adapt the agent definitions, e.g. `agents/researcher.md` lists `safe_bash` in its tools, which is specific to that extension.
+- A subagent implementation, so the system can spawn the researcher and the visual makers. Recommended: [pi-interactive-subagents](https://github.com/amosblomqvist/pi-interactive-subagents) (tmux only). With it, everything works out of the box. Any other implementation works too, but expect to adapt the agent definitions, e.g. [[researcher]] lists `safe_bash` in its tools, which is specific to that extension.
 - `ask-user-question` — use the copy bundled here. If your setup already has an `ask-user-question` extension, use **this** one in its place. Popups from different extensions serialize through a shared UI lock, which only works when it's the same implementation.
 
 ## Notes
@@ -37,3 +46,6 @@ Then open pi in that directory. (Or copy the pieces you want into your existing 
 You can run the system without subagents. The main session does the teaching. You just lose the researcher (truth verification) and the generated visuals.
 
 The teaching skill is written for one learner (me). Edit the skill to fit how you learn best.
+
+## See also
+[[04-Archives/Learn/README|README]]
