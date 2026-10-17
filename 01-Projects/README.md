@@ -32,6 +32,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - [x] AI Learning System (Learn) - moved to [[04-Archives/Learn/README|README]]
 - [x] MAQC-7 - moved to [[04-Archives/MAQC-7/README|README]]
 - [x] Worksheet-Generator - moved to [[04-Archives/Worksheet-Generator/README|README]]
+- [x] Local AI (llama.cpp Qwen server) - moved to [[04-Archives/Local AI/README|README]]
 
 ---
 
@@ -56,4 +57,4 @@ When a project is complete, move it to [[04-Archives/README|README]] with organi
 
 ---
 
-*Last Updated: 2026-10-01*
+*Last Updated: 2026-10-17*
