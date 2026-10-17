@@ -12,7 +12,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - Examples: Health, Finance, Learning, Career
 
 Current Areas:
-- **Hermes Tools** - Omniroute launcher and automation tools
+- **Hermes Tools** - OpenCode-based automation workflow (omniroute launcher retired to [[04-Archives/Omniroute/README|04-Archives]])
 - **Workspace Analytics** - [[02-Areas/Workspace-Analytics|Live metrics, charts, and task tracking]]
 - Task Management
 - Learning & Development
@@ -56,4 +56,4 @@ Unlike projects, areas never get "completed" - they require continuous attention
 
 ---
 
-*Last Updated: 2026-09-29*
+*Last Updated: 2026-10-17*
