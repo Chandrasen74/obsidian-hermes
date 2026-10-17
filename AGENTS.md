@@ -32,7 +32,7 @@ store (USER.md + SOUL.md notes) during the migration to OpenCode (2026-10-17).
 - Hardware (verified 2026-10-17): no discrete NVIDIA GPU (Intel UHD iGPU only, no nvidia-smi); RAM is ONE 16 GB DDR4-3200 stick = single channel (~20 GB/s usable). llama.cpp CPU build 11633 lives inside the Local AI archive. Local LLM generation ceiling: ~3 t/s for a 9B Q4 (bandwidth-bound, math in the archive README).
 
 - Vision/image analysis token generation on this machine runs at ~3 tokens/sec; set generous timeouts on vision tasks.
-- Project `stickman-dunk` (5s crosshatch ink basketball dunk animation) lives at `C:\Users\Kanchan Verma\projects\animate\pieces\stickman-dunk`; the animate skill/workspace lives at `C:\Users\Kanchan Verma\projects\animate`.
+- Project `stickman-dunk` (5s crosshatch ink basketball dunk animation) lives in the vault at `01-Projects\projects\animate\pieces\stickman-dunk` (animate workspace = `01-Projects\projects\animate`). Active work plan: `pieces\stickman-dunk\plan.md`.
 - Repo facts for the `maqc 7` GitHub project: player count does not affect reward calculation; only final-week IDs receive rewards; solo/1v1-with-bot matches work. (A match was scheduled for 9:30 PM IST on Sat, Sep 26, 2026.)
 
 ## Skills Anchored Here
