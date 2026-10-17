@@ -11,8 +11,9 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - Have standards/criteria that define "done"
 - Examples: Health, Finance, Learning, Career
 
-**Current Areas:**
+Current Areas:
 - **Hermes Tools** - Omniroute launcher and automation tools
+- **Workspace Analytics** - [[02-Areas/Workspace-Analytics|Live metrics, charts, and task tracking]]
 - Task Management
 - Learning & Development
 
