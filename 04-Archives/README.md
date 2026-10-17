@@ -21,6 +21,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/Learn/README|README]] (AI Learning System - COMPLETED 2026-10-01)
 - [[04-Archives/MAQC-7/README|README]] (Gaming Tournament - COMPLETED 2026-09-29)
 - [[04-Archives/Worksheet-Generator/README|README]] (Worksheet Generator System - COMPLETED 2026-09-29)
+- [[04-Archives/Local AI/README|README]] (Local LLM Server - COMPLETED 2026-10-17)
 
 ---
 
@@ -30,6 +31,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [x] Learn - fully archived with architecture docs, source files, demo lessons, and agent guidelines
 - [x] MAQC-7 - fully archived with all source files
 - [x] Worksheet-Generator - archived with worksheet generation system preserved
+- [x] Local AI - archived with startup runner, operating docs, launcher code and performance documentation
 
 **Archive Maintenance:**
 - [ ] Review archives periodically for relevance
@@ -62,4 +64,4 @@ Each archived project should have:
 
 ---
 
-*Last Updated: 2026-10-01*
+*Last Updated: 2026-10-17*
