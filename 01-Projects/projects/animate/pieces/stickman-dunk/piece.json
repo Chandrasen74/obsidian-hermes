@@ -1,0 +1,8 @@
+{
+  "name": "stickman-dunk",
+  "title": "Stick Figure Windmill Slam Dunk",
+  "format": { "width": 1920, "height": 1080, "fps": 30, "bpm": 120, "duration": 5.0, "frames": 150 },
+  "storyFormat": "action-scene",
+  "style": "crosshatch",
+  "review": { "safe": { "top": 120, "bottom": 120, "right": 120, "left": 120 }, "refs": {} }
+}
