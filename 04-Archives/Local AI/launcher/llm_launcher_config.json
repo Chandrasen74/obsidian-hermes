@@ -1,0 +1,64 @@
+{
+  "default_executable": "C:\\Users\\Kanchan Verma\\OneDrive\\Desktop\\Hermes\\00-Inbox\\Local AI\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+  "executables": {},
+  "default_args": [
+    {
+      "name": "--host",
+      "value": "127.0.0.1",
+      "enabled": true
+    },
+    {
+      "name": "--port",
+      "value": "8080",
+      "enabled": true
+    },
+    {
+      "name": "--ctx-size",
+      "value": "8192",
+      "enabled": true
+    },
+    {
+      "name": "--threads",
+      "value": "6",
+      "enabled": true
+    },
+    {
+      "name": "--jinja",
+      "value": "",
+      "enabled": true
+    }
+  ],
+  "models": [
+    {
+      "name": "gemma-4-12B-it-QAT-Q4_0",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\models\\lmstudio-community\\gemma-4-12B-it-QAT-GGUF\\gemma-4-12B-it-QAT-Q4_0.gguf"
+    },
+    {
+      "name": "Qwen2.5-Coder-7B-Instruct-Q4_K_M",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\models\\lmstudio-community\\Qwen2.5-Coder-7B-Instruct-GGUF\\Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf"
+    },
+    {
+      "name": "Qwen2.5-VL-7B-Instruct-Q4_K_M",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\models\\lmstudio-community\\Qwen2.5-VL-7B-Instruct-GGUF\\Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf"
+    },
+    {
+      "name": "Qwen3.5-9B-Q4_K_M",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\models\\lmstudio-community\\Qwen3.5-9B-GGUF\\Qwen3.5-9B-Q4_K_M.gguf",
+      "args": [
+        {
+          "name": "--alias",
+          "value": "qwen3.5-9b",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "nomic-embed-text-v1.5.Q4_K_M",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\apps\\bionic\\.internal\\bundled-models\\nomic-ai\\nomic-embed-text-v1.5-GGUF\\nomic-embed-text-v1.5.Q4_K_M.gguf"
+    },
+    {
+      "name": "nomic-embed-text-v1.5.Q4_K_M",
+      "model_file": "C:\\Users\\Kanchan Verma\\.lmstudio\\.internal\\bundled-models\\nomic-ai\\nomic-embed-text-v1.5-GGUF\\nomic-embed-text-v1.5.Q4_K_M.gguf"
+    }
+  ]
+}
