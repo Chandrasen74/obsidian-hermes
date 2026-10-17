@@ -22,6 +22,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/MAQC-7/README|README]] (Gaming Tournament - COMPLETED 2026-09-29)
 - [[04-Archives/Worksheet-Generator/README|README]] (Worksheet Generator System - COMPLETED 2026-09-29)
 - [[04-Archives/Local AI/README|README]] (Local LLM Server - COMPLETED 2026-10-17)
+- [[04-Archives/Omniroute/README|README]] (Omniroute Startup - RETIRED 2026-10-17, superseded by OpenCode)
 
 ---
 
@@ -32,6 +33,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [x] MAQC-7 - fully archived with all source files
 - [x] Worksheet-Generator - archived with worksheet generation system preserved
 - [x] Local AI - archived with startup runner, operating docs, launcher code and performance documentation
+- [x] Omniroute - retired (superseded by OpenCode); launcher trio and operating guide preserved
 
 **Archive Maintenance:**
 - [ ] Review archives periodically for relevance
