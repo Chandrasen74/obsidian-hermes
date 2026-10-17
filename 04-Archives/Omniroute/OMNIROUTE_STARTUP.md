@@ -1,6 +1,6 @@
 ---
 name: OMNIROUTE_STARTUP
-tags: ["#status/active", "#type/doc", "#domain/productivity"]
+tags: ["#status/archived", "#type/doc", "#domain/productivity"]
 ---
 # Omniroute Startup Guide
 

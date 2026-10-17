@@ -1,3 +1,7 @@
+---
+name: AGENTS
+tags: ["#status/active", "#type/doc", "#domain/productivity"]
+---
 # Hermes Vault — Project Instructions
 
 Persistent rules consolidated from the Hermes Agent memory store

@@ -17,6 +17,10 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [x] MAQC Season 7 rewards processed and logged
 - [x] AI Learning System (Learn) adapted, demoed, and archived to [[04-Archives/Learn/README|README]]
 - [x] Obsidian graph view optimized with tags and wikilinks
+- [x] Migrated Hermes Agent setup to OpenCode (85 skills, memory consolidated into AGENTS.md rules)
+- [x] Local AI / llama.cpp server project shipped, verified, then archived to [[04-Archives/Local AI/README|Local AI archive]]
+- [x] Omniroute launcher retired to [[04-Archives/Omniroute/README|Omniroute archive]] (daily flow is OpenCode now)
+- [x] Vault reorganised: PARA indexes cross-linked, all content git-versioned and pushed to GitHub
 
 ## Current Focus
 - [ ] Task list maintenance (this note)

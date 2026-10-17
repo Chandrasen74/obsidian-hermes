@@ -2,6 +2,7 @@
 version: alpha
 name: Stitch Design System
 description: Design system for UI projects generated with Google Stitch CLI.
+tags: ["#status/active", "#type/design", "#domain/ai"]
 colors:
   primary: "#0F172A"
   secondary: "#64748B"
