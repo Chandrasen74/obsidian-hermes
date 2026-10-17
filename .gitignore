@@ -1,1 +1,7 @@
 .obsidian/
+.agents/
+thumbnails/
+node_modules/
+venv/
+logs/
+04-Archives/Local AI/llama.cpp/
