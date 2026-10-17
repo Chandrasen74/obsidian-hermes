@@ -14,7 +14,7 @@ This folder contains comprehensive architectural breakdowns, codebase SLOC inspe
 |---|---|---|
 | **[[Pedagogical-Framework|Pedagogical Framework]]** | Core teaching philosophy & Socratic engine | Diagnostic probes, DAG roadmaps, misconception repairs, flashcards |
 | **[[Architecture-and-Components|Architecture & Components]]** | Deep dive into system components | Researcher, visual subagents, quiz engine, logging pipeline |
-| **[[Adaptation-Plan|Adaptation Plan]]** | Hermes Agent & Obsidian porting roadmap | Pi harness to Hermes skill migration, tool mapping, file layouts |
+| **[[Adaptation-Plan|Adaptation Plan]]** | OpenCode Agent & Obsidian porting roadmap | Pi harness to OpenCode skill migration, tool mapping, file layouts |
 | **[[Codebase-Analysis|Codebase Analysis]]** | Upstream repository SLOC & metrics | Pygount breakdown, TypeScript modules, prompt distributions |
 
 ---

@@ -1,8 +1,8 @@
 ---
-name: Hermes-Tasks
+name: OpenCode-Tasks
 tags: ["#status/active", "#type/project", "#domain/productivity"]
 ---
-# Hermes Task Log & To-Do List
+# OpenCode Task Log & To-Do List
 
 This note tracks our ongoing work on your Obsidian second brain vault. I'll update it after each session to maintain context.
 
@@ -17,7 +17,7 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [x] MAQC Season 7 rewards processed and logged
 - [x] AI Learning System (Learn) adapted, demoed, and archived to [[04-Archives/Learn/README|README]]
 - [x] Obsidian graph view optimized with tags and wikilinks
-- [x] Migrated Hermes Agent setup to OpenCode (85 skills, memory consolidated into AGENTS.md rules)
+- [x] Migrated the old agent setup to OpenCode (85 skills, memory consolidated into AGENTS.md rules)
 - [x] Local AI / llama.cpp server project shipped, verified, then archived to [[04-Archives/Local AI/README|Local AI archive]]
 - [x] Omniroute launcher retired to [[04-Archives/Omniroute/README|Omniroute archive]] (daily flow is OpenCode now)
 - [x] Vault reorganised: PARA indexes cross-linked, all content git-versioned and pushed to GitHub
@@ -38,7 +38,7 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 **AI Learning System (Learn) Adaptation, Demo & Archival:**
 - Cloned and analyzed upstream repo `amosblomqvist/learn.git`.
 - Ran SLOC code inspection via `pygount` (16 files, 1,784 SLOC code lines, 500 doc lines).
-- Created native `teach` skill in Hermes with diagnostic probes, Socratic checkpoints, and strict user consent for vault files.
+- Created the native `teach` skill with diagnostic probes, Socratic checkpoints, and strict user consent for vault files.
 - Completed full interactive demonstration on "Git Internals (Blobs, Trees, Commits)".
 - Created 6-tier system architecture vector diagram (`git-internals-architecture.svg`) and embedded Mermaid architecture flowcharts.
 - Generated 11 Spaced Repetition flashcards (`#card` and cloze deletions) in lesson note.

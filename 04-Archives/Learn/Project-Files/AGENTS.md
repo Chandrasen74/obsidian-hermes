@@ -47,9 +47,9 @@ Use this guide whenever an AI agent is tasked with teaching, generating study no
 
 ---
 
-## 3. Tool Mapping for Hermes
+## 3. Tool Mapping for OpenCode
 
-| Upstream Pi Harness | Hermes Tool Equivalent |
+| Upstream Pi Harness | OpenCode Tool Equivalent |
 |---|---|
 | `extensions/quiz.ts` (TUI quiz) | `clarify` tool (single-choice & open-ended questions) |
 | `extensions/md-log.ts` | Direct Obsidian `.md` file generation via `write_file` / `patch` |

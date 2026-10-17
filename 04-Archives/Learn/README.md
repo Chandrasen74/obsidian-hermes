@@ -12,7 +12,7 @@ tags: ["#status/archived", "#type/index", "#domain/ai-learning"]
 
 ## Summary
 
-The **AI Learning System (Learn)** project adapted the conversational, visual-first teaching engine from the upstream repository [`amosblomqvist/learn`](https://github.com/amosblomqvist/learn.git) into the Hermes Agent ecosystem and this Obsidian Second Brain.
+The **AI Learning System (Learn)** project adapted the conversational, visual-first teaching engine from the upstream repository [`amosblomqvist/learn`](https://github.com/amosblomqvist/learn.git) into the OpenCode agent ecosystem and this Obsidian Second Brain.
 
 The system replaces passive lecture dumps with an interactive Socratic engine:
 1. **Interactive Diagnostic Probing:** Identifies the edge of understanding before teaching without making assumptions about prior retention.
@@ -31,7 +31,7 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 │   ├── README.md                       # Docs folder index
 │   ├── Pedagogical-Framework.md        # Teaching philosophy, Socratic loops & probes
 │   ├── Architecture-and-Components.md  # Upstream subsystems & sub-agent analysis
-│   ├── Adaptation-Plan.md              # Hermes tool mapping & technical roadmap
+│   ├── Adaptation-Plan.md              # OpenCode tool mapping & technical roadmap
 │   └── Codebase-Analysis.md            # SLOC breakdown & structural inspection
 ├── Lessons/                            # Live generated lesson notes & demos
 │   ├── README.md                       # Lessons folder index
@@ -65,8 +65,8 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 ## Key Achievements & Deliverables
 
 - [x] Ingested and analyzed upstream `amosblomqvist/learn` repository (16 files, 1,784 SLOC).
-- [x] Created native `teach` skill in Hermes under `pedagogy` category.
-- [x] Implemented interactive diagnostic quizzes via Hermes `clarify` tool.
+- [x] Created native `teach` skill in OpenCode under `pedagogy` category.
+- [x] Implemented interactive diagnostic quizzes via the `clarify` tool.
 - [x] Verified live web fact-checking via `web_search` and `web_extract`.
 - [x] Generated multi-tier system architecture SVG vector diagram (`git-internals-architecture.svg`).
 - [x] Produced live demonstration lesson note ([[Git-Internals-Blobs-Trees-Commits]]) with 6-tier architecture Mermaid diagrams and 11 Spaced Repetition flashcards.
@@ -77,7 +77,7 @@ The system replaces passive lecture dumps with an interactive Socratic engine:
 ## Notes for Next AI / Pair Programmer
 
 - **Operating Rules:** Read [[04-Archives/Learn/Project-Files/AGENTS|AGENTS]] before executing any teaching workflows or modifying skills.
-- **Skill Location:** The active `teach` skill is installed in the Hermes pedagogy profile. Run `skill_view(name='teach')` to inspect or execute it.
+- **Skill Location:** The active `teach` skill is installed in the OpenCode pedagogy profile. Run `skill_view(name='teach')` to inspect or execute it.
 - **Visual Standards:** User strictly prefers multi-tiered visual diagrams (similar to cloud/system architecture flowcharts) over long prose.
 - **Flashcard Standard:** Always format flashcard blocks with Obsidian Spaced Repetition syntax (`Question #card` / `Q::A` or `==cloze== #card`).
 - **Status:** This project is archived and complete. Future lessons should be placed directly in appropriate vault resource folders or new project folders as requested by the user.

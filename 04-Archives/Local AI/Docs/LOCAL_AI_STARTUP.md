@@ -49,7 +49,7 @@ Roughly 3 to 4 tokens/sec generation on this machine; the hard ceiling is set by
 ## Troubleshooting
 
 - **Port busy**: the bat offers to kill a stale `llama-server.exe`; manual: `taskkill /f /im llama-server.exe`
-- **Window flashes and closes**: run it from PowerShell to see the error: `& "C:\Users\Kanchan Verma\OneDrive\Desktop\Hermes\04-Archives\Local AI\start.bat"`
+- **Window flashes and closes**: run it from PowerShell to see the error: `& "C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\04-Archives\Local AI\start.bat"`
 - **Model not found**: check the `MODEL=` path at the top of the bat; it must exist outside OneDrive
 - **Tail of the log**: `logs\llama_server.old.log` holds the previous run (rotated on each start)
 
@@ -61,4 +61,4 @@ Roughly 3 to 4 tokens/sec generation on this machine; the hard ceiling is set by
 ## See also
 
 - [[OMNIROUTE_STARTUP]]
-- [[Hermes-Tasks]]
+- [[OpenCode-Tasks]]
