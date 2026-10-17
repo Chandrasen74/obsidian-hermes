@@ -52,7 +52,7 @@ When a project is complete, move it to [[04-Archives/README|README]] with organi
 
 - Check this folder first for active work
 - Each project should have its own subfolder
-- Update [[Hermes-Tasks]] with project progress
+- Update [[OpenCode-Tasks]] with project progress
 - Archive completed projects promptly to keep this folder clean
 
 ---

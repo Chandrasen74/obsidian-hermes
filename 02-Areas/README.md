@@ -12,7 +12,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - Examples: Health, Finance, Learning, Career
 
 Current Areas:
-- **Hermes Tools** - OpenCode-based automation workflow (omniroute launcher retired to [[04-Archives/Omniroute/README|04-Archives]])
+- **OpenCode Tools** - automation workflow (omniroute launcher retired to [[04-Archives/Omniroute/README|04-Archives]])
 - **Workspace Analytics** - [[02-Areas/Workspace-Analytics|Live metrics, charts, and task tracking]]
 - Task Management
 - Learning & Development

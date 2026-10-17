@@ -12,8 +12,8 @@ tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ## 1. Project Objectives
 
 1. Ingest and analyze `https://github.com/amosblomqvist/learn.git`.
-2. Adapt its pedagogical philosophy (diagnostic baseline probing, DAG dependency building, Socratic checkpoints) to Hermes.
-3. Replace Pi terminal TUI extensions with native Hermes tools (`clarify`, `write_file`, `web_search`).
+2. Adapt its pedagogical philosophy (diagnostic baseline probing, DAG dependency building, Socratic checkpoints) to OpenCode.
+3. Replace Pi terminal TUI extensions with native OpenCode tools (`clarify`, `write_file`, `web_search`).
 4. Generate live, visual Obsidian notes featuring multi-tier system architecture diagrams and Spaced Repetition flashcards.
 5. Guarantee user consent before accessing any personal vault resources.
 
@@ -26,8 +26,8 @@ tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
   - Ran `pygount` analysis across 16 files (1,784 SLOC TypeScript/Markdown).
   - Documented components in [[Architecture-and-Components]] and [[Codebase-Analysis]].
 
-- [x] **Milestone 2: Hermes `teach` Skill Authoring**
-  - Implemented 4-phase pedagogical lifecycle in Hermes skill format.
+- [x] **Milestone 2: OpenCode `teach` Skill Authoring**
+  - Implemented 4-phase pedagogical lifecycle in OpenCode skill format.
   - Configured `clarify` integration for interactive diagnostics.
   - Added real-time fact checking via `web_search` and `web_extract`.
 

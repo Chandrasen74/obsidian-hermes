@@ -4,7 +4,7 @@ tags: ["#status/archived", "#type/doc", "#domain/ai-learning"]
 ---
 # Pedagogical Framework & Teaching Principles
 
-This document specifies the pedagogical architecture adapted from Amos Blomqvist's `learn` system into the Hermes ecosystem.
+This document specifies the pedagogical architecture adapted from Amos Blomqvist's `learn` system into the OpenCode ecosystem.
 
 ---
 

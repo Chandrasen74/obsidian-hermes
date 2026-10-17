@@ -35,5 +35,5 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; omniroute --log
 *Startup guide for Obsidian second brain initialization*
 
 ## See also
-- [[Hermes-Tasks]]
+- [[OpenCode-Tasks]]
 - [[01-Projects/README|README]]
