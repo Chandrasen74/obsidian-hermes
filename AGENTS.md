@@ -28,7 +28,7 @@ store (USER.md + SOUL.md notes) during the migration to OpenCode (2026-10-17).
 
 ## Environment Facts
 
-- Local AI project (llama.cpp Qwen3.5-9B server) COMPLETED and archived 2026-10-17 at `04-Archives\Local AI\`; revive by double-clicking `start.bat`. Model stays outside the vault in `.lmstudio`. Operational guide: `04-Archives\Local AI\Docs\LOCAL_AI_STARTUP.md`.
+- Local AI project (llama.cpp Qwen3.5-9B server) COMPLETED and archived 2026-10-17 at `04-Archives\Local AI (barebones)\`; revive by double-clicking `start.bat`. Model stays outside the vault in `.lmstudio`. Operational guide: `04-Archives\Local AI (barebones)\Docs\LOCAL_AI_STARTUP.md`.
 - Hardware (verified 2026-10-17): no discrete NVIDIA GPU (Intel UHD iGPU only, no nvidia-smi); RAM is ONE 16 GB DDR4-3200 stick = single channel (~20 GB/s usable). llama.cpp CPU build 11633 lives inside the Local AI archive. Local LLM generation ceiling: ~3 t/s for a 9B Q4 (bandwidth-bound, math in the archive README).
 
 - Vision/image analysis token generation on this machine runs at ~3 tokens/sec; set generous timeouts on vision tasks.
