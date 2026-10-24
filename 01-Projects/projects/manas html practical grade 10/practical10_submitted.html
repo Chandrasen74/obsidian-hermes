@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Website Feedback</h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <p>How was the website?</p>
+        <input type="radio" id="good" name="rating" value="Good">
+        <label for="good">Good</label>
+        <input type="radio" id="average" name="rating" value="Average">
+        <label for="average">Average</label><br><br>
+        <label for="topic">Favourite topic:</label>
+        <select id="topic" name="topic">
+            <option>HTML</option>
+            <option>Lists</option>
+            <option>Tables</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+    window.addEventListener('DOMContentLoaded', function () {
+        var el = document.getElementById('name'); el.value = 'manas'; el.setAttribute('value', 'manas');
+        var r = document.getElementById('good'); r.checked = true; r.setAttribute('checked', 'checked');
+        document.getElementById('topic').value = 'HTML';
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function (e) { e.preventDefault(); });
+        form.querySelector('input[type=submit]').click();
+    });
+    </script>
+</body>
+</html>
+
+

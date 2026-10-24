@@ -37,16 +37,18 @@ const TIMELINE = {
   shots: SHOTS.map(([key, era, t0, t1, title], i) => ({ id: i + 1, key, era, t0, t1, title })),
   cuts: [],
   morphs: [],
-  cues: { dribble1: 0.35, dribble2: 0.75, dribble3: 1.15, takeoff: 1.50, windmill_apex: 2.65, slam: 3.40, rim_release: 3.85, land: 4.25 },
+  cues: { dribble1: 0.35, dribble2: 0.75, dribble3: 1.15, gather: 1.35, takeoff: 1.50, windmill_apex: 2.15, slam: 2.80, rim_release: 3.85, land: 4.25 },
   acts: [
-    { name: 'Drive & Dribble', role: 'build', t0: 0.0, t1: 1.5 },
-    { name: 'Flight & Windmill', role: 'apex',  t0: 1.5, t1: 3.4 },
-    { name: 'Slam & Landing',   role: 'gift',  t0: 3.4, t1: 5.0 }
+    { name: 'Drive & Gather', role: 'build', t0: 0.0, t1: 1.5 },
+    { name: 'Flight & Windmill', role: 'peak',  t0: 1.5, t1: 2.8 },
+    { name: 'Slam & Landing',   role: 'gift',  t0: 2.8, t1: 5.0 }
   ],
   board: [
-    { t: 0.8, title: 'Driving down the court', sound: 'dribbles, shoe squeaks', next: 'takeoff from free throw' },
-    { t: 2.6, title: 'Mid-air windmill rotation', sound: 'whoosh, riser', next: 'rim-rattling slam' },
-    { t: 3.5, title: 'Slam dunk through hoop', sound: 'metallic rim clang, net swish', next: 'graceful landing' }
+    { t: 0.8, title: 'Driving down the court', sound: 'dribbles, shoe squeaks', next: 'crouch and gather at the free throw line' },
+    { t: 1.45, title: 'Crouch & gather', sound: 'shoe squeak, riser starts', next: 'explosive takeoff' },
+    { t: 2.2, title: 'Mid-air windmill rotation', sound: 'whoosh sweep, riser peak', next: 'rim-rattling slam' },
+    { t: 2.95, title: 'Slam dunk through hoop', sound: 'metallic rim clang, net swish', next: 'rim hang, then release' },
+    { t: 4.6, title: 'Graceful landing & finish', sound: 'landing stomp, final bounces', next: 'loop' }
   ],
   narration: []
 };

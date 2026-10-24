@@ -17,27 +17,47 @@ function drawBasketballCourt() {
   // Perspective floor line
   ink([[-40, floorY], [W + 40, floorY]], { w: 3.5, color: '#2c221b', key: 'baseline' });
 
-  // Court markings in sketchy ink
-  // Free-throw line at x = 850
-  ink([[850, floorY], [850, floorY + 280]], { w: 3.0, color: '#3d3025', key: 'ft_line' });
-  
-  // Free-throw circle arc
-  const ftPts = [];
-  for (let a = -Math.PI / 2; a <= Math.PI / 2; a += 0.1) {
-    ftPts.push([850 + Math.cos(a) * 160, floorY + 120 + Math.sin(a) * 70]);
+  // Court markings, flat on the floor band (shallow side-view perspective):
+  // the runner plays along the far lane line (y = floorY); the key/paint slab
+  // hangs toward the viewer; FT line + top-of-the-key semicircle at the mouth;
+  // one big flattened 3-point arc wrapped around the paint, under the hoop.
+  const keyTopY = floorY + 10; // far lane edge, right under the runner's feet
+  const keyBotY = 982;         // near lane edge (16ft depth compressed)
+  const baselineX = 1618, ftX = 852;
+
+  // Paint slab: subtle hatch fill inside the key
+  const keyPath = [[ftX, keyTopY], [baselineX, keyTopY], [1672, keyBotY], [796, keyBotY]];
+  paint(keyPath, {
+    fill: '#ddbe95',
+    line: false,
+    key: 'key_paint',
+    tex: [{ k: 'hatch', a: 0.85, gap: 10, al: 0.15, c: '#8a6a48' }]
+  });
+  ink([...keyPath, keyPath[0]], { w: 2.6, color: '#4a3b2f', key: 'key_outline' });
+
+  // Baseline (end line) receding toward the viewer, pinned under the hoop
+  ink([[baselineX, keyTopY], [baselineX - 14, keyBotY]], { w: 2.8, color: '#3d3025', key: 'court_baseline' });
+
+  // Near lane edge
+  ink([[796, keyBotY], [1672, keyBotY]], { w: 2.6, color: '#4a3b2f', key: 'lane_near' });
+
+  // Free-throw line across the key (slight recession lean to the horizon VP)
+  ink([[ftX, keyTopY], [ftX - 26, keyBotY]], { w: 2.6, color: '#3d3025', key: 'ft_line' });
+
+  // Top-of-the-key semicircle (the FT circle's bulge toward half court)
+  const ftArc = [];
+  for (let a = Math.PI * 0.55; a <= Math.PI * 1.45; a += 0.11) {
+    ftArc.push([838 + Math.cos(a) * 135, 874 + Math.sin(a) * 62]);
   }
-  ink(ftPts, { w: 2.5, color: '#4a3b2f', key: 'ft_circle' });
+  ink(ftArc, { w: 2.4, color: '#4a3b2f', key: 'ft_circle' });
 
-  // Key / Paint area markings
-  ink([[850, floorY + 120], [1620, floorY + 120]], { w: 2.2, color: '#4a3b2f', key: 'key_top' });
-  ink([[850, floorY + 240], [1620, floorY + 240]], { w: 2.2, color: '#4a3b2f', key: 'key_bot' });
-
-  // 3-Point Arc
+  // 3-Point arc: flattened ground ellipse around the paint, sprouting from
+  // both lane edges and bulging left past the free-throw line
   const arcPts = [];
-  for (let a = Math.PI * 0.55; a <= Math.PI * 1.15; a += 0.08) {
-    arcPts.push([1600 + Math.cos(a) * 920, floorY - 60 + Math.sin(a) * 580]);
+  for (let a = Math.PI * 0.5; a <= Math.PI * 1.5; a += 0.05) {
+    arcPts.push([1512 + Math.cos(a) * 560, 878 + Math.sin(a) * 102]);
   }
-  ink(arcPts, { w: 2.2, color: '#4a3b2f', key: 'three_pt_arc' });
+  ink(arcPts, { w: 2.4, color: '#4a3b2f', key: 'three_pt_arc' });
 
   // Background stadium rafters & distant banners in faint crosshatch
   ctx.save();
@@ -98,8 +118,8 @@ function drawHoop(t, rimDeflect) {
 
   // Net (Animated crosshatch strings with realistic vibration physics)
   const netLen = 70;
-  const netWave = Math.sin((t - 3.4) * 22) * Math.exp(-Math.max(0, t - 3.4) * 4) * 18;
-  const netFlare = t >= 3.4 && t <= 3.85 ? Math.sin((t - 3.4) / 0.45 * Math.PI) * 22 : 0;
+  const netWave = Math.sin((t - 2.8) * 22) * Math.exp(-Math.max(0, t - 2.8) * 4) * 18;
+  const netFlare = t >= 2.8 && t <= 3.25 ? Math.sin((t - 2.8) / 0.45 * Math.PI) * 22 : 0;
   
   const netCols = 6;
   const topPts = [];
@@ -126,8 +146,8 @@ function drawHoop(t, rimDeflect) {
 }
 
 function netDeflect(t) {
-  if (t < 3.4) return 0;
-  const dt = t - 3.4;
+  if (t < 2.8) return 0;
+  const dt = t - 2.8;
   return Math.sin(dt * 26) * Math.exp(-dt * 5) * 25;
 }
 
@@ -279,8 +299,8 @@ function sceneDunk() {
   
   // Calculate rim physics
   let rimDeflect = 0;
-  if (t >= 3.4 && t < 4.8) {
-    const dt = t - 3.4;
+  if (t >= 2.8 && t < 4.2) {
+    const dt = t - 2.8;
     rimDeflect = Math.sin(dt * 24) * Math.exp(-dt * 4.2) * 28;
   }
 
@@ -312,12 +332,30 @@ function sceneDunk() {
     const strideCos = Math.cos(t * runFreq);
     const bob = Math.abs(stride) * 18;
     
-    const hipY = floorY - 170 + bob;
-    const neckY = hipY - 140;
+    // Dribble cycle: asymmetric push -> bounce -> catch, locked to the Foley
+    // thuds at 0.2/0.6/1.0s (floor contact at phase ~0.30, cycle = 0.4s).
+    // h: 0 = ball on the floor, 1 = ball caught at the hand.
+    const dribblePhase = (((t - 0.08) / 0.4) % 1 + 1) % 1;
+    let h;
+    if (dribblePhase < 0.3) {
+      const u1 = dribblePhase / 0.3;
+      h = 1 - u1 * u1;                                        // free-fall push, accelerating
+    } else if (dribblePhase < 0.4) {
+      h = 0;                                                  // brief contact hold on the floor
+    } else {
+      const u2 = Math.min(1, (dribblePhase - 0.4) / 0.47);
+      h = 1 - (1 - u2) * (1 - u2);                            // fast launch, easing into the catch
+    }
+    
+    // Anticipation: crouch/collect just before the takeoff cut (t 1.2-1.5)
+    const crouch = smooth(1.2, 1.5, t);
+    // Body dips into every push (knee flex pulse, deepest when the ball is low)
+    const hipY = floorY - 170 + bob + crouch * 58 + (1 - h) * 22;
+    const neckY = hipY - (140 - crouch * 25);
     const headY = neckY - 45;
     
-    // Forward athletic driving lean
-    const headX = charX + 50;
+    // Forward athletic driving lean, deepening into the crouch
+    const headX = charX + 50 + crouch * 25;
     const neckX = charX + 35;
     const pelvisX = charX;
     
@@ -332,20 +370,28 @@ function sceneDunk() {
     const lElbow = [neckX - stride * 45 - 20, neckY + 60];
     const lHand = [neckX - stride * 60 - 35, neckY + 40 - strideCos * 30];
 
-    // Right arm dribbling the ball
-    const dribblePhase = (t * 2.5) % 1.0;
+    // Right arm dribbling: the palm dips on the push, lifts through the
+    // carry, and drops to meet the catch
+    const handAct = smooth(0.5, 0.7, dribblePhase) * (1 - smooth(0.85, 1.0, dribblePhase));
     const rElbow = [neckX + 45, neckY + 55];
-    const rHandY = neckY + 85 + Math.sin(dribblePhase * Math.PI) * 40;
+    const rHandY = neckY + 125 - handAct * 58;
     const rHand = [neckX + 75, rHandY];
 
-    // Basketball bounce physics
-    ballX = charX + 85;
-    const bounceHeight = 160;
-    const bounceSin = Math.sin(dribblePhase * Math.PI);
-    ballY = floorY - 28 - (1 - Math.abs(Math.cos(dribblePhase * Math.PI))) * bounceHeight;
-    
-    if (ballY > floorY - 40) {
-      ballSquash = 0.82; // Squash on impact with floor
+    // Basketball bounce physics (rides the h profile above)
+    ballX = neckX + 69; // directly under the palm
+    ballY = floorY - 28 - h * 172;
+    ballRot = t * 3.0;  // gentle continuous forward roll across the drive
+
+    if (h < 0.02) {
+      ballSquash = 0.82; // Squash held through the floor contact
+    }
+
+    // Gather: collect the ball into the low crouch, so the flight starts with it in hand (no teleport)
+    const gu = smooth(1.2, 1.5, t);
+    if (gu > 0) {
+      ballX = lerp(ballX, charX + 55, gu);
+      ballY = lerp(ballY, hipY + 85, gu);
+      ballSquash = lerp(ballSquash, 1.0, gu);
     }
 
     pose = {
@@ -359,8 +405,10 @@ function sceneDunk() {
       spineArch: 12
     };
 
-    // Action speed lines behind runner
-    drawSpeedLines([charX - 80, hipY], Math.PI, 6, 90, 'run_spd');
+    // Action speed lines behind runner (start inboard and fade in after 0.15s, not cut at t=0)
+    if (t >= 0.15) {
+      drawSpeedLines([Math.max(charX - 80, 170), hipY], Math.PI, 6, 90, 'run_spd');
+    }
 
     // Comic dribble caption
     if (t > 0.4 && t < 1.1) {
@@ -369,16 +417,15 @@ function sceneDunk() {
   }
 
   // -------------------------------------------------------------------
-  // ACT 2: TAKEOFF & FLIGHT / WINDMILL ROTATION (1.5s - 3.4s)
+  // ACT 2: TAKEOFF & FLIGHT / WINDMILL ROTATION (1.5s - 2.8s)
   // -------------------------------------------------------------------
-  else if (t < 3.4) {
-    const flightU = (t - 1.5) / 1.9; // 0 to 1
+  else if (t < 2.8) {
+    const flightU = (t - 1.5) / 1.3; // 0 to 1 (flight tightened from 1.9s per plan)
     
-    // Parabolic trajectory from Free-Throw Line (850, 760) to Dunk Point (1490, 420)
+    // Asymmetric flight: crouched takeoff (charY 790) -> capped apex (~617) -> rim hang (820).
+    // Head and ball never reach the rafter banner row (maxY band 60-170).
     charX = lerp(850, 1490, flightU);
-    const apexHeight = 440;
-    const jumpArc = Math.sin(flightU * Math.PI);
-    charY = floorY - jumpArc * apexHeight;
+    charY = floorY + 30 - 190 * Math.sin(flightU * Math.PI) + 30 * flightU;
 
     const hipY = charY - 140;
     const neckY = hipY - 130;
@@ -416,10 +463,13 @@ function sceneDunk() {
     const rElbowX = shoulderX + Math.cos(windmillAngle - 0.3) * armLen * 0.7;
     const rElbowY = shoulderY + Math.sin(windmillAngle - 0.3) * armLen * 0.7;
 
-    // Basketball firmly in right hand
-    ballX = rHandX + Math.cos(windmillAngle) * 22;
-    ballY = rHandY + Math.sin(windmillAngle) * 22;
-    ballRot = windmillAngle * 1.5;
+    // Basketball firmly in right hand (glides in from the low gather over the first ~0.1s)
+    const rip = EZ.o2(Math.min(1, flightU / 0.077));
+    ballX = lerp(905, rHandX + Math.cos(windmillAngle) * 22, rip);
+    ballY = lerp(733, rHandY + Math.sin(windmillAngle) * 22, rip);
+    // Spin carries over from the dribble roll (acts 1 ends at 4.5): one smooth
+    // revolution riding the windmill sweep, no direction flip at the cut
+    ballRot = 4.5 + (windmillAngle + Math.PI * 0.6) * 0.9;
 
     pose = {
       head: [headX, headY, 26],
@@ -432,13 +482,44 @@ function sceneDunk() {
       spineArch: -18 * Math.sin(flightU * Math.PI)
     };
 
-    // Windmill circular motion trail lines in ink
+    // Windmill circular motion trail: wide orange sweep arc + faint inner echo
     const trailPts = [];
-    for (let a = windmillAngle - 1.2; a <= windmillAngle; a += 0.2) {
+    for (let a = windmillAngle - 1.9; a <= windmillAngle + 0.01; a += 0.15) {
       trailPts.push([shoulderX + Math.cos(a) * armLen * 1.35, shoulderY + Math.sin(a) * armLen * 1.35]);
     }
     if (trailPts.length >= 2) {
       ink(trailPts, { w: 3.5, color: '#e86118', key: 'windmill_trail' });
+      const trailIn = [];
+      for (let a = windmillAngle - 1.2; a <= windmillAngle + 0.01; a += 0.15) {
+        trailIn.push([shoulderX + Math.cos(a) * armLen * 1.1, shoulderY + Math.sin(a) * armLen * 1.1]);
+      }
+      ink(trailIn, { w: 2.4, color: 'rgba(232,97,24,0.4)', key: 'windmill_trail_in' });
+    }
+
+    // Ball speed: orange echo rings at the angles the ball just swept through
+    const ghostVis = smooth(0.12, 0.3, flightU) * (1 - smooth(0.8, 0.95, flightU));
+    if (ghostVis > 0.02) {
+      for (let g = 1; g <= 3; g++) {
+        const ga = windmillAngle - g * 0.5;
+        const gx = shoulderX + Math.cos(ga) * (armLen * 1.3 + 24);
+        const gy = shoulderY + Math.sin(ga) * (armLen * 1.3 + 24);
+        const gr = 28 - g * 6;
+        const ringPts = [];
+        for (let a = 0; a <= TAU + 0.01; a += TAU / 12) {
+          ringPts.push([gx + Math.cos(a) * gr, gy + Math.sin(a) * gr]);
+        }
+        ink(ringPts, { w: 3.0, color: `rgba(232,97,24,${(0.5 - g * 0.13) * ghostVis})`, key: 'ball_ghost' + g });
+      }
+    }
+
+    // Launch streaks peeling off the ball as it rips upward
+    if (flightU < 0.35) {
+      for (let i = 0; i < 3; i++) {
+        const R2 = RNG('bl_stk', i, B);
+        const sx = ballX - 38 - i * 34 + R2.n(8);
+        const sy = ballY + 6 + i * 16 + R2.n(8);
+        ink([[sx, sy], [sx - 36, sy - 10]], { w: 2.6, color: 'rgba(232,97,24,0.45)', key: 'ball_stk' + i });
+      }
     }
 
     // Speed lines radiating from takeoff point
@@ -446,37 +527,41 @@ function sceneDunk() {
       drawSpeedLines([850, floorY], Math.PI * 0.75, 10, 140, 'takeoff_spd');
     }
 
-    // Dramatic caption badge
-    if (t > 2.0 && t < 3.2) {
-      handText('WINDMILL!', 1050, 240, 68, '#c43319', { key: 'wm_txt', weight: 800 });
+    // Comic interjection caption, parked in the clear left zone (floor area, clear of figure and trail)
+    if (t > 1.75 && t < 2.75) {
+      handText('WINDMILL!', 230, 655, 64, '#c43319', { key: 'wm_txt', weight: 800 });
     }
   }
 
   // -------------------------------------------------------------------
-  // ACT 3: THE SLAM DUNK IMPACT & RIM HANG (3.4s - 3.9s)
+  // ACT 3: THE SLAM DUNK IMPACT & RIM HANG (2.8s - 3.9s)
   // -------------------------------------------------------------------
   else if (t < 3.9) {
-    const slamU = (t - 3.4) / 0.5; // 0 to 1
+    const slamU = (t - 2.8) / 1.1; // 0 to 1
     const rimMountX = 1515;
     const rimMountY = 440 + rimDeflect;
 
-    // Stick figure hanging onto the rim!
-    const rHand = [rimMountX, rimMountY + 5];
-    const lHand = [rimMountX - 25, rimMountY + 8];
+    // GLIDE: the body swings from its flight-end pose into a hang ~60px left of the net,
+    // so only the hands touch the rim (body clear of net and pole).
+    const gl = EZ.o2(clamp(slamU * 2.2));
+
+    // Stick figure hanging onto the rim! (hands on the rim, body shifted left)
+    const rHand = [1500, rimMountY + 5];
+    const lHand = [1475, rimMountY + 8];
 
     // Dynamic swing momentum forward
-    const swing = Math.sin(slamU * Math.PI * 0.8) * 35;
+    const swing = Math.sin(slamU * Math.PI * 1.6) * 35;
     
-    const neckX = rimMountX - 45 + swing * 0.6;
+    const neckX = rimMountX - 40 - 65 * gl + swing * 0.6;
     const neckY = rimMountY + 110;
     const headX = neckX + 18;
     const headY = neckY - 42;
     const pelvisX = neckX - 35 + swing;
     const pelvisY = neckY + 145;
 
-    // Arms holding rim
-    const rElbow = [rimMountX - 10, rimMountY + 55];
-    const lElbow = [rimMountX - 35, rimMountY + 60];
+    // Arms holding rim (elbows glide out left with the body)
+    const rElbow = [rimMountX - 10 - 60 * gl, rimMountY + 55];
+    const lElbow = [rimMountX - 35 - 60 * gl, rimMountY + 60];
 
     // Tucked / swinging knees
     const rKnee = [pelvisX + 45 + swing * 0.4, pelvisY + 55];
@@ -496,23 +581,39 @@ function sceneDunk() {
       spineArch: 15
     };
 
-    // Basketball shoots down through the net and bounces
-    const ballDownU = (t - 3.4) / 0.5;
-    if (ballDownU < 0.5) {
-      // Passing through net
-      ballX = 1515;
-      ballY = lerp(440, floorY - 30, ballDownU * 2);
-      ballSquash = 1.15;
+    // Basketball shoots down through the net and rebounds toward the right (handoff at x 1640 for act 4)
+    if (slamU < 0.27) {
+      // Passing through the net's right half, clear of the body hanging left
+      const netU = slamU / 0.27;
+      ballX = lerp(1500, 1538, netU);
+      ballY = lerp(rimMountY + 20, floorY - 30, Math.pow(netU, 1.3));
+      ballSquash = lerp(1.0, 1.15, netU);
     } else {
-      // Bouncing upward off floor
-      const bounceU = (ballDownU - 0.5) * 2;
-      ballX = lerp(1515, 1640, bounceU);
-      ballY = floorY - 30 - Math.sin(bounceU * Math.PI) * 160;
+      // Rebounding up and off to the right
+      const bounceU = clamp((t - 3.097) / 0.803);
+      ballX = lerp(1538, 1640, bounceU);
+      ballY = floorY - 30 - Math.sin(bounceU * Math.PI * 1.5) * 150 * (1 - bounceU * 0.5);
     }
 
-    // Massive Slam impact burst lines & comic text
-    drawImpactBurst(1515, 440, 140, 'slam_impact');
-    handText('SLAM!', 1380, 220, 84, '#d6381a', { key: 'slam_txt', weight: 800 });
+    // Spin keeps rolling through the slam (carries over from the windmill, act 2 ends at 10.44)
+    ballRot = 10.44 + slamU * 2.0;
+
+    // Ball speed: hot streaks trailing the fast net drop
+    if (slamU < 0.24) {
+      for (let i = 0; i < 4; i++) {
+        const R3 = RNG('netstk', i, B);
+        const sx = ballX + R3.n(14);
+        const sy = ballY - 46 - i * 22 + R3.n(6);
+        ink([[sx, sy], [sx + R3.n(5), sy - 28]], { w: 3.0, color: 'rgba(232,97,24,0.6)', key: 'net_stk' + i });
+      }
+    }
+
+    // Massive Slam impact burst lines right at the contact frames
+    if (slamU < 0.3) {
+      drawImpactBurst(1515, 440, 140, 'slam_impact');
+    }
+    // Comic text parked left of the backboard (clear of board, pole and figure head)
+    handText('SLAM!', 1280, 250, 84, '#d6381a', { key: 'slam_txt', weight: 800 });
   }
 
   // -------------------------------------------------------------------
@@ -581,11 +682,12 @@ function sceneDunk() {
       spineArch: bodyLean * 0.8
     };
 
-    // Basketball continues decaying bounces off to right
+    // Basketball continues decaying bounces to the right, clamped inside the 120px safe margin
     const ballU = (t - 3.9) / 1.1;
-    ballX = lerp(1640, 1880, ballU);
+    ballX = lerp(1640, 1780, ballU);
     const bPhase = ballU * 4;
     ballY = floorY - 28 - Math.abs(Math.sin(bPhase * Math.PI)) * (100 * Math.exp(-ballU * 2.5));
+    ballRot = 12.44 + ballU * 2.6; // decaying roll across the finish (act 3 ends at 12.44)
 
     // Dust puffs at landing
     if (landU >= 0.28 && landU <= 0.55) {
@@ -600,7 +702,8 @@ function sceneDunk() {
     }
 
     if (landU > 0.5) {
-      handText('10 / 10', 1400, 300, 60, '#2c221b', { key: 'score_txt', weight: 800 });
+      // Score caption fully left of the backboard (x < 1440), clear of figure and pole
+      handText('10 / 10', 1180, 300, 60, '#2c221b', { key: 'score_txt', weight: 800 });
     }
   }
 

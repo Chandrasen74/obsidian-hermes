@@ -1,0 +1,366 @@
+--- PAGE 1 ---
+Class X | Computer Applications (165) | Page
+ORCHIDS THEINTERNATIONAL SCHOOL
+SOUTH CITY I, GURUGRAM
+COMPUTER APPLICATIONS
+PRACTICAL FILE
+Class X | Subject Code: 165
+HTML-Based Practical Work
+Student's Name
+________________________________
+Class & Section
+________________________________
+Roll Number
+________________________________
+Academic Session
+2026–2027
+Subject Teacher
+________________________________
+
+--- PAGE 2 ---
+Class X | Computer Applications (165) | Page
+Certificate
+This is to certify that ______________________________ of Class X, Section _____, has completed 
+the Computer Applications (Code 165) practical file for the academic session 2026–2027 
+under the guidance of the subject teacher. The work presented in this file is prepared for 
+learning and practice of basic HTML.
+Teacher's Signature: ____________________
+Date: ______________
+Parent's Signature: _____________________
+Acknowledgement
+I would like to thank my Computer Applications teacher for the guidance and support 
+provided while completing this practical file. I also thank my school and parents for 
+encouraging me to practise HTML and develop my web-page creation skills.
+General Instructions
+Type each program in a plain-text editor such as Notepad or a code editor.
+Save the file with the .html extension, for example, practical1.html.
+Open the saved file in a web browser to view the output.
+Use the exact opening and closing tags shown in the examples.
+For the image practical, keep the image file in the same folder as the HTML file and update its filename if 
+needed.
+Take a screenshot or draw/paste the output in the space provided by your teacher, if required.
+Index
+S. No.
+Practical / Program
+Teacher's Signature
+1
+Basic HTML page with title 
+and headings
+2
+Text formatting and line 
+breaks
+3
+Ordered and unordered lists
+4
+Hyperlink to a website
+5
+Insert an image
+6
+Create a table
+7
+Background and text colours
+8
+Nested list
+9
+Student profile using 
+headings and paragraphs
+
+--- PAGE 3 ---
+Class X | Computer Applications (165) | Page
+10
+Simple feedback form
+
+--- PAGE 4 ---
+Class X | Computer Applications (165) | Page
+Practical 1: Basic HTML Page with Headings
+Aim: To create a simple web page using the basic HTML structure and heading tags.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Web Page</title>
+</head>
+<body>
+    <h1>Welcome to My Web Page</h1>
+    <h2>Computer Applications</h2>
+    <p>This is my ﬁrst HTML practical.</p>
+</body>
+</html>
+Expected Output: A browser page showing the heading “Welcome to My Web Page”, a 
+smaller heading “Computer Applications”, and a paragraph.
+
+--- PAGE 5 ---
+Class X | Computer Applications (165) | Page
+Practical 2: Text Formatting and Line Breaks
+Aim: To display bold, italic, underlined, and line-broken text.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Formatting</title>
+</head>
+<body>
+    <h1>Text Formatting in HTML</h1>
+    <p><b>This text is bold.</b></p>
+    <p><i>This text is italic.</i></p>
+    <p><u>This text is underlined.</u></p>
+    <p>HTML is used to create web pages.<br>
+       It uses tags to structure content.</p>
+    <p>Water formula: H<sub>2</sub>O</p>
+    <p>Square: x<sup>2</sup></p>
+</body>
+</html>
+Expected Output: The browser displays bold, italic, underlined text, a line break, H₂O, and x².
+
+--- PAGE 6 ---
+Class X | Computer Applications (165) | Page
+Practical 3: Ordered and Unordered Lists
+Aim: To create numbered and bulleted lists in HTML.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Lists</title>
+</head>
+<body>
+    <h1>My Favourite Subjects</h1>
+    <ul>
+        <li>Computer Applications</li>
+        <li>Mathematics</li>
+        <li>Science</li>
+    </ul>
+    <h2>Steps to Save a File</h2>
+    <ol>
+        <li>Click File.</li>
+        <li>Select Save As.</li>
+        <li>Enter the ﬁle name with .html.</li>
+    </ol>
+</body>
+</html>
+Expected Output: The first list appears with bullets and the second list appears with numbers.
+
+--- PAGE 7 ---
+Class X | Computer Applications (165) | Page
+Practical 4: Hyperlink to a Website
+Aim: To create a clickable hyperlink using the anchor tag.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Useful Website</title>
+</head>
+<body>
+    <h1>Learn HTML</h1>
+    <p>Visit the W3Schools website to learn more:</p>
+    <a href="https://www.w3schools.com/html/">Learn HTML</a>
+</body>
+</html>
+Expected Output: A clickable link labelled “Learn HTML” appears. Clicking it opens the linked 
+website in the browser.
+
+--- PAGE 8 ---
+Class X | Computer Applications (165) | Page
+Practical 5: Insert an Image
+Aim: To display an image on a web page using the img tag.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My School</title>
+</head>
+<body>
+    <h1>My School</h1>
+    <p>Here is a picture for my web page.</p>
+    <img src="school.jpg" alt="School picture" width="300">
+</body>
+</html>
+Expected Output: The browser displays the image school.jpg at a width of 300 pixels, if the 
+image file is in the same folder.
+Note: Replace school.jpg with the actual image filename. The alt text is shown if the image 
+cannot load.
+
+--- PAGE 9 ---
+Class X | Computer Applications (165) | Page
+Practical 6: Create a Table
+Aim: To organise student information in rows and columns using an HTML table.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record</title>
+</head>
+<body>
+    <h1>Student Record</h1>
+    <table border="1">
+        <tr>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Class</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Aarav</td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Diya</td>
+            <td>X</td>
+        </tr>
+    </table>
+</body>
+</html>
+Expected Output: A table appears with three columns: Roll No., Name, and Class, and two 
+student records.
+
+--- PAGE 10 ---
+Class X | Computer Applications (165) | Page
+Practical 7: Background and Text Colours
+Aim: To set a page background colour and change text colour using HTML attributes/styles.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colours in HTML</title>
+</head>
+<body style="background-color: lightyellow;">
+    <h1 style="color: darkblue;">My Colourful Page</h1>
+    <p style="color: green;">HTML can display coloured text.</p>
+    <p style="color: maroon;">This is another coloured paragraph.</p>
+</body>
+</html>
+Expected Output: A light-yellow page appears with a dark-blue heading and green and 
+maroon paragraphs.
+
+--- PAGE 11 ---
+Class X | Computer Applications (165) | Page
+Practical 8: Nested List
+Aim: To create a list inside another list.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nested List</title>
+</head>
+<body>
+    <h1>School Activities</h1>
+    <ul>
+        <li>Sports
+            <ul>
+                <li>Football</li>
+                <li>Basketball</li>
+            </ul>
+        </li>
+        <li>Technology
+            <ul>
+                <li>Coding</li>
+                <li>Robotics</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+Expected Output: The main list shows Sports and Technology, each with a smaller nested list 
+underneath.
+
+--- PAGE 12 ---
+Class X | Computer Applications (165) | Page
+Practical 9: Student Profile
+Aim: To create a student profile using headings, paragraphs, and a list.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Proﬁle</title>
+</head>
+<body>
+    <h1>Student Proﬁle</h1>
+    <h2>About Me</h2>
+    <p>My name is Aarav. I study in Class X.</p>
+    <h2>My Hobbies</h2>
+    <ol>
+        <li>Reading</li>
+        <li>Playing chess</li>
+        <li>Coding</li>
+    </ol>
+    <h2>My Goal</h2>
+    <p>I want to learn new skills and use technology responsibly.</p>
+</body>
+</html>
+Expected Output: A profile page displays an introduction, hobbies in a numbered list, and a 
+goal. Replace sample details with your own.
+
+--- PAGE 13 ---
+Class X | Computer Applications (165) | Page
+Practical 10: Simple Feedback Form
+Aim: To create a basic HTML form with text input, radio buttons, a drop-down list, and a 
+submit button.
+HTML Code:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Website Feedback</h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <p>How was the website?</p>
+        <input type="radio" id="good" name="rating" value="Good">
+        <label for="good">Good</label>
+        <input type="radio" id="average" name="rating" value="Average">
+        <label for="average">Average</label><br><br>
+        <label for="topic">Favourite topic:</label>
+        <select id="topic" name="topic">
+            <option>HTML</option>
+            <option>Lists</option>
+            <option>Tables</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+Expected Output: A simple feedback form appears. The submit button demonstrates the 
+form control; it will not store or send responses without a server or form-processing service.
+Note: Use only fictional/sample details in practice files; do not enter sensitive personal 
+information.
+
+--- PAGE 14 ---
+Class X | Computer Applications (165) | Page
+.
+Practical Completion Record
+S. No.
+Practical
+Date
+Teacher's Signature
+1
+Basic HTML page 
+with title and 
+headings
+2
+Text formatting and 
+line breaks
+3
+Ordered and 
+unordered lists
+4
+Hyperlink to a 
+website
+5
+Insert an image
+6
+Create a table
+7
+Background and text 
+colours
+8
+Nested list
+9
+Student profile using 
+headings and 
+paragraphs
+10
+Simple feedback 
+form
+—End of Practical File —
