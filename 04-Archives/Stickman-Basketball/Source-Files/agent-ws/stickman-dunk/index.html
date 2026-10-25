@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stick Figure Windmill Slam Dunk</title>
+<!-- Stick Figure Windmill Slam Dunk - 5.0s, 1920x1080, 30fps, 150 frames, silent.
+     Single self-contained file: inline JS + canvas, no external assets, no URLs, no data URIs.
+     Fully deterministic: all jitter/noise comes from seeded mulberry32 streams only.
+     Modes:
+       index.html          -> live 30fps looping preview
+       index.html?f=NNN    -> draw exactly frame NNN (0..149) and set window.__done
+ -->
+<style>
+  html,body{margin:0;padding:0;background:#f5efe0;overflow:hidden;width:1920px;height:1080px;}
+  canvas{display:block;width:1920px;height:1080px;}
+</style>
+</head>
+<body>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<script>
+(function(){
+"use strict";
+const W=1920, H=1080, FPS=30, NFRAMES=150;
+const TAU=Math.PI*2, PI=Math.PI;
+const cv=document.getElementById('cv');
+const ctx=cv.getContext('2d');
+
+/* ============================== 1. Determinism ============================== */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+// Static per-element seeds (decor geometry that must be identical every frame)
+function srand(tag,i){return mulberry32((hashStr(tag)^Math.imul(i+1,2654435761))>>>0)();}
+// Per-frame ink-boil pool: re-rolls every 2 frames (shared by frame pairs)
+let jr=mulberry32(1);
+function beginBoil(f){jr=mulberry32((0x9e3779^Math.imul(Math.floor(f/2)+1,0x85ebca6b))>>>0);}
+function jv(amp){return (jr()*2-1)*amp;}
+function jamp(){return 0.5+jr()*1.0;} // jitter amplitude 0.5..1.5 (spec 1)
+
+/* ============================== 2. Easing helpers (spec 2, exact) =========== */
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const lerp=(a,b,u)=>a+(b-a)*u;
+const easeOut2=u=>{u=clamp(u,0,1);return 1-(1-u)*(1-u);};
+const easeOut3=u=>{u=clamp(u,0,1);return 1-Math.pow(1-u,3);};
+const smoothstepU=u=>{u=clamp(u,0,1);return u*u*(3-2*u);};
+const smooth=(a,b,t)=>smoothstepU(clamp((t-a)/(b-a),0,1));
+
+/* ============================== palette ==================================== */
+const C={paper:'#f5efe0',ink:'#2c221b',inkDark:'#15110d',wood:'#e7cfb0',grain:'#7d5a38',
+  banner:'#dfd4be',pole:'#24201d',board:'#fcf8ef',boardHatch:'#5b6b8c',rim:'#e03a1b',
+  rimCt:'#7d2208',net:'#3a342c',slab:'#ddbe95',slabHatch:'#8a6a48',lineA:'#4a3b2f',
+  lineB:'#3d3025',ball:'#e86118',ballHi:'#ffa86b',ballDk:'#782603',ballDk2:'#401200',
+  seam:'#1a110a',headFill:'#fbf5e6',band:'#d6381a',burst:'#c43319',dust:'#8a6a48'};
+const FONT=(s,w)=>w+' '+s+'px "Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS","Gochi Hand",cursive';
+
+/* ============================== sketch stroke helpers ====================== */
+// Every stroke gets seeded jitter: endpoint offset 0.5-1.5px + rotation +/-0.6 deg (spec 9)
+function rotPt(x,y,mx,my,a){const c=Math.cos(a),s=Math.sin(a),dx=x-mx,dy=y-my;return [mx+c*dx-s*dy,my+s*dx+c*dy];}
+function strokePass(pts,w,color,alpha){
+  ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=w;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);
+  for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);
+  ctx.stroke();ctx.globalAlpha=1;
+}
+function sLine(x1,y1,x2,y2,w,color,alpha){
+  if(alpha===undefined)alpha=1;
+  const mx=(x1+x2)/2,my=(y1+y2)/2;
+  const a=(jr()*2-1)*0.6*PI/180;
+  let p1=rotPt(x1,y1,mx,my,a),p2=rotPt(x2,y2,mx,my,a);
+  const e1=jamp(),e2=jamp();
+  p1=[p1[0]+jv(e1),p1[1]+jv(e1)];p2=[p2[0]+jv(e2),p2[1]+jv(e2)];
+  const ww=w*(0.92+jr()*0.16);
+  strokePass([p1,p2],ww,color,alpha);
+  // sketchy echo pass, faint offset
+  const dx=p2[0]-p1[0],dy=p2[1]-p1[1],L=Math.hypot(dx,dy)||1,px=-dy/L*0.8,py=dx/L*0.8;
+  strokePass([[p1[0]+px,p1[1]+py],[p2[0]+px,p2[1]+py]],ww*0.55,color,alpha*0.3);
+}
+function sCurve(pts,w,color,alpha){ // pts: array polyline, jittered per-point
+  if(alpha===undefined)alpha=1;
+  const out=pts.map(p=>{const e=jamp();return [p[0]+jv(e),p[1]+jv(e)];});
+  strokePass(out,w*(0.92+jr()*0.16),color,alpha);
+  if(out.length>2){const g=out.map(p=>[p[0]+0.8,p[1]+0.7]);strokePass(g,w*0.5,color,alpha*0.28);}
+}
+function sArc(cx,cy,r,a0,a1,w,color,alpha,n){
+  n=n||Math.max(10,Math.floor(Math.abs(a1-a0)*10));
+  const pts=[];for(let i=0;i<=n;i++){const a=lerp(a0,a1,i/n);pts.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r]);}
+  sCurve(pts,w,color,alpha);
+}
+function sEllipseArc(cx,cy,rx,ry,a0,a1,w,color,alpha,n){
+  n=n||Math.max(12,Math.floor(Math.abs(a1-a0)*16));
+  const pts=[];for(let i=0;i<=n;i++){const a=lerp(a0,a1,i/n);pts.push([cx+Math.cos(a)*rx,cy+Math.sin(a)*ry]);}
+  sCurve(pts,w,color,alpha);
+}
+function circleFillPath(cx,cy,rx,ry){ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,0,TAU);}
+function sCircle(cx,cy,r,w,color,alpha){ // jittered ring
+  const n=26,pts=[];for(let i=0;i<=n;i++){const a=i/n*TAU;pts.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r]);}
+  sCurve(pts,w,color,alpha);
+}
+function sEllipse(cx,cy,rx,ry,w,color,alpha){
+  const n=26,pts=[];for(let i=0;i<=n;i++){const a=i/n*TAU;pts.push([cx+Math.cos(a)*rx,cy+Math.sin(a)*ry]);}
+  sCurve(pts,w,color,alpha);
+}
+function dashedArc(cx,cy,rx,ry,a0,a1,w,color,alpha){
+  const n=36,pts=[];
+  for(let i=0;i<=n;i++){const a=lerp(a0,a1,i/n);pts.push([cx+Math.cos(a)*rx,cy+Math.sin(a)*ry]);}
+  for(let i=0;i<n;i+=3){const j=Math.min(i+1,n);sLine(pts[i][0],pts[i][1],pts[j][0],pts[j][1],w,color,alpha);}
+}
+function polyPath(pts){ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.closePath();}
+function sPolyOutline(pts,w,color,alpha){const c=pts.concat([pts[0]]);sCurve(c,w,color,alpha);}
+// clipped hatch fill inside a path, within a given bbox
+function hatch(pathFn,bx0,by0,bx1,by1,spacing,angle,color,alpha,width){
+  ctx.save();pathFn();ctx.clip();
+  const cx=(bx0+bx1)/2,cy=(by0+by1)/2;
+  const diag=Math.hypot(bx1-bx0,by1-by0)/2+4;
+  const dx=Math.cos(angle),dy=Math.sin(angle),nx=-dy,ny=dx;
+  const proj0=nx*bx0+ny*by0,proj1=nx*bx1+ny*by1,proj2=nx*bx0+ny*by1,proj3=nx*bx1+ny*by0;
+  const lo=Math.min(proj0,proj1,proj2,proj3),hi=Math.max(proj0,proj1,proj2,proj3);
+  ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';
+  const base=nx*cx+ny*cy;
+  for(let k=base-diag-(base-lo)%spacing;k<hi+diag;k+=spacing){
+    const j1=jv(1.2),j2=jv(1.2),ja=jv(0.02);
+    const ax=nx*k,ay=ny*k;
+    ctx.beginPath();
+    ctx.moveTo(ax-dx*(diag+8)+j1+(-dy)*ja*diag, ay-dy*(diag+8)+j2+(dx)*ja*diag);
+    ctx.lineTo(ax+dx*(diag+8)+j2, ay+dy*(diag+8)+j1);
+    ctx.stroke();
+  }
+  ctx.restore();ctx.globalAlpha=1;
+}
+
+/* ============================== two-bone IK ================================ */
+function ik2(sx,sy,tx,ty,a,b,bend){
+  let dx=tx-sx,dy=ty-sy,d=Math.hypot(dx,dy)||0.001;
+  const cl=clamp(d,Math.abs(a-b)+1.5,a+b-1.5);
+  dx*=cl/d;dy*=cl/d;d=cl;
+  const base=Math.atan2(dy,dx);
+  const cosA=clamp((a*a+d*d-b*b)/(2*a*d),-1,1);
+  const ang=base+bend*Math.acos(cosA);
+  return [sx+Math.cos(ang)*a,sy+Math.sin(ang)*a,sx+dx,sy+dy]; // joint, clamped target
+}
+
+/* ============================== 3. World layout ============================ */
+const FLOOR_Y=760;
+function drawCourt(t){
+  // hardwood floor band
+  ctx.fillStyle=C.wood;ctx.fillRect(-400,FLOOR_Y,2800,H-FLOOR_Y+80);
+  // faint vertical wood grain, alpha ~0.35
+  for(let i=0;i<64;i++){
+    const gx=-380+i*44+ ((i*37)%13);
+    sLine(gx,FLOOR_Y+6,gx+jv(2)+6,H+40,1.6,C.grain,0.35);
+  }
+  // horizon / floor line
+  sLine(-400,FLOOR_Y,2400,FLOOR_Y,3.5,C.ink,1);
+  // rafter banner belt (spec 3) - figure/ball never enter this zone
+  for(let i=0;i<6;i++){
+    const bx=160+i*280;
+    ctx.globalAlpha=0.25;ctx.fillStyle=C.banner;
+    ctx.fillRect(bx,60,176,116);ctx.globalAlpha=1;
+    sPolyOutline([[bx,60],[bx+176,60],[bx+176,176],[bx,176]],1.8,C.ink,0.35);
+    sLine(bx+8,76,bx+168,76,2.2,C.ink,0.4); // strap line
+  }
+  // ---- court markings: proper NBA half-court in side view (~29px per foot along court) ----
+  // half-court transverse line (subtle, far left - the run-up crosses it)
+  sLine(330,772,306,986,2.2,C.lineA,0.45);
+  // paint slab: FT line is 19ft from the baseline; baseline sits just behind the pole
+  const slab=[[1110,772],[1668,772],[1664,984],[1098,984]];
+  polyPath(slab);ctx.fillStyle=C.slab;ctx.fill();
+  hatch(()=>polyPath(slab),1098,772,1668,984,14,-0.65,C.slabHatch,0.15,1.6);
+  sPolyOutline(slab,2.6,C.lineA,0.9);
+  // lane tick marks (block hash marks): 3 per edge, pointing outward from the lane
+  for(const f of [0.45,0.63,0.81]){
+    const xt=1668-(1668-1110)*f;
+    sLine(xt,772,xt+2,762,2.2,C.lineA,0.8);
+    const xn=1664-(1664-1098)*f;
+    sLine(xn,984,xn-2,996,2.2,C.lineA,0.8);
+  }
+  // baseline (recedes with perspective, extends past the near lane edge out of bounds)
+  sLine(1666,768,1652,998,2.6,C.lineB,0.95);
+  // free-throw line (recession lean)
+  sLine(1110,772,1098,984,2.6,C.lineA,0.95);
+  // free-throw circle (r=6ft): solid half bulges toward half court...
+  sEllipseArc(1104,878,176,96,0.5*PI,1.5*PI,2.6,C.lineA,0.95);
+  // ...and the paint-side half is dashed, as on a real court
+  dashedArc(1104,878,176,96,-0.5*PI,0.5*PI,2.2,C.lineA,0.7);
+  // restricted-area arc under the rim (r=4ft)
+  sEllipseArc(1512,878,116,52,0.5*PI,1.5*PI,2.2,C.lineA,0.9);
+  // 3-point arc (r=23.75ft from the rim axis) + corner-3 straight segments
+  sEllipseArc(1512,878,690,100,0.5*PI,1.5*PI,2.6,C.lineB,0.95,72);
+  sLine(1512,778,1658,769,2.6,C.lineB,0.9);  // far corner straight
+  sLine(1512,978,1656,990,2.6,C.lineB,0.9);  // near corner straight
+}
+
+/* ---- hoop with always-live net physics (spec 3) ---- */
+function rimDeflect(t){const dt=t-2.8;return (dt>=0&&dt<=1.4)?Math.sin(dt*24)*Math.exp(-dt*4.2)*28:0;}
+function netDeflect(t){const dt=t-2.8;return dt>0?Math.sin(dt*26)*Math.exp(-dt*5)*25:0;}
+function netWave(t){return Math.sin((t-2.8)*22)*Math.exp(-Math.max(0,t-2.8)*4)*18;}
+function netFlare(t){return (t>2.8&&t<3.25)?Math.sin((t-2.8)/0.45*PI)*22:0;}
+function drawHoop(t){
+  const rimY=440+rimDeflect(t);
+  // pole x1660-1692 y220-760, dark + crosshatch
+  ctx.fillStyle=C.pole;ctx.fillRect(1660,220,32,540);
+  hatch(()=>{ctx.beginPath();ctx.rect(1660,220,32,540);},1660,220,1692,760,9,0.8,C.paper,0.10,1.4);
+  hatch(()=>{ctx.beginPath();ctx.rect(1660,220,32,540);},1660,220,1692,760,9,-0.8,C.paper,0.10,1.4);
+  sPolyOutline([[1660,220],[1692,220],[1692,760],[1660,760]],2.6,'#191512',0.9);
+  // arms to board
+  sLine(1662,330,1556,330,6,C.pole,1);
+  sLine(1662,430,1556,430,6,C.pole,1);
+  // backboard x1540-1556 y270-480
+  ctx.fillStyle=C.board;ctx.fillRect(1540,270,16,210);
+  hatch(()=>{ctx.beginPath();ctx.rect(1540,270,16,210);},1540,270,1556,480,8,-0.55,C.boardHatch,0.18,1.3);
+  sPolyOutline([[1540,270],[1556,270],[1556,480],[1540,480]],2.6,C.ink,0.95);
+  // red target ticks at y 360/410 on the face
+  sLine(1540,360,1530,360,3,'#c43319',0.95);
+  sLine(1540,410,1530,410,3,'#c43319',0.95);
+  // rim mount block
+  ctx.fillStyle=C.pole;ctx.fillRect(1540,rimY-9,14,18);
+  sPolyOutline([[1540,rimY-9],[1554,rimY-9],[1554,rimY+9],[1540,rimY+9]],2,'#191512',0.9);
+  // net (drawn under rim edge)
+  drawNet(t,rimY);
+  // rim ellipse center (1512,rimY), rx37 ry10
+  circleFillPath(1512,rimY,37,10);ctx.fillStyle=C.rim;ctx.fill();
+  hatch(()=>circleFillPath(1512,rimY,37,10),1475,rimY-10,1549,rimY+10,6,-0.6,'#7a1c05',0.25,1.2);
+  sEllipse(1512,rimY,37,10,3,C.rimCt,1);
+}
+function drawNet(t,rimY){
+  const wv=netWave(t),fl=netFlare(t),df=netDeflect(t);
+  const top=[],bot=[];
+  for(let i=0;i<7;i++){
+    top.push([1475+(74/6)*i,rimY+6]);
+    bot.push([1490.5+(43/6)*i+(wv+fl),rimY+6+70+df*0.9]);
+  }
+  const mid=[];
+  for(let i=0;i<7;i++){ // middle row, half wave
+    mid.push([lerp(top[i][0],bot[i][0],0.5)+(wv+fl)*0.5,lerp(top[i][1],bot[i][1],0.5)]);
+  }
+  for(let i=0;i<6;i++){
+    sCurve([top[i],mid[i+1],bot[i+1]],2.2,C.net,0.95);
+    sCurve([top[i+1],mid[i],bot[i]],2.2,C.net,0.8);
+  }
+  for(let i=0;i<7;i++)sCurve([top[i],mid[i],bot[i]],1.6,C.net,0.5);
+  // bottom loop
+  const blx=1512+(wv+fl),bly=rimY+6+70+df*0.9;
+  sEllipse(blx,bly,21.5+Math.abs(wv)*0.15,6,2.2,C.net,0.95);
+}
+
+/* ============================== 5. Ball ==================================== */
+function drawBall(bx,by,rot,sq){
+  ctx.save();ctx.translate(bx,by);ctx.scale(1/sq,sq);
+  const r=28;
+  circleFillPath(0,0,r,r);ctx.fillStyle=C.ball;ctx.fill();
+  // pencil highlight hatch top-left, dark hatches bottom-right
+  hatch(()=>circleFillPath(0,0,r,r),-r,-r,r,r,6,-0.9,C.ballHi,0.55,1.5);
+  hatch(()=>{ctx.beginPath();ctx.ellipse(9,11,19,15,0.5,0,TAU);},-r,-r,r,r,5,-0.9,C.ballDk,0.5,1.4);
+  hatch(()=>{ctx.beginPath();ctx.ellipse(13,16,12,9,0.5,0,TAU);},-r,-r,r,r,4,-0.9,C.ballDk2,0.45,1.3);
+  // seams rotate with ballRot
+  ctx.save();ctx.rotate(rot);
+  circleFillPath(0,0,r-0.5,r-0.5);ctx.clip();
+  const sp=[];for(let i=0;i<=10;i++)sp.push([lerp(-r*0.99,r*0.99,i/10),jv(0.4)]);
+  sCurve(sp,2.2,C.seam,0.9);                                   // equator
+  const mp=[];for(let i=0;i<=10;i++)mp.push([jv(0.4),lerp(-r*0.99,r*0.99,i/10)]);
+  sCurve(mp,2.2,C.seam,0.9);                                   // meridian
+  const aL=[];for(let i=0;i<=10;i++){const u=i/10,y=lerp(-r*0.98,r*0.98,u);aL.push([-Math.sin((u-0.5)*1.9)*r*0.62-r*0.28,y]);}
+  sCurve(aL,2.2,C.seam,0.9);                                   // left arc
+  const aR=[];for(let i=0;i<=10;i++){const u=i/10,y=lerp(-r*0.98,r*0.98,u);aR.push([Math.sin((u-0.5)*1.9)*r*0.62+r*0.28,y]);}
+  sCurve(aR,2.2,C.seam,0.9);                                   // right arc
+  ctx.restore();
+  sCircle(0,0,r,3.5,C.seam,1);                                 // contour
+  ctx.restore();
+}
+
+/* ============================== 4. Player ================================= */
+function drawFigure(P,t){
+  // shadow first (drawn by caller separately) - this fn: back limbs, spine, front limbs, head
+  const a=0.85;
+  // ---- back (left) limbs
+  const lk=ik2(P.pelvis[0],P.pelvis[1],P.lFoot[0],P.lFoot[1],85,85,-1);
+  sLine(P.pelvis[0],P.pelvis[1],lk[0],lk[1],5.3,C.inkDark,a);
+  sLine(lk[0],lk[1],lk[2],lk[3],5.3,C.inkDark,a);
+  const la=P.armL.explicit?P.armL.elbow:ik2(P.shoulderL[0],P.shoulderL[1],P.lHand[0],P.lHand[1],72,72,P.armL.bend);
+  const lHandJ=P.armL.explicit?P.armL.palm:ik2(P.shoulderL[0],P.shoulderL[1],P.lHand[0],P.lHand[1],72,72,P.armL.bend).slice(2);
+  sLine(P.shoulderL[0],P.shoulderL[1],la[0],la[1],5.3,C.inkDark,a);
+  sLine(la[0],la[1],lHandJ[0],lHandJ[1],5.3,C.inkDark,a);
+  // ---- spine (pelvis->neck, slight curve via arch)
+  const mx=(P.pelvis[0]+P.neck[0])/2+P.arch,my=(P.pelvis[1]+P.neck[1])/2+2;
+  sCurve([P.pelvis,[mx,my],P.neck],7.5,C.inkDark,1);
+  // pelvis/neck connectors - no hip nub: legs and spine converge at one clean point
+  sLine(P.shoulderL[0],P.shoulderL[1]+4,P.shoulderR[0],P.shoulderR[1]+2,5.5,C.inkDark,0.8);
+  // neck connector to head
+  sLine(P.neck[0],P.neck[1],P.head[0],P.head[1]+22,6,C.inkDark,1);
+  // ---- front (right) limbs
+  const rk=ik2(P.pelvis[0],P.pelvis[1],P.rFoot[0],P.rFoot[1],85,85,-1);
+  sLine(P.pelvis[0],P.pelvis[1],rk[0],rk[1],6.3,C.inkDark,1);
+  sLine(rk[0],rk[1],rk[2],rk[3],6.3,C.inkDark,1);
+  // toe stubs: flat when planted, pointed when airborne (follows shin)
+  const toe=(k,f,w,al)=>{
+    const tb=clamp((FLOOR_Y-f[1])/30,0,1);
+    sLine(f[0],f[1]-1,f[0]+lerp(14,10,tb),f[1]+lerp(2,8,tb),w,C.inkDark,al);
+  };
+  toe(rk,[rk[2],rk[3]],4.5,0.95);toe(lk,[lk[2],lk[3]],4,0.8);
+  const ra=P.armR.explicit?P.armR.elbow:ik2(P.shoulderR[0],P.shoulderR[1],P.rHand[0],P.rHand[1],72,72,P.armR.bend);
+  const rHandJ=P.armR.explicit?P.armR.palm:ik2(P.shoulderR[0],P.shoulderR[1],P.rHand[0],P.rHand[1],72,72,P.armR.bend).slice(2);
+  sLine(P.shoulderR[0],P.shoulderR[1],ra[0],ra[1],6.3,C.inkDark,1);
+  sLine(ra[0],ra[1],rHandJ[0],rHandJ[1],6.3,C.inkDark,1);
+  // palms
+  circleFillPath(rHandJ[0],rHandJ[1],5,5);ctx.fillStyle=C.inkDark;ctx.fill();
+  circleFillPath(lHandJ[0],lHandJ[1],4.3,4.3);ctx.fill();
+  // ---- head
+  const hc=P.head;
+  circleFillPath(hc[0],hc[1],26,26);ctx.fillStyle=C.headFill;ctx.fill();
+  hatch(()=>circleFillPath(hc[0],hc[1],25,25),hc[0]-26,hc[1]-26,hc[0]+26,hc[1]+26,7,-0.85,C.ink,0.10,1.2);
+  sCircle(hc[0],hc[1],26,3.2,C.inkDark,1);
+  // headband + flapping tail
+  const flap=Math.sin(t*18)*8;
+  const bb=[];for(let i=0;i<=8;i++){const u=i/8;bb.push([hc[0]-24+48*u,hc[1]-8+Math.sin(u*PI)*3]);}
+  sCurve(bb,7,C.band,1);
+  sCurve([[hc[0]-24,hc[1]-8],[hc[0]-38,hc[1]-3+flap*0.4],[hc[0]-52,hc[1]+7+flap]],4.5,C.band,1);
+  sCurve([[hc[0]-23,hc[1]-6],[hc[0]-33,hc[1]+2+flap*0.5]],3,C.band,0.9);
+  circleFillPath(hc[0]-24,hc[1]-8,3.4,3.4);ctx.fillStyle=C.band;ctx.fill(); // knot
+  // eye dot offset forward (glances up at the rim in acts 3-4)
+  circleFillPath(hc[0]+13,hc[1]+(P.eyeDy===undefined?-2:P.eyeDy),3.6,3.6);ctx.fillStyle=C.inkDark;ctx.fill();
+}
+function drawShadow(P){
+  const minFoot=Math.min(P.rFoot[1],P.lFoot[1]);
+  const r=clamp((FLOOR_Y-minFoot)/250,0,1);
+  const w=lerp(65,33,r),al=lerp(0.35,0.08,r);
+  const cx=(P.rFoot[0]+P.lFoot[0])/2;
+  ctx.globalAlpha=al;ctx.fillStyle=C.inkDark;
+  ctx.beginPath();ctx.ellipse(cx,775,w,Math.max(4,w*0.16),0,0,TAU);ctx.fill();ctx.globalAlpha=1;
+  hatch(()=>{ctx.beginPath();ctx.ellipse(cx,775,w,Math.max(4,w*0.16),0,0,TAU);},cx-w,765,cx+w,785,6,0.3,C.inkDark,al*0.9,1.1);
+}
+
+/* ============================== FX helpers ================================= */
+function dash(x,y,ang,len,w,color,alpha){
+  sLine(x,y,x+Math.cos(ang)*len,y+Math.sin(ang)*len,w,color,alpha);
+}
+function impactBurst(t){
+  const su=(t-2.8)/1.1;
+  if(su<0||su>=0.3)return;
+  // 45% size at the contact instant, pops to full within ~2 frames, fades out by su 0.3
+  const grow=0.45+0.55*easeOut3(Math.min(1,su/0.05));
+  const fade=1-smooth(0.18,0.3,su);
+  for(let i=0;i<16;i++){
+    const ang=i/16*TAU+0.12;
+    const r0=56*grow,r1=(90+60*srand('burst',i))*grow;
+    sLine(1515+Math.cos(ang)*r0,440+Math.sin(ang)*r0,1515+Math.cos(ang)*r1,440+Math.sin(ang)*r1,3,C.burst,fade*0.95);
+  }
+}
+function dustPuffs(t,P){
+  const lu=(t-3.9)/1.1;
+  if(lu<=0.28||lu>=0.55)return;
+  for(let i=0;i<6;i++){
+    const fi=clamp((lu-0.28-i*0.028)/0.2,0,1);
+    if(fi<=0||fi>=1)continue;
+    const ox=-70+srand('dustx',i)*135, oy=-2-srand('dusty',i)*10;
+    const rx=(6+26*fi),ry=(4+10*fi),al=(1-fi)*0.35;
+    ctx.globalAlpha=al*0.45;ctx.fillStyle=C.dust;
+    ctx.beginPath();ctx.ellipse(P.pelvis[0]+ox,762+oy,rx*1.25,ry*1.3,0,0,TAU);ctx.fill();
+    ctx.globalAlpha=al;
+    ctx.beginPath();ctx.ellipse(P.pelvis[0]+ox,762+oy,rx,ry,0,0,TAU);ctx.fill();
+    ctx.globalAlpha=1;
+  }
+}
+
+/* ============================== 6. Camera ================================== */
+function camera(t){
+  if(t<1.5)return [lerp(600,960,easeOut2(t/1.5)),540,1.0];
+  if(t<2.8){const u=(t-1.5)/1.3;
+    return [lerp(960,1300,smoothstepU(u)),lerp(540,480,Math.sin(u*PI)),lerp(1.0,1.08,Math.sin(u*PI))];}
+  if(t<3.9){const st=t-2.8,sh=Math.sin(st*45)*Math.exp(-st*12)*16;
+    return [1350+sh,490+sh*0.7,1.06];}
+  const u=(t-3.9)/1.1;
+  return [lerp(1350,1100,easeOut3(u)),lerp(490,540,easeOut2(u)),lerp(1.06,1.0,easeOut2(u))];
+}
+
+/* ============================== 7. Choreography ============================ */
+function computeFrame(t){
+  const P={arch:6};let ball={x:0,y:0,rot:0,sq:1};const fx=[];
+  if(t<1.5){/* ---------------- ACT 1: Drive and dribble ---------------- */
+    const charX=lerp(180,850,t/1.5);
+    const stride=Math.sin(t*16),bob=Math.abs(stride)*18;
+    const crouch=smooth(1.2,1.5,t);
+    let phase=((t-0.08)/0.4)%1;if(phase<0)phase+=1;
+    let h;
+    if(phase<0.3){const u1=phase/0.3;h=1-u1*u1;}
+    else if(phase<0.4){h=0;}
+    else if(phase<0.87){const u2=(phase-0.4)/0.47;h=1-(1-u2)*(1-u2);}
+    else h=1;
+    ball.x=charX+35+69;ball.y=FLOOR_Y-28-h*172;
+    ball.sq=h<0.02?0.82:(h<0.1?lerp(0.82,1,(h-0.02)/0.08):1);
+    ball.rot=t*3.0;
+    // gather blend 1.2-1.5s to exactly (905,733)
+    const g=smooth(1.2,1.5,t);
+    ball.x=lerp(ball.x,905,g);ball.y=lerp(ball.y,733,g);
+    P.pelvis=[charX,FLOOR_Y-170+bob+crouch*58+(1-h)*22];
+    P.neck=[charX+35,P.pelvis[1]-130];
+    P.head=[charX+50+25*crouch,P.neck[1]-45];
+    const handAct=smooth(0.5,0.7,phase)*(1-smooth(0.85,1.0,phase));
+    let rH=[P.neck[0]+75,P.neck[1]+125-handAct*58];
+    if(g>0)rH=[lerp(rH[0],ball.x+8,g),lerp(rH[1],ball.y-30,g)]; // palm rides onto the gathered ball
+    P.rHand=rH;
+    // left arm counter-pumps the stride, then comes in for a two-hand gather
+    const lp=[P.neck[0]+2-stride*45,P.neck[1]+80];
+    P.lHand=g>0?[lerp(lp[0],ball.x-30,g),lerp(lp[1],ball.y-8,g)]:lp;
+    P.shoulderR=[P.neck[0]+12,P.neck[1]+16];
+    P.shoulderL=[P.neck[0]-8,P.neck[1]+16];
+    P.rFoot=[charX+30+stride*80,Math.min(FLOOR_Y,FLOOR_Y-55*Math.max(0,Math.cos(t*16)))];
+    P.lFoot=[charX+30-stride*80,Math.min(FLOOR_Y,FLOOR_Y-55*Math.max(0,-Math.cos(t*16)))];
+    P.armR={bend:1,explicit:false};P.armL={bend:1,explicit:false};
+    P.arch=6+9*crouch;
+    if(t>=0.15)fx.push({k:'run',anchor:Math.max(charX-80,170),y:P.pelvis[1]-40});
+    // ball speed tracers during the fast push / catch rise (same language as windmill streaks)
+    if(g<0.4){
+      if(phase<0.3)fx.push({k:'drib',dir:1,ball:[ball.x,ball.y],w:0.25+0.10*(phase/0.3)});
+      else if(phase>0.4&&phase<0.72){const u2=(phase-0.4)/0.47;fx.push({k:'drib',dir:-1,ball:[ball.x,ball.y],w:0.30*(1-u2)});}
+    }
+  }else if(t<2.8){/* ---------- ACT 2: Takeoff, flight, windmill ---------- */
+    const u=(t-1.5)/1.3;
+    const charX=lerp(850,1490,u);
+    const charY=FLOOR_Y+30-190*Math.sin(u*PI)+30*u;
+    P.pelvis=[charX,charY-140];
+    P.neck=[charX+lerp(25,-15,u),P.pelvis[1]-130];
+    P.head=[P.neck[0]+12,P.neck[1]-45];
+    const legCycle=Math.sin(u*PI*2.5);
+    const tuck=70*smooth(0.55,1,u);
+    P.rFoot=[charX+60+legCycle*45,P.pelvis[1]+118-60*Math.sin(u*PI)-legCycle*18-tuck];
+    P.lFoot=[charX-20-legCycle*30,P.pelvis[1]+122-45*Math.sin(u*PI)+legCycle*14-tuck];
+    // windmill arm (explicit elbow/palm)
+    const angle=lerp(-0.6*PI,1.5*PI,smoothstepU(u));
+    const sh=[P.neck[0]+15,P.neck[1]+20];
+    const armLen=95,ext=armLen*1.3;
+    const elbow=[sh[0]+Math.cos(angle-0.3)*ext*0.7,sh[1]+Math.sin(angle-0.3)*ext*0.7];
+    const palm=[sh[0]+Math.cos(angle)*ext,sh[1]+Math.sin(angle)*ext];
+    P.shoulderR=sh;P.armR={explicit:true,elbow:elbow,palm:palm};P.rHand=palm;
+    // left arm trails low-out (blend from the two-hand gather cradle over first 0.1 of u)
+    const trail=[P.neck[0]-85-25*Math.sin(u*PI),P.neck[1]+75];
+    const fromA1=[P.neck[0]-10,P.neck[1]+205];
+    const hb=easeOut2(Math.min(1,u/0.1));
+    P.lHand=[lerp(fromA1[0],trail[0],hb),lerp(fromA1[1],trail[1],hb)];
+    P.shoulderL=[P.neck[0]-8,P.neck[1]+16];P.armL={bend:-1,explicit:false};
+    P.arch=5;
+    // ball rips from gather point onto the palm
+    const rip=easeOut2(Math.min(1,u/0.077));
+    const tx=palm[0]+Math.cos(angle)*22,ty=palm[1]+Math.sin(angle)*22;
+    ball.x=lerp(905,tx,rip);ball.y=lerp(733,ty,rip);
+    ball.rot=4.5+(angle+0.6*PI)*0.9;
+    ball.sq=1;
+    fx.push({k:'wind',angle:angle,sh:sh,armLen:armLen,u:u,ball:[ball.x,ball.y]});
+    if(u<0.4)fx.push({k:'takeoff',u:u});
+  }else if(t<3.9){/* ---------------- ACT 3: Slam and rim hang ---------------- */
+    const su=(t-2.8)/1.1;
+    const rimY=440+rimDeflect(t);
+    const glide=easeOut2(clamp(su*2.2,0,1));
+    const swing=Math.sin(su*PI*1.6)*35;
+    P.neck=[1515-40-65*glide+swing*0.6,rimY+110];
+    P.head=[P.neck[0]+18,P.neck[1]-42];
+    P.pelvis=[P.neck[0]-35+swing,P.neck[1]+145];
+    P.lHand=[1475,rimY+5];P.rHand=[1500,rimY+8];
+    if(lHandIsRightOf(P)){/*no-op*/}
+    P.shoulderR=[P.neck[0]+25,P.neck[1]+18];
+    P.shoulderL=[P.neck[0]+5,P.neck[1]+18];
+    P.armR={bend:-1,explicit:false};P.armL={bend:-1,explicit:false};
+    P.eyeDy=-7; // eyes up at the rim
+    const kick=Math.max(0,1-su*0.6); // pendulum second harmonic, decays over the hang
+    P.rFoot=[P.pelvis[0]+52+swing*0.35+Math.sin(su*PI*3.2+1.2)*7*kick,P.pelvis[1]+58];
+    P.lFoot=[P.pelvis[0]+26+swing*0.35+Math.sin(su*PI*3.2)*7*kick,P.pelvis[1]+62];
+    P.arch=12;
+    if(su<0.27){const netU=su/0.27;
+      ball.x=lerp(1500,1538,netU);
+      ball.y=lerp(rimY+20,730,Math.pow(netU,1.3));
+      // compression pulse on rim contact, then the 1.15 exit stretch
+      const pulse=Math.exp(-Math.pow(su/0.05,2));
+      ball.sq=(1-0.16*pulse)*lerp(1.0,1.15,netU);
+    }else{const bu=clamp((t-3.097)/0.803,0,1);
+      ball.x=lerp(1538,1640,bu);
+      const raw=730-Math.sin(bu*PI*1.5)*150*(1-bu*0.5);
+      ball.y=Math.min(raw,730); // floor clamp: the formula's undershoot reads as floor contact
+      ball.sq=1-0.15*smooth(0.64,0.68,bu)*(1-smooth(0.70,0.78,bu));
+    }
+    ball.rot=10.44+su*2.0;
+    if(su<0.24)fx.push({k:'netstreak',ball:[ball.x,ball.y],su:su});
+  }else{/* ---------------- ACT 4: Release and landing ---------------- */
+    const lu=(t-3.9)/1.1;
+    // act-3 end state (computed from the same formulas, su=1)
+    const glideE=1,swingE=Math.sin(PI*1.6)*35;
+    const neckX0=1515-40-65*glideE+swingE*0.6;
+    const pelX0=neckX0-35+swingE,pelY0=695.26;
+    const px=lerp(pelX0,1360,smooth(0,0.6,lu));
+    let pelY,neckOff= -130,KB,fw,S;
+    if(lu<0.3){const q=Math.pow(lu/0.3,2);
+      pelY=lerp(pelY0,621.5,q);neckOff=lerp(-115,-130,q);KB=null;fw=25;
+      S=lerp(150,80,smooth(0,0.28,lu));
+      const fq=smooth(0.06,0.3,lu);
+      P.rFoot=[lerp(pelX0+52,px+30,fq),lerp(752,FLOOR_Y,fq)];
+      P.lFoot=[lerp(pelX0+26,px-26,fq),lerp(752,FLOOR_Y,fq)];
+    }else{
+      P.rFoot=[px+30,FLOOR_Y];P.lFoot=[px-26,FLOOR_Y];
+      if(lu<0.65){const au=(lu-0.3)/0.35;
+        KB=35+45*Math.sin(au*PI);fw=lerp(25,15,au);
+        S=80+30*Math.sin(au*PI);
+      }else{const eu=easeOut3((lu-0.65)/0.35);
+        KB=lerp(35,12,eu);fw=lerp(15,8,eu);
+        S=lerp(80,46,eu); // settle: hands rest just outside the thighs, clear of the torso
+      }
+      pelY=590+KB*0.9;
+    }
+    P.pelvis=[px,pelY];
+    P.neck=[px+fw,pelY+neckOff];
+    P.head=[P.neck[0]+10,P.neck[1]-45];
+    P.eyeDy=lu<0.3?-6:-3;
+    P.shoulderR=[P.neck[0]+12,P.neck[1]+16];
+    P.shoulderL=[P.neck[0]-8,P.neck[1]+16];
+    P.armR={bend:1,explicit:false};P.armL={bend:-1,explicit:false};
+    P.rHand=[P.neck[0]+12+S*0.62,P.neck[1]+105-S*0.40];
+    P.lHand=[P.neck[0]-12-S*0.62,P.neck[1]+105-S*0.40];
+    P.arch=6;
+    ball.x=lerp(1640,1780,lu);
+    ball.y=732-Math.abs(Math.sin(lu*4*PI))*100*Math.exp(-lu*2.5);
+    ball.rot=12.44+lu*2.6;
+    ball.sq=1;for(let k=1;k<=4;k++)ball.sq-=0.15*Math.exp(-Math.pow((lu-k/4)/0.028,2));
+  }
+  return {P:P,ball:ball,fx:fx};
+}
+function lHandIsRightOf(){return false;}
+
+/* ============================== FX draw (behind figure) ==================== */
+function drawFX(fx,t){
+  for(const f of fx){
+    if(f.k==='run'){
+      for(let i=0;i<6;i++){
+        const ang=PI+(-0.28+0.112*i),st=26,len=30+srand('run',i)*42;
+        const x0=f.anchor+Math.cos(ang)*st,y0=f.y+Math.sin(ang)*st+ (i-2.5)*7;
+        dash(x0,y0,ang,len,2.8,C.ink,0.5);
+      }
+    }else if(f.k==='wind'){
+      const fadeIn=smooth(0.02,0.12,f.u);
+      // bold arc trail + inner echo (spec 7 act 2)
+      sArc(f.sh[0],f.sh[1],f.armLen*1.35,f.angle-1.9,f.angle,3.5,C.ball,0.9*fadeIn,30);
+      sArc(f.sh[0],f.sh[1],f.armLen*1.1,f.angle-1.2,f.angle,2.4,C.ball,0.4*fadeIn,20);
+      // ghost rings, gated u 0.12-0.3 in / 0.8-0.95 out
+      const gate=smooth(0.12,0.3,f.u)*(1-smooth(0.8,0.95,f.u));
+      if(gate>0.001){
+        const rr=f.armLen*1.3+24;
+        for(let g=1;g<=3;g++){
+          const a=f.angle-g*0.5;
+          const cx=f.sh[0]+Math.cos(a)*rr,cy=f.sh[1]+Math.sin(a)*rr;
+          sEllipse(cx,cy,28-6*g,(28-6*g)*0.82,3,C.ball,[0.5,0.37,0.24][g-1]*gate);
+        }
+      }
+      // launch streaks
+      if(f.u<0.35){
+        const al=0.45*(1-f.u/0.35);
+        const ba=0.75*PI;
+        for(let i=0;i<3;i++){
+          const d0=44+i*16,perp=(i-1)*9;
+          const x=f.ball[0]+Math.cos(ba)*d0-Math.sin(ba)*perp;
+          const y=f.ball[1]+Math.sin(ba)*d0+Math.cos(ba)*perp;
+          dash(x,y,ba,26,2.6,C.ball,al);
+        }
+      }
+    }else if(f.k==='drib'){
+      // 2 short trailing dashes: above the ball when it free-falls, below on the catch rise
+      for(let i=0;i<2;i++){
+        const ox=-6+i*10,len=14+i*8;
+        if(f.dir>0)sLine(f.ball[0]+ox,f.ball[1]-40-i*15,f.ball[0]+ox,f.ball[1]-40-i*15+len,2.2,C.ball,f.w);
+        else sLine(f.ball[0]+ox,f.ball[1]+38+i*15,f.ball[0]+ox,f.ball[1]+38+i*15-len,2.2,C.ball,f.w);
+      }
+    }else if(f.k==='takeoff'){
+      const al=0.55*easeOut2(1-f.u/0.4);
+      for(let i=0;i<4;i++)dash(850-10*i,762-6*i,0.75*PI,34+12*i,3,C.ink,al);
+    }else if(f.k==='netstreak'){
+      const al=0.6*(1-f.su/0.24);
+      for(let i=0;i<4;i++){
+        const ox=[-9,-3,3,9][i];
+        sLine(f.ball[0]+ox,f.ball[1]-40-i*14,f.ball[0]+ox,f.ball[1]-22-i*14,2.6,C.ball,al);
+      }
+    }
+  }
+}
+
+/* ============================== 8. Captions (screen space) ================= */
+const CAPTIONS=[
+  {txt:'DRIBBLE DRIVE',w0:0.4,w1:1.1,x:320,y:340,size:52,color:C.ink,weight:700},
+  {txt:'WINDMILL!',w0:1.75,w1:2.75,x:230,y:655,size:64,color:C.burst,weight:800},
+  {txt:'SLAM!',w0:2.8,w1:3.9,x:1280,y:250,size:84,color:C.band,weight:800},
+  {txt:'10 / 10',w0:4.4,w1:5.05,x:1180,y:300,size:60,color:C.ink,weight:800}
+];
+function drawCaptions(t){
+  for(const c of CAPTIONS){
+    if(t<c.w0||t>c.w1)continue;
+    // hard-ON exactly at window start (frame 84 SLAM! must be drawn), fade only at window end
+    const a=1-(c.w1<4.9?smooth(c.w1-0.09,c.w1,t):0);
+    if(a<=0.001)continue;
+    ctx.save();
+    ctx.translate(jv(1.0),jv(1.0));
+    ctx.font=FONT(c.size,c.weight);
+    ctx.textAlign='left';ctx.textBaseline='alphabetic';
+    ctx.globalAlpha=a*0.9;ctx.lineWidth=Math.max(1,c.size*0.05);ctx.strokeStyle=c.color;
+    ctx.strokeText(c.txt,c.x,c.y);
+    ctx.globalAlpha=a;ctx.fillStyle=c.color;
+    ctx.fillText(c.txt,c.x,c.y);
+    ctx.globalAlpha=a*0.22;ctx.fillText(c.txt,c.x+1.1,c.y+0.9);
+    ctx.restore();ctx.globalAlpha=1;
+  }
+}
+
+/* ============================== frame draw ================================= */
+function drawFrame(f){
+  const t=f/FPS;
+  beginBoil(f);
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.fillStyle=C.paper;ctx.fillRect(0,0,W,H);
+  const {P,ball,fx}=computeFrame(t);
+  // follow-through: the head lags the pelvis' vertical velocity (overlap action)
+  {
+    const prev=computeFrame(Math.max(0,t-1/FPS)).P;
+    const lagY=clamp((P.pelvis[1]-prev.pelvis[1])*2.2,-8,8);
+    P.head=[P.head[0],P.head[1]+lagY];
+  }
+  const [ccx,ccy,zoom]=camera(t);
+  ctx.save();
+  ctx.translate(W/2,H/2);ctx.scale(zoom,zoom);ctx.translate(-ccx,-ccy);
+  drawCourt(t);
+  drawHoop(t);
+  impactBurst(t);                 // burst sits on the rim, behind the figure
+  drawFX(fx,t);
+  drawShadow(P);
+  dustPuffs(t,P);
+  drawFigure(P,t);
+  drawBall(ball.x,ball.y,ball.rot,ball.sq);
+  ctx.restore();
+  // paper grain speckle (screen space, boils with the frame pair)
+  for(let i=0;i<90;i++){
+    ctx.globalAlpha=0.045;ctx.fillStyle='#6b5636'; // eslint-disable-line
+    ctx.beginPath();ctx.arc(jr()*W,jr()*H,0.4+jr()*1.6,0,TAU);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+  drawCaptions(t);
+}
+
+/* ============================== driver ===================================== */
+const params=new URLSearchParams(location.search);
+if(params.has('f')){
+  const f=clamp(parseInt(params.get('f'),10)||0,0,NFRAMES-1);
+  drawFrame(f);
+  window.__done=true;
+}else{
+  let start=null;
+  function loop(ts){
+    if(start===null)start=ts;
+    const f=Math.floor((ts-start)/(1000/FPS))%NFRAMES;
+    drawFrame(f);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+}
+})();
+</script>
+</body>
+</html>

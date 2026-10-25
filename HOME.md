@@ -12,10 +12,10 @@ One note to route everything. PARA layout: capture in **Inbox**, act in **Projec
 ```mermaid
 flowchart LR
     IN["📥 00-Inbox<br>(raw capture)"]
-    PRJ["🚀 01-Projects<br>animate · stickman-dunk"]
+    PRJ["🚀 01-Projects<br>voicestudio"]
     ARE["🧭 02-Areas<br>Workspace-Analytics"]
     RES["📚 03-Resources<br>(building up)"]
-    ARC["🗄️ 04-Archives<br>Learn · MAQC-7 · Omniroute<br>Worksheet-Generator · Local AI"]
+    ARC["🗄️ 04-Archives<br>Learn · MAQC-7 · Omniroute<br>Worksheet-Generator · Local AI · Stickman-Basketball"]
 
     IN -- "triage weekly" --> PRJ
     IN -- "routines & standards" --> ARE
@@ -55,6 +55,8 @@ Empty for now ([[03-Resources/README|README]] defines the structure). Reference 
 | Worksheet-Generator | worksheet tooling project | [[04-Archives/Worksheet-Generator/README\|README]] |
 | Omniroute | retired launcher (daily use moved to OpenCode) | [[04-Archives/Omniroute/README\|README]] |
 | Local AI (barebones) | llama.cpp Qwen3.5-9B server, CPU build | revive: double-click `start.bat` · [[04-Archives/Local AI (barebones)/Docs/LOCAL_AI_STARTUP.md\|LOCAL_AI_STARTUP]] |
+| Stickman-Basketball | two finished shorts with SFX + grade, plus the full animate workspace | [[04-Archives/Stickman-Basketball/README\|README]] |
+| OpenCode-Migration | vault migration scripts + build logs | [[04-Archives/OpenCode-Migration/README\|README]] |
 
 ## 📌 Root Docs
 
