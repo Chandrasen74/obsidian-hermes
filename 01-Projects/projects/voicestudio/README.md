@@ -35,4 +35,18 @@ Outputs: `output/` (added below when generated).
 
 ---
 
-*Last updated: 2026-10-25*
+## Evening resume (owner back ~evening 2026-10-25)
+
+1. Launch VoiceStudio via the Start menu/desktop shortcut (Chrome + Discord
+   closed: leave ~4-5 GB RAM free for the model).
+2. Owner answers any first-run prompt; verify /health on port 3900.
+3. Rerun the 4 renders (2 texts x 2 voices), budget now 1800 s;
+   save WAVs to output/, then transcription-verify + owner listens.
+
+---
+
+*Last updated: 2026-10-25 (night: render 1r completed & raw JSON saved to
+output/gen_1r.json, romanized text + designed female voice; remaining 3
+renders stopped at owner request; PC shut down overnight. Tomorrow: boot with
+internet, launch app, extract WAV from gen_1r.json, rerun 2r/1d/2d, run the
+faster-whisper transcription check, then owner listens and picks.*)

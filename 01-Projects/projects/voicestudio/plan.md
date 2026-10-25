@@ -47,14 +47,30 @@ The vault holds only notes + small output clips (`output/`).
       `VoiceStudio-Electron-*-win-x64.exe`, SHA256-verified, opens wizard)
 - [ ] 3. MANUAL: owner clicks wizard; owner answers first-run analytics
       consent prompt (agent guide forbids doing this for them)
-- [ ] 4. Backend check: `/health` at http://localhost:3900, `/openapi.json`
-- [ ] 5. `GET /models`; if weights not installed -> report size + license,
-      get consent, then `POST /models/install` + poll install status
-- [ ] 6. Generate: OmniVoice engine (646 languages), 2 text variants
-      (romanized + Devanagari) x 2-3 bundled voices, language `Auto`
-- [ ] 7. Verify: transcribe each clip with local ASR, diff vs input; owner
-      picks winner; save to `output/`
-- [ ] 8. Report: version, engine, device (cpu), paths, reopen instructions
+- [x] 4. Backend check: `/health` at http://localhost:3900, `/openapi.json`
+- [x] 5. Model install consent given -> BOTH installed 2026-10-25:
+      k2-fsa/OmniVoice TTS 3.04 GB + Systran/faster-whisper-small 0.45 GB,
+      both in `C:\VoiceStudio\cache` (`/models` shows installed=true)
+- [ ] 6. Generate: OmniVoice engine, 2 text variants (romanized + Devanagari)
+      x 2 designed natural voices via `POST /generate` multipart:
+      text (required), language=Auto, instruct="female, young adult,
+      moderate pitch" / "male, middle-aged, moderate pitch". Text payload
+      files ready in output/ (text_romanized.txt, text_devanagari.txt).
+- [ ] 7. Verify: transcribe each clip with local faster-whisper-small, diff
+      vs input; owner picks winner
+- [x] progress note: first probe generate FAILED with HTTP 503
+      ("abandoned after 600s compute") because RAM was near-zero
+      (Chrome/Discord + model = 0.6-1.2 GB free). Fixed by closing RAM-heavy
+      apps + OMNIVOICE_CPU_GENERATE_TIMEOUT_S=1800; renders then succeeded.
+- [x] PAUSED mid-render at owner request 2026-10-25 night (owner cut
+      internet for the night). Job 1r COMPLETED HTTP 200 before the stop:
+      romanized text + "female, young adult, moderate pitch", raw response
+      saved at output/gen_1r.json (163 KB, audio inside JSON - decompress
+      tomorrow). VoiceStudio fully stopped; PC shut down overnight.
+TOMORROW: router back on -> boot -> launch VoiceStudio -> extract WAV from
+gen_1r.json -> rerun jobs 2r (romanized+male), 1d (devanagari+female),
+2d (devanagari+male) -> transcribe all with faster-whisper-small -> findings
+note -> owner listens.
 
 ## Risks / fallbacks
 

@@ -7,8 +7,7 @@ tags: ["#status/active", "#type/project", "#domain/productivity"]
 This note tracks our ongoing work on your Obsidian second brain vault. I'll update it after each session to maintain context.
 
 ## Completed Sessions
-- [x] Initial vault setup with Worksheet X-A template
-- [x] Git repository initialized and connected to GitHub
+- [x] Initial vault setup with Worksheet X-A template- [x] Git repository initialized and connected to GitHub
 - [x] MAQC-7 project extracted and organized
 - [x] Created root and Worksheet README files
 - [x] Added omniroute launcher and backup command
@@ -33,7 +32,28 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Session Notes
 
-### Session: 2026-10-01
+### Session: 2026-10-25 (afternoon)
+
+**VoiceStudio install + first TTS test (paused at render stage):**
+- New project `01-Projects/projects/voicestudio/` registered ([[plan]] + [[README]]).
+- Installed VoiceStudio Electron 0.5.6 (`VoiceStudio-Electron-0.5.6-win-x64.exe`,
+  SHA256 ok). Data/cache/engines relocated to `C:\VoiceStudio\` via User env vars
+  (`OMNIVOICE_DATA_DIR`, `OMNIVOICE_CACHE_DIR`, `OMNIVOICE_ENGINES_DIR`);
+  16.7 GB Python runtime stays in AppData (owner-approved split).
+- Backend verified: /health ok, device=cpu (correct: no NVIDIA GPU).
+- Consent given -> installed OmniVoice TTS 3.04 GB (CC-BY-NC weights,
+  personal use) + faster-whisper-small 0.45 GB into C:\VoiceStudio\cache.
+- First generate 503'd at the 600 s CPU budget under RAM starvation
+  (Chrome/Discord ate the RAM). VoiceStudio killed for the afternoon per
+  owner; evening relaunch: app only, budget raised to 1800 s, rerun 4 renders.
+- Owner heading out; PC stays on; OpenCode terminal closable.
+- Evening: RAM freed (closed Chrome/Edge/webview/copilot/plarium ~4 GB),
+  backend verified (hf cache on C:\VoiceStudio\cache), job 1r rendered
+  HTTP 200 (romanized + "female, young adult, moderate pitch").
+- Night: owner cut internet; renders stopped mid-job per owner; job 1r raw
+  JSON saved to `output/gen_1r.json` (163 KB); VoiceStudio stopped; PC shut
+  down. Tomorrow: extract WAV, rerun 2r/1d/2d, ASR-verify, findings note.
+
 
 **AI Learning System (Learn) Adaptation, Demo & Archival:**
 - Cloned and analyzed upstream repo `amosblomqvist/learn.git`.
