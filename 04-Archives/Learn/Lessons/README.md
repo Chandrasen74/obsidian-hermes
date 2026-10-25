@@ -24,5 +24,16 @@ This folder stores lesson notes and study artifacts generated during interactive
 4. **Session Diagnostics & Checkpoint Insights:** Log of questions, misconceptions identified, and mental model repairs.
 5. **Spaced Repetition Flashcards:** `#card` formatted Q&A and cloze deletions for Obsidian Spaced Repetition plugin.
 
+## Learner-Graph Notes
+
+Every new session also maintains a per-topic learning record alongside the lesson note:
+
+| File | Holds | Status tags |
+|---|---|---|
+| **`<Topic-Slug> Lesson.md`** | The lesson itself: DAG, diagrams, diagnostics, flashcards | (plain note) |
+| **`<Topic-Slug> Learner-Graph.md`** | Propositions, reasoning chains, verbatim misconception log, provenance to the lesson note | `#taught` / `#verified` / `#repaired` |
+
+The graph is read at the start of the next session (Phase 0 resume: re-test `#repaired` first, spot-check `#verified`, full-probe the absent) and written at every landed node. It is a learning record, not a mastery record; rules and rationale: [[04-Archives/Learn/Docs/Practice-and-Knowledge-Graph|Practice-and-Knowledge-Graph]].
+
 ## See also
 [[04-Archives/Learn/README|README]]
