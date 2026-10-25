@@ -24,7 +24,7 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Current Focus
 - [ ] Task list maintenance (this note)
-- [ ] Ready for next active project or learning topic
+- [ ] VoiceStudio project: install local ElevenLabs alternative, generate Hindi+English test clip ([[01-Projects/projects/voicestudio/README|project]])
 
 ## Next Steps / Ideas
 - [ ] Explore Obsidian plugins for visualization (Dataview, Excalidraw, Calendar)
@@ -79,7 +79,7 @@ This skill loads automatically when we discuss:
 
 ---
 
-*Last updated: 2026-10-01*
+*Last updated: 2026-10-25 (VoiceStudio project registered)*
 
 ## See also
 [[01-Projects/README|README]]
