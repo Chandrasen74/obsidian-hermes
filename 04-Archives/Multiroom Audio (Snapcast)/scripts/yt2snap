@@ -1,0 +1,17 @@
+#!/bin/bash
+# yt2snap dl <playlist-or-video-url>  -> download audio into /root/music
+# yt2snap play <url>                  -> radio-style live stream via pipe
+set -e
+case "$1" in
+  dl)
+    yt-dlp -x --audio-format flac -o '/root/music/%(title)s.%(ext)s' "$2"
+    ;;
+  play)
+    yt-dlp -f bestaudio -o - "$2" | ffmpeg -loglevel error -i pipe:0 -f s16le -acodec pcm_s16le -ar 48000 -ac 2 pipe:1 > /tmp/snapfifo
+    ;;
+  *)
+    echo 'usage: yt2snap dl <url> | yt2snap play <url>'
+    exit 1
+    ;;
+esac
+
