@@ -23,6 +23,9 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/Worksheet-Generator/README|README]] (Worksheet Generator System - COMPLETED 2026-09-29)
 - [[04-Archives/Local AI/README|README]] (Local LLM Server - COMPLETED 2026-10-17)
 - [[04-Archives/Omniroute/README|README]] (Omniroute Startup - RETIRED 2026-10-17, superseded by OpenCode)
+- [[04-Archives/Manas-HTML-Practical-2026-(X-A)/README|README]] (HTML Practical File - COMPLETED 2026-10-25)
+- [[04-Archives/Stickman-Basketball/README|README]] (Stickman basketball shorts + full animate workspace - COMPLETED 2026-10-25)
+- [[04-Archives/OpenCode-Migration/README|README]] (Vault migration tooling + build logs - ARCHIVED 2026-10-25)
 
 ---
 
@@ -34,6 +37,9 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [x] Worksheet-Generator - archived with worksheet generation system preserved
 - [x] Local AI - archived with startup runner, operating docs, launcher code and performance documentation
 - [x] Omniroute - retired (superseded by OpenCode); launcher trio and operating guide preserved
+- [x] Manas-HTML-Practical-2026-(X-A) - archived with all HTML files, screenshots, annotated PDF, and source materials
+- [x] Stickman-Basketball - archived with the finished cuts, agent sources, build pipeline, the dev piece, and the full animate harness (all moved in)
+- [x] OpenCode-Migration - archived with migration scripts and orphan build logs
 
 **Archive Maintenance:**
 - [ ] Review archives periodically for relevance
@@ -66,4 +72,4 @@ Each archived project should have:
 
 ---
 
-*Last Updated: 2026-10-17*
+*Last Updated: 2026-10-25*

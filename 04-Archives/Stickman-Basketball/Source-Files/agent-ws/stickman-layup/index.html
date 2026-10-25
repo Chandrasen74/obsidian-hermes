@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stickman Layup - flat cartoon (reference match)</title>
+<!-- Stickman layup matched to reference frames (f000-f140, 0.0-4.7s), extended to 6.0s.
+     Flat cartoon: bright saturated fills, clean constant-width outlines, NO shading/texture/jitter.
+     Fully deterministic/time-driven. 1920x1080, 30fps, 180 frames, silent.
+     beats: dribble drive LEFT toward hoop -> chase -> crouch wind-up -> floaty leap ->
+            scoop the ball up into the rim -> land -> turn and keep dribbling RIGHT.
+     Camera: near-static with gentle horizontal pans; hoop stays readable in frame.
+     Modes: index.html (live loop) | index.html?f=N (draw frame N, sets window.__done) -->
+<style>
+  html,body{margin:0;padding:0;background:#85cdf1;overflow:hidden;width:1920px;height:1080px;}
+  canvas{display:block;width:1920px;height:1080px;}
+</style>
+</head>
+<body>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<script>
+(function(){
+"use strict";
+const W=1920,H=1080,FPS=30,NF=180,PI=Math.PI,TAU=2*PI;
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+
+/* ---------------- easing ---------------- */
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const lerp=(a,b,u)=>a+(b-a)*u;
+const eOut2=u=>{u=clamp(u,0,1);return 1-(1-u)*(1-u);};
+const eOut3=u=>{u=clamp(u,0,1);return 1-Math.pow(1-u,3);};
+const eIn2=u=>{u=clamp(u,0,1);return u*u;};
+const eInOut=u=>{u=clamp(u,0,1);return u*u*(3-2*u);};
+const back=u=>{u=clamp(u,0,1);const c=1.70158;return 1+(c+1)*Math.pow(u-1,3)+c*Math.pow(u-1,2);};
+const smooth=(a,b,t)=>eInOut((t-a)/(b-a));
+
+/* ---------------- flat cartoon palette ---------------- */
+const SKY='#85cdf1', GRASS='#12a224', GEDGE='#0b5d1e', BLOB='#0a5f1e';
+const COURT='#1e9bf0', LINE='#ffffff';
+const TRUNK='#8a5a2b', TRUNKD='#5f3c14', LEAF1='#2b9e43', LEAF2='#1e7d36', LEAFD='#145a26';
+const POLE='#dee2e6', POLED='#868e96', ARM='#adb5bd', RIM='#26347a', NETC='#f1f3f5';
+const BALL='#ff9f1c', BALLD='#d97316';
+const MAN='#ffe600';
+const FLOOR=945;        // where feet/ball live (mid blue court, 1080p)
+
+/* ---------------- flat draw helpers: clean strokes, no jitter ---------------- */
+function L(x1,y1,x2,y2,w,c){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+function C_(x1,y1,cx,cy,x2,y2,w,c){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.lineCap='round';
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.quadraticCurveTo(cx,cy,x2,y2);ctx.stroke();}
+function FCircle(x,y,r,fill,sw,sc){ctx.beginPath();ctx.arc(x,y,r,0,TAU);
+  if(fill){ctx.fillStyle=fill;ctx.fill();}
+  if(sw){ctx.strokeStyle=sc;ctx.lineWidth=sw;ctx.stroke();}}
+function FEll(x,y,rx,ry,fill){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,TAU);ctx.fillStyle=fill;ctx.fill();}
+function Arc(x,y,rx,ry,a0,a1,w,c){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.lineCap='round';
+  ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,a0,a1);ctx.stroke();}
+function Poly(pts,fill,sw,sc){ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);
+  for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.closePath();
+  if(fill){ctx.fillStyle=fill;ctx.fill();}
+  if(sw){ctx.strokeStyle=sc;ctx.lineWidth=sw;ctx.lineJoin='round';ctx.stroke();}}
+// limb segment chain drawn as two passes: none needed (man has no outline). joints = round caps.
+
+/* ---------------- background: sky, grass bank, trees, court ---------------- */
+// trees: fixed data (x, scale, lean, canopy blob offsets) - deterministic decor
+const TREES=[
+  {x:620,s:1.15,lean:-0.06},{x:1000,s:0.95,lean:0.05},{x:1380,s:1.25,lean:-0.03},
+  {x:1780,s:0.85,lean:0.08},{x:2180,s:1.0,lean:-0.05},
+];
+function drawTree(T){
+  const x=T.x,s=T.s,base=562;
+  // trunk: wavy, wide base -> narrows, slight lean
+  const lx=T.lean*60;
+  Poly([[x-16*s,base],[x-24*s,base],[x-20*s,base-70*s],[x-14*s,base-125*s],[x+lx-8*s,base-180*s],
+        [x+lx+8*s,base-180*s],[x+14*s,base-120*s],[x+20*s,base-65*s],[x+24*s,base]],
+       TRUNK,4,TRUNKD);
+  L(x+x*0,0,0,0,0,TRUNK); // no-op keep draw order count stable
+  // branch nub
+  L(x+lx,base-160*s,x+lx-30*s,base-195*s,10*s,TRUNK);
+  // canopy: back blob (darker), front blobs (brighter), out??ed
+  const cy=base-215*s;
+  FEll(x+lx-46*s,cy+14*s,64*s,50*s,LEAF2);
+  FEll(x+lx+42*s,cy+8*s,58*s,46*s,LEAF2);
+  FEll(x+lx,cy-12*s,86*s,64*s,LEAF1);
+  ctx.lineWidth=4;ctx.strokeStyle=LEAFD;
+  ctx.beginPath();ctx.ellipse(x+lx,cy-12*s,86*s,64*s,0,0,TAU);ctx.stroke();
+  ctx.beginPath();ctx.ellipse(x+lx-46*s,cy+14*s,64*s,50*s,0,PI*0.7,PI*1.5);ctx.stroke();
+  // ground shadow blob under the canopy (soft dark patch, as in the reference)
+  ctx.globalAlpha=0.55;FEll(x,base+16,100*s,18*s,BLOB);ctx.globalAlpha=0.32;
+  FEll(x,base+16,132*s,25*s,BLOB);ctx.globalAlpha=1;
+}
+const RIMX=270,RIMY=520;
+/* stand + hoop planted in the middle of the court: the pole runs from behind the board
+   down onto the court with a base pad + contact shadow; rim and lattice net live react */
+function drawHoop(t,ballInNet){
+  const dt=t-4.37;                                              // net/rim wake at the make
+  const wv = dt>0 ? Math.sin(dt*22)*Math.exp(-dt*4)*18 : 0;     // net wave (dunk port)
+  const def= dt>0 ? Math.sin(dt*26)*Math.exp(-dt*5)*25 : 0;    // net deflect (dunk port)
+  const fl = (dt>0&&dt<0.45) ? Math.sin(dt/0.45*PI)*22 : 0;    // flare as the ball passes
+  const rd = (dt>0&&dt<1.4) ? Math.sin(dt*24)*Math.exp(-dt*4.2)*28 : 0; // rim deflect (dunk port)
+  const rimY=RIMY+rd*0.25;
+  const pT=RIMY-124, pB=938;                                    // pole top (behind board) -> base on court
+  // pole + shaded right edge
+  Poly([[186,pT],[216,pT],[216,pB],[186,pB]],POLE,4,POLED);
+  L(216,pT+10,216,pB-6,5,POLED);
+  // base pad + contact shadow, planted mid-court
+  ctx.globalAlpha=0.45;FEll(202,pB+9,48,13,BLOB);ctx.globalAlpha=1;
+  ctx.beginPath();ctx.ellipse(202,pB+2,42,11,0,0,TAU);ctx.fillStyle='#edf1f4';ctx.fill();
+  ctx.lineWidth=3.5;ctx.strokeStyle=POLED;ctx.stroke();
+  // mount arms to the board
+  L(216,RIMY-58,230,RIMY-58,6,POLED);
+  L(216,RIMY-6,230,RIMY-6,6,POLED);
+  // backboard: white face + cool inner edge
+  Poly([[228,RIMY-94],[246,RIMY-94],[246,RIMY+26],[228,RIMY+26]],'#fdfdfd',4,POLED);
+  L(230,RIMY-84,230,RIMY+16,3,'#dfe4ea');
+  // flat target ticks on the face (from the dunk build's red ticks)
+  L(246,RIMY-54,255,RIMY-54,3,'#e23a1f');
+  L(246,RIMY-8,255,RIMY-8,3,'#e23a1f');
+  // rim mount block on the face
+  Poly([[236,RIMY-9],[252,RIMY-9],[252,RIMY+9],[236,RIMY+9]],POLED,3,'#5c636a');
+  // ---- net: dunk lattice, 7 strands, taper 78 -> 44, length 70, wave + deflect + flare
+  const top=[],bot=[];
+  for(let i=0;i<7;i++){
+    top.push([RIMX-39+(78/6)*i,rimY+6]);
+    bot.push([RIMX-22+(44/6)*i+(wv+fl),rimY+6+70+def*0.9]);
+  }
+  const mid=[];
+  for(let i=0;i<7;i++)mid.push([lerp(top[i][0],bot[i][0],0.5)+(wv+fl)*0.5,lerp(top[i][1],bot[i][1],0.5)]);
+  for(let i=0;i<6;i++){
+    C_(top[i][0],top[i][1],mid[i+1][0],mid[i+1][1],bot[i+1][0],bot[i+1][1],3,NETC);
+    C_(top[i+1][0],top[i+1][1],mid[i][0],mid[i][1],bot[i][0],bot[i][1],2.6,'#dde2e8');
+  }
+  for(let i=0;i<7;i++)C_(top[i][0],top[i][1],mid[i][0],mid[i][1],bot[i][0],bot[i][1],1.8,'#e7ebef');
+  // bottom loop, double for depth
+  const bly=rimY+6+70+def*0.9;
+  ctx.lineWidth=3;ctx.strokeStyle=NETC;ctx.lineCap='round';
+  ctx.beginPath();ctx.ellipse(RIMX+(wv+fl),bly,22+Math.abs(wv)*0.15,7,0,0,TAU);ctx.stroke();
+  ctx.lineWidth=2.2;ctx.strokeStyle='#dde2e8';
+  ctx.beginPath();ctx.ellipse(RIMX+(wv+fl)*0.7,bly+5,14,4.5,0,0,TAU);ctx.stroke();
+  // ---- rim on top, with a highlight arc
+  ctx.strokeStyle=RIM;ctx.lineWidth=6;
+  ctx.beginPath();ctx.ellipse(RIMX,rimY,44,12,0,0,TAU);ctx.stroke();
+  ctx.strokeStyle='#1b2659';ctx.lineWidth=3;
+  ctx.beginPath();ctx.ellipse(RIMX,rimY+3,44,12,0,0.25,PI-0.25);ctx.stroke();
+  ctx.strokeStyle='#5a6fc0';ctx.lineWidth=3;
+  ctx.beginPath();ctx.ellipse(RIMX,rimY-2,44,12,0,PI*1.12,PI*1.62);ctx.stroke();
+}
+function drawWorld(t,ballInNet){
+  ctx.fillStyle=SKY;ctx.fillRect(-400,0,2800,H);           // sky covers whole camera view height
+  // grass bank y 445 -> court top 765, wavy dark top edge
+  // grass bank y 470 -> court top 788, wavy dark top edge
+  ctx.fillStyle=GRASS;ctx.fillRect(-400,470,2800,788-470);
+  const wv=[];for(let x=-400;x<=2400;x+=40)wv.push([x,470+Math.sin(x*0.01)*7]);
+  ctx.strokeStyle=GEDGE;ctx.lineWidth=4;ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(wv[0][0],wv[0][1]);for(const p of wv)ctx.lineTo(p[0],p[1]);ctx.stroke();
+  for(const T of TREES)drawTree(T);
+  // blue court
+  ctx.fillStyle=COURT;ctx.fillRect(-400,788,2800,H-788+120);
+  // soft dark band where the grass meets the court (present in the reference)
+  const shg=ctx.createLinearGradient(0,788,0,858);
+  shg.addColorStop(0,'rgba(0,0,0,0.26)');shg.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=shg;ctx.fillRect(-400,788,2800,73);
+  // ---- court lines pixel-traced and stitched from the reference frames ----
+  ctx.strokeStyle=LINE;ctx.lineWidth=5;ctx.lineJoin='round';ctx.lineCap='round';
+  ctx.beginPath();ctx.ellipse(-91,938,774,136,0,-1.75,1.45);ctx.stroke();   // big arc under the hoop
+  ctx.beginPath();ctx.ellipse(1671,956,67,67,0,0,TAU);ctx.stroke();         // right circle (half in frame)
+  drawHoop(t,ballInNet);   // hoop last: pole planted on the court reads in front of it
+}
+
+/* ---------------- ball ---------------- */
+// squash: scale(1/sq, sq), exaggerated at floor contacts
+function drawBall(x,y,rot,sq){
+  ctx.save();ctx.translate(x,y);ctx.scale(1/sq,sq);ctx.rotate(rot*0.25); // cartoon: slower seam spin read
+  const r=25;
+  FCircle(0,0,r,BALL,4,BALLD);
+  L(-r*0.96,0,r*0.96,0,3,BALLD);
+  C_(0,-r*0.96,-r*1.5,0,0,r*0.96,3,BALLD);
+  C_(0,-r*0.96,r*1.5,0,0,r*0.96,3,BALLD);
+  L(0,-r*0.96,0,r*0.96,3,BALLD);
+  ctx.restore();
+}
+
+/* ---------------- stickman (pure yellow, open ring head) ---------------- */
+function ik2(sx,sy,tx,ty,a,b,bend){
+  let dx=tx-sx,dy=ty-sy,d=Math.hypot(dx,dy)||0.001;
+  const cl=clamp(d,Math.abs(a-b)+2,a+b-2);dx*=cl/d;dy*=cl/d;d=cl;
+  const base=Math.atan2(dy,dx);
+  const ang=base+bend*Math.acos(clamp((a*a+d*d-b*b)/(2*a*d),-1,1));
+  return [sx+Math.cos(ang)*a,sy+Math.sin(ang)*a,sx+dx,sy+dy];
+}
+function drawMan(P){
+  // P: {px,py,fa,lean,head:[dx,dy], armR:[[x,y],bend], armL:[[x,y],bend], legR:[[x,y]], legL:[[x,y]]}
+  const fa=P.fa;
+  const sh=[P.px+fa*P.lean,P.py-88];
+  const hc=[P.px+fa*(P.lean+8)+P.head[0],P.py-88-40+P.head[1]];
+  // back arm then back leg slightly dimmer yellow for depth (flat-friendly)
+  const la=ik2(sh[0]-fa*6,sh[1]+4,P.armL[0][0],P.armL[0][1],55,55,P.armL[1]);
+  const lk=ik2(P.px,P.py,P.legL[0][0],P.legL[0][1],50,50,-fa);
+  ctx.strokeStyle='#d9bc00';
+  L(sh[0]-fa*6,sh[1]+4,la[0],la[1],11,'#d9bc00');L(la[0],la[1],la[2],la[3],11,'#d9bc00');
+  L(P.px,P.py,lk[0],lk[1],11,'#d9bc00');L(lk[0],lk[1],lk[2],lk[3],11,'#d9bc00');
+  // spine
+  L(P.px,P.py,sh[0],sh[1],14,MAN);
+  // front limbs
+  const rk=ik2(P.px,P.py,P.legR[0][0],P.legR[0][1],50,50,-fa);
+  L(P.px,P.py,rk[0],rk[1],12,MAN);L(rk[0],rk[1],rk[2],rk[3],12,MAN);
+  const ra=ik2(sh[0]+fa*6,sh[1]+4,P.armR[0][0],P.armR[0][1],55,55,P.armR[1]);
+  L(sh[0]+fa*6,sh[1]+4,ra[0],ra[1],12,MAN);L(ra[0],ra[1],ra[2],ra[3],12,MAN);
+  // open ring head
+  FCircle(hc[0],hc[1],36,null,13,MAN);
+  return {shoulder:sh,headC:hc};
+}
+
+/* ---------------- choreography ---------------- */
+// timings (reference-grounded, extended): dribble 0-1.8 | chase 1.8-2.9 | gather+crouch 2.9-3.45
+// leap+shoot 3.45-4.3 | ball to rim 4.02-4.37, swish 4.37-4.52 | land 4.3-4.9 | turn 4.9-5.1
+// continue dribbling RIGHT 5.05-6.0
+function compute(t){
+  const P={fa:-1,lean:10,head:[0,0],armL:[[0,0],1],armR:[[0,0],1],legR:[[0,0]],legL:[[0,0]]};
+  const B={x:0,y:0,rot:0,sq:1};let ballInNet=0;
+  const stride=Math.sin(t*13),bob=Math.abs(stride)*14;
+  const py0=850; // standing pelvis height
+  if(t<1.8){ /* ---- ACT 1: dribble drive (left, toward hoop) ---- */
+    const px=lerp(1020,700,eInOut(t/1.8));
+    const per=0.42;let ph=((t+0.10)/per)%1;let h;
+    if(ph<0.4){const u=ph/0.4;h=1-u*u;}else if(ph<0.52){h=0;}
+    else if(ph<0.86){const u=(ph-0.52)/0.34;h=1-(1-u)*(1-u);}else h=1;
+    B.x=px-62;B.y=920-h*55;B.sq=h<0.04?0.58:(h<0.16?lerp(0.58,1,h/0.16):1);B.rot=t*2;
+    P.px=px;P.py=py0+bob-4;P.lean=26;P.head=[0,0];
+    P.legR=[[px-(22+stride*70),FLOOR-42*Math.max(0,Math.cos(t*13))]];
+    P.legL=[[px-(22-stride*70),FLOOR-42*Math.max(0,-Math.cos(t*13))]];
+    P.armR=[[px-55,py0-12-(1-h)*70],-1];  // lead (left) hand rides the ball, elbow bowed down
+    P.armL=[[px+26+stride*18,py0-2],-1];   // trailing arm hangs back-down, near-straight
+  }else if(t<2.9){ /* ---- ACT 2: chase (ball bounces ahead, loose) ---- */
+    const u=(t-1.8)/1.1;
+    const px=lerp(700,440,eInOut(u));
+    const tn=(t-1.798)/0.5;let ph=tn%1;const hop=Math.abs(Math.sin(PI*ph));
+    B.x=px-62-60*smooth(1.8,1.95,t);B.y=920-hop*150;
+    B.sq=hop<0.06?0.55:(hop<0.18?lerp(0.55,1,(hop-0.06)/0.12):1);
+    B.rot=3.6+(700-px)/25; // rolling left, continuous from act 1
+    const s2=Math.sin(t*17);
+    P.px=px;P.py=py0+Math.abs(s2)*18+8;P.lean=40;P.head=[-4,2];
+    P.legR=[[px-(26+s2*92),FLOOR-46*Math.max(0,-Math.cos(t*17))]];
+    P.legL=[[px+6+s2*92,FLOOR-46*Math.max(0,Math.cos(t*17))]];
+    P.armR=[[px-56,py0-48+s2*14],-1];     // arm reach stays in front of the body, no back-fold
+    P.armL=[[px+26,py0-58-s2*14],1];
+    // final bounce rises into the gather
+    const g=smooth(2.62,2.9,t);
+    if(g>0){B.x=lerp(B.x,px-40,g);B.y=lerp(B.y,py0-52,g);}
+  }else if(t<3.45){ /* ---- ACT 3: gather + crouch wind-up ---- */
+    const px=lerp(440,375,smooth(2.9,3.15,t));
+    const hop=-16*smooth(3.02,3.16,t)*(1-smooth(3.16,3.32,t));
+    const cr=smooth(3.12,3.42,t);
+    P.px=px;P.py=py0+80*cr+hop; // bouncy settle into crouch
+    P.lean=lerp(40,34,cr);P.head=[-2,6];
+    B.x=px-35;B.y=lerp(py0-52,P.py-18,smooth(2.9,3.06,t));
+    B.sq=lerp(1,0.9,cr);B.rot=13.8-(t-2.9)*1.2;
+    P.legR=[[px-30,FLOOR]];
+    P.legL=[[px+16,FLOOR]];
+    P.armR=[[px-38,P.py-26],1];
+    P.armL=[[px-30,P.py-14],-1];
+  }else if(t<4.3){ /* ---- ACT 4: floaty leap + scoop layup ---- */
+    const u=(t-3.45)/0.85;
+    const px=375-45*u;
+    P.px=px;P.py=930-210*Math.sin(PI*u);P.lean=lerp(34,12,u);P.head=[+24+6*u,-6];
+    const sc=Math.sin(u*PI*2)*22;
+    const fy=Math.min(FLOOR,P.py+92+(FLOOR-(P.py+92))*smooth(0.72,1,u));
+    P.legR=[[px-20+sc,fy]];
+    P.legL=[[px+10-sc,Math.min(FLOOR,P.py+96+(FLOOR-(P.py+96))*smooth(0.78,1,u))]];
+    const raise=smooth(3.45,4.0,t);
+    const hx=px-28,hy=P.py-14-176*raise;
+    P.armR=[[hx,hy],-1];P.armL=[[px+2,P.py-16-170*raise],-1];
+    if(t<4.02){B.x=hx-4;B.y=hy-8;B.sq=1;B.rot=13.14;}
+    else{ // underhand scoop: pops up over the rim and drops in
+      const v=clamp((t-4.02)/0.35,0,1);
+      B.x=lerp(313,RIMX+6,eOut2(v)*0.9+0.1*v);
+      B.y=lerp(475,RIMY+10,v)-80*Math.sin(PI*v);
+      B.sq=1;B.rot=13.14-(t-4.02)*5; // gentle backspin
+    }
+  }else{ /* ---- ACT 5/6: ball through net, land, turn, continue right ---- */
+    // ball first
+    if(t<4.37){const v=clamp((t-4.02)/0.35,0,1); // scoop arc continues into the rim
+      B.x=lerp(313,RIMX+6,eOut2(v)*0.9+0.1*v);
+      B.y=lerp(475,RIMY+10,v)-80*Math.sin(PI*v);
+      B.sq=1;B.rot=13.14-(t-4.02)*5;}
+    else if(t<4.52){const v=(t-4.37)/0.15;ballInNet=smooth(0,0.3,v);
+      B.x=lerp(RIMX+6,RIMX+4,v);B.y=lerp(RIMY+10,RIMY+88,eIn2(v));B.sq=lerp(1.25,1,v);B.rot=11.4-v*0.8;}
+    else{const va=t-4.52;
+      const tn=t-4.98,hop=tn>0?Math.abs(Math.sin(PI*tn/0.5)):0;
+      const amp=tn>0?165*Math.exp(-tn*1.15):0;
+      B.y=tn>0?920-hop*amp:lerp(RIMY+88,920,Math.pow(va/(4.98-4.52),2));
+      B.x=274+330*va;B.sq=(tn>0&&hop<0.07)?0.55:1;B.rot=10.6+(330*va)/25;}
+    // man
+    if(t<4.9){const z=eInOut((t-4.3)/0.6); // touch down in a deep crouch, pop back up tall
+      P.px=lerp(330,392,z);
+      P.py=930-80*z+18*Math.sin(PI*2*z)*(1-z);
+      P.lean=12+16*z;P.head=[0,4];
+      P.legR=[[P.px-24,FLOOR]];P.legL=[[P.px+8,FLOOR]];
+      P.armR=[[P.px-20+42*z,P.py-170+90*z],-1];
+      P.armL=[[P.px-8-6*z,P.py-166+90*z],-1];
+    }else{ // absorb, turn, jog right with the dribble
+      if(t<5.1){const a=(t-4.9)/0.2;
+        P.px=390;P.py=py0+46*Math.sin(PI*a);P.lean=24;P.fa=-1+2*smooth(4.95,5.12,t);
+        const f2=P.fa<0?-1:1;
+        P.legR=[[P.px-20*f2,FLOOR]];
+        P.legL=[[P.px+26*f2,FLOOR]];
+        P.armR=[[P.px+30*f2,P.py-40],1];P.armL=[[P.px-12*f2,P.py-50],-1];
+        P.head=[0,4];
+      }else{
+        const u=clamp((t-5.1)/0.9,0,1);
+        const px=390+490*eInOut(u);
+        P.fa=1;P.px=px;P.py=py0+bob;P.lean=24;P.head=[0,2];
+        P.legR=[[px+(22+stride*66),FLOOR-40*Math.max(0,Math.cos(t*13))]];
+        P.legL=[[px+(22-stride*66),FLOOR-40*Math.max(0,-Math.cos(t*13))]];
+        // he farms the bouncing ball into a dribble heading right
+        const g=smooth(5.3,5.55,t);
+        const per=0.42;let ph=(t-5.55)/per;ph=ph<0?0:ph%1;let h;
+        if(ph<0.4){const uu=ph/0.4;h=1-uu*uu;}else if(ph<0.52){h=0;}
+        else if(ph<0.86){const uu=(ph-0.52)/0.34;h=1-(1-uu)*(1-uu);}else h=1;
+        B.x=lerp(B.x,px+62,g);B.y=lerp(B.y,920-h*55,g);
+        if(g>=1){B.sq=h<0.04?0.58:1;B.rot=24.2+(t-5.55)*2;}
+        P.armR=[[px+55,py0-14-(1-h)*70*g],1];
+        P.armL=[[px-26-stride*18,py0-2],1];   // trailing arm hangs, mirrors act 1
+      }
+    }
+  }
+  return {P,B,ballInNet};
+}
+
+/* ---------------- camera: gentle pans, hoop stays readable ---------------- */
+function cam(t){
+  let cx=745-25*smooth(0.5,2.9,t);          // subtle drift with the leftward chase
+  cx+=210*smooth(4.9,6.0,t);                // pan right following the exit run
+  const u=(t-3.45)/0.85;
+  const cy=560-16*((t>=3.45&&t<4.3)?Math.sin(PI*clamp(u,0,1)):0);
+  const zoom=1+0.04*smooth(3.6,3.95,t)*(1-smooth(4.5,4.9,t));
+  return [cx,cy,zoom];
+}
+
+/* ---------------- frame ---------------- */
+function drawFrame(f){
+  const t=f/FPS;
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.fillStyle=SKY;ctx.fillRect(0,0,W,H);
+  const {P,B,ballInNet}=compute(t);
+  const [cx,cy,z]=cam(t);
+  ctx.save();ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-cx,-cy);
+  drawWorld(t,ballInNet);
+  // soft ground shadow under the man (flat dark blob, tracks air height)
+  const air=clamp((FLOOR-95-(P.py))/210,0,1);
+  ctx.globalAlpha=0.35*(1-air)+0.08;
+  FEll(P.px,FLOOR+8,lerp(60,38,air),lerp(11,7,air),BLOB);
+  ctx.globalAlpha=1;
+  drawMan(P);
+  drawBall(B.x,B.y,B.rot,B.sq);
+  ctx.restore();
+}
+
+/* ---------------- driver ---------------- */
+const q=new URLSearchParams(location.search);
+if(q.has('f')){
+  drawFrame(clamp(parseInt(q.get('f'),10)||0,0,NF-1));window.__done=true;
+}else{
+  let s=null;
+  (function loop(ts){if(s===null)s=ts;drawFrame(Math.floor((ts-s)/(1000/FPS))%NF);requestAnimationFrame(loop);})(performance.now());
+}
+})();
+</script>
+</body>
+</html>

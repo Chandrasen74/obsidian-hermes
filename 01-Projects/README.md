@@ -19,7 +19,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - When completed, move to 04-Archives
 
 **Current Projects:**
-*(No active projects in progress. Ready for next project.)*
+- [[projects/voicestudio/README|VoiceStudio]] — local ElevenLabs-alternative TTS install + first generation test (started 2026-10-25)
 
 ---
 
@@ -33,6 +33,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - [x] MAQC-7 - moved to [[04-Archives/MAQC-7/README|README]]
 - [x] Worksheet-Generator - moved to [[04-Archives/Worksheet-Generator/README|README]]
 - [x] Local AI (llama.cpp Qwen server) - moved to [[04-Archives/Local AI/README|README]]
+- [x] Stickman basketball - finished cuts, dev piece and the whole animate harness moved to [[04-Archives/Stickman-Basketball/README|README]] 2026-10-25; nothing animate remains under 01-Projects
 
 ---
 
@@ -57,4 +58,4 @@ When a project is complete, move it to [[04-Archives/README|README]] with organi
 
 ---
 
-*Last Updated: 2026-10-17*
+*Last Updated: 2026-10-25*
