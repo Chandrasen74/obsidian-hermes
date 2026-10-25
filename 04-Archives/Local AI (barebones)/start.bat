@@ -25,30 +25,48 @@ set "LOGDIR=%ROOT%logs"
 set "LOGFILE=%LOGDIR%\llama_server.log"
 
 rem --- Sanity checks ---
-if not exist "%EXE%" (
-  echo [X] llama-server.exe not found:
-  echo     %EXE%
-  echo     See LOCAL_AI_STARTUP.md for the fix.
-  pause
-  exit /b 1
-)
-if not exist "%MODEL%" (
-  echo [X] Model file not found:
-  echo     %MODEL%
-  pause
-  exit /b 1
-)
+rem  NOTE: no parenthesised IF blocks below. This folder name contains
+rem  parentheses ("Local AI (barebones)"), and cmd.exe misparses a block
+rem  whose condition string contains a ")". Use goto instead.
+if exist "%EXE%" goto :exe_ok
+echo [X] llama-server.exe not found:
+echo     %EXE%
+echo     See LOCAL_AI_STARTUP.md for the fix.
+pause
+exit /b 1
+:exe_ok
 
-rem --- Port busy? Offer to kill a stale server ---
-set "BUSY=0"
-for /f "tokens=5" %%p in ('netstat -aon ^| findstr ":%PORT% " ^| findstr "LISTENING"') do if not "%%p"=="0" set "BUSY=1"
-if "%BUSY%"=="1" (
-  echo [!] Port %PORT% is already in use.
-  choice /c YN /n /m "[Y] kill stale llama-server.exe  [N] quit:  "
-  if errorlevel 2 exit /b 1
-  taskkill /f /im llama-server.exe >nul 2>&1
-  timeout /t 2 /nobreak >nul
-)
+if exist "%MODEL%" goto :model_ok
+echo [X] Model file not found:
+echo     %MODEL%
+pause
+exit /b 1
+:model_ok
+
+rem --- Port busy? Kill a stale llama-server, otherwise move to a free port ---
+rem  (goto-based: no IF blocks, because this folder path has parentheses)
+set "HOLDER="
+for /f "tokens=5" %%p in ('netstat -aon ^| findstr ":%PORT% " ^| findstr "LISTENING"') do set "HOLDER=%%p"
+if not defined HOLDER goto :port_ready
+
+set "OWNER="
+for /f "tokens=1 delims=," %%n in ('tasklist /fi "PID eq %HOLDER%" /nh /fo csv 2^>nul') do set "OWNER=%%~n"
+echo [!] Port %PORT% is already in use by %OWNER% (PID %HOLDER%).
+if /i "%OWNER%"=="llama-server.exe" goto :port_stale
+
+echo     That is not a llama-server process, so it will not be killed.
+echo     Looking for the next free port instead.
+for /f %%q in ('powershell -NoProfile -Command "$p=8080; while($p -lt 8200){ $t=New-Object Net.Sockets.TcpListener([Net.IPAddress]::Any,$p); try{$t.Start();$t.Stop();break}catch{}; $p++ }; $p"') do set "PORT=%%q"
+echo     Using port %PORT% instead (change PORT= above to pin one).
+goto :port_ready
+
+:port_stale
+choice /c YN /n /m "Kill that stale llama-server? [Y/N] "
+if errorlevel 2 exit /b 1
+taskkill /f /pid %HOLDER% >nul 2>&1
+timeout /t 2 /nobreak >nul
+
+:port_ready
 
 rem --- Rotate old log ---
 if not exist "%LOGDIR%" mkdir "%LOGDIR%"
@@ -65,7 +83,7 @@ echo.
 start "" http://%HOST%:%PORT%
 
 echo [*] Starting server in THIS window. Ready when you see the
-echo     "listening on http://127.0.0.1:8080" line from llama.cpp.
+echo     "listening on http://%HOST%:%PORT%" line from llama.cpp.
 echo.
 cd /d "%EXEDIR%"
 "%EXE%" -m "%MODEL%" --host %HOST% --port %PORT% --alias %ALIAS% --ctx-size %CTXSZ% --threads %THREADS% --jinja 2>&1 | %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -Command "$input | Tee-Object -FilePath '%LOGFILE%'"

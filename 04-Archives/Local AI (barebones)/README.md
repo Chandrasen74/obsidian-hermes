@@ -17,8 +17,11 @@ tags: ["#status/archived", "#type/index", "#domain/ai"]
 3. Ready appears as llama.cpp's own `listening on http://127.0.0.1:8080` line in the same window (live log also streams there)
 4. OpenAI-compatible API: `http://127.0.0.1:8080/v1`, model id `qwen3.5-9b`
 5. Stop: Ctrl+C (then Y), or just close the window
+6. If port 8080 is held by something that is not llama-server, the script prints the owner and moves to the next free port (8081, 8082, ...). The banner shows the port actually used.
 
-Everything is self-contained: `start.bat` resolves paths relative to its own folder, and the 5.24 GB model lives outside the vault at `%USERPROFILE%\.lmstudio\models\lmstudio-community\Qwen3.5-9B-GGUF\Qwen3.5-9B-Q4_K_M.gguf`. Verified to run from this archived location on 2026-10-17.
+Everything is self-contained: `start.bat` resolves paths relative to its own folder, and the 5.24 GB model lives outside the vault at `%USERPROFILE%\.lmstudio\models\lmstudio-community\Qwen3.5-9B-GGUF\Qwen3.5-9B-Q4_K_M.gguf`. Verified to run from this archived location on 2026-10-17, and re-verified 2026-10-24 after the parenthesis fix.
+
+> **Fix 2026-10-24:** the archive folder name contains parentheses (`Local AI (barebones)`). cmd.exe misparses `if not exist "%EXE%" (` blocks when the condition string contains `)`, which made the script die instantly with `\llama.cpp\build\bin\Release\llama-server.exe was unexpected at this time.` The sanity checks were rewritten with `goto` labels. Do not reintroduce parenthesised `IF (...)` blocks in this file unless the folder is renamed.
 
 ---
 
