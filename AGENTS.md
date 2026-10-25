@@ -11,7 +11,7 @@ store (USER.md + SOUL.md notes) during the migration to OpenCode (2026-10-17).
 
 - This directory (`C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode`) is the active **Obsidian Second Brain vault**. Treat it as a knowledge vault, not a typical code repo.
 - Vault layout: `00-Inbox\`, `01-Projects\`, `02-Areas\`, `03-Resources\`, `04-Archives\`, plus `.obsidian\` config. Keep the PARAType structure intact when filing notes.
-- Git commits in this vault use author `akulmach74`.
+- Git commits in this vault use author `Chandrasen74` with email `107239606+Chandrasen74@users.noreply.github.com` (GitHub noreply, so commits link to the profile and show its avatar).
 
 ## Hard Rules
 
