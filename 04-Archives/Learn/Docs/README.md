@@ -16,6 +16,7 @@ This folder contains comprehensive architectural breakdowns, codebase SLOC inspe
 | **[[Architecture-and-Components|Architecture & Components]]** | Deep dive into system components | Researcher, visual subagents, quiz engine, logging pipeline |
 | **[[Adaptation-Plan|Adaptation Plan]]** | OpenCode Agent & Obsidian porting roadmap | Pi harness to OpenCode skill migration, tool mapping, file layouts |
 | **[[Codebase-Analysis|Codebase Analysis]]** | Upstream repository SLOC & metrics | Pygount breakdown, TypeScript modules, prompt distributions |
+| **[[Practice-and-Knowledge-Graph|Practice & Knowledge Graph]]** | 2026-10-25 revival record: `amosblomqvist/learnharness` adaptation | Persistent Learner-Graph, Phase 0 resume, practice rounds, evidence-hygiene rules |
 
 ---
 
