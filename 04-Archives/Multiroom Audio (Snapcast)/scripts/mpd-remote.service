@@ -1,0 +1,12 @@
+[Unit]
+Description=MPD web remote for Snapcast
+After=mpd.service
+
+[Service]
+ExecStart=/usr/bin/python3 /root/mpd-remote.py
+Restart=always
+RestartSec=2
+User=root
+
+[Install]
+WantedBy=multi-user.target
