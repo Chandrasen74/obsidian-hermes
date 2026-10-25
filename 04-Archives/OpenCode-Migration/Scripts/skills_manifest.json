@@ -1,0 +1,512 @@
+[
+  {
+    "id": "apple-notes",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\apple\\apple-notes",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\apple\\apple-notes"
+  },
+  {
+    "id": "apple-reminders",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\apple\\apple-reminders",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\apple\\apple-reminders"
+  },
+  {
+    "id": "findmy",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\apple\\findmy",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\apple\\findmy"
+  },
+  {
+    "id": "imessage",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\apple\\imessage",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\apple\\imessage"
+  },
+  {
+    "id": "claude-code",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\autonomous-ai-agents\\claude-code",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\autonomous-ai-agents\\claude-code"
+  },
+  {
+    "id": "codex",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\autonomous-ai-agents\\codex",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\autonomous-ai-agents\\codex"
+  },
+  {
+    "id": "computer-use",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\autonomous-ai-agents\\computer-use",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\autonomous-ai-agents\\computer-use"
+  },
+  {
+    "id": "hermes-agent",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\autonomous-ai-agents\\hermes-agent",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\autonomous-ai-agents\\hermes-agent"
+  },
+  {
+    "id": "opencode",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\autonomous-ai-agents\\opencode",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\autonomous-ai-agents\\opencode"
+  },
+  {
+    "id": "animate",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\animate",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\animate"
+  },
+  {
+    "id": "architecture-diagram",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\architecture-diagram",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\architecture-diagram"
+  },
+  {
+    "id": "ascii-art",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\ascii-art",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\ascii-art"
+  },
+  {
+    "id": "ascii-video",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\ascii-video",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\ascii-video"
+  },
+  {
+    "id": "baoyu-infographic",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\baoyu-infographic",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\baoyu-infographic"
+  },
+  {
+    "id": "claude-design",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\claude-design",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\claude-design"
+  },
+  {
+    "id": "comfyui",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\comfyui",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\comfyui"
+  },
+  {
+    "id": "design-md",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\design-md",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\design-md"
+  },
+  {
+    "id": "excalidraw",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\excalidraw",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\excalidraw"
+  },
+  {
+    "id": "humanizer",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\humanizer",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\humanizer"
+  },
+  {
+    "id": "manim-video",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\manim-video",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\manim-video"
+  },
+  {
+    "id": "p5js",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\p5js",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\p5js"
+  },
+  {
+    "id": "popular-web-designs",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\popular-web-designs",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\popular-web-designs"
+  },
+  {
+    "id": "pretext",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\pretext",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\pretext"
+  },
+  {
+    "id": "sketch",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\sketch",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\sketch"
+  },
+  {
+    "id": "songwriting-and-ai-music",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\songwriting-and-ai-music",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\songwriting-and-ai-music"
+  },
+  {
+    "id": "touchdesigner-mcp",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\creative\\touchdesigner-mcp",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\creative\\touchdesigner-mcp"
+  },
+  {
+    "id": "sdlc-review",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\devops\\sdlc-review",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\devops\\sdlc-review"
+  },
+  {
+    "id": "email-inbox-triage",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\email\\email-inbox-triage",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\email\\email-inbox-triage"
+  },
+  {
+    "id": "himalaya",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\email\\himalaya",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\email\\himalaya"
+  },
+  {
+    "id": "github-auth",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\github\\github-auth",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\github\\github-auth"
+  },
+  {
+    "id": "github-code-review",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\github\\github-code-review",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\github\\github-code-review"
+  },
+  {
+    "id": "github-issues",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\github\\github-issues",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\github\\github-issues"
+  },
+  {
+    "id": "github-pr-workflow",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\github\\github-pr-workflow",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\github\\github-pr-workflow"
+  },
+  {
+    "id": "github-repo-management",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\github\\github-repo-management",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\github\\github-repo-management"
+  },
+  {
+    "id": "gif-search",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\media\\gif-search",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\media\\gif-search"
+  },
+  {
+    "id": "songsee",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\media\\songsee",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\media\\songsee"
+  },
+  {
+    "id": "youtube-content",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\media\\youtube-content",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\media\\youtube-content"
+  },
+  {
+    "id": "evaluating-llms-harness",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\mlops\\evaluation\\evaluating-llms-harness",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\mlops\\evaluation\\evaluating-llms-harness"
+  },
+  {
+    "id": "weights-and-biases",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\mlops\\evaluation\\weights-and-biases",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\mlops\\evaluation\\weights-and-biases"
+  },
+  {
+    "id": "huggingface-hub",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\mlops\\huggingface-hub",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\mlops\\huggingface-hub"
+  },
+  {
+    "id": "llama-cpp",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\mlops\\inference\\llama-cpp",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\mlops\\inference\\llama-cpp"
+  },
+  {
+    "id": "serving-llms-vllm",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\mlops\\inference\\serving-llms-vllm",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\mlops\\inference\\serving-llms-vllm"
+  },
+  {
+    "id": "obsidian",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\note-taking\\obsidian",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\note-taking\\obsidian"
+  },
+  {
+    "id": "obsidian-second-brain",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\obsidian-second-brain",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\obsidian-second-brain"
+  },
+  {
+    "id": "teach",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\pedagogy\\teach",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\pedagogy\\teach"
+  },
+  {
+    "id": "airtable",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\airtable",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\airtable"
+  },
+  {
+    "id": "autonomous-document-generation",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\autonomous-document-generation",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\autonomous-document-generation"
+  },
+  {
+    "id": "box",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\box",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\box"
+  },
+  {
+    "id": "document-to-action-items",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\document-to-action-items",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\document-to-action-items"
+  },
+  {
+    "id": "docx",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\docx",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\docx"
+  },
+  {
+    "id": "google-workspace",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\google-workspace",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\google-workspace"
+  },
+  {
+    "id": "maps",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\maps",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\maps"
+  },
+  {
+    "id": "meeting-action-items",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\meeting-action-items",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\meeting-action-items"
+  },
+  {
+    "id": "nano-pdf",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\nano-pdf",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\nano-pdf"
+  },
+  {
+    "id": "notion",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\notion",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\notion"
+  },
+  {
+    "id": "ocr-and-documents",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\ocr-and-documents",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\ocr-and-documents"
+  },
+  {
+    "id": "pdf",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\pdf",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\pdf"
+  },
+  {
+    "id": "powerpoint",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\powerpoint",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\powerpoint"
+  },
+  {
+    "id": "product-price-monitor",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\product-price-monitor",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\product-price-monitor"
+  },
+  {
+    "id": "teams-meeting-pipeline",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\teams-meeting-pipeline",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\teams-meeting-pipeline"
+  },
+  {
+    "id": "weekly-review-planning",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\weekly-review-planning",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\weekly-review-planning"
+  },
+  {
+    "id": "xlsx",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\productivity\\xlsx",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\productivity\\xlsx"
+  },
+  {
+    "id": "arxiv",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\arxiv",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\arxiv"
+  },
+  {
+    "id": "blogwatcher",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\blogwatcher",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\blogwatcher"
+  },
+  {
+    "id": "competitor-news-monitor",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\competitor-news-monitor",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\competitor-news-monitor"
+  },
+  {
+    "id": "grounded-citations",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\grounded-citations",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\grounded-citations"
+  },
+  {
+    "id": "llm-wiki",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\llm-wiki",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\llm-wiki"
+  },
+  {
+    "id": "polymarket",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\polymarket",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\polymarket"
+  },
+  {
+    "id": "research-paper-writing",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\research\\research-paper-writing",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\research\\research-paper-writing"
+  },
+  {
+    "id": "openhue",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\smart-home\\openhue",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\smart-home\\openhue"
+  },
+  {
+    "id": "xurl",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\social-media\\xurl",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\social-media\\xurl"
+  },
+  {
+    "id": "codebase-inspection",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\codebase-inspection",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\codebase-inspection"
+  },
+  {
+    "id": "dogfood",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\dogfood",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\dogfood"
+  },
+  {
+    "id": "github",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\github",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\github"
+  },
+  {
+    "id": "hermes-agent-skill-authoring",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\hermes-agent-skill-authoring",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\hermes-agent-skill-authoring"
+  },
+  {
+    "id": "inspecting-hermes-desktop-dom",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\inspecting-hermes-desktop-dom",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\inspecting-hermes-desktop-dom"
+  },
+  {
+    "id": "node-inspect-debugger",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\node-inspect-debugger",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\node-inspect-debugger"
+  },
+  {
+    "id": "plan",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\plan",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\plan"
+  },
+  {
+    "id": "python-debugpy",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\python-debugpy",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\python-debugpy"
+  },
+  {
+    "id": "requesting-code-review",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\requesting-code-review",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\requesting-code-review"
+  },
+  {
+    "id": "simplify-code",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\simplify-code",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\simplify-code"
+  },
+  {
+    "id": "spike",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\spike",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\spike"
+  },
+  {
+    "id": "systematic-debugging",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\systematic-debugging",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\systematic-debugging"
+  },
+  {
+    "id": "test-driven-development",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\software-development\\test-driven-development",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\software-development\\test-driven-development"
+  },
+  {
+    "id": "blocked-page-recovery",
+    "status": "OK",
+    "path": "C:\\Users\\Kanchan Verma\\.config\\opencode\\skills\\web\\blocked-page-recovery",
+    "src": "C:\\Users\\Kanchan Verma\\AppData\\Local\\hermes\\skills\\web\\blocked-page-recovery"
+  }
+]
