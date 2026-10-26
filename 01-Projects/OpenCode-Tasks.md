@@ -23,7 +23,9 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Current Focus
 - [ ] Task list maintenance (this note)
-- [ ] VoiceStudio project: install local ElevenLabs alternative, generate Hindi+English test clip ([[01-Projects/projects/voicestudio/README|project]])
+- [ ] Ready for next active project
+
+*(VoiceStudio completed & archived 2026-10-26 → [[04-Archives/VoiceStudio/README|archive]]; install remains live at `C:\VoiceStudio`)*
 
 ## Next Steps / Ideas
 - [ ] Explore Obsidian plugins for visualization (Dataview, Excalidraw, Calendar)
@@ -31,6 +33,25 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 - [ ] Create template notes for common task types
 
 ## Session Notes
+
+### Session: 2026-10-25/26 — COMPLETED: VoiceStudio install + first TTS test
+
+**Setup & test (full process details in [[04-Archives/VoiceStudio/README|archive README]]):**
+- New project `01-Projects/projects/voicestudio/` registered (plan + README).
+- Installed VoiceStudio Electron 0.5.6; owner-approved location split:
+  data/cache/engines at `C:\VoiceStudio\` via User env vars; 16.7 GB Python
+  runtime left in AppData.
+- Backend verified CPU-only (correct for this hardware); installed with
+  consent: OmniVoice TTS 3.04 GB (CC-BY-NC weights) + faster-whisper-small
+  0.45 GB into `C:\VoiceStudio\cache`.
+- 503'd renders diagnosed as RAM starvation; fixed via closing fat apps +
+  `OMNIVOICE_CPU_GENERATE_TIMEOUT_S=1800`; 4 takes rendered (2 spellings x
+  2 designed voices) + finals trimmed/loudnorm-ed (ffmpeg).
+- ASR verification pass run; English half clean in all takes; owner picked
+  **female (Devanagari, take 3)** as best → `final_aap-kaise-ho_female.wav`.
+- **Archived 2026-10-26** to [[04-Archives/VoiceStudio/README|04-Archives/VoiceStudio]]
+  (README + Audio\Final + Audio\Takes + Documents + Payloads); project folder
+  cleared; install stays live for future use.
 
 ### Session: 2026-10-25 (afternoon)
 

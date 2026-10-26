@@ -19,7 +19,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - When completed, move to 04-Archives
 
 **Current Projects:**
-- [[projects/voicestudio/README|VoiceStudio]] — local ElevenLabs-alternative TTS install + first generation test (started 2026-10-25)
+*(No active projects in progress. Ready for next project.)*
 
 ---
 
@@ -34,6 +34,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - [x] Worksheet-Generator - moved to [[04-Archives/Worksheet-Generator/README|README]]
 - [x] Local AI (llama.cpp Qwen server) - moved to [[04-Archives/Local AI/README|README]]
 - [x] Stickman basketball - finished cuts, dev piece and the whole animate harness moved to [[04-Archives/Stickman-Basketball/README|README]] 2026-10-25; nothing animate remains under 01-Projects
+- [x] VoiceStudio (ElevenLabs alternative, install + Hindi/English test) - archived to [[04-Archives/VoiceStudio/README|README]] 2026-10-26; winning take `final_aap-kaise-ho_female.wav` (Devanagari + designed female voice); install stays live at `C:\VoiceStudio`
 
 ---
 
