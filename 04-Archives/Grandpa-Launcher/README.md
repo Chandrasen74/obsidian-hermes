@@ -59,6 +59,38 @@ same day, 2026-10-26, session 16:22-17:54).
    [[04-Archives/Phone-Cleaner/README|Phone-Cleaner]]) drive the phone over
    uiautomator2 after `uiautomator2 init` once.
 
+## Phone-side state (live on the Moto G35 after this session, 2026-10-26)
+
+All set over adb during the session; undocumented anywhere else, so listed here:
+
+| setting | value |
+|---|---|
+| display density | `wm density 440` (was 400; revert: `wm density reset`) |
+| font scale | `settings put system font_scale 1.55` (was 1.3) |
+| screen timeout | 2 minutes (`screen_off_timeout 120000`) |
+| theme | light mode on; Night Light warm tint OFF (`cmd uimode night no`) |
+| default home | `com.grannyhome.launcher` holds the HOME role |
+| USB debugging | left ON deliberately (future tweaks = one-cable job) |
+| favorites config | final = Phone, Messages, WhatsApp, **YouTube** (Truecaller was swapped out to "All other apps" at the user's request; archived `src\assets\config.json` matches the phone) |
+| system wallpaper | warm cream-to-sand gradient painted by the launcher (aimed at the Material You shade; also removed stale WeatherWall text from recents) |
+| app inventory at handover | ~29-30 legit 3rd-party apps; PNB ONE + iMobile installed from Play; junk/system preloads wiped (see Phone-Cleaner) |
+
+## Pending teardown (missed because the phone was unplugged; do next cable-in)
+
+The session's plan promised these at handover but they never ran (user kept
+asking for UI polish, then unplugged). Phone-side, ~30 s over adb:
+
+1. **Play Protect / adb-install verification is still OFF**
+   (`package_verifier_enable 0`, `verifier_verify_adb_installs 0`; disabled
+   during `uiautomator2 init` because Play Protect blocked the helper APK).
+   For an elderly phone this is a real risk; re-enable:
+   `settings put global package_verifier_enable 1` +
+   `settings put global verifier_verify_adb_installs 1`.
+2. **uiautomator2 helper apps still installed** (`com.github.uiautomator`,
+   `com.github.uiautomator.test`, its FastInput IME). Remove:
+   `pm uninstall --user 0 com.github.uiautomator com.github.uiautomator.test`
+   (keep USB debugging itself, which costs nothing and stays off unless asked).
+
 See also: [[04-Archives/Phone-Cleaner/README|Phone-Cleaner]] (same-day
 companion tool), [[01-Projects/README|01-Projects]] completed list,
 [[01-Projects/OpenCode-Tasks|OpenCode-Tasks]].

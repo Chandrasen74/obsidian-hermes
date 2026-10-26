@@ -38,6 +38,14 @@ Phone on, USB debugging on, accept RSA prompt, double-click
 `Launch Phone Cleaner.bat`. Needs `adb` (.Android\platform-tools or PATH).
 For pinning: `uiautomator2 init` once, then `python pin_apps.py`.
 
+> After this session, two phone-side teardown items stayed pending (Play
+> Protect verification re-enable + uiautomator2 helper app removal): see
+> "Pending teardown" in [[04-Archives/Grandpa-Launcher/README|Grandpa-Launcher]].
+> Also note: this session's ~150 removals were NOT fully captured in
+> `removed-apps.json` (OneDrive write contention); the restore tab only
+> knows of the small subset that got logged, so bulk-restores go via Play
+> Store instead.
+
 See also: [[04-Archives/Grandpa-Launcher/README|Grandpa-Launcher]]
 (companion: the launcher APK built for the same phone that afternoon),
 [[01-Projects/README|01-Projects]] completed list,
