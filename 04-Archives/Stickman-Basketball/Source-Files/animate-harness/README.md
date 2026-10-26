@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/docs/styles.png
-thumbnail: thumbnails/resized/e259402bb7f5d69b84dbc455589d5af7_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/docs/styles.png
+thumbnail: thumbnails/resized/d5decde899eb8e6cf05e0e6d9d9631ea_86cf658e.webp
 ---
 # Animate — procedural animation in any style, for Claude Code
 

@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/plugins/animate/skills/animate/styles/riso/sample.png
-thumbnail: thumbnails/resized/a816566bf032bc4cb9db160d23563690_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/plugins/animate/skills/animate/styles/riso/sample.png
+thumbnail: thumbnails/resized/40bf1447e5e738480fd269febede7ff0_86cf658e.webp
 ---
 # Riso
 

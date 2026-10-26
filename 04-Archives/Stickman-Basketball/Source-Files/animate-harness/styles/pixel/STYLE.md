@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/styles/pixel/sample.png
-thumbnail: thumbnails/resized/6647be9ddaa227680b9c5622710a61d7_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/styles/pixel/sample.png
+thumbnail: thumbnails/resized/a8c4878a84567d87cc93fe7a2f213e1d_86cf658e.webp
 ---
 # Pixel
 

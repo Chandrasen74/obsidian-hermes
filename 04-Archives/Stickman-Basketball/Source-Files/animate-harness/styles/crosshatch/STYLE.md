@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/styles/crosshatch/sample.png
-thumbnail: thumbnails/resized/7f1196c72dce438d1bc191c738e8692d_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/styles/crosshatch/sample.png
+thumbnail: thumbnails/resized/6de2a2316962678be30f978898f995fb_86cf658e.webp
 ---
 # Crosshatch ink
 

@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/styles/math/sample.png
-thumbnail: thumbnails/resized/ca0174cb93c97bc7f042b9e71ccce565_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/styles/math/sample.png
+thumbnail: thumbnails/resized/d58a1d980795dd20b2c2ded923557641_86cf658e.webp
 ---
 # Math
 

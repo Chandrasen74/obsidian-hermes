@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/styles/sketchbook/sample.png
-thumbnail: thumbnails/resized/9c0737fe0a22b456bafe69c4d491362c_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/styles/sketchbook/sample.png
+thumbnail: thumbnails/resized/5f70d31f3f3218cf894af635cff6d213_86cf658e.webp
 ---
 # Sketchbook
 

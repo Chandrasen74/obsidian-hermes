@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/plugins/animate/skills/animate/styles/isometric/sample.png
-thumbnail: thumbnails/resized/0af7675008cc3c29da0a608db3c9a584_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/plugins/animate/skills/animate/styles/isometric/sample.png
+thumbnail: thumbnails/resized/c5695efe7c245cc7020aec7c0f76af04_86cf658e.webp
 ---
 # Isometric line art
 

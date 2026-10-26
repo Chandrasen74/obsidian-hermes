@@ -1,6 +1,6 @@
 ---
-feature: 01-Projects/projects/animate/plugins/animate/skills/animate/styles/cut-paper/sample.png
-thumbnail: thumbnails/resized/708140b3a4e946bfbc9c415ffc2f7792_86cf658e.webp
+feature: 04-Archives/Stickman-Basketball/Source-Files/animate-harness/plugins/animate/skills/animate/styles/cut-paper/sample.png
+thumbnail: thumbnails/resized/28ff7f2a16c2851471961a36eeebcbf8_86cf658e.webp
 ---
 # Cut paper
 
