@@ -1,0 +1,30 @@
+﻿[
+    {
+        "value":  [
+                      {
+                          "value":  [
+                                        "@{value=System.Object[]; Count=2}",
+                                        "@{pkg=com.muso.musicplayer; name=Muso Music Player; cat=Other; group=User; time=2026-10-26 15:43; installer=com.android.vending}"
+                                    ],
+                          "Count":  2
+                      },
+                      {
+                          "pkg":  "com.reco.pho.vid",
+                          "name":  "Photo/Vid Recovery",
+                          "cat":  "Other",
+                          "group":  "User",
+                          "time":  "2026-10-26 15:43",
+                          "installer":  "com.android.vending"
+                      }
+                  ],
+        "Count":  2
+    },
+    {
+        "pkg":  "in.redbus.android",
+        "name":  "redBus",
+        "cat":  "Other",
+        "group":  "User",
+        "time":  "2026-10-26 15:43",
+        "installer":  "com.android.vending"
+    }
+]

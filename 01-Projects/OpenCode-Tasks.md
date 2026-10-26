@@ -34,6 +34,25 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Session Notes
 
+### Session: 2026-10-26 (late afternoon) — archived same-day builds: Phone Cleaner + Grandpa-Home launcher
+
+Owner-built (with a parallel agent) device-setup pair for grandpa's Moto G35,
+archived per owner request with stepwise creation timelines:
+- `04-Archives/Phone-Cleaner/` - USB debloat GUI (PhoneCleaner.ps1 + bat +
+  removed-apps.json + pin_apps.py uiautomator2 pinner), original README kept,
+  index at [[04-Archives/Phone-Cleaner/Archive-README|Archive-README]].
+- `04-Archives/Grandpa-Launcher/` - no-Gradle Android launcher APK
+  (com.grannyhome.launcher, build.ps1 aapt2+javac+d8 pipeline, config.json
+  favorites/folders, skycon weather views, LiquidBatteryView, dist\Home.apk
+  v1.0), stepwise timeline 16:22-17:54 in
+  [[04-Archives/Grandpa-Launcher/README|README]]. Keystore kept on disk +
+  OneDrive, git-ignored (signing keys never publish).
+- Package naming note: internal name says "granny" (as built); owner
+  clarified it is for grandpa; renaming the package/key would break the
+  installed APK's update path, so kept.
+- `01-Projects\` index updated; both folders moved whole (relative paths
+  keep every script runnable from the archive location).
+
 ### Session: 2026-10-25/26 — COMPLETED: VoiceStudio install + first TTS test
 
 **Setup & test (full process details in [[04-Archives/VoiceStudio/README|archive README]]):**

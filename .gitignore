@@ -5,3 +5,6 @@ node_modules/
 venv/
 logs/
 04-Archives/Local AI (barebones)/llama.cpp/
+
+# Android signing keystore - never publish signing keys
+04-Archives/Grandpa-Launcher/keys/granny.keystore

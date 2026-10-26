@@ -35,6 +35,8 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - [x] Local AI (llama.cpp Qwen server) - moved to [[04-Archives/Local AI/README|README]]
 - [x] Stickman basketball - finished cuts, dev piece and the whole animate harness moved to [[04-Archives/Stickman-Basketball/README|README]] 2026-10-25; nothing animate remains under 01-Projects
 - [x] VoiceStudio (ElevenLabs alternative, install + Hindi/English test) - archived to [[04-Archives/VoiceStudio/README|README]] 2026-10-26; winning take `final_aap-kaise-ho_female.wav` (Devanagari + designed female voice); install stays live at `C:\VoiceStudio`
+- [x] Phone Cleaner (Moto G35 USB debloat GUI) - archived 2026-10-26 to [[04-Archives/Phone-Cleaner/Archive-README|Archive-README]] (tool manual inside untouched); removals logged in `removed-apps.json`
+- [x] Grandpa-Home launcher APK - hand-built no-Gradle Android launcher + Play installer, archived 2026-10-26 to [[04-Archives/Grandpa-Launcher/README|README]] with stepwise build timeline; keystore kept on disk, git-ignored
 
 ---
 

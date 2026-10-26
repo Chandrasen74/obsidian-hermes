@@ -1,0 +1,40 @@
+{
+  "favorites": [
+    {"pkg": "builtin:dialer", "label": "Phone"},
+    {"pkg": "builtin:sms", "label": "Messages"},
+    {"pkg": "com.whatsapp"},
+    {"pkg": "com.google.android.youtube"},
+    {"pkg": "com.google.android.apps.nbu.paisa.user"},
+    {"pkg": "app.mycountrydelight.in.countrydelight"}
+  ],
+  "folders": [
+    {
+      "name": "Shopping",
+      "apps": ["in.amazon.mShop.android.shopping", "com.flipkart.android", "app.blinkit.onboarding", "com.bigbasket.mobileapp"]
+    },
+    {
+      "name": "Banking",
+      "apps": ["com.paypal.android.p2pmobile", "com.Version1", "com.csam.icici.bank.imobile"]
+    },
+    {
+      "name": "Social",
+      "apps": ["com.facebook.katana", "com.facebook.orca", "com.pinterest"]
+    },
+    {
+      "name": "Media",
+      "apps": ["com.google.android.apps.photos", "com.google.android.apps.meetings", "in.startv.hotstar", "com.amazon.avod.thirdpartyclient", "com.google.android.apps.books"]
+    },
+    {
+      "name": "AI",
+      "apps": ["com.anthropic.claude", "com.openai.chatgpt", "com.google.android.apps.bard"]
+    },
+    {
+      "name": "Tools",
+      "apps": ["com.korrisoft.voice.recorder", "com.google.android.apps.chromecast.app", "com.fitbit.FitbitMobile", "com.mds.medanta", "com.aranoah.healthkart.plus", "com.android.settings"]
+    },
+    {
+      "name": "All other apps",
+      "auto": true
+    }
+  ]
+}
