@@ -2,7 +2,7 @@
   "favorites": [
     {"pkg": "builtin:dialer", "label": "Phone"},
     {"pkg": "builtin:sms", "label": "Messages"},
-    {"pkg": "com.whatsapp"},
+    {"pkg": "com.ontim.fmradio", "label": "Radio"},
     {"pkg": "com.google.android.youtube"},
     {"pkg": "com.google.android.apps.nbu.paisa.user"},
     {"pkg": "app.mycountrydelight.in.countrydelight"}
@@ -10,7 +10,7 @@
   "folders": [
     {
       "name": "Shopping",
-      "apps": ["in.amazon.mShop.android.shopping", "com.flipkart.android", "app.blinkit.onboarding", "com.bigbasket.mobileapp"]
+      "apps": ["in.amazon.mShop.android.shopping", "com.flipkart.android", "com.grofers.customerapp", "com.bigbasket.mobileapp"]
     },
     {
       "name": "Banking",
@@ -18,7 +18,7 @@
     },
     {
       "name": "Social",
-      "apps": ["com.facebook.katana", "com.facebook.orca", "com.pinterest"]
+      "apps": ["com.facebook.katana", "com.facebook.orca", "com.pinterest", "com.whatsapp", "com.truecaller"]
     },
     {
       "name": "Media",
@@ -26,11 +26,19 @@
     },
     {
       "name": "AI",
-      "apps": ["com.anthropic.claude", "com.openai.chatgpt", "com.google.android.apps.bard"]
+      "apps": ["com.anthropic.claude", "com.openai.chatgpt", "com.google.android.apps.bard", "com.google.android.googlequicksearchbox", "com.google.android.apps.googleassistant"]
+    },
+    {
+      "name": "Basics",
+      "apps": ["com.google.android.calculator", "com.google.android.calendar", "com.google.android.deskclock", "com.android.camera2", "com.google.android.apps.maps", "com.google.android.contacts", "com.google.android.apps.docs", "com.google.android.apps.nbu.files", "com.google.android.gm", "com.android.vending", "com.google.android.videos", "com.google.android.apps.walletnfcrel", "com.google.android.apps.tachyon"]
+    },
+    {
+      "name": "Music",
+      "apps": ["com.amazon.mp3", "com.apple.android.music", "com.google.android.apps.youtube.music", "com.radiofmapp.radioindia", "com.android.soundrecorder"]
     },
     {
       "name": "Tools",
-      "apps": ["com.korrisoft.voice.recorder", "com.google.android.apps.chromecast.app", "com.fitbit.FitbitMobile", "com.mds.medanta", "com.aranoah.healthkart.plus", "com.android.settings"]
+      "apps": ["com.google.android.apps.chromecast.app", "com.fitbit.FitbitMobile", "com.mds.medanta", "com.aranoah.healthkart.plus", "com.android.chrome"]
     },
     {
       "name": "All other apps",

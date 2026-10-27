@@ -69,7 +69,11 @@ public class HomeActivity extends Activity {
       "com.github.uiautomator",
       "com.github.uiautomator.test",
       "com.motorola.launcher3",
-      "com.android.launcher3"
+      "com.android.launcher3",
+      "com.ask.browser.ai",
+      "com.safeweb.browser",
+      "com.filebox.junkclean.filemanager",
+      "app.blinkit.onboarding"
   };
 
   private PackageManager pm;
