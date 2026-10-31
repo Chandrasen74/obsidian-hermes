@@ -14,7 +14,7 @@
     },
     {
       "name": "Banking",
-      "apps": ["com.paypal.android.p2pmobile", "com.Version1", "com.csam.icici.bank.imobile"]
+      "apps": ["com.paypal.android.p2pmobile", "com.Version1", "net.one97.paytm", "com.csam.icici.bank.imobile"]
     },
     {
       "name": "Social",

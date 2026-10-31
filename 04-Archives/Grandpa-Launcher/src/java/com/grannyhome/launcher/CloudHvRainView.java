@@ -90,8 +90,8 @@ public class CloudHvRainView extends SkyconView {
 
         count = count + 0.5;
 
-        paintCloud.setStrokeWidth((float) (0.02083 * screenW));
-        paintRain.setStrokeWidth((float) (0.015 * screenW));
+        paintCloud.setStrokeWidth((float) (0.065 * screenW));
+        paintRain.setStrokeWidth((float) (0.045 * screenW));
 
         int retval = Double.compare(count, 360.00);
 

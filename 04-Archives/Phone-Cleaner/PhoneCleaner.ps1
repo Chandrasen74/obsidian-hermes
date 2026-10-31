@@ -355,6 +355,90 @@ function Build-Model([string]$pkg, [string]$group) {
         WindowStartupLocation="CenterScreen"
         Background="#f5f2ee"
         FontFamily="Segoe UI">
+  <Window.Resources>
+    <Style TargetType="Button">
+      <Setter Property="MinHeight" Value="44"/>
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Foreground" Value="#263238"/>
+      <Setter Property="Background" Value="#ffffff"/>
+      <Setter Property="BorderBrush" Value="#c9d2d0"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="14,6"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border x:Name="ButtonSurface" Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="8" SnapsToDevicePixels="True">
+              <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ButtonSurface" Property="BorderBrush" Value="#4b8f89"/></Trigger>
+              <Trigger Property="IsPressed" Value="True"><Setter TargetName="ButtonSurface" Property="Opacity" Value="0.82"/></Trigger>
+              <Trigger Property="IsEnabled" Value="False"><Setter TargetName="ButtonSurface" Property="Opacity" Value="0.55"/></Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="Padding" Value="10,5"/>
+      <Setter Property="BorderBrush" Value="#c9d2d0"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Background" Value="#ffffff"/>
+    </Style>
+    <Style TargetType="CheckBox">
+      <Setter Property="FontSize" Value="15"/>
+      <Setter Property="Padding" Value="10,10"/>
+      <Setter Property="Foreground" Value="#263238"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="CheckBox">
+            <Border Background="Transparent" Padding="{TemplateBinding Padding}">
+              <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                <Grid Width="22" Height="22" VerticalAlignment="Center">
+                  <Border x:Name="CheckBoxSurface" Background="#ffffff" BorderBrush="#71817f" BorderThickness="1.5" CornerRadius="4"/>
+                  <Path x:Name="CheckMark" Data="M 4,11 L 9,16 L 18,6" Stroke="#ffffff" StrokeThickness="2.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Visibility="Collapsed"/>
+                </Grid>
+                <ContentPresenter Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+              </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsChecked" Value="True"><Setter TargetName="CheckBoxSurface" Property="Background" Value="#287d78"/><Setter TargetName="CheckBoxSurface" Property="BorderBrush" Value="#287d78"/><Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/></Trigger>
+              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="CheckBoxSurface" Property="BorderBrush" Value="#287d78"/></Trigger>
+              <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.48"/></Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style TargetType="TabItem">
+      <Setter Property="FontSize" Value="16"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="Foreground" Value="#465451"/>
+      <Setter Property="Background" Value="#ebe9e4"/>
+      <Setter Property="Padding" Value="20,12"/>
+      <Setter Property="Margin" Value="0,0,8,0"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="TabItem">
+            <Border x:Name="TabSurface" Background="{TemplateBinding Background}" CornerRadius="9" Padding="{TemplateBinding Padding}">
+              <ContentPresenter ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsSelected" Value="True"><Setter TargetName="TabSurface" Property="Background" Value="#287d78"/><Setter Property="Foreground" Value="#ffffff"/></Trigger>
+              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="TabSurface" Property="Opacity" Value="0.88"/></Trigger>
+              <Trigger Property="IsEnabled" Value="False"><Setter TargetName="TabSurface" Property="Opacity" Value="0.55"/></Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Window.Resources>
   <Grid Margin="14">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
@@ -363,76 +447,87 @@ function Build-Model([string]$pkg, [string]$group) {
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
 
-    <Border Grid.Row="0" Background="#ffffff" CornerRadius="8" Padding="12" Margin="0,0,0,8" BorderBrush="#e6e2dc" BorderThickness="1">
+    <Border Grid.Row="0" Background="#ffffff" CornerRadius="9" Padding="14" Margin="0,0,0,8" BorderBrush="#e6e2dc" BorderThickness="1">
+      <Border.Effect><DropShadowEffect Color="#000000" Opacity="0.08" BlurRadius="12" ShadowDepth="2" Direction="270"/></Border.Effect>
       <DockPanel LastChildFill="False">
-        <Ellipse x:Name="dot" Width="12" Height="12" Fill="#e06c75" VerticalAlignment="Center" Margin="0,0,10,0"/>
-        <TextBlock x:Name="devStatus" Text="checking device..." VerticalAlignment="Center" FontSize="14.5" Foreground="#2c2c2c"/>
-        <Button x:Name="btnRefresh" Content="Refresh from phone" Width="180" Height="36"
-                DockPanel.Dock="Right" Background="#ffffff" BorderBrush="#c9c4bd" BorderThickness="1"/>
+        <Ellipse x:Name="dot" Width="13" Height="13" Fill="#e06c75" VerticalAlignment="Center" Margin="0,0,12,0"/>
+        <TextBlock x:Name="devStatus" Text="checking device..." VerticalAlignment="Center" FontSize="16" Foreground="#263238"/>
+        <Button x:Name="btnRefresh" Content="Refresh from phone" Width="190" Height="44"
+                DockPanel.Dock="Right" Background="#ffffff" BorderBrush="#c9d2d0" BorderThickness="1"/>
       </DockPanel>
     </Border>
 
     <TextBlock Grid.Row="1" Text="Junk is pre-ticked. Review the list, untick anything doubtful, then Uninstall. Everything removed can be restored from tab 3."
-               FontSize="12.5" Foreground="#777" Margin="4,0,0,6"/>
+               FontSize="13.5" Foreground="#5f6967" Margin="4,2,0,8"/>
 
     <TabControl Grid.Row="2" Background="Transparent" BorderThickness="0">
 
       <TabItem Header="1 | User apps">
-        <Grid Margin="10">
-          <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-          <DockPanel LastChildFill="False">
-            <Button x:Name="btnSelJunk" Content="Tick all junk" Width="140" Height="34"/>
-            <Button x:Name="btnClearUser" Content="Clear ticks" Width="110" Height="34" Margin="6,0,0,0"/>
-            <TextBox x:Name="userFilter" Width="240" Height="34" Margin="20,0,0,0"
-                     VerticalContentAlignment="Center" FontSize="13"/>
-            <Button x:Name="btnUninstallUser" Content="Uninstall (0)" Width="180" Height="40"
-                    DockPanel.Dock="Right" Background="#e53935" Foreground="White" FontWeight="Bold"/>
-          </DockPanel>
-          <ScrollViewer Grid.Row="1" Margin="0,8,0,0" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="userList"/>
-          </ScrollViewer>
-        </Grid>
+        <Border Margin="8" Background="#ffffff" BorderBrush="#e6e2dc" BorderThickness="1" CornerRadius="10" Padding="14">
+          <Border.Effect><DropShadowEffect Color="#000000" Opacity="0.08" BlurRadius="12" ShadowDepth="2" Direction="270"/></Border.Effect>
+          <Grid>
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+            <DockPanel LastChildFill="False">
+              <Button x:Name="btnSelJunk" Content="Tick all junk" Width="150" Height="44"/>
+              <Button x:Name="btnClearUser" Content="Clear ticks" Width="120" Height="44" Margin="8,0,0,0"/>
+              <TextBox x:Name="userFilter" Width="240" Height="44" Margin="20,0,0,0"
+                       VerticalContentAlignment="Center" FontSize="16"/>
+              <Button x:Name="btnUninstallUser" Content="Uninstall (0)" Width="190" Height="46"
+                      DockPanel.Dock="Right" Background="#d32f2f" BorderBrush="#b72424" Foreground="White" FontWeight="Bold"/>
+            </DockPanel>
+            <ScrollViewer Grid.Row="1" Margin="0,12,0,0" VerticalScrollBarVisibility="Auto">
+              <ItemsControl x:Name="userList"/>
+            </ScrollViewer>
+          </Grid>
+        </Border>
       </TabItem>
 
       <TabItem Header="2 | System preloads">
-        <Grid Margin="10">
-          <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-          <DockPanel LastChildFill="False">
-            <Button x:Name="btnSysAll" Content="Tick all shown" Width="140" Height="34"/>
-            <Button x:Name="btnClearSys" Content="Clear ticks" Width="110" Height="34" Margin="6,0,0,0"/>
-            <CheckBox x:Name="sysAdvanced" Content="advanced: show full android system list (risky)"
-                      Margin="26,0,0,0" VerticalAlignment="Center" FontSize="12.5"/>
-            <Button x:Name="btnUninstallSys" Content="Uninstall (0)" Width="180" Height="40"
-                    DockPanel.Dock="Right" Background="#e53935" Foreground="White" FontWeight="Bold"/>
-          </DockPanel>
-          <TextBlock Grid.Row="1" x:Name="sysNote" Margin="2,6,0,0" FontSize="12" TextWrapping="Wrap"
-                     Foreground="#666" Text="Loading..."/>
-          <ScrollViewer Grid.Row="2" Margin="0,8,0,0" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="sysList"/>
-          </ScrollViewer>
-        </Grid>
+        <Border Margin="8" Background="#ffffff" BorderBrush="#e6e2dc" BorderThickness="1" CornerRadius="10" Padding="14">
+          <Border.Effect><DropShadowEffect Color="#000000" Opacity="0.08" BlurRadius="12" ShadowDepth="2" Direction="270"/></Border.Effect>
+          <Grid>
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+            <DockPanel LastChildFill="False">
+              <Button x:Name="btnSysAll" Content="Tick all shown" Width="150" Height="44"/>
+              <Button x:Name="btnClearSys" Content="Clear ticks" Width="120" Height="44" Margin="8,0,0,0"/>
+              <CheckBox x:Name="sysAdvanced" Content="advanced: show full android system list (risky)"
+                        Margin="18,0,0,0" VerticalAlignment="Center" FontSize="15"/>
+              <Button x:Name="btnUninstallSys" Content="Uninstall (0)" Width="190" Height="46"
+                      DockPanel.Dock="Right" Background="#d32f2f" BorderBrush="#b72424" Foreground="White" FontWeight="Bold"/>
+            </DockPanel>
+            <TextBlock Grid.Row="1" x:Name="sysNote" Margin="2,8,0,0" FontSize="13" TextWrapping="Wrap"
+                       Foreground="#5f6967" Text="Loading..."/>
+            <ScrollViewer Grid.Row="2" Margin="0,12,0,0" VerticalScrollBarVisibility="Auto">
+              <ItemsControl x:Name="sysList"/>
+            </ScrollViewer>
+          </Grid>
+        </Border>
       </TabItem>
 
       <TabItem Header="3 | Restore">
-        <Grid Margin="10">
-          <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-          <DockPanel LastChildFill="False">
-            <Button x:Name="btnRestRefresh" Content="Refresh list" Width="140" Height="34"/>
-            <Button x:Name="btnReinstall" Content="Reinstall selected" Width="190" Height="40"
-                    DockPanel.Dock="Right" Background="#2e7d32" Foreground="White" FontWeight="Bold"/>
-          </DockPanel>
-          <TextBlock Grid.Row="1" x:Name="restNote" Margin="2,6,0,0" FontSize="12" TextWrapping="Wrap"
-                     Foreground="#666" Text="Loading..."/>
-          <ScrollViewer Grid.Row="2" Margin="0,8,0,0" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="restList"/>
-          </ScrollViewer>
-        </Grid>
+        <Border Margin="8" Background="#ffffff" BorderBrush="#e6e2dc" BorderThickness="1" CornerRadius="10" Padding="14">
+          <Border.Effect><DropShadowEffect Color="#000000" Opacity="0.08" BlurRadius="12" ShadowDepth="2" Direction="270"/></Border.Effect>
+          <Grid>
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+            <DockPanel LastChildFill="False">
+              <Button x:Name="btnRestRefresh" Content="Refresh list" Width="150" Height="44"/>
+              <Button x:Name="btnReinstall" Content="Reinstall selected" Width="200" Height="46"
+                      DockPanel.Dock="Right" Background="#2e7d32" BorderBrush="#256628" Foreground="White" FontWeight="Bold"/>
+            </DockPanel>
+            <TextBlock Grid.Row="1" x:Name="restNote" Margin="2,8,0,0" FontSize="13" TextWrapping="Wrap"
+                       Foreground="#5f6967" Text="Loading..."/>
+            <ScrollViewer Grid.Row="2" Margin="0,12,0,0" VerticalScrollBarVisibility="Auto">
+              <ItemsControl x:Name="restList"/>
+            </ScrollViewer>
+          </Grid>
+        </Border>
       </TabItem>
     </TabControl>
 
-    <Border Grid.Row="3" Background="#ffffff" CornerRadius="8" Padding="10" Margin="0,8,0,0"
+    <Border Grid.Row="3" Background="#ffffff" CornerRadius="9" Padding="12" Margin="0,8,0,0"
             BorderBrush="#e6e2dc" BorderThickness="1">
-      <TextBlock x:Name="statusTB" Text="" FontSize="13"/>
+      <Border.Effect><DropShadowEffect Color="#000000" Opacity="0.07" BlurRadius="10" ShadowDepth="1" Direction="270"/></Border.Effect>
+      <TextBlock x:Name="statusTB" Text="" FontSize="14.5" Foreground="#33413f"/>
     </Border>
   </Grid>
 </Window>
@@ -441,13 +536,16 @@ function Build-Model([string]$pkg, [string]$group) {
 function Build-RowTemplate {
   $xml = @"
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-  <Border Background="{Binding RowBg}" CornerRadius="4" Margin="0,1" Padding="8,5">
-    <DockPanel LastChildFill="False">
-      <CheckBox DockPanel.Dock="Left" VerticalAlignment="Center"
-                IsChecked="{Binding Del, Mode=TwoWay}" IsEnabled="{Binding CanDel}"/>
-      <TextBlock DockPanel.Dock="Left" Text="{Binding Name2}" FontSize="13.5" Margin="10,0,0,0"/>
-      <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right"
-                 Text="{Binding Cat}" FontSize="11.5" Foreground="{Binding CatColor}"/>
+  <Border Background="{Binding RowBg}" CornerRadius="7" Margin="0,2" Padding="8,4" MinHeight="54">
+    <DockPanel LastChildFill="True">
+      <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center"
+                 Text="{Binding Cat}" FontSize="13" Foreground="{Binding CatColor}" Margin="12,0,4,0"/>
+      <CheckBox VerticalAlignment="Center" HorizontalAlignment="Left"
+                IsChecked="{Binding Del, Mode=TwoWay}" IsEnabled="{Binding CanDel}">
+        <CheckBox.Content>
+          <TextBlock Text="{Binding Name2}" FontSize="17" Foreground="#263238" TextWrapping="Wrap"/>
+        </CheckBox.Content>
+      </CheckBox>
     </DockPanel>
   </Border>
 </DataTemplate>

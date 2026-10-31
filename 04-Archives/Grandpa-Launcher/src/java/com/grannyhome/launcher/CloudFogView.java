@@ -92,8 +92,8 @@ public class CloudFogView extends SkyconView {
 
         canvas.drawColor(bgColor);
 
-        paintCloud.setStrokeWidth((float) (0.02083 * screenW));
-        paintFog.setStrokeWidth((float) (0.02083 * screenW));
+        paintCloud.setStrokeWidth((float) (0.065 * screenW));
+        paintFog.setStrokeWidth((float) (0.065 * screenW));
 
         count = count + 0.5;
 

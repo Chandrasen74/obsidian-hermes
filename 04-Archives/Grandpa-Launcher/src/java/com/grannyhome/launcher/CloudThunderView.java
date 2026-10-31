@@ -93,8 +93,8 @@ public class CloudThunderView extends SkyconView {
         super.onDraw(canvas);
         canvas.drawColor(bgColor);
 
-        paintCloud.setStrokeWidth((float) (0.02083 * screenW));
-        paintThunder.setStrokeWidth((float) (0.02083 * screenW));
+        paintCloud.setStrokeWidth((float) (0.065 * screenW));
+        paintThunder.setStrokeWidth((float) (0.065 * screenW));
 
         //incrementing counter for rotation
         count = count + 0.5;

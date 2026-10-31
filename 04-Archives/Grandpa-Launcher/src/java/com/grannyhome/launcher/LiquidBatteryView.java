@@ -214,10 +214,39 @@ public class LiquidBatteryView extends View {
     canvas.drawRoundRect(w - 5f * dens, (h - nubH) / 2f, w - 0.5f * dens,
         (h + nubH) / 2f, 2f * dens, 2f * dens, nubPaint);
 
-    // percent label centered in the body, sized to the tank itself
+    // percent label centered in the body, fitted for the widest battery label
     String label = level < 0 ? "--%" : (level + "%");
     float innerH = clipB - clipT;
-    float ts = innerH * 0.5f;
+    float bodyW = clipR - clipL;
+    float padW = 6f * dens;
+    float maxTs = innerH * 0.46f;
+    textFill.setTextSize(1f);
+    float widestLabelAtOne = textFill.measureText("100%");
+    float lowTs = 0f;
+    float highTs = maxTs;
+    float boltGap = 6f * dens;
+    float minBoltOutlineGap = outlinePaint.getStrokeWidth() / 2f + dens;
+    for (int i = 0; i < 24; i++) {
+      float candidate = (lowTs + highTs) / 2f;
+      float haloStroke = Math.max(2f * dens, candidate * 0.14f);
+      float labelW = widestLabelAtOne * candidate;
+      float requiredW = labelW + haloStroke;
+      boolean fits = requiredW <= bodyW - padW;
+      if (charging) {
+        float boltW = candidate * 0.70f * 0.62f;
+        requiredW += boltW + boltGap;
+        float leftClearance = (bodyW - labelW - haloStroke) / 2f
+            - boltW - boltGap;
+        fits = fits && requiredW <= bodyW - padW
+            && leftClearance >= minBoltOutlineGap;
+      }
+      if (fits) {
+        lowTs = candidate;
+      } else {
+        highTs = candidate;
+      }
+    }
+    float ts = lowTs;
     textFill.setTextSize(ts);
     textHalo.setTextSize(ts);
     textHalo.setStrokeWidth(Math.max(2f * dens, ts * 0.14f));
@@ -230,9 +259,9 @@ public class LiquidBatteryView extends View {
 
     if (charging) {
       // small bolt drawn as a path (no font dependency), left of the label
-      float kH = textFill.getTextSize() * 0.86f;
+      float kH = textFill.getTextSize() * 0.70f;
       float kW = kH * 0.62f;
-      float bx = cx - textW / 2f - kW - 5f * dens;
+      float bx = cx - textW / 2f - kW - boltGap;
       float by = cy - kH / 2f;
       float sx = kW / 0.94f; // polygon spans x 0.10..0.94
       Path bolt = new Path();

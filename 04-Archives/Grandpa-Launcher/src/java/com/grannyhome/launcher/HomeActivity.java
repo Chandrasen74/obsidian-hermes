@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -20,9 +19,16 @@ import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CancellationSignal;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -48,6 +54,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public class HomeActivity extends Activity {
 
@@ -60,6 +67,7 @@ public class HomeActivity extends Activity {
   private static final int WHITE = 0xFFFFFFFF;
   private static final int TRACK = 0xFFEFE6D8;
   private static final int ORANGE = 0xFFE08A34;
+  private static final int REQ_LOC = 101;
   private static final int[] ACCENTS = {
       0xFFE08A34, 0xFF2E9C8B, 0xFF7B5FC0, 0xFF5B9E4A,
       0xFF3E76C2, 0xFFC75B4A, 0xFF9C6B3F
@@ -73,7 +81,8 @@ public class HomeActivity extends Activity {
       "com.ask.browser.ai",
       "com.safeweb.browser",
       "com.filebox.junkclean.filemanager",
-      "app.blinkit.onboarding"
+      "app.blinkit.onboarding",
+      "com.android.vending"
   };
 
   private PackageManager pm;
@@ -83,6 +92,9 @@ public class HomeActivity extends Activity {
   private FrameLayout skyconBox;
   private int currentWxCode = Integer.MIN_VALUE;
   private boolean weatherBusy;
+  private boolean askedLoc;
+  private boolean freshLocationPending;
+  private int freshLocationRequestId;
   private final Map<String, Drawable> iconCache = new HashMap<String, Drawable>();
   private final List<AppRef> favorites = new ArrayList<AppRef>();
   private final List<FolderGroup> folders = new ArrayList<FolderGroup>();
@@ -173,7 +185,7 @@ public class HomeActivity extends Activity {
             WallpaperManager wm = WallpaperManager.getInstance(self);
             Bitmap bmp = Bitmap.createBitmap(1080, 2400, Bitmap.Config.ARGB_8888);
             LinearGradient grad = new LinearGradient(0, 0, 0, bmp.getHeight(),
-                new int[] {CREAM, 0xFFF9E9C4, 0xFFF0D69E},
+                new int[] {CREAM, 0xFFFAF0DA, 0xFFF4E5C8},
                 new float[] {0f, 0.55f, 1f}, Shader.TileMode.CLAMP);
             Paint wp = new Paint(Paint.ANTI_ALIAS_FLAG);
             wp.setShader(grad);
@@ -207,6 +219,7 @@ public class HomeActivity extends Activity {
     if (sticky != null) {
       updateBattery(sticky);
     }
+    resolveLocation();
     maybeFetchWeather();
   }
 
@@ -217,6 +230,243 @@ public class HomeActivity extends Activity {
     } catch (Throwable ignored) {
     }
     super.onPause();
+  }
+
+  @Override
+  public void onRequestPermissionsResult(int requestCode, String[] permissions,
+      int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    if (requestCode == REQ_LOC && grantResults != null && grantResults.length > 0
+        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+      resolveLocation();
+      getSharedPreferences("home", MODE_PRIVATE).edit().putLong("wx_ts", 0L).apply();
+      maybeFetchWeather();
+    }
+  }
+
+  private void resolveLocation() {
+    if (checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+        == PackageManager.PERMISSION_GRANTED) {
+      try {
+        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (lm == null) {
+          return;
+        }
+        String[] providers = {
+            LocationManager.NETWORK_PROVIDER,
+            LocationManager.PASSIVE_PROVIDER,
+            LocationManager.GPS_PROVIDER
+        };
+        Location fix = null;
+        for (String provider : providers) {
+          try {
+            Location candidate = lm.getLastKnownLocation(provider);
+            if (candidate != null) {
+              double lat = candidate.getLatitude();
+              double lon = candidate.getLongitude();
+              if (lat >= -90.0 && lat <= 90.0 && lon >= -180.0 && lon <= 180.0
+                  && (lat != 0.0 || lon != 0.0)) {
+                fix = candidate;
+                break;
+              }
+            }
+          } catch (Throwable ignored) {
+          }
+        }
+        if (fix == null) {
+          requestFreshLocation(lm);
+          return;
+        }
+        double lat = fix.getLatitude();
+        double lon = fix.getLongitude();
+        SharedPreferences sp = getSharedPreferences("home", MODE_PRIVATE);
+        boolean hasCached = sp.contains("wx_lat") && sp.contains("wx_lon");
+        float cachedLat = sp.getFloat("wx_lat", 28.46f);
+        float cachedLon = sp.getFloat("wx_lon", 77.03f);
+        double dx = (lon - cachedLon) * 111.0 * Math.cos(Math.toRadians(lat));
+        double dy = (lat - cachedLat) * 111.0;
+        if (!hasCached || Math.sqrt(dx * dx + dy * dy) > 15.0) {
+          sp.edit().putFloat("wx_lat", (float) lat).putFloat("wx_lon", (float) lon)
+              .putLong("wx_ts", 0L).apply();
+        }
+      } catch (Throwable ignored) {
+      }
+    } else if (!askedLoc) {
+      askedLoc = true;
+      requestPermissions(
+          new String[] {android.Manifest.permission.ACCESS_COARSE_LOCATION}, REQ_LOC);
+    }
+  }
+
+  private void requestFreshLocation(LocationManager lm) {
+    if (freshLocationPending) {
+      return;
+    }
+    freshLocationPending = true;
+    new FreshLocationRequest(lm, ++freshLocationRequestId).start();
+  }
+
+  private boolean isIndiaPlausibleFix(Location fix) {
+    if (fix == null) {
+      return false;
+    }
+    double lat = fix.getLatitude();
+    double lon = fix.getLongitude();
+    return (lat != 0.0 || lon != 0.0)
+        && lat >= 6.0 && lat <= 38.0 && lon >= 68.0 && lon <= 98.0;
+  }
+
+  private final class FreshLocationRequest {
+    private final LocationManager locationManager;
+    private final int requestId;
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private final LocationListener[] listeners = new LocationListener[2];
+    private final CancellationSignal[] cancellations = new CancellationSignal[2];
+    private boolean timedOut;
+    private boolean gpsStarted;
+
+    private final Runnable fallback = new Runnable() {
+      @Override
+      public void run() {
+        if (!timedOut && !gpsStarted) {
+          requestProvider(1);
+        }
+      }
+    };
+
+    private final Runnable timeout = new Runnable() {
+      @Override
+      public void run() {
+        timedOut = true;
+        cleanup();
+        if (freshLocationRequestId == requestId) {
+          freshLocationPending = false;
+        }
+      }
+    };
+
+    FreshLocationRequest(LocationManager lm, int id) {
+      locationManager = lm;
+      requestId = id;
+    }
+
+    void start() {
+      handler.postDelayed(timeout, 45000L);
+      handler.postDelayed(fallback, 20000L);
+      requestProvider(0);
+    }
+
+    private void requestProvider(final int attempt) {
+      if (attempt == 1) {
+        if (gpsStarted || timedOut) {
+          return;
+        }
+        gpsStarted = true;
+        handler.removeCallbacks(fallback);
+      }
+      final String provider = attempt == 0
+          ? LocationManager.NETWORK_PROVIDER : LocationManager.GPS_PROVIDER;
+      if (Build.VERSION.SDK_INT >= 30) {
+        final CancellationSignal cancellation = new CancellationSignal();
+        cancellations[attempt] = cancellation;
+        try {
+          locationManager.getCurrentLocation(provider, cancellation, getMainExecutor(),
+              new Consumer<Location>() {
+                @Override
+                public void accept(Location fix) {
+                  onFix(fix, attempt);
+                }
+              });
+        } catch (Throwable ignored) {
+          onFix(null, attempt);
+        }
+      } else {
+        final boolean[] responded = {false};
+        LocationListener listener = new LocationListener() {
+          @Override
+          public void onLocationChanged(Location fix) {
+            if (responded[0]) {
+              return;
+            }
+            responded[0] = true;
+            onFix(fix, attempt);
+          }
+
+          @Override
+          public void onStatusChanged(String name, int status, Bundle extras) {
+            if (status == LocationProvider.OUT_OF_SERVICE && !responded[0]) {
+              responded[0] = true;
+              onFix(null, attempt);
+            }
+          }
+
+          @Override
+          public void onProviderEnabled(String name) {
+          }
+
+          @Override
+          public void onProviderDisabled(String name) {
+            if (!responded[0]) {
+              responded[0] = true;
+              onFix(null, attempt);
+            }
+          }
+        };
+        listeners[attempt] = listener;
+        try {
+          locationManager.requestSingleUpdate(provider, listener, Looper.getMainLooper());
+        } catch (Throwable ignored) {
+          onFix(null, attempt);
+        }
+      }
+    }
+
+    private void onFix(Location fix, int attempt) {
+      if (isIndiaPlausibleFix(fix)) {
+        cleanup();
+        if (freshLocationRequestId == requestId) {
+          freshLocationPending = false;
+        }
+        SharedPreferences sp = getSharedPreferences("home", MODE_PRIVATE);
+        sp.edit().putFloat("wx_lat", (float) fix.getLatitude())
+            .putFloat("wx_lon", (float) fix.getLongitude())
+            .putLong("wx_ts", 0L).apply();
+        runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            maybeFetchWeather();
+          }
+        });
+      } else if (attempt == 0 && !timedOut && !gpsStarted) {
+        requestProvider(1);
+      } else if (attempt == 1 && !timedOut) {
+        cleanup();
+        if (freshLocationRequestId == requestId) {
+          freshLocationPending = false;
+        }
+      }
+    }
+
+    private void cleanup() {
+      handler.removeCallbacks(fallback);
+      handler.removeCallbacks(timeout);
+      for (CancellationSignal cancellation : cancellations) {
+        if (cancellation != null) {
+          try {
+            cancellation.cancel();
+          } catch (Throwable ignored) {
+          }
+        }
+      }
+      for (LocationListener listener : listeners) {
+        if (listener != null) {
+          try {
+            locationManager.removeUpdates(listener);
+          } catch (Throwable ignored) {
+          }
+        }
+      }
+    }
   }
 
   @Override
@@ -279,9 +529,15 @@ public class HomeActivity extends Activity {
         final double[] temp = {Double.NaN};
         final int[] code = {-1};
         final int[] aqi = {-1};
+        // Share one cached device fix across both weather indexes.
+        SharedPreferences wxPrefs = getSharedPreferences("home", MODE_PRIVATE);
+        float lat = wxPrefs.getFloat("wx_lat", 28.46f);
+        float lon = wxPrefs.getFloat("wx_lon", 77.03f);
+        String location = "?latitude=" + String.valueOf(lat)
+            + "&longitude=" + String.valueOf(lon);
         try {
           JSONObject o = fetchUrl("https://api.open-meteo.com/v1/forecast"
-              + "?latitude=28.46&longitude=77.03"
+              + location
               + "&current=temperature_2m,weather_code&timezone=Asia%2FKolkata");
           if (o != null) {
             JSONObject cur = o.getJSONObject("current");
@@ -292,7 +548,7 @@ public class HomeActivity extends Activity {
         }
         try {
           JSONObject o = fetchUrl("https://air-quality-api.open-meteo.com"
-              + "/v1/air-quality?latitude=28.46&longitude=77.03&current=us_aqi");
+              + "/v1/air-quality" + location + "&current=us_aqi");
           if (o != null) {
             aqi[0] = o.getJSONObject("current").optInt("us_aqi", -1);
           }
@@ -348,7 +604,7 @@ public class HomeActivity extends Activity {
     SharedPreferences sp = getSharedPreferences("home", MODE_PRIVATE);
     if (sp.getLong("wx_ts", 0L) == 0L) {
       // never fetched yet: keep the card shape with a muted placeholder
-      tempText.setText("Weather");
+      fitText(tempText, "Weather", 20f, 14f, true);
       tempText.setTextColor(MUTE);
       airText.setVisibility(View.GONE);
       return;
@@ -357,15 +613,17 @@ public class HomeActivity extends Activity {
     int code = sp.getInt("wx_code", -1);
     double temp = sp.getFloat("wx_temp", Float.NaN);
     String word = condName(code);
+    String weatherLine;
     if (word.length() > 0 && !Double.isNaN(temp)) {
-      tempText.setText(word + ", " + Math.round(temp) + "C");
+      weatherLine = word + ", " + Math.round(temp) + "C";
     } else if (!Double.isNaN(temp)) {
-      tempText.setText(Math.round(temp) + "C");
+      weatherLine = Math.round(temp) + "C";
     } else if (word.length() > 0) {
-      tempText.setText(word);
+      weatherLine = word;
     } else {
-      tempText.setText("Gurugram");
+      weatherLine = "Gurugram";
     }
+    fitText(tempText, weatherLine, 20f, 14f, true);
 
     // weather only changes hourly, so swapping the animated skycon on code
     // change is enough
@@ -381,16 +639,17 @@ public class HomeActivity extends Activity {
       airText.setVisibility(View.GONE);
     } else {
       airText.setVisibility(View.VISIBLE);
-      airText.setText("Air " + aqi);
-      int bg = aqi <= 50 ? 0xFFDDF2E4
-          : aqi <= 100 ? 0xFFFBEFD6
-          : aqi <= 150 ? 0xFFFBE3DC
-          : 0xFFF6D5CE;
+      airText.setText("AQI " + aqi);
+      int bg = aqi <= 50 ? 0xFF4A9B62
+          : aqi <= 100 ? 0xFFE3AD36
+          : aqi <= 150 ? 0xFFDF762B
+          : aqi <= 200 ? 0xFFC94335
+          : 0xFF812B2B;
       GradientDrawable g = new GradientDrawable();
       g.setCornerRadius(dp(14));
       g.setColor(bg);
       airText.setBackground(g);
-      airText.setTextColor(aqi <= 100 ? INK : 0xFF9C3D2E);
+      airText.setTextColor(aqi <= 150 ? INK : WHITE);
     }
   }
 
@@ -454,16 +713,21 @@ public class HomeActivity extends Activity {
 
   private LinearLayout.LayoutParams halfCardParams() {
     // boxless halves: equal fixed height so both contents center on one line
-    LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, dp(170), 1f);
-    p.setMargins(dp(5), dp(10), dp(5), dp(6));
+    LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, dp(180), 1f);
+    p.setMargins(dp(5), dp(8), dp(5), dp(8));
     return p;
   }
 
   private LinearLayout statusHalf() {
-    // boxless half: content floats directly on the cream background
     LinearLayout half = new LinearLayout(this);
     half.setOrientation(LinearLayout.VERTICAL);
     half.setGravity(Gravity.CENTER);
+    GradientDrawable bg = new GradientDrawable();
+    bg.setColor(0xFFFFFBF4);
+    bg.setCornerRadius(dp(18));
+    bg.setStroke(dp(1), 0xFFE8E0D2);
+    half.setBackground(bg);
+    half.setElevation(dp(2));
     return half;
   }
 
@@ -485,6 +749,155 @@ public class HomeActivity extends Activity {
 
   private int sp(float v) {
     return Math.round(v * getResources().getDisplayMetrics().scaledDensity);
+  }
+
+  private static class FitTextRule {
+    String text;
+    float maxSp;
+    float minSp;
+    boolean allowTwoLines;
+  }
+
+  private static class TileLayoutMetrics {
+    int tileHeightPx;
+    int paddingTopPx;
+    int paddingBottomPx;
+    int iconSizePx;
+    int labelGapPx;
+  }
+
+  /** Fits text after layout using its real content width, preserving whole words. */
+  private void fitText(final TextView tv, String text, float maxSp, float minSp,
+      boolean allowTwoLines) {
+    FitTextRule rule = tv.getTag() instanceof FitTextRule
+        ? (FitTextRule) tv.getTag() : null;
+    if (rule == null) {
+      rule = new FitTextRule();
+      tv.setTag(rule);
+      final FitTextRule attachedRule = rule;
+      tv.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+        @Override
+        public void onLayoutChange(View view, int left, int top, int right, int bottom,
+            int oldLeft, int oldTop, int oldRight, int oldBottom) {
+          applyFitText(tv, attachedRule);
+        }
+      });
+    }
+    rule.text = text != null ? text : "";
+    rule.maxSp = maxSp;
+    rule.minSp = minSp;
+    rule.allowTwoLines = allowTwoLines;
+    tv.setSingleLine(false);
+    tv.setMaxLines(allowTwoLines ? 2 : 1);
+    tv.setEllipsize(null);
+    if (!rule.text.equals(tv.getText().toString())) {
+      tv.setText(rule.text);
+    }
+    final FitTextRule pendingRule = rule;
+    tv.post(new Runnable() {
+      @Override
+      public void run() {
+        applyFitText(tv, pendingRule);
+      }
+    });
+  }
+
+  private void applyFitText(TextView tv, FitTextRule rule) {
+    if (tv.getWidth() <= 0) {
+      return;
+    }
+    float width = tv.getWidth() - tv.getCompoundPaddingLeft() - tv.getCompoundPaddingRight();
+    if (width <= 0f) {
+      return;
+    }
+
+    Paint measure = new Paint(tv.getPaint());
+    String text = rule.text;
+    float size = largestSingleLineSize(measure, text, width, rule.maxSp, rule.minSp);
+    if (size > 0f) {
+      setFitText(tv, text, size, 1);
+      return;
+    }
+
+    if (rule.allowTwoLines) {
+      float wrapSize = rule.minSp;
+      String wrapped = wrapAtBestWordBoundary(measure, text, width, wrapSize);
+      while (wrapped == null && wrapSize > 8f) {
+        wrapSize = Math.max(8f, wrapSize - 0.25f);
+        wrapped = wrapAtBestWordBoundary(measure, text, width, wrapSize);
+      }
+      if (wrapped != null) {
+        setFitText(tv, wrapped, wrapSize, wrapped.indexOf('\n') >= 0 ? 2 : 1);
+        return;
+      }
+    }
+
+    // A single long token has no legal word boundary; keep it whole and reduce only as needed.
+    float fallbackSize = largestSingleLineSize(measure, text, width, rule.minSp, 8f);
+    if (fallbackSize <= 0f) {
+      float px = Math.max(1f, measure.measureText(text));
+      fallbackSize = Math.max(1f, (rule.minSp * width / px) * 0.98f);
+    }
+    setFitText(tv, text, fallbackSize, 1);
+  }
+
+  private float largestSingleLineSize(Paint paint, String text, float width,
+      float maxSp, float minSp) {
+    for (float size = maxSp; size >= minSp - 0.001f; size -= 0.25f) {
+      paint.setTextSize(size * getResources().getDisplayMetrics().scaledDensity);
+      if (paint.measureText(text) <= width) {
+        return size;
+      }
+    }
+    return -1f;
+  }
+
+  private String wrapAtBestWordBoundary(Paint paint, String text, float width, float sizeSp) {
+    String trimmed = text != null ? text.trim() : "";
+    String[] words = trimmed.split("\\s+");
+    if (words.length < 2) {
+      return null;
+    }
+    paint.setTextSize(sizeSp * getResources().getDisplayMetrics().scaledDensity);
+    String best = null;
+    float bestLongest = Float.MAX_VALUE;
+    float bestDifference = Float.MAX_VALUE;
+    for (int split = 1; split < words.length; split++) {
+      StringBuilder first = new StringBuilder();
+      StringBuilder second = new StringBuilder();
+      for (int i = 0; i < words.length; i++) {
+        StringBuilder line = i < split ? first : second;
+        if (line.length() > 0) {
+          line.append(' ');
+        }
+        line.append(words[i]);
+      }
+      float firstWidth = paint.measureText(first.toString());
+      float secondWidth = paint.measureText(second.toString());
+      if (firstWidth <= width && secondWidth <= width) {
+        float longest = Math.max(firstWidth, secondWidth);
+        float difference = Math.abs(firstWidth - secondWidth);
+        if (longest < bestLongest || (longest == bestLongest && difference < bestDifference)) {
+          best = first.toString() + "\n" + second.toString();
+          bestLongest = longest;
+          bestDifference = difference;
+        }
+      }
+    }
+    return best;
+  }
+
+  private void setFitText(TextView tv, String text, float sizeSp, int maxLines) {
+    float px = sizeSp * getResources().getDisplayMetrics().scaledDensity;
+    if (Math.abs(tv.getTextSize() - px) > 0.5f) {
+      tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, px);
+    }
+    if (tv.getMaxLines() != maxLines) {
+      tv.setMaxLines(maxLines);
+    }
+    if (!text.equals(tv.getText().toString())) {
+      tv.setText(text);
+    }
   }
 
   private String labelOf(String pkg) {
@@ -707,7 +1120,7 @@ public class HomeActivity extends Activity {
 
     LinearLayout root = new LinearLayout(this);
     root.setOrientation(LinearLayout.VERTICAL);
-    root.setPadding(dp(16), statusBarHeightPx() + dp(6), dp(16), dp(30));
+    root.setPadding(dp(14), statusBarHeightPx() + dp(8), dp(14), dp(22));
     sv.addView(root, new ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -728,71 +1141,69 @@ public class HomeActivity extends Activity {
     dateC.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
     dateC.setTextColor(MUTE);
     dateC.setGravity(Gravity.CENTER);
+    dateC.setPadding(0, 0, 0, dp(8));
     root.addView(dateC, new LinearLayout.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-    // symmetric status band: two equal halves on a shared row grid
+    // Single borderless status strip beneath the clock.
     LinearLayout status = new LinearLayout(this);
     status.setOrientation(LinearLayout.HORIZONTAL);
-
-    // weather half: visual row, text row, chip row
-    LinearLayout wxCard = statusHalf();
+    status.setGravity(Gravity.CENTER_VERTICAL);
+    status.setPadding(dp(4), dp(3), dp(4), dp(9));
     skyconBox = new FrameLayout(this);
-    wxCard.addView(slotRow(dp(86), skyconBox, dp(78), dp(78)));
+    status.addView(skyconBox, new LinearLayout.LayoutParams(dp(44), dp(44)));
 
     tempText = new TextView(this);
-    tempText.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(18));
+    tempText.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(20));
     tempText.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
     tempText.setTextColor(INK);
-    tempText.setGravity(Gravity.CENTER);
-    tempText.setSingleLine(true);
-    wxCard.addView(slotRow(dp(44), tempText,
-        ViewGroup.LayoutParams.MATCH_PARENT, dp(40)));
+    tempText.setGravity(Gravity.CENTER_VERTICAL);
+    tempText.setIncludeFontPadding(true);
+    tempText.setMaxLines(2);
+    tempText.setMinHeight(dp(44));
+    tempText.setPadding(dp(8), 0, dp(8), 0);
+    status.addView(tempText, new LinearLayout.LayoutParams(
+        0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
     airText = new TextView(this);
-    airText.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(13));
+    airText.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(20));
     airText.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+    airText.setIncludeFontPadding(true);
     airText.setTextColor(INK);
     airText.setGravity(Gravity.CENTER);
-    airText.setPadding(dp(8), dp(3), dp(8), dp(3));
+    airText.setPadding(dp(8), dp(4), dp(8), dp(4));
     airText.setVisibility(View.GONE);
-    wxCard.addView(slotRow(dp(40), airText,
-        ViewGroup.LayoutParams.WRAP_CONTENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT));
-    status.addView(wxCard, halfCardParams());
+    status.addView(airText, new LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-    // battery half: same three rows, last one intentionally blank
-    LinearLayout btCard = statusHalf();
     battery = new LiquidBatteryView(this);
-    btCard.addView(slotRow(dp(86), battery, dp(126), dp(64)));
-
-    TextView cap = new TextView(this);
-    cap.setText("Battery");
-    cap.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(13));
-    cap.setTextColor(MUTE);
-    cap.setGravity(Gravity.CENTER);
-    btCard.addView(slotRow(dp(44), cap,
-        ViewGroup.LayoutParams.MATCH_PARENT, dp(40)));
-    btCard.addView(slotRow(dp(40), null, 0, 0));
-    status.addView(btCard, halfCardParams());
+    LinearLayout.LayoutParams blp = new LinearLayout.LayoutParams(dp(88), dp(42));
+    blp.leftMargin = dp(12);
+    status.addView(battery, blp);
 
     root.addView(status, new LinearLayout.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
     renderWeather();
+    resolveLocation();
     maybeFetchWeather();
 
+    final TileLayoutMetrics tileMetrics = favoriteTileMetrics();
     for (int i = 0; i < favorites.size(); i += 2) {
       LinearLayout row = new LinearLayout(this);
       row.setOrientation(LinearLayout.HORIZONTAL);
-      row.addView(tile(favorites.get(i)), tileParams());
-      if (i + 1 < favorites.size()) {
-        row.addView(tile(favorites.get(i + 1)), tileParams());
-      } else {
-        View spacer = new View(this);
-        spacer.setVisibility(View.INVISIBLE);
-        row.addView(spacer, tileParams());
+      for (int column = 0; column < 2; column++) {
+        int favoriteIndex = i + column;
+        if (favoriteIndex < favorites.size()) {
+          row.addView(tile(favorites.get(favoriteIndex), tileMetrics),
+              tileParams(tileMetrics.tileHeightPx));
+        } else {
+          View spacer = new View(this);
+          spacer.setVisibility(View.INVISIBLE);
+          row.addView(spacer, tileParams(tileMetrics.tileHeightPx));
+        }
       }
+
       root.addView(row, new LinearLayout.LayoutParams(
           ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
@@ -810,7 +1221,8 @@ public class HomeActivity extends Activity {
   private GradientDrawable roundThumb() {
     GradientDrawable g = new GradientDrawable();
     g.setColor(ORANGE);
-    g.setCornerRadius(dp(7));
+    g.setCornerRadius(dp(10));
+    g.setStroke(dp(1), 0x66FFFFFF);
     return g;
   }
 
@@ -821,48 +1233,87 @@ public class HomeActivity extends Activity {
     return g;
   }
 
-  private LinearLayout.LayoutParams tileParams() {
-    // fixed height for every tile: one-line and two-line labels live in equal boxes
-    LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, dp(172), 1f);
-    p.setMargins(dp(5), dp(10), dp(5), dp(6));
+  private LinearLayout.LayoutParams tileParams(int tileHeightPx) {
+    // Equal weights split row width after 4dp outer and 8dp inter-tile margins.
+    // One shared, metric-derived height keeps every tile in every row balanced.
+    LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, tileHeightPx, 1f);
+    p.setMargins(dp(4), dp(7), dp(4), dp(5));
     return p;
+  }
+
+  /** Reserves the actual font-metric height for a wrapped label, including a small safety edge. */
+  private int textBlockHeightPx(Typeface typeface, float sizeSp, int lines) {
+    Paint measure = new Paint(Paint.ANTI_ALIAS_FLAG);
+    measure.setTypeface(typeface);
+    measure.setTextSize(sizeSp * getResources().getDisplayMetrics().scaledDensity);
+    Paint.FontMetrics fm = measure.getFontMetrics();
+    float firstAndLastLine = fm.bottom - fm.top;
+    float middleLine = fm.descent - fm.ascent;
+    return (int) Math.ceil(firstAndLastLine + Math.max(0, lines - 1) * middleLine)
+        + dp(2);
+  }
+
+  private TileLayoutMetrics favoriteTileMetrics() {
+    TileLayoutMetrics metrics = new TileLayoutMetrics();
+    metrics.paddingTopPx = dp(10);
+    metrics.paddingBottomPx = dp(10); // >= the required 6dp bottom cushion
+    metrics.iconSizePx = dp(60);
+    metrics.labelGapPx = dp(6);
+
+    Typeface labelTypeface = Typeface.create("sans-serif", Typeface.BOLD);
+    int requiredLabelHeightPx = textBlockHeightPx(labelTypeface, 22f, 2);
+    int tileContentHeightPx = metrics.paddingTopPx + metrics.iconSizePx
+        + metrics.labelGapPx + requiredLabelHeightPx + metrics.paddingBottomPx;
+    metrics.tileHeightPx = Math.max(dp(160), tileContentHeightPx);
+    return metrics;
   }
 
   private android.graphics.drawable.Drawable cardBg() {
     GradientDrawable bg = new GradientDrawable();
     bg.setColor(WHITE);
-    bg.setCornerRadius(dp(22));
-    bg.setStroke(dp(3), 0xFFE8E0D2);
+    bg.setCornerRadius(dp(18));
+    bg.setStroke(dp(1), 0xFFE8E0D2);
     // ripple so every tap gives visible feedback
     return new android.graphics.drawable.RippleDrawable(
-        android.content.res.ColorStateList.valueOf(0x3326221D), bg, null);
+        android.content.res.ColorStateList.valueOf(0x223F3425), bg, null);
   }
 
-  private View tile(final AppRef ref) {
+  private View tile(final AppRef ref, TileLayoutMetrics metrics) {
+    Typeface labelTypeface = Typeface.create("sans-serif", Typeface.BOLD);
+
     LinearLayout t = new LinearLayout(this);
     t.setOrientation(LinearLayout.VERTICAL);
     t.setGravity(Gravity.CENTER);
     t.setBackground(cardBg());
-    t.setElevation(dp(6));
-    t.setPadding(dp(8), dp(14), dp(8), dp(12));
+    t.setElevation(dp(3));
+    t.setPadding(dp(8), metrics.paddingTopPx, dp(8), metrics.paddingBottomPx);
 
     ImageView iv = new ImageView(this);
     iv.setImageDrawable(iconOf(ref.pkg));
-    LinearLayout.LayoutParams ilp = new LinearLayout.LayoutParams(dp(66), dp(66));
+    GradientDrawable thumb = new GradientDrawable();
+    thumb.setColor(0xFFFFF8EB);
+    thumb.setCornerRadius(dp(17));
+    thumb.setStroke(dp(1), 0xFFEFE6D8);
+    iv.setBackground(thumb);
+    iv.setPadding(dp(5), dp(5), dp(5), dp(5));
+    LinearLayout.LayoutParams ilp = new LinearLayout.LayoutParams(
+        metrics.iconSizePx, metrics.iconSizePx);
     ilp.gravity = Gravity.CENTER_HORIZONTAL;
     t.addView(iv, ilp);
 
     TextView lbl = new TextView(this);
-    lbl.setText(ref.label != null ? ref.label : labelOf(ref.pkg));
-    lbl.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(17));
-    lbl.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+    String label = ref.label != null ? ref.label : labelOf(ref.pkg);
+    lbl.setTypeface(labelTypeface);
     lbl.setTextColor(INK);
-    lbl.setGravity(Gravity.CENTER);
+    lbl.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
+    lbl.setIncludeFontPadding(true);
+    lbl.setPadding(0, 0, 0, dp(2));
     lbl.setMaxLines(2);
     LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    llp.topMargin = dp(8);
+    llp.topMargin = metrics.labelGapPx;
     t.addView(lbl, llp);
+    fitText(lbl, label, 22f, 16f, true);
 
     t.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -906,48 +1357,63 @@ public class HomeActivity extends Activity {
     r.setGravity(Gravity.CENTER_VERTICAL);
     // same card language as the favorite tiles: white, bordered, soft shadow
     r.setBackground(cardBg());
-    r.setElevation(dp(6));
-    r.setPadding(dp(16), dp(10), dp(14), dp(10));
+    r.setElevation(dp(3));
+    r.setPadding(dp(12), dp(6), dp(10), dp(6));
+    r.setMinimumHeight(dp(88));
 
     LinearLayout.LayoutParams rp = new LinearLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT, dp(120));
-    rp.setMargins(0, dp(10), 0, dp(6));
+        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    rp.setMargins(0, dp(8), 0, dp(5));
 
     GradientDrawable dot = new GradientDrawable();
-    dot.setShape(GradientDrawable.OVAL);
+    dot.setCornerRadius(dp(4));
     dot.setColor(accent);
     ImageView dotIv = new ImageView(this);
     dotIv.setImageDrawable(dot);
-    LinearLayout.LayoutParams dlp = new LinearLayout.LayoutParams(dp(16), dp(16));
+    LinearLayout.LayoutParams dlp = new LinearLayout.LayoutParams(dp(8), dp(54));
     r.addView(dotIv, dlp);
 
     LinearLayout mid = new LinearLayout(this);
     mid.setOrientation(LinearLayout.VERTICAL);
-    mid.setPadding(dp(12), 0, 0, 0);
+    mid.setPadding(dp(9), 0, 0, 0);
 
     TextView name = new TextView(this);
-    name.setText(g.name);
-    name.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(21));
-    name.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+    Typeface nameTypeface = Typeface.create("sans-serif", Typeface.BOLD);
+    name.setTypeface(nameTypeface);
     name.setTextColor(INK);
+    name.setIncludeFontPadding(true);
+    name.setPadding(0, 0, 0, dp(2));
+    name.setMinHeight(textBlockHeightPx(nameTypeface, 20f, 1));
     mid.addView(name, new LinearLayout.LayoutParams(
-        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+    fitText(name, g.name, 20f, 16f, true);
 
     TextView count = new TextView(this);
-    count.setText(g.apps.size() + (g.apps.size() == 1 ? " app" : " apps"));
-    count.setTextSize(TypedValue.COMPLEX_UNIT_PX, sp(13));
+    String countLabel = g.apps.size() + (g.apps.size() == 1 ? " app" : " apps");
+    Typeface countTypeface = Typeface.create("sans-serif", Typeface.NORMAL);
+    count.setTypeface(countTypeface);
     count.setTextColor(MUTE);
+    count.setIncludeFontPadding(true);
+    count.setPadding(0, 0, 0, dp(2));
+    count.setMinHeight(textBlockHeightPx(countTypeface, 18f, 1));
     mid.addView(count, new LinearLayout.LayoutParams(
-        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+    fitText(count, countLabel, 18f, 14f, false);
 
     r.addView(mid, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-    // peek strip: first three apps inside the folder
-    int peek = Math.min(3, g.apps.size());
+    // Peek strip: first four apps inside the folder.
+    int peek = Math.min(4, g.apps.size());
     for (int j = 0; j < peek; j++) {
       ImageView iv = new ImageView(this);
       iv.setImageDrawable(iconOf(g.apps.get(j).pkg));
-      LinearLayout.LayoutParams ilp = new LinearLayout.LayoutParams(dp(36), dp(36));
+      GradientDrawable preview = new GradientDrawable();
+      preview.setColor(0xFFFFF8EB);
+      preview.setCornerRadius(dp(8));
+      preview.setStroke(dp(1), 0xFFEFE6D8);
+      iv.setBackground(preview);
+      iv.setPadding(dp(2), dp(2), dp(2), dp(2));
+      LinearLayout.LayoutParams ilp = new LinearLayout.LayoutParams(dp(32), dp(32));
       if (j > 0) {
         ilp.setMargins(-dp(9), 0, 0, 0);
       }

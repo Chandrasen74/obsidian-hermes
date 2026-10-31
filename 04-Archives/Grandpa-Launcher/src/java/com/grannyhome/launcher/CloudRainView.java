@@ -84,8 +84,8 @@ public class CloudRainView extends SkyconView {
         // set canvas background color
         canvas.drawColor(bgColor);
 
-        paintCloud.setStrokeWidth((float) (0.02083 * screenW));
-        paintRain.setStrokeWidth((float) (0.015 * screenW));
+        paintCloud.setStrokeWidth((float) (0.065 * screenW));
+        paintRain.setStrokeWidth((float) (0.045 * screenW));
 
         pathRain = new Path(); // pathCloud for drop
 

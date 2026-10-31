@@ -67,7 +67,7 @@ public class CloudView extends SkyconView {
         canvas.drawColor(bgColor);
 
         // set stroke width
-        paint.setStrokeWidth((float) (0.02083 * screenW));
+        paint.setStrokeWidth((float) (0.065 * screenW));
 
         //incrementing counter for rotation
         count = count + 0.5;

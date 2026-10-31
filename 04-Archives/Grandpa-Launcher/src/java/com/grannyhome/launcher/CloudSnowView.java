@@ -100,8 +100,8 @@ public class CloudSnowView extends SkyconView {
 
         count = count + 0.5;
 
-        paintCloud.setStrokeWidth((float) (0.02083 * screenW));
-        paintSnow.setStrokeWidth((float) (0.01 * screenW));
+        paintCloud.setStrokeWidth((float) (0.065 * screenW));
+        paintSnow.setStrokeWidth((float) (0.040 * screenW));
 
         int retval = Double.compare(count, 360.00);
 

@@ -70,7 +70,7 @@ public class CloudSunView extends SkyconView {
         // set canvas background color
         canvas.drawColor(bgColor);
         // set stroke width
-        paint.setStrokeWidth((float) (0.02083 * screenW));
+        paint.setStrokeWidth((float) (0.065 * screenW));
 
         // positioning Sun with respect to cloud
         PointF P5c1 = cloud.getP5c1(X, Y, screenW, count);
