@@ -1,0 +1,25 @@
+# pack-refs with: peeled fully-peeled sorted 
+4d79076f089dffaf4126c7c7dcb0cd1d3da74972 refs/remotes/origin/agents-md
+b569b46a9533739e64de32d930d48fe79c6ff370 refs/remotes/origin/bot-v4-context
+d6b94675eb3d72b95612e2fdb028d10b0304cd72 refs/remotes/origin/bot-v41
+bda1a1eb7bc3393a80b97cd382bd0ed83fc37f03 refs/remotes/origin/bot-v411
+2cbdd064215f6353d657e586832f1f8fab9cef32 refs/remotes/origin/fix/1008-app-outcome-steps
+33fe65ee0025acbceafa81d310061adc4e10b49c refs/remotes/origin/fix/1106-acer-r4g-boot-reenable
+9dcab6e55022b742de1f0be126ebfb32f53d74f2 refs/remotes/origin/fix/961-network-pill-first-draw
+bfe73278774116f887d77de60b782e726ba149d5 refs/remotes/origin/main
+e21235fac3dc8a1f02f2a3c55c601abca1139190 refs/remotes/origin/maintainer-bot-live
+71888eea2b0f4803357ee35def5adda6ac30c8a3 refs/remotes/origin/review/fix-1142
+38b65eb660a92bb08fa51557eb805344da288a72 refs/tags/v2.1.0
+8a8249f1cd300f85205b9101018f54cc1594f58d refs/tags/v2.2.0
+93fc4c9a7fa4af1410bc9568bffaa2caf88ecf29 refs/tags/v2.3.0
+^6bcd649bfd6fb4ed0e448c369a258b672a0a1a0b
+08ea2f9a8cbb9fcb8b4a792f30ca28710ccdaf6f refs/tags/v2.4.0
+^69c93b66a75c70a9e386adff327b6a51c12addc5
+49c98c50f8e6d746e373bb14ac10b1bed1489214 refs/tags/v2.5.0
+^9071ec8d2f41826778f6b4c7f5f42dadc22f5b22
+117ed614b74abb621367f5e49526cdabbe57d139 refs/tags/v2.6.0
+^0bb7f7edbf53349c7975a29495515453ed850526
+1fa2e29250a3ad72e48f011e3bbbec74291b0fed refs/tags/v2.7.0
+^3e34f40f42728284bbb3d4d7bea57c3f504c3b31
+4f37599d0a1270e3fd14e442c197941173d7fc74 refs/tags/v3.0.0
+^67dc5bee169038ed065a48ef837cf7fed5cf40f4
