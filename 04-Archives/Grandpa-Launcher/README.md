@@ -330,6 +330,63 @@ Two more Codex rounds (`gpt-6-luna`; round 2 at effort `low`, round 3 at
 - **Pending on this project:** the one vault commit (Launcher +
   Phone-Cleaner UI restyle + this README).
 
+## 2026-11-04 junk resweep + install lockdown v3 (HARD)
+
+- **Census:** 67 third-party packages live (re-junked from 34 since Oct-31;
+  the flood arrived mostly Nov-02/03 through Play: scam cleaners, fake
+  browsers, video-downloaders of the hijacker family, health/loan adware,
+  plus grandkid games). Owner confirmed the list, 30 removed by
+  `pm uninstall --user 0` (all Success): removal log =
+  `..\Phone-Cleaner\removed-apps-2026-11-04.json`. Final surface = 39
+  packages, all matched keep-set; baseline +
+  disabled-pkg list saved to `census-2026-11-04.txt`.
+  Keep-decisions that session: news (NDTV, Amar Ujala), Booking, Acko,
+  NoBroker, Roblox + Pokemon TCGP (grandkid; removal would wipe progress)
+  and DailyHoots stay. Firefox + a 3rd duplicate radio went.
+- **Lockdown v3 (owner asked: nothing installable from anywhere):**
+  - `pm disable-user --user 0 com.android.vending` -> SUCCESS
+    ("Package com.android.vending new state: disabled-user"). Corrects the
+    Oct-31 record: the COMPONENT form (`pm disable <pkg>/<activity>`) was
+    the denied one; the package-level form works on this ROM. Play is now
+    unlaunchable, hidden from Settings surface at user level
+    (re-enabling requires walking Settings > Apps > disabled > Play >
+    Enable: grandpa-resistant, not grandpa-proof), auto-updates OFF, and
+    every `market://` deep-link residual dies with the package.
+  - Sideload gate: NO source currently holds REQUEST_INSTALL_PACKAGES
+    ("appops query-op ... allow" = empty). Explicitly DENIED the op on the
+    realistic APK-transit sources: Chrome, Files-by-Google, Gmail,
+    WhatsApp, Truecaller, Facebook + Messenger (APK files received in chat
+    or downloaded in the browser stay inert).
+  - Play Protect system verifier stays ON (`package_verifier_enable 1`,
+    `verifier_verify_adb_installs 1`); Indus App Store exists only as a
+    disabled `com.ontim.launcher3.overlay.indus.appstore` overlay.
+- **Update-window procedure (replaces the Oct-31 "updates still automatic"
+  posture; auto-updates are gone with the store):** at every cable-in:
+  `pm enable com.android.vending` -> Play > Manage apps > Update all
+  (driven over adb/uiautomator if convenient) ->
+  `pm disable-user --user 0 com.android.vending` again. 2 minutes.
+- **Home role re-claimed (again):** `cmd role get-role-holders ...HOME`
+  returned `com.motorola.launcher3` (claim lost since the rescue; Moto's
+  launcher was even in foreground focus). Fixed:
+  `cmd package set-home-activity com.grannyhome.launcher/.HomeActivity`,
+  verified holder + foreground = granny. If this recurs, suspect Settings
+  loitering; the fix is the same one-liner.
+- **Config Music folder synced** (amazon.mp3 + apple.music pins dropped ->
+  now YT Music system + Radio India + Sound Recorder), rebuilt via
+  build.ps1, installed with explicit `-s ZD222R9BND install -r`,
+  location grant reissued, live verified: weather strip (Clear 22C,
+  AQI 228), battery 99%, all 6 favorites fit; screenshot
+  `test-shots\phone_lockdown_home.png`.
+- Left AS-FOUND (flagged to operator): `com.facebook.orca` (Messenger) and
+  `com.android.devicelockcontroller` are disabled-user, pre-existing and
+  not ours; data preserved, re-enable anytime via `pm enable`. Decision
+  only.
+- Same-day follow-up (owner decision): removed Acko, Amar Ujala,
+  DailyHoots, NDTV, Pokemon TCGP, Roblox, Booking.com (7, all
+  unfixed/unpinned, no rebuild needed). "Cooking.com" named by the owner
+  was never installed; no-op. Final third-party count: **32**, census
+  file regenerated.
+
 ## Rebuild / update path
 
 1. Launch in this folder (run `.\build.ps1` from here; paths are relative).

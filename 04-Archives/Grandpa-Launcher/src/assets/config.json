@@ -34,7 +34,7 @@
     },
     {
       "name": "Music",
-      "apps": ["com.amazon.mp3", "com.apple.android.music", "com.google.android.apps.youtube.music", "com.radiofmapp.radioindia", "com.android.soundrecorder"]
+      "apps": ["com.google.android.apps.youtube.music", "com.radiofmapp.radioindia", "com.android.soundrecorder"]
     },
     {
       "name": "Tools",
