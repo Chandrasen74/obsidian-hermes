@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/sources/screenshot.jpg
+thumbnail: thumbnails/resized/2993cb3fc23d51b6b1783ec9f53bb0b0_86cf658e.webp
+---
 # Sources
 
 The TV's sources by the names the devices give themselves: "PlayStation 5" and "Apple TV" instead of "HDMI 2" and

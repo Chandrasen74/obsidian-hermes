@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/quiet-hours/screenshot.jpg
+thumbnail: thumbnails/resized/7824601f739f802f7e790e425816d0e7_86cf658e.webp
+---
 # Quiet Hours
 
 A volume cap for the night: from 20:00 to 07:00 (or all day, or never) the TV's media volume can't go above the

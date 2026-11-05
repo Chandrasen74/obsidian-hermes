@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/stock-vs-new-side.jpg
+thumbnail: thumbnails/resized/edb8a77771168af7816747f1dca5f109_86cf658e.webp
+---
 
 <p align="center">
   <a href="https://cleanyour.tv"><img src="docs/banner.png" alt="CleanYourTV: restituisci alla tua TV una schermata Home pulita" width="800"></a>

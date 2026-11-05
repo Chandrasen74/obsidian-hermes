@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/xiaomi-mitv-mteq0/native-settings-menu.png
+thumbnail: thumbnails/resized/366e6fad12823634e1d92e7525eba512_86cf658e.webp
+---
 # Xiaomi MiTV-MTEQ0: package-name Home allowlist and the vendor settings app
 
 Tested on MiTV-MTEQ0 (`baymax`, Android 10 / API 29), HyperOS build `22.6.27.2363`.

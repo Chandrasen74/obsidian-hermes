@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/airplay-status/screenshot.jpg
+thumbnail: thumbnails/resized/77448e3af8c58526366b9546bbafa349_86cf658e.webp
+---
 # AirPlay Status
 
 How iPhones, iPads and Macs see this TV: the name it appears under, whether it offers screen mirroring or audio

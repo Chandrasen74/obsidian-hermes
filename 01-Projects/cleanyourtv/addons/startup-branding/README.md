@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/startup-branding/screenshot.jpg
+thumbnail: thumbnails/resized/28dbecf0127733a0414e26d5a62d38f2_86cf658e.webp
+---
 # Startup & Branding
 
 A welcome screen of your own for the TV: your picture (a logo, a family photo, a room name), a background colour

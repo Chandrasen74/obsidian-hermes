@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/world-clock/screenshot.jpg
+thumbnail: thumbnails/resized/f8a62f3364958d9db45039d32c4ef190_86cf658e.webp
+---
 # World Clock
 
 Optional offline CleanYourTV add-on. It opens from a normal Android TV tile or a

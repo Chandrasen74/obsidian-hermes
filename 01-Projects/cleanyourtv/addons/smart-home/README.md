@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/smart-home/screenshot.jpg
+thumbnail: thumbnails/resized/7bfe8e695e4db8a8592c9babd3ec6a36_86cf658e.webp
+---
 # Smart Home
 
 Your [Home Assistant](https://www.home-assistant.io) on the TV: scenes, lights and switches, climate, temperature

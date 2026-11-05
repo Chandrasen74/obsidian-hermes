@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/flock/screenshot.jpg
+thumbnail: thumbnails/resized/35e4aa494e0ef86bcb61bbc9aa616e8c_86cf658e.webp
+---
 # Flock
 
 An interactive flocking simulation for Android TV. Each bird is an independent agent that reacts to

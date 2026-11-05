@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/headphones/screenshot.jpg
+thumbnail: thumbnails/resized/fce58701fb00504abf3274b45f135937_86cf658e.webp
+---
 # Headphones
 
 Bluetooth headphones on the TV, made easy to keep quiet: one screen that shows where the sound goes now, your

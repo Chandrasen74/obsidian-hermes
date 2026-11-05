@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/news-screensaver/screenshot.jpg
+thumbnail: thumbnails/resized/8d61f005490210e7f547b6b8e674e718_86cf658e.webp
+---
 # News screensaver
 
 A system screensaver (Android's "Daydream") for any Android TV or Google TV that shows the news from RSS and Atom

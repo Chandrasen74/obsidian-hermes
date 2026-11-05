@@ -1,3 +1,7 @@
+---
+feature: thumbnails/external/65528980690bac291812519bdac19514.png
+thumbnail: thumbnails/resized/9ea8dcbf79f37f5a9eec564802bb7e66_86cf658e.webp
+---
 # Prayer Times
 
 Today's five prayer times and sunrise for one city, full screen on the TV, with the next prayer highlighted and a

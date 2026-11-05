@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/tcl-75c63b-home.png
+thumbnail: thumbnails/resized/f871b471279ff0acb16d4628a19749cf_86cf658e.webp
+---
 # TCL 75c63b: launcher-only compatibility notes
 
 Checked on a real TV in one session on 2026-10-20, using upstream

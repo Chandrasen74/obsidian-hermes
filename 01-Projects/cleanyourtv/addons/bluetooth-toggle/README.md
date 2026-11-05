@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/bluetooth-toggle/screenshot.jpg
+thumbnail: thumbnails/resized/4b767d07570dea912b5ce49ad0e6439f_86cf658e.webp
+---
 # Bluetooth Toggle
 
 A one-press Bluetooth switch for the TV. For the [Clean Your TV](../../README.md) launcher it declares a

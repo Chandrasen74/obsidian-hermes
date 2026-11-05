@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/themes/retro/screenshot.jpg
+thumbnail: thumbnails/resized/06d4ab8da44b47401cdd60649cd834ec_86cf658e.webp
+---
 # Retro
 
 A minimal, retro-flavoured home screen: pure black background, a dock that has no band or border at

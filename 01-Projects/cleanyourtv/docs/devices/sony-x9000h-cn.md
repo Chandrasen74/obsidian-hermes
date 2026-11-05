@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/sony-x9000h-cn-home.png
+thumbnail: thumbnails/resized/a620b33bbd82ad41d807a167d137088e_86cf658e.webp
+---
 # Sony X9000H (China firmware): launcher handover and debloat notes
 
 Owner report for a China-market X9000H. The retail model was supplied by the owner; Android exposes

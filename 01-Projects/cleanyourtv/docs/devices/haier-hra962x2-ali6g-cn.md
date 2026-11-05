@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/haier-hra962x2-home.jpg
+thumbnail: thumbnails/resized/a58eb0ea3fe774d6f744e9f7e20ecd57_86cf658e.webp
+---
 # Haier HRA962X2_2G_ALI6G_A (China): launcher, physical Home and settings overlay
 
 One-day field report, tested on 2026-10-21 using a locally adapted CleanYourTV

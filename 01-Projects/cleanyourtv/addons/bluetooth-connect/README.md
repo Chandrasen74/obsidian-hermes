@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/bluetooth-connect/screenshot.jpg
+thumbnail: thumbnails/resized/e15270dab329f4749a8ae8a0cc0cbbcc_86cf658e.webp
+---
 # Bluetooth Connect
 
 The TV's Bluetooth settings offer Connect and Unpair for a speaker, but no Disconnect. This add-on lists the paired

@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/examples/tcl-q7c-google-tv/65q7d-pro-home.png
+thumbnail: thumbnails/resized/3bb8a3257d79a96db296b5d94dd52186_86cf658e.webp
+---
 # TCL Q7C (G08, Google TV, Android 14), European firmware
 
 TCL Q7C QD-Mini LED, device `G08`, model "Smart TV Pro", product `G08_4K_GB`, firmware `UTT2.250416.001 AU02`,

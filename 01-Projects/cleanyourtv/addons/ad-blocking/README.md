@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/ad-blocking/screenshot.jpg
+thumbnail: thumbnails/resized/722cd7d957ad458c933e45bab63aff6e_86cf658e.webp
+---
 # Ad Blocking
 
 Your network's ad blocker on the TV: today's queries, how many were blocked and the share, from

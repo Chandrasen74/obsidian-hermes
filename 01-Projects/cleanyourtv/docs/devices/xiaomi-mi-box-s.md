@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/xiaomi-mi-box-s-lumiflow.jpg
+thumbnail: thumbnails/resized/88a2adc4fdcd5f5526469a11b38cc87f_86cf658e.webp
+---
 # Xiaomi Mi Box S (MIBOX4), second unit
 
 A second Mi Box S, done with `PROMPT.md` and `examples/xiaomi-mi-box-s/debloat.txt` on 2026-10-21.

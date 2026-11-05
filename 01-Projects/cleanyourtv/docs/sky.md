@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/sky-sunset.jpg
+thumbnail: thumbnails/resized/f3066421ff50c42006de53455f2bef2e_86cf658e.webp
+---
 # Sky
 
 An optional backdrop that follows the clock: night blues until dawn, a soft blue day, then a warm

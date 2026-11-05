@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/remote-access/screenshot.jpg
+thumbnail: thumbnails/resized/58d76f792e4ea6551f069b3981c07bae_86cf658e.webp
+---
 # Remote Access
 
 Is this TV open to remote control right now? One screen says whether network debugging (ADB) is on and on which

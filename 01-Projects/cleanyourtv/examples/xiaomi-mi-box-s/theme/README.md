@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/xiaomi-mi-box-s-lumiflow.jpg
+thumbnail: thumbnails/resized/88a2adc4fdcd5f5526469a11b38cc87f_86cf658e.webp
+---
 # LumiFlow (Mi Box S theme)
 
 A device theme for the Xiaomi Mi Box S (MIBOX4, Android TV 9, 2 GB): frosted-glass dock over rotating

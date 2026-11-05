@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/xiaomi-mitv-aetp0-home.png
+thumbnail: thumbnails/resized/d0e5459f5016b05835055f098e5963c5_86cf658e.webp
+---
 # Xiaomi MiTV-AETP0: package-name Home allowlist
 
 Tested on MiTV-AETP0 (`dofus`, Amlogic, about 2 GB RAM), Android 9 / API 28,

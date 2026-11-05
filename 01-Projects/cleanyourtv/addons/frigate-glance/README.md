@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/frigate-glance/docs/card-in-grid.jpg
+thumbnail: thumbnails/resized/476939ed67a818a4fb5d231e5eeaf08f_86cf658e.webp
+---
 # Frigate Glance
 
 A community add-on, not made by or affiliated with the Frigate project.

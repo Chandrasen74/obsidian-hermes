@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/focus-2-up-netflix.png
+thumbnail: thumbnails/resized/91aada816ac056a15b2ae03561265a89_86cf658e.webp
+---
 <p align="center">
   <a href="https://cleanyour.tv"><img src="https://raw.githubusercontent.com/Gathin23/cleanyourtv/main/docs/banner.png" alt="CleanYourTV. Je tv, zonder advertenties. Verwijder overbodige software van elke Android TV of Google TV via wifi en vervang het startscherm vol advertenties door een overzichtelijke launcher die eruitziet als Apple TV. Geen root, geen kabel, niets wordt verwijderd en herstellen kan met één opdracht." width="800"></a>
 </p>

@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/docs/devices/haam-r4-inputs.png
+thumbnail: thumbnails/resized/8c8c83dac6148102aaf3705859dfa15b_86cf658e.webp
+---
 # HAAM HM4K75S11TND: selecting the satellite tuner
 
 Checked on a retail HM4K75S11TND whose Android model is `R4`, Android 11 / API 30,

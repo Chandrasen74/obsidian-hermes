@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/brightness/screenshot.jpg
+thumbnail: thumbnails/resized/e0a8d53850446a73f933d3102273721f_86cf658e.webp
+---
 # Brightness
 
 Dims the whole picture below what the TV's own settings allow, and warms it at night, over every app, Live

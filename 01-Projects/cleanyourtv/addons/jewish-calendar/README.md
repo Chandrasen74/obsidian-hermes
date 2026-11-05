@@ -1,3 +1,7 @@
+---
+feature: 01-Projects/cleanyourtv/addons/jewish-calendar/screenshot.jpg
+thumbnail: thumbnails/resized/8096cc27005fd7c1e9176a595afdf532_86cf658e.webp
+---
 # Jewish Calendar
 
 An optional, standalone module card with Gregorian and Hebrew dates, Jewish holiday/eve and Shabbat

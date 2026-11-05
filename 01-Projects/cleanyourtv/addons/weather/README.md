@@ -1,3 +1,7 @@
+---
+feature: thumbnails/external/479e6b20db1a821ea877cd326d11907a.png
+thumbnail: thumbnails/resized/c5bbf03871e3b9883cc572d210105171_86cf658e.webp
+---
 # Weather
 
 The weather for one city, full screen on the TV: now (temperature, feels-like, conditions), the US air quality
