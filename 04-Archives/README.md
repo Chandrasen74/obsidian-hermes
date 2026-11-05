@@ -23,7 +23,8 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/Worksheet-Generator/README|README]] (Worksheet Generator System - COMPLETED 2026-09-29)
 - [[04-Archives/Local AI/README|README]] (Local LLM Server - COMPLETED 2026-10-17)
 - [[04-Archives/Omniroute/README|README]] (Omniroute Startup - RETIRED 2026-10-17, superseded by OpenCode)
-- [[04-Archives/Manas-HTML-Practical-2026-(X-A)/README|README]] (HTML Practical File - COMPLETED 2026-10-25)
+- [[04-Archives/HTML-Practicals-2026/Manas-HTML-Practical-2026-(X-A)/README|README]] (HTML Practical File - COMPLETED 2026-10-25; grouped under HTML-Practicals-2026 2026-11-05)
+- [[04-Archives/HTML-Practicals-2026/Suryansh-HTML-Practical-2026-(X-A)/README|README]] (HTML Practical File, same template as Manas - COMPLETED 2026-11-05)
 - [[04-Archives/Stickman-Basketball/README|README]] (Stickman basketball shorts + full animate workspace - COMPLETED 2026-10-25)
 - [[04-Archives/OpenCode-Migration/README|README]] (Vault migration tooling + build logs - ARCHIVED 2026-10-25)
 
@@ -37,7 +38,8 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [x] Worksheet-Generator - archived with worksheet generation system preserved
 - [x] Local AI - archived with startup runner, operating docs, launcher code and performance documentation
 - [x] Omniroute - retired (superseded by OpenCode); launcher trio and operating guide preserved
-- [x] Manas-HTML-Practical-2026-(X-A) - archived with all HTML files, screenshots, annotated PDF, and source materials
+- [x] Manas-HTML-Practical-2026-(X-A) - archived with all HTML files, screenshots, annotated PDF, and source materials (moved under [[04-Archives/HTML-Practicals-2026/README|HTML-Practicals-2026]] 2026-11-05)
+- [x] Suryansh-HTML-Practical-2026-(X-A) - name-swapped rebuild + LAN auto-download delivery, archived alongside Manas 2026-11-05
 - [x] Stickman-Basketball - archived with the finished cuts, agent sources, build pipeline, the dev piece, and the full animate harness (all moved in)
 - [x] OpenCode-Migration - archived with migration scripts and orphan build logs
 
