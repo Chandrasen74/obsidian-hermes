@@ -27,6 +27,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/HTML-Practicals-2026/Suryansh-HTML-Practical-2026-(X-A)/README|README]] (HTML Practical File, same template as Manas - COMPLETED 2026-11-05)
 - [[04-Archives/Stickman-Basketball/README|README]] (Stickman basketball shorts + full animate workspace - COMPLETED 2026-10-25)
 - [[04-Archives/OpenCode-Migration/README|README]] (Vault migration tooling + build logs - ARCHIVED 2026-10-25)
+- [[04-Archives/Coolita-TV-Attempt/README|README]] (Infinix Coolita TV debloat attempt - FAILED + CLOSED 2026-11-07: Coolita OS is not Android, nothing sideloads)
 
 ---
 
@@ -42,6 +43,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [x] Suryansh-HTML-Practical-2026-(X-A) - name-swapped rebuild + LAN auto-download delivery, archived alongside Manas 2026-11-05
 - [x] Stickman-Basketball - archived with the finished cuts, agent sources, build pipeline, the dev piece, and the full animate harness (all moved in)
 - [x] OpenCode-Migration - archived with migration scripts and orphan build logs
+- [x] Coolita-TV-Attempt - Infinix TV (Coolita OS, not Android) attempt closed after the USB break-in route failed (no browser, installs blocked); upstream copy + clone git-metadata preserved
 
 **Archive Maintenance:**
 - [ ] Review archives periodically for relevance
@@ -74,4 +76,4 @@ Each archived project should have:
 
 ---
 
-*Last Updated: 2026-10-25*
+*Last Updated: 2026-11-07*

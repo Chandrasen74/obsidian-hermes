@@ -19,7 +19,8 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - When completed, move to 04-Archives
 
 **Current Projects:**
-*(No active projects in progress. Ready for next project.)*
+- photography-pipeline + photography-library - photo indexing/gallery system (active, 1,578 items)
+- *(cleanyourtv / Coolita TV attempt closed: archived, see below)*
 
 ---
 
@@ -37,6 +38,7 @@ tags: ["#status/active", "#type/index", "#domain/productivity"]
 - [x] VoiceStudio (ElevenLabs alternative, install + Hindi/English test) - archived to [[04-Archives/VoiceStudio/README|README]] 2026-10-26; winning take `final_aap-kaise-ho_female.wav` (Devanagari + designed female voice); install stays live at `C:\VoiceStudio`
 - [x] Phone Cleaner (Moto G35 USB debloat GUI) - archived 2026-10-26 to [[04-Archives/Phone-Cleaner/Archive-README|Archive-README]] (tool manual inside untouched); removals logged in `removed-apps.json`
 - [x] Grandpa-Home launcher APK - hand-built no-Gradle Android launcher + Play installer, archived 2026-10-26 to [[04-Archives/Grandpa-Launcher/README|README]] with stepwise build timeline; keystore kept on disk, git-ignored
+- [x] CleanYourTV / Coolita TV attempt (Infinix) - FAILED: TV runs Coolita OS, not Android (no ADB, no browser, APK installs blocked); archived 2026-11-07 to [[04-Archives/Coolita-TV-Attempt/README|README]] incl. the USB break-in kit
 
 ---
 
@@ -61,4 +63,4 @@ When a project is complete, move it to [[04-Archives/README|README]] with organi
 
 ---
 
-*Last Updated: 2026-10-25*
+*Last Updated: 2026-11-07*

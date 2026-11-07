@@ -34,6 +34,19 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Session Notes
 
+### Session: 2026-11-07 - closed + archived: Coolita TV attempt (CleanYourTV)
+
+- Infinix TV runs **Coolita TV OS**, not Android: no browser, no APK install
+  path, multiple attempt routes all blocked; the cleanyourtv ADB debloat method
+  never applied (upstream's own rule: non-Android sets = stop).
+- The workaround that was staged: `work\apks\` USB page ("Infinix Break-in")
+  hosting `ActivityLauncher-2.4.1.apk`; failed with the above.
+- Archived whole to [[04-Archives/Coolita-TV-Attempt/README|04-Archives/Coolita-TV-Attempt]]:
+  `Project-Files\cleanyourtv` (upstream copy + break-in kit, APK committed per
+  owner override) + `Git-Metadata\` (upstream clone's .git, merged in from the
+  old `cleanyourtv-origin-clone` shell, now removed). Indexes refreshed
+  ([[01-Projects/README|01-Projects]], [[04-Archives/README|04-Archives]]).
+
 ### Session: 2026-10-26 (late afternoon) — archived same-day builds: Phone Cleaner + Grandpa-Home launcher
 
 Owner-built (with a parallel agent) device-setup pair for grandpa's Moto G35,
