@@ -494,8 +494,16 @@ cmpEl.addEventListener('pointermove',e=>{ if(cmpDrag) cmpSet(e.clientX); });
 cmpEl.addEventListener('pointerup',()=>{ cmpDrag=false; });
 function nudgeCmp(d){ const r=cmpEl.getBoundingClientRect(); let curP=parseFloat(getComputedStyle(cmpEl).getPropertyValue('--x'))||50; cmpSet(r.left + r.width*(curP+d)/100); }
 function winPath(f){ return ROOT + f.split('/').join('\\'); }
-function showInFolder(){ location.href='photo-view:'+winPath(view[cur].f).replace(/ /g,'%20'); }
-function openPhotos(){ location.href='ms-photos:viewer?filename='+winPath(view[cur].f).replace(/ /g,'%20'); }
+function showInFolder(){
+  // Use triple-slash + forward slashes for unambiguous parsing by the photo-view handler
+  var p = winPath(view[cur].f).replace(/\\/g,'/');
+  location.href = 'photo-view:///' + p.replace(/ /g,'%20');
+}
+function openPhotos(){
+  // Try ms-photos viewer; fileName param expects a Windows path (spaces encoded)
+  var p = winPath(view[cur].f);
+  location.href = 'ms-photos:viewer?fileName=' + p.replace(/ /g,'%20');
+}
 let toastT=null;
 function flash(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),1800); }
 function fallbackCopy(p,done){ const ta=document.createElement('textarea'); ta.value=p; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ flash('Copy failed'); } ta.remove(); }
