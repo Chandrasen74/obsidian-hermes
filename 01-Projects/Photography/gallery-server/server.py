@@ -118,7 +118,15 @@ async def auth_middleware(request: Request, call_next):
         if request.url.query:
             nxt += "?" + request.url.query
         return HTMLResponse(LOGIN_HTML.replace("{next}", nxt.replace('"', "&quot;")), status_code=401)
-    return await call_next(request)
+    response = await call_next(request)
+    # Cache headers: derived library assets are safe to cache (private, behind auth)
+    if path.startswith("/photography-library/thumbs/") or path.startswith("/photography-library/converted/") or path.startswith("/photography-library/playback/"):
+        response.headers.setdefault("Cache-Control", "private, max-age=604800")
+    elif path.startswith("/photography-library/"):
+        response.headers.setdefault("Cache-Control", "private, max-age=86400")
+    elif path == "/":
+        response.headers.setdefault("Cache-Control", "private, max-age=0, must-revalidate")
+    return response
 
 
 @app.get("/login")
