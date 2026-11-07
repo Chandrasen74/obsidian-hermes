@@ -54,6 +54,13 @@ header .sub{color:var(--muted-foreground);font-size:13px}
 #q:focus{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in oklch, var(--accent) 25%, transparent)}
 #q::placeholder{color:var(--muted-foreground)}
 #sort{height:38px;background:var(--input);border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);color:var(--foreground);padding:0 10px;font-size:13px;line-height:1;outline:none;cursor:pointer;min-width:0}
+.filter-btn{height:38px;background:var(--secondary);border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);color:var(--foreground);padding:0 12px;font-size:13px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;transition:background .15s,border-color .15s}
+.filter-btn:hover{border-color:color-mix(in oklch, var(--accent) 50%, var(--border))}
+.filter-btn.has-active{border-color:var(--accent);background:color-mix(in oklch, var(--accent) 14%, var(--secondary))}
+.filter-btn .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:none}
+.filter-btn.has-active .dot{display:inline-block}
+.filters-panel{display:flex;flex-direction:column;gap:8px;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);margin-top:2px}
+.filters-panel[hidden]{display:none}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{background:var(--secondary);border:1px solid var(--border);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:13px;color:var(--muted-foreground);white-space:nowrap;transition:all .15s;user-select:none}
 .chip:hover{border-color:color-mix(in oklch, var(--accent) 50%, var(--border));color:var(--foreground)}
@@ -162,6 +169,9 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
   .chips::-webkit-scrollbar{display:none}
   .chip{padding:6px 12px;font-size:12.5px}
   .syntax{display:none}
+  .filters-panel .syntax{display:block;font-size:11.5px;line-height:1.45}
+  .filter-btn{height:40px}
+  .filters-panel{padding:10px}
   .strip{padding:8px 12px;gap:8px}
   .rvwrap{padding:2px 0}
   h2.sec{padding:10px 12px 2px;font-size:12px}
@@ -194,10 +204,13 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
   <div class="toolbar">
     <input id="q" type="search" placeholder='Search: "phrase" -negation cam:NIKON date:2024 has:ocr|desc|tags' autocomplete="off">
     <select id="sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="name">By name</option><option value="rating">Top rated</option></select>
+    <button id="btnFilters" type="button" class="filter-btn" aria-expanded="false" aria-controls="filtersPanel">Filters</button>
   </div>
-  <div class="chips" id="chips"></div>
-  <div class="syntax" id="syntax"></div>
-  <div class="chips" id="yrs"></div>
+  <div id="filtersPanel" class="filters-panel" hidden>
+    <div class="chips" id="chips"></div>
+    <div class="syntax" id="syntax"></div>
+    <div class="chips" id="yrs"></div>
+  </div>
 </header>
 <div class="rvwrap"><div class="strip" id="recent"></div></div>
 <h2 class="sec">Filmstrip</h2><div class="strip" id="strip"></div>
@@ -263,6 +276,28 @@ function applyTheme(){ document.body.classList.toggle('light', themeBtn.dataset.
 try{ themeBtn.dataset.light = localStorage.getItem('photog_theme')||'0'; }catch(e){}
 applyTheme();
 themeBtn.onclick=()=>{ themeBtn.dataset.light = themeBtn.dataset.light==='1'?'0':'1'; try{localStorage.setItem('photog_theme',themeBtn.dataset.light);}catch(e){} applyTheme(); };
+
+// Filters panel toggle + active indicator
+function activeFilterCount(){
+  var n=0;
+  if(favsOnly) n++; if(simOnly) n++; if(heicOnly) n++; if(kind!=='all') n++; if(year!=='all') n++;
+  return n;
+}
+function updateFilterBtn(){
+  var btn=document.getElementById('btnFilters'); if(!btn) return;
+  var n=activeFilterCount();
+  btn.classList.toggle('has-active', n>0);
+  btn.innerHTML = '<span class="dot" aria-hidden="true"></span>Filters' + (n?(' ('+n+')'):'');
+}
+(function(){
+  var btn=document.getElementById('btnFilters'), panel=document.getElementById('filtersPanel');
+  if(!btn||!panel) return;
+  btn.addEventListener('click', function(){
+    var open = panel.hasAttribute('hidden');
+    if(open){ panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden',''); }
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
 
 // restore last filter
 try{
@@ -371,12 +406,14 @@ function buildChips(){
   // syntax hint
   const syn=document.getElementById('syntax');
   syn.innerHTML='<b>Search:</b> "quoted phrase"  -negation  cam:NIKON  date:2024-03  in:heic|video|screenshot  has:ocr|desc|tags';
+  if(typeof updateFilterBtn==='function') updateFilterBtn();
 }
 function buildYears(){
   const yrs=[...new Set(DATA.map(x=>(x.d||'').slice(0,4)).filter(Boolean))].sort().reverse();
   const el=document.getElementById('yrs'); el.innerHTML='';
   ['all'].concat(yrs).forEach(y=>{ const c=document.createElement('div'); c.className='chip'+(y===year?' on':'');
     c.textContent=y; c.onclick=()=>{ year=y; buildYears(); apply(); }; el.appendChild(c); });
+  if(typeof updateFilterBtn==='function') updateFilterBtn();
 }
 function ratingStars(f){
   const r=ratings[f]||0;
