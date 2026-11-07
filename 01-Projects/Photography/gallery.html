@@ -58,7 +58,7 @@ body.light .lb.info-collapsed{background:#fff}
 .lb .top .name{font-size:14px;color:var(--txt)}
 .lb .top .x{cursor:pointer;font-size:22px;color:var(--dim);padding:0 8px}
 .lb .mid{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.lb .mid img,.lb .mid video{max-width:100%;max-height:90vh;border-radius:6px;background:#000;display:block;margin:auto}
+.lb .mid img,.lb .mid video{max-width:100%;max-height:calc(90vh - 50px);border-radius:6px;background:#000;display:block;margin:auto;object-fit:contain}
 #lbimg{cursor:crosshair;transition:transform .15s,filter .15s}
 .lb .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:var(--dim);cursor:pointer;padding:24px;user-select:none;z-index:2;opacity:.6}
 .lb .nav:hover{opacity:1;color:#fff}
@@ -508,7 +508,7 @@ document.getElementById('infoToggle').onclick=()=>{
   infoOpen=!infoOpen;
   document.getElementById('lb').classList.toggle('info-collapsed',!infoOpen);
   document.getElementById('infoToggle').textContent = infoOpen?'⊖ Info':'⊕ Info';
-  if(!infoOpen){ zoomed=1; panX=0; panY=0; updImg(); lbimg.style.cursor='crosshair'; }
+  if(!infoOpen){ zoomed=1; panX=0; panY=0; updImg(); const v=document.getElementById('lbvid'); v.style.transform=''; lbimg.style.cursor='crosshair'; requestAnimationFrame(updImg); }
 };
 const qEl=document.getElementById('q'); let qT=null;
 qEl.addEventListener('input',()=>{ clearTimeout(qT); qT=setTimeout(()=>{ q=qEl.value; apply(); },120); });
