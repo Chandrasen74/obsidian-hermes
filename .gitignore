@@ -9,9 +9,10 @@ logs/
 # Android signing keystore - never publish signing keys
 04-Archives/Grandpa-Phone-Setup/Grandpa-Launcher/keys/granny.keystore
 
-# Photography pipeline - secrets never get committed
-01-Projects/photography-pipeline/gemini_key.txt
-01-Projects/photography-pipeline/*cookies*
-01-Projects/photography-pipeline/*.db
-01-Projects/photography-pipeline/__pycache__/
-01-Projects/photography-library/
+# Photography pipeline - secrets never get committed (folders regrouped 2026-11)
+01-Projects/Photography/photography-library/
+01-Projects/Photography/photography-pipeline/gemini_key.txt
+01-Projects/Photography/photography-pipeline/*cookies*
+01-Projects/Photography/photography-pipeline/*.db
+01-Projects/Photography/photography-pipeline/__pycache__/
+01-Projects/Photography/photography-pipeline/gallery-0932-backup.html

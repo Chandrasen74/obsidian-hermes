@@ -1,0 +1,12 @@
+# Photography pipeline - rules local to 01-Projects/Photography
+# Derived / regenerable - never commit
+photography-library/
+photography-pipeline/gallery-0932-backup.html
+
+# Secrets - never commit (user keeps gemini_key.txt on disk / OneDrive only)
+photography-pipeline/gemini_key.txt
+photography-pipeline/*cookies*
+photography-pipeline/*.db
+
+# Bytecode
+photography-pipeline/__pycache__/

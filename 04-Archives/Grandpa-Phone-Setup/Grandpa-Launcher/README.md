@@ -31,7 +31,7 @@ same day, 2026-10-26, session 16:22-17:54).
 - `build\` — intermediate build outputs (classes, dex, res.zip, base.apk)
 - `dist\Home.apk` + `.idsig` — the signed, installable APK (v1.0, 40 KB)
 - `keys\granny.keystore` — signing key, alias `granny`,
-  store/key password `grannyhome` (kept on disk + OneDrive, **git-ignored**)
+  store/key password kept on disk + OneDrive, **git-ignored** (never commit the key or its password)
 - `build.ps1` — full build pipeline (`-Install` adb-installs,
   `-Install -SetRole` also sets it as default home via `cmd role`)
 - `play_install.py` — uiautomator2 Play Store auto-installer for listed
