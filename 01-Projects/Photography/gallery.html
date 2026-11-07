@@ -435,7 +435,7 @@ function show(){
   const nm=document.getElementById('lbname'); nm.textContent=it.f.split('/').pop(); nm.title=it.f;
   const img=document.getElementById('lbimg'), vid=document.getElementById('lbvid'), fb=document.getElementById('lbfb');
   fb.style.display='none';
-  zoomed=1; panX=0; panY=0; img.style.transform=''; img.style.filter=''; img.style.cursor='crosshair';
+  zoomed=1; panX=0; panY=0; img.style.transform=''; img.style.filter=''; img.style.transition=''; img.style.cursor=isVid(it)?'default':'zoom-in';
   if(isVid(it)){
     img.style.display='none';
     const p=playPath(it);
@@ -536,48 +536,84 @@ function goFs(){ const lb=document.getElementById('lb');
   if(document.fullscreenElement){ document.exitFullscreen(); }
   else if(lb.requestFullscreen){ lb.requestFullscreen().catch(()=>{}); } }
 const lbimg=document.getElementById('lbimg');
+function clampPan(){
+  // Keep image reasonably within view when zoomed
+  if(zoomed<=1){ panX=0; panY=0; return; }
+  const r=lbimg.getBoundingClientRect();
+  // Approx limit based on scaled overflow (generous, works with object-fit)
+  const maxX = (r.width * (zoomed-1)) / 2 + 80;
+  const maxY = (r.height * (zoomed-1)) / 2 + 80;
+  panX = Math.max(-maxX, Math.min(maxX, panX));
+  panY = Math.max(-maxY, Math.min(maxY, panY));
+}
 function updImg(){
-  const s='scale('+zoomed+') translate('+panX+'px,'+panY+'px)';
-  lbimg.style.transform=s;
+  // translate in screen pixels, then scale (transform-origin center)
+  clampPan();
+  lbimg.style.transformOrigin = 'center center';
+  lbimg.style.transform = 'translate('+panX+'px,'+panY+'px) scale('+zoomed+')';
+}
+function zoomToPoint(clientX, clientY, targetZoom){
+  const newZ = Math.min(4, Math.max(1, targetZoom));
+  if(Math.abs(newZ - zoomed) < 0.001){
+    if(newZ===1){ zoomed=1; panX=0; panY=0; }
+    updImg(); return;
+  }
+  // Zoom toward cursor: adjust pan so the point under cursor stays put
+  const r = lbimg.getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+  const dx = clientX - cx;
+  const dy = clientY - cy;
+  const ratio = newZ / zoomed;
+  panX = dx - (dx - panX) * ratio;
+  panY = dy - (dy - panY) * ratio;
+  zoomed = newZ;
+  if(zoomed <= 1.001){ zoomed=1; panX=0; panY=0; }
+  updImg();
+  lbimg.style.cursor = zoomed>1 ? 'grab' : 'zoom-in';
 }
 lbimg.addEventListener('click',e=>{
   if(imgMoved){ imgMoved=false; return; }
-  // double-click zoom to point
-  const r=lbimg.getBoundingClientRect();
-  const nx=(e.clientX-r.left)/r.width, ny=(e.clientY-r.top)/r.height;
-  const target=zoomed===1?2:(zoomed>=3?1:zoomed+1);
-  const cx=r.width/2, cy=r.height/2;
-  panX = -(nx*r.width*target - cx);
-  panY = -(ny*r.height*target - cy);
-  zoomed=target; updImg();
-  lbimg.style.cursor=zoomed>1?'zoom-out':'crosshair';
+  if(!curIt || isVid(curIt)) return;
+  // Single click toggles zoom in toward point / reset
+  if(zoomed <= 1.01) zoomToPoint(e.clientX, e.clientY, 2.2);
+  else if(zoomed < 3.5) zoomToPoint(e.clientX, e.clientY, zoomed * 1.5);
+  else { zoomed=1; panX=0; panY=0; updImg(); lbimg.style.cursor='zoom-in'; }
 });
 lbimg.addEventListener('wheel',e=>{
   e.preventDefault();
   if(!curIt || isVid(curIt)) return;
-  const r=lbimg.getBoundingClientRect();
-  const nx=(e.clientX-r.left)/r.width, ny=(e.clientY-r.top)/r.height;
-  const delta = e.deltaY>0 ? 0.9 : 1.1;
-  const newZoomed=Math.min(3,Math.max(1, zoomed*delta));
-  if(newZoomed===zoomed) return;
-  const cx=r.width/2, cy=r.height/2;
-  panX = -(nx*r.width*newZoomed - cx);
-  panY = -(ny*r.height*newZoomed - cy);
-  zoomed=newZoomed; updImg();
-  lbimg.style.cursor=zoomed>1?'zoom-out':'crosshair';
+  lbimg.style.transition = 'none';
+  const factor = e.deltaY < 0 ? 1.12 : 0.89;
+  zoomToPoint(e.clientX, e.clientY, zoomed * factor);
+  clearTimeout(lbimg._zt); lbimg._zt = setTimeout(()=>{ lbimg.style.transition=''; }, 120);
 }, {passive:false});
 lbimg.addEventListener('pointerdown',e=>{
-  if(zoomed>1){ imgDrag={x:e.clientX,y:e.clientY,px:panX,py:panY}; lbimg.setPointerCapture(e.pointerId); }
+  if(!curIt || isVid(curIt)) return;
+  if(zoomed > 1.01){
+    imgDrag={x:e.clientX,y:e.clientY,px:panX,py:panY};
+    imgMoved=false;
+    lbimg.setPointerCapture(e.pointerId);
+    lbimg.style.cursor='grabbing';
+    lbimg.style.transition='none';
+  }
 });
 lbimg.addEventListener('pointermove',e=>{
-  if(imgDrag){ const dx=e.clientX-imgDrag.x, dy=e.clientY-imgDrag.y; if(Math.abs(dx)>4||Math.abs(dy)>4) imgMoved=true; panX=imgDrag.px+dx; panY=imgDrag.py+dy; updImg(); }
+  if(imgDrag){
+    const dx=e.clientX-imgDrag.x, dy=e.clientY-imgDrag.y;
+    if(Math.abs(dx)>3||Math.abs(dy)>3) imgMoved=true;
+    panX=imgDrag.px+dx; panY=imgDrag.py+dy; updImg();
+  }
 });
-lbimg.addEventListener('pointerup',()=>{ imgDrag=null; });
+lbimg.addEventListener('pointerup',e=>{
+  if(imgDrag){ imgDrag=null; lbimg.style.cursor = zoomed>1?'grab':'zoom-in'; lbimg.style.transition=''; }
+});
+lbimg.addEventListener('pointercancel',()=>{ imgDrag=null; lbimg.style.transition=''; });
 document.getElementById('infoToggle').onclick=()=>{
   infoOpen=!infoOpen;
   document.getElementById('lb').classList.toggle('info-collapsed',!infoOpen);
   document.getElementById('infoToggle').textContent = infoOpen?'⊖ Info':'⊕ Info';
-  if(!infoOpen){ zoomed=1; panX=0; panY=0; updImg(); const v=document.getElementById('lbvid'); v.style.transform=''; lbimg.style.cursor='crosshair'; requestAnimationFrame(updImg); }
+  if(!infoOpen){ zoomed=1; panX=0; panY=0; updImg(); const v=document.getElementById('lbvid'); v.style.transform=''; lbimg.style.cursor='zoom-in'; requestAnimationFrame(updImg); }
 };
 const qEl=document.getElementById('q'); let qT=null;
 qEl.addEventListener('input',()=>{ clearTimeout(qT); qT=setTimeout(()=>{ q=qEl.value; apply(); },120); });
