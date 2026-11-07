@@ -2,11 +2,13 @@ import json
 import os
 import secrets
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
-from fastapi import FastAPI, Request, Response, HTTPException
+from fastapi import FastAPI, Request, Response, HTTPException, UploadFile, File
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+
+import uploads as up
 
 BASE_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = BASE_DIR / "config.json"
@@ -48,6 +50,8 @@ REQUIRE_TOKEN = bool(cfg.get("REQUIRE_TOKEN", True))
 LIB_ROOT = resolve_path(cfg.get("LIB_ROOT", "../photography-library"))
 GALLERY_HTML = resolve_path(cfg.get("GALLERY_HTML", "../gallery.html"))
 STAGING_DIR = resolve_path(cfg.get("STAGING_DIR", "../photography-staging"))
+MAX_UPLOAD_MB = int(cfg.get("MAX_UPLOAD_MB", 500))
+MAX_UPLOAD_BYTES = MAX_UPLOAD_MB * 1024 * 1024
 
 app = FastAPI(title="Photography Gallery Server", docs_url=None, redoc_url=None)
 
@@ -156,8 +160,132 @@ async def info():
         "lib_root": str(LIB_ROOT),
         "gallery": str(GALLERY_HTML),
         "staging": str(STAGING_DIR),
-        "phase": 1,
+        "max_upload_mb": MAX_UPLOAD_MB,
+        "phase": 2,
     }
+
+
+UPLOAD_HTML = """<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload Photos</title>
+<style>
+:root{--bg:#111;--card:#1c1c1c;--line:#333;--txt:#eee;--dim:#aaa;--acc:#3b6fd8;--ok:#5fb37a;--warn:#d3a84a}
+*{box-sizing:border-box} body{font-family:Segoe UI,system-ui,sans-serif;background:var(--bg);color:var(--txt);margin:0;padding:16px}
+.wrap{max-width:760px;margin:0 auto}
+a{color:var(--acc)} h1{font-size:20px;margin:0 0 6px} p{color:var(--dim);margin:0 0 14px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+input[type=file]{width:100%;padding:10px;border:1px dashed var(--line);border-radius:8px;background:#111;color:var(--txt)}
+button{background:var(--acc);color:#fff;border:none;border-radius:8px;padding:10px 14px;font-size:14px;cursor:pointer;margin-top:10px}
+button:disabled{opacity:.6;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+#out{white-space:pre-wrap;font:13px/1.45 Consolas,monospace;background:#0b0b0b;border:1px solid var(--line);border-radius:8px;padding:10px;min-height:44px;color:var(--dim)}
+.ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:#e07a7a}
+</style></head><body><div class="wrap">
+  <h1>Upload Photos / Videos</h1>
+  <p>Files are saved to staging, hashed (MD5), and checked for duplicates against the library index. Auto-processing (date organize, thumbnails, Gemini descriptions, gallery rebuild) is added in Phase 3. <a href="/">Back to gallery</a></p>
+  <div class="card">
+    <form id="f">
+      <input id="files" type="file" name="files" multiple accept="image/*,video/*,.heic,.heif">
+      <div class="row"><button id="btn" type="submit">Upload to staging</button><span id="st" style="color:var(--dim);font-size:13px"></span></div>
+    </form>
+  </div>
+  <div class="card"><div id="out">Ready.</div></div>
+</div>
+<script>
+const f=document.getElementById('f'), out=document.getElementById('out'), btn=document.getElementById('btn'), st=document.getElementById('st');
+f.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const files=document.getElementById('files').files;
+  if(!files.length){ out.textContent='Choose one or more files first.'; return; }
+  btn.disabled=true; st.textContent='Uploading...'; out.textContent='';
+  const fd=new FormData();
+  for(const file of files) fd.append('files', file, file.name);
+  try{
+    const r=await fetch('/api/upload', {method:'POST', body:fd, credentials:'same-origin'});
+    const data=await r.json().catch(()=>({error:'Invalid response', status:r.status}));
+    if(!r.ok){ out.innerHTML='<span class="err">Upload failed: '+(data.error||r.status)+'</span>'; }
+    else {
+      const lines=[];
+      (data.results||[]).forEach(x=>{
+        if(!x.ok) lines.push('<span class="err">ERR</span> '+esc(x.filename)+': '+esc(x.error||'failed'));
+        else if(x.duplicate_of) lines.push('<span class="warn">DUP</span> '+esc(x.filename)+' (md5 '+x.md5+') -> already in library: '+esc(x.duplicate_of)+' [staged: '+esc(x.stored_name)+']');
+        else lines.push('<span class="ok">OK</span>  '+esc(x.filename)+' ('+fmt(x.size)+', md5 '+x.md5+') [staged: '+esc(x.stored_name)+']');
+      });
+      if(data.job_ids&&data.job_ids.length) lines.push('', 'Job IDs: '+data.job_ids.join(', '));
+      out.innerHTML = lines.join('\\n') || JSON.stringify(data,null,2);
+    }
+  }catch(err){ out.innerHTML='<span class="err">Error: '+esc(String(err))+'</span>'; }
+  btn.disabled=false; st.textContent='';
+});
+function esc(s){ return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function fmt(n){ if(n>1048576) return (n/1048576).toFixed(1)+' MB'; if(n>1024) return (n/1024).toFixed(0)+' KB'; return n+' B'; }
+</script></body></html>"""
+
+
+@app.get("/upload")
+async def upload_page():
+    return HTMLResponse(UPLOAD_HTML)
+
+
+@app.post("/api/upload")
+async def api_upload(files: List[UploadFile] = File(...)):
+    if not files:
+        raise HTTPException(status_code=400, detail="No files provided")
+    STAGING_DIR.mkdir(parents=True, exist_ok=True)
+    jobs_data = up.load_jobs(BASE_DIR)
+    results = []
+    job_ids = []
+    for uf in files:
+        rec = await up.save_upload_file(uf, STAGING_DIR, MAX_UPLOAD_BYTES)
+        if not rec.get("ok"):
+            results.append(rec)
+            continue
+        dup = up.find_existing_by_md5(LIB_ROOT, rec["md5"])
+        rec["duplicate_of"] = dup
+        job = up.make_job({
+            "type": "upload",
+            "filename": rec["filename"],
+            "stored_name": rec["stored_name"],
+            "staging_path": rec["staging_path"],
+            "size": rec["size"],
+            "md5": rec["md5"],
+            "ext": rec["ext"],
+            "duplicate_of": dup,
+            "note": "Staged and deduped (Phase 2). Auto-processing runs in Phase 3 worker.",
+        })
+        jobs_data.setdefault("jobs", []).append(job)
+        job_ids.append(job["id"])
+        rec["job_id"] = job["id"]
+        results.append(rec)
+    up.save_jobs(BASE_DIR, jobs_data)
+    ok_count = sum(1 for r in results if r.get("ok"))
+    dup_count = sum(1 for r in results if r.get("ok") and r.get("duplicate_of"))
+    return {
+        "ok": True,
+        "count": len(results),
+        "staged": ok_count,
+        "duplicates": dup_count,
+        "results": results,
+        "job_ids": job_ids,
+    }
+
+
+@app.get("/api/jobs")
+async def api_jobs():
+    data = up.load_jobs(BASE_DIR)
+    jobs = data.get("jobs", [])
+    # newest first, limit for sanity
+    jobs = list(reversed(jobs))[:100]
+    return {"ok": True, "count": len(data.get("jobs", [])), "jobs": jobs}
+
+
+@app.get("/api/jobs/{job_id}")
+async def api_job(job_id: str):
+    data = up.load_jobs(BASE_DIR)
+    for j in data.get("jobs", []):
+        if j.get("id") == job_id:
+            return {"ok": True, "job": j}
+    raise HTTPException(status_code=404, detail="Job not found")
 
 
 @app.get("/")
@@ -184,7 +312,7 @@ def main():
     LIB_ROOT.mkdir(parents=True, exist_ok=True)
     STAGING_DIR.mkdir(parents=True, exist_ok=True)
     (BASE_DIR / cfg.get("LOG_DIR", "logs")).mkdir(parents=True, exist_ok=True)
-    print(f"Photography Gallery Server (Phase 1) listening on http://{HOST}:{PORT}")
+    print(f"Photography Gallery Server (Phase 2) listening on http://{HOST}:{PORT}")
     print(f"Library: {LIB_ROOT}")
     print(f"Gallery: {GALLERY_HTML}")
     uvicorn.run(app, host=HOST, port=PORT, log_level="info")

@@ -206,6 +206,7 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
     <input id="q" type="search" placeholder='Search: "phrase" -negation cam:NIKON date:2024 has:ocr|desc|tags' autocomplete="off">
     <select id="sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="name">By name</option><option value="rating">Top rated</option></select>
     <button id="btnFilters" type="button" class="filter-btn" aria-expanded="false" aria-controls="filtersPanel">Filters</button>
+    <a id="uploadLink" href="/upload" class="filter-btn" style="text-decoration:none" title="Upload photos/videos (server mode)">Upload</a>
   </div>
   <div id="filtersPanel" class="filters-panel" hidden>
     <div class="chips" id="chips"></div>
@@ -741,4 +742,5 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='i'||e.key==='I'){ document.getElementById('infoToggle').click(); e.preventDefault(); }
 });
 buildChips(); buildYears(); render(); renderRecent();
+(function(){ var a=document.getElementById('uploadLink'); if(a && location.protocol==='file:') a.style.display='none'; })();
 </script></body></html>

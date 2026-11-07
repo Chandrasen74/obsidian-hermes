@@ -18,3 +18,6 @@ gallery-server/config.json
 gallery-server/*.log
 gallery-server/logs/
 gallery-server/.pid
+gallery-server/jobs.json
+photography-staging/
+
