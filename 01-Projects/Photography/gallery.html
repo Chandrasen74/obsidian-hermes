@@ -111,12 +111,10 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
 /* object-fit contain prevents cropping; max-height 100% of mid keeps video controls visible */
 .lb .mid img,.lb .mid video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:calc(var(--radius) - 2px);background:transparent;display:block;margin:auto}
 #lbimg{cursor:crosshair;transition:transform .15s ease-out}
-.lb .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:28px;line-height:1;color:var(--foreground);cursor:pointer;width:42px;height:42px;display:flex;align-items:center;justify-content:center;user-select:none;z-index:3;background:oklch(1 0 0 / 10%);border:1px solid var(--border);border-radius:999px;backdrop-filter:blur(6px);transition:background .15s,transform .15s;padding:0}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);margin:0;color:var(--foreground);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;user-select:none;z-index:3;background:oklch(1 0 0 / 10%);border:1px solid var(--border);border-radius:999px;backdrop-filter:blur(6px);transition:background .15s,transform .15s;padding:0;line-height:0}
+.lb .nav svg{display:block;flex-shrink:0}
 .lb .nav:hover{background:oklch(1 0 0 / 18%);transform:translateY(-50%) scale(1.05)}
 .lb .nav.prev{left:12px}.lb .nav.next{right:12px}
-/* Optical centering for angle bracket glyphs */
-.lb .nav.prev{padding-right:2px}
-.lb .nav.next{padding-left:2px}
 .lb .fb{display:none;color:var(--muted-foreground);font-size:14px;text-align:center;line-height:2;padding:40px}
 .lb .fb a{color:var(--accent)}
 #cmp{display:none;position:relative;width:min(92vw,1100px);height:100%;max-height:100%;background:oklch(0 0 0 / 40%);border-radius:calc(var(--radius) - 2px);touch-action:none;cursor:ew-resize;overflow:hidden;margin:auto}
@@ -168,10 +166,10 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
 <h2 class="sec">All photos</h2><div class="grid content-vis" id="grid"></div>
 <div class="lb" id="lb">
  <div class="top"><div class="name" id="lbname"></div><div id="infoToggle" title="Toggle info panel (i)">⊖ Info</div><div class="x" onclick="closeLb()">&times;</div></div>
- <div class="mid"><div class="nav prev" onclick="step(-1)">&#8249;</div><img id="lbimg" alt=""><video id="lbvid" controls></video>
+ <div class="mid"><div class="nav prev" onclick="step(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><img id="lbimg" alt=""><video id="lbvid" controls></video>
   <div id="cmp"><img id="cmpA" alt=""><img id="cmpB" alt=""><div id="cmpBar"></div><div class="clab" id="clabA"></div><div class="clab" id="clabB"></div></div>
   <div class="fb" id="lbfb">Video preview not available.<br><a id="lblink" href="#">Open the original file</a></div>
-  <div class="nav next" onclick="step(1)">&#8250;</div></div>
+  <div class="nav next" onclick="step(1)" aria-label="Next"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
  <div class="info">
   <div class="acts">
    <button id="btnCmp" onclick="cycleCmp()" style="display:none">Compare</button>
