@@ -393,7 +393,7 @@ Two more Codex rounds (`gpt-6-luna`; round 2 at effort `low`, round 3 at
 2. Needs `%LOCALAPPDATA%\Android\{jdk17, sdk}` — unchanged machine setup.
 3. Same package + same keystore = in-place app updates stay possible.
 4. `python play_install.py <pkg>...` and `python pin_apps.py` (the latter in
-   [[04-Archives/Phone-Cleaner/README|Phone-Cleaner]]) drive the phone over
+   [[04-Archives/Grandpa-Phone-Setup/Phone-Cleaner/README|Phone-Cleaner]]) drive the phone over
    uiautomator2 after `uiautomator2 init` once.
 
 ## Phone-side state (live on the Moto G35 after this session, 2026-10-26)
@@ -428,8 +428,9 @@ asking for UI polish, then unplugged). Phone-side, ~30 s over adb:
    `pm uninstall --user 0 com.github.uiautomator com.github.uiautomator.test`
    (keep USB debugging itself, which costs nothing and stays off unless asked).
 
-See also: [[04-Archives/Phone-Cleaner/README|Phone-Cleaner]] (same-day
-companion tool), [[01-Projects/README|01-Projects]] completed list,
+See also: [[04-Archives/Grandpa-Phone-Setup/Phone-Cleaner/README|Phone-Cleaner]] (same-day
+companion tool: now its sibling under [[04-Archives/Grandpa-Phone-Setup/README|Grandpa-Phone-Setup]]),
+[[01-Projects/README|01-Projects]] completed list,
 [[01-Projects/OpenCode-Tasks|OpenCode-Tasks]].
 
 ---

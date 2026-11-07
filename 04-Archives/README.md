@@ -28,6 +28,7 @@ tags: ["#status/archived", "#type/index", "#domain/productivity"]
 - [[04-Archives/Stickman-Basketball/README|README]] (Stickman basketball shorts + full animate workspace - COMPLETED 2026-10-25)
 - [[04-Archives/OpenCode-Migration/README|README]] (Vault migration tooling + build logs - ARCHIVED 2026-10-25)
 - [[04-Archives/Coolita-TV-Attempt/README|README]] (Infinix Coolita TV debloat attempt - FAILED + CLOSED 2026-11-07: Coolita OS is not Android, nothing sideloads)
+- [[04-Archives/Grandpa-Phone-Setup/README|README]] (Grandpa Moto G35 setup tools: Phone-Cleaner + Grandpa-Launcher merged - 2026-11-07)
 
 ---
 

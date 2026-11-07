@@ -7,7 +7,7 @@ logs/
 04-Archives/Local AI (barebones)/llama.cpp/
 
 # Android signing keystore - never publish signing keys
-04-Archives/Grandpa-Launcher/keys/granny.keystore
+04-Archives/Grandpa-Phone-Setup/Grandpa-Launcher/keys/granny.keystore
 
 # Photography pipeline - secrets never get committed
 01-Projects/photography-pipeline/gemini_key.txt

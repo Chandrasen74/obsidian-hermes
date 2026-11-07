@@ -34,6 +34,19 @@ This note tracks our ongoing work on your Obsidian second brain vault. I'll upda
 
 ## Session Notes
 
+### Session: 2026-11-07 - Grandpa phone archives merged, stale grandma-launcher cleared
+
+- Merged `04-Archives/Phone-Cleaner` + `04-Archives/Grandpa-Launcher` into one
+  navigable archive: [[04-Archives/Grandpa-Phone-Setup/README|Grandpa-Phone-Setup]]
+  (navigation table, quick how-to, phone note: Moto G35, Android 15, Ontim
+  ROM). Both subfolders keep original names, so relative paths + how-to
+  commands still work; the keystore gitignore line was repointed.
+- Stale wikilinks fixed in both the tool READMEs, 01-Projects/README,
+  OpenCode-Tasks, and AGENTS.md env facts. No content dropped.
+- Deleted `01-Projects/grandma-launcher/` per owner call (verified untracked;
+  contained only a stitch tool-state `.freebuff\` + an empty
+  `stitch-variants\` folder, nothing else).
+
 ### Session: 2026-11-07 - closed + archived: Coolita TV attempt (CleanYourTV)
 
 - Infinix TV runs **Coolita TV OS**, not Android: no browser, no APK install
@@ -53,12 +66,13 @@ Owner-built (with a parallel agent) device-setup pair for grandpa's Moto G35,
 archived per owner request with stepwise creation timelines:
 - `04-Archives/Phone-Cleaner/` - USB debloat GUI (PhoneCleaner.ps1 + bat +
   removed-apps.json + pin_apps.py uiautomator2 pinner), original README kept,
-  index at [[04-Archives/Phone-Cleaner/Archive-README|Archive-README]].
+  index at [[04-Archives/Grandpa-Phone-Setup/Phone-Cleaner/Archive-README|Archive-README]]
+  (merged into Grandpa-Phone-Setup 2026-11-07).
 - `04-Archives/Grandpa-Launcher/` - no-Gradle Android launcher APK
   (com.grannyhome.launcher, build.ps1 aapt2+javac+d8 pipeline, config.json
   favorites/folders, skycon weather views, LiquidBatteryView, dist\Home.apk
   v1.0), stepwise timeline 16:22-17:54 in
-  [[04-Archives/Grandpa-Launcher/README|README]]. Keystore kept on disk +
+  [[04-Archives/Grandpa-Phone-Setup/Grandpa-Launcher/README|README]]. Keystore kept on disk +
   OneDrive, git-ignored (signing keys never publish).
 - Package naming note: internal name says "granny" (as built); owner
   clarified it is for grandpa; renaming the package/key would break the
