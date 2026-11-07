@@ -10,3 +10,11 @@ photography-pipeline/*.db
 
 # Bytecode
 photography-pipeline/__pycache__/
+gallery-server/__pycache__/
+
+# Gallery server (local runtime / secrets)
+gallery-server/.venv/
+gallery-server/config.json
+gallery-server/*.log
+gallery-server/logs/
+gallery-server/.pid

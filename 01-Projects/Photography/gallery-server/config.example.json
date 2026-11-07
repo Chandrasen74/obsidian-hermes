@@ -1,0 +1,13 @@
+{
+  "HOST": "0.0.0.0",
+  "PORT": 8765,
+  "TOKEN": "CHANGE-ME-generate-a-long-random-token",
+  "REQUIRE_TOKEN": true,
+  "LIB_ROOT": "../photography-library",
+  "GALLERY_HTML": "../gallery.html",
+  "STAGING_DIR": "../photography-staging",
+  "PIPELINE_DIR": "../photography-pipeline",
+  "GEMINI_KEY_PATH": "../photography-pipeline/gemini_key.txt",
+  "AUTO_DESCRIBE": true,
+  "LOG_DIR": "./logs"
+}
