@@ -98,17 +98,21 @@ async def auth_middleware(request: Request, call_next):
     path = request.url.path
     if path in ("/login", "/api/health"):
         return await call_next(request)
+
+    # If a valid token is provided in the query string (bootstrap link), set a cookie
+    # and redirect to strip the token from the URL so subresources (images) authenticate.
+    qtoken = request.query_params.get("token")
+    if qtoken and REQUIRE_TOKEN and TOKEN and secrets.compare_digest(qtoken, TOKEN):
+        resp = RedirectResponse(url=request.url.path, status_code=302)
+        resp.set_cookie("pg_token", TOKEN, httponly=True, samesite="lax", path="/")
+        return resp
+
     if not token_ok(request):
         if path.startswith("/api/"):
             return JSONResponse({"error": "unauthorized"}, status_code=401)
         nxt = request.url.path
         if request.url.query:
             nxt += "?" + request.url.query
-        if "token" in request.query_params and REQUIRE_TOKEN and TOKEN and request.query_params.get("token") == TOKEN:
-            # bootstrap: set cookie and redirect without token in URL
-            resp = RedirectResponse(url=request.url.path, status_code=302)
-            resp.set_cookie("pg_token", TOKEN, httponly=True, samesite="lax", path="/")
-            return resp
         return HTMLResponse(LOGIN_HTML.replace("{next}", nxt.replace('"', "&quot;")), status_code=401)
     return await call_next(request)
 
