@@ -1,7 +1,10 @@
+# Phase 1 (server)
 fastapi>=0.115,<1
-uvicorn[standard]>=0.30,<1
+uvicorn>=0.30,<1
 python-multipart>=0.0.9
-jinja2>=3.1,<4
-pillow>=10,<12
-pillow-heif>=0.16,<1
-requests>=2.31,<3
+
+# Phase 2+ (processing) - install when needed; pillow-heif may require build tools on some Python versions
+# jinja2>=3.1,<4
+# pillow>=10,<12
+# pillow-heif>=0.16,<1
+# requests>=2.31,<3
