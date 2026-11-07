@@ -14,3 +14,4 @@ logs/
 01-Projects/photography-pipeline/*cookies*
 01-Projects/photography-pipeline/*.db
 01-Projects/photography-pipeline/__pycache__/
+01-Projects/photography-library/
