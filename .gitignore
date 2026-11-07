@@ -8,3 +8,8 @@ logs/
 
 # Android signing keystore - never publish signing keys
 04-Archives/Grandpa-Launcher/keys/granny.keystore
+
+# Photography pipeline - secrets never get committed
+01-Projects/photography-pipeline/gemini_key.txt
+01-Projects/photography-pipeline/*cookies*
+01-Projects/photography-pipeline/*.db
