@@ -1,6 +1,6 @@
 import os, json, csv
 
-PHOTO   = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO   = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 BACKUP  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\gallery-0932-backup.html"
 LIVE    = os.path.join(PHOTO, "gallery.html")
 DESCS   = os.path.join(PHOTO, "descriptions.json")

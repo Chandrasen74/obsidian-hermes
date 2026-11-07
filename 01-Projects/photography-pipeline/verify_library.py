@@ -15,7 +15,7 @@ import json
 import os
 import sys
 
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 INDEX = os.path.join(PHOTO, "photo-index.json")
 PIPELINE = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline"
 REPORT = os.path.join(PIPELINE, "integrity-report.csv")

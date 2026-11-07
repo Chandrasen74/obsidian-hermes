@@ -14,7 +14,7 @@ except Exception:
 IMG_EXTS = (".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif") + (".heic",) if HEIC_OK else \
            (".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif")
 
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 OUT = os.path.join(PHOTO, "photo-index.json")
 DRIVE_MANIFEST = os.path.join(PHOTO, "drive-folders.json")
 CACHE = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\index-cache.json"
@@ -144,6 +144,7 @@ for root, dirs, files in os.walk(PHOTO):
         top = rel.split("/")[0]
         if top == "Camera": kind = "camera"
         elif top == "Phone": kind = "phone"
+        elif top == "Pinterest": kind = "pinterest"
         elif top == "Misc": kind = "misc"
         elif fn.startswith("Screenshot"): kind = "screenshot"
         elif fn.startswith("WhatsApp"): kind = "whatsapp"
@@ -152,7 +153,7 @@ for root, dirs, files in os.walk(PHOTO):
 
         sig = [mtime, size]
         cached = cache.get(rel)
-        if cached and cached.get("sig") == sig:
+        if cached and cached.get("sig") == sig and cached["base"].get("date"):
             base = cached["base"]
             cache_hits += 1
         else:
@@ -163,6 +164,8 @@ for root, dirs, files in os.walk(PHOTO):
             if is_img:
                 ei = exif_info(p)
                 base.update({k: ei[k] for k in ("date", "camera", "w", "h", "exif")})
+                if not base["date"]:
+                    base["date"] = base["mtime"]  # no EXIF: use file date (downloads, stripped copies)
             else:
                 base["date"] = base["mtime"]
                 base.update(vid_info(p))

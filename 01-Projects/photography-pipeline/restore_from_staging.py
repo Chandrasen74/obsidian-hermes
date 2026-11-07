@@ -1,7 +1,7 @@
 import os, shutil, sys, csv, hashlib
 from datetime import datetime
 
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 STAGE = r"C:\Users\Kanchan Verma\AppData\Local\Temp\opencode\drive_restore_staging"
 LOG   = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\undo-log-photography.csv"
 

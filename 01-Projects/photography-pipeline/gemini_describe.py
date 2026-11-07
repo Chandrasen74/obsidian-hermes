@@ -4,7 +4,7 @@ from PIL import Image, ImageOps
 
 Image.MAX_IMAGE_PIXELS = None
 
-PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 INDEX  = os.path.join(PHOTO, "photo-index.json")
 DESCS  = os.path.join(PHOTO, "descriptions.json")
 KEY_FILE = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\gemini_key.txt"

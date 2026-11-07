@@ -8,7 +8,7 @@ import json
 import os
 
 REORG = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline"
-LIB = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+LIB = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 PENDING = os.path.join(REORG, "pending-descs.json")
 DESCS = os.path.join(LIB, "descriptions.json")
 UNDO = os.path.join(REORG, "undo-log-photography.csv")

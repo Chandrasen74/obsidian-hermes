@@ -1,7 +1,7 @@
 import os, json, csv
 from datetime import datetime
 
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 DESCS = os.path.join(PHOTO, "descriptions.json")
 PENDING = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\pending-descs.json"
 LOG = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\undo-log-photography.csv"

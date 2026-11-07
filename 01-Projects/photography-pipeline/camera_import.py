@@ -4,7 +4,7 @@ from PIL import Image
 from PIL import ExifTags
 
 CARD = r"D:\DCIM"
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 CAM = os.path.join(PHOTO, "Camera")
 LOG = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\undo-log-photography.csv"
 SUMMARY = r"C:\Users\Kanchan Verma\AppData\Local\Temp\opencode\import-summary.json"

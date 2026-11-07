@@ -10,7 +10,7 @@ try:
 except Exception:
     pass
 
-PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 INDEX  = os.path.join(PHOTO, "photo-index.json")
 THUMBS = os.path.join(PHOTO, "thumbs")
 CONV   = os.path.join(PHOTO, "converted")

@@ -1,7 +1,7 @@
 import os, subprocess, csv
 from datetime import datetime
 
-PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO  = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 PLAY   = os.path.join(PHOTO, "playback")
 THUMBS = os.path.join(PHOTO, "thumbs")
 LOG    = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\undo-log-photography.csv"

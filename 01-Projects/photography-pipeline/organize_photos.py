@@ -2,7 +2,7 @@ import os, json, csv, subprocess, sys, hashlib
 from datetime import datetime
 from PIL import Image
 
-PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\photography"
+PHOTO = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-library"
 LOG = r"C:\Users\Kanchan Verma\OneDrive\Desktop\Opencode\01-Projects\photography-pipeline\undo-log-photography.csv"
 MANIFEST = os.path.join(PHOTO, "drive-folders.json")
 KEEP_DIRS = {"camera", "screenshots", "whatsapp", "phone", "thumbs", "__pycache__"}
