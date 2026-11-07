@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formula Sheet ONLY - One Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4 portrait;margin:4mm}
+  *{box-sizing:border-box}
+  body{margin:0;background:#e8e9ef;font-family:'Inter',system-ui,sans-serif;color:#0f172a}
+  .no-print{max-width:900px;margin:0 auto;padding:10px}
+  .bar{background:#0f172a;color:white;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .bar h1{margin:0;font-size:18px}
+  .bar p{margin:0;font-size:11px;color:#cbd5e1}
+  .btn{background:#facc15;color:#422006;border:none;padding:8px 14px;border-radius:8px;font-weight:800;font-size:11px;cursor:pointer}
+  .sheet{width:210mm;min-height:297mm;margin:10px auto;background:white;box-shadow:0 8px 24px rgba(0,0,0,0.12);padding:6mm;display:flex;flex-direction:column}
+  @media(max-width:860px){.sheet{width:96vw;min-height:auto}}
+  @media print{body{background:white}.no-print{display:none}.sheet{box-shadow:none;margin:0;width:auto}}
+  .head{text-align:center;border:2.5px solid #0f172a;border-radius:10px;padding:6px 8px;background:#fffbeb}
+  .head h2{margin:0;font-size:20px;letter-spacing:0.04em}
+  .head p{margin:1px 0 0;font-size:8px;letter-spacing:0.1em;color:#64748b;font-weight:700}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px;flex:1}
+  .box{border:1.2px solid #0f172a;border-radius:8px;padding:6px 7px;background:white}
+  .tag{font-size:7px;letter-spacing:0.09em;font-weight:800;color:white;padding:2px 6px;border-radius:999px;display:inline-block}
+  .title{font-size:11px;font-weight:800;margin:3px 0 4px;line-height:1}
+  .f{font-family:'Kalam',cursive;font-size:11px;font-weight:700;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:6px;padding:3px 5px;text-align:center;margin:3px 0;line-height:1.2}
+  .f2{font-size:9.5px;line-height:1.3;font-family:'Patrick Hand',cursive}
+  .ul{margin:2px 0 0 12px;padding:0;font-size:9.5px;line-height:13px;font-family:'Patrick Hand',cursive}
+  .ul li{margin:1px 0}
+  .foot{margin-top:6px;background:#0f172a;color:white;border-radius:8px;padding:6px 8px;text-align:center;font-size:7.5px;letter-spacing:0.05em;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="no-print">
+  <div class="bar">
+    <div>
+      <h1>📋 Pure Formula Sheet — 10 Chapters</h1>
+      <p>Only formulas • No theory • One A4</p>
+    </div>
+    <button class="btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <h2>FORMULA SHEET — CLASS 10 HALF-YEARLY</h2>
+    <p>10 CHAPTERS • ALL FORMULAS • EXAM HALL REVISION • MISSION JEET — 14 DAYS MARATHON</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="box" style="border-color:#ca8a04;background:#fefce8">
+      <span class="tag" style="background:#ca8a04">CH 1 • REAL NUMBERS</span>
+      <div class="title">Real Numbers</div>
+      <div class="f">a = bq + r , 0 ≤ r &lt; b</div>
+      <div class="f">HCF × LCM = a × b &nbsp;<span style="font-weight:400;font-size:8px">(2 nos only)</span></div>
+      <div class="f">N = 2ⁿ·5ᵐ → Terminating &nbsp; else → Non-terminating</div>
+      <ul class="ul"><li>Prime factorisation: N = p1ˣ·p2ʸ…</li><li>HCF = min power common • LCM = max power all</li></ul>
+    </div>
+
+    <div class="box" style="border-color:#7c3aed;background:#f5f3ff">
+      <span class="tag" style="background:#7c3aed">CH 2 • POLYNOMIALS</span>
+      <div class="title">Polynomials</div>
+      <div class="f">α + β = -b/a &nbsp;&nbsp; αβ = c/a <span style="font-weight:400;font-size:8px">for ax²+bx+c</span></div>
+      <div class="f">α+β+γ=-b/a &nbsp; αβ+βγ+γα=c/a &nbsp; αβγ=-d/a <span style="font-weight:400;font-size:7px">cubic</span></div>
+      <div class="f">p(x)=k[ x² - Sx + P ] &nbsp; • &nbsp; p(x)=g(x)·q(x)+r(x)</div>
+    </div>
+
+    <div class="box" style="border-color:#2563eb;background:#eff6ff">
+      <span class="tag" style="background:#2563eb">CH 3 • PAIR OF LINEAR EQS</span>
+      <div class="title">Pair of Linear Equations</div>
+      <div style="font-size:8px;text-align:center;line-height:1.3;background:white;border-radius:6px;padding:3px;border:1px solid #cbd5e1">
+        <b>a₁/a₂ ≠ b₁/b₂ → Unique</b> &nbsp;|&nbsp; <b>= b₁/b₂ = c₁/c₂ → Infinite</b> &nbsp;|&nbsp; <b>= b₁/b₂ ≠ c₁/c₂ → No solution</b>
+      </div>
+      <div class="f" style="font-size:9px">x/(b₁c₂-b₂c₁)= y/(c₁a₂-c₂a₁)=1/(a₁b₂-a₂b₁)</div>
+      <div class="f2" style="text-align:center;font-size:8px;color:#475569">a₁x+b₁y+c₁=0 , a₂x+b₂y+c₂=0</div>
+    </div>
+
+    <div class="box" style="border-color:#c2410c;background:#fff7ed">
+      <span class="tag" style="background:#c2410c">CH 4 • QUADRATIC EQUATIONS</span>
+      <div class="title">Quadratic Equations</div>
+      <div class="f">ax²+bx+c=0 , a≠0</div>
+      <div class="f">x = (-b ± √(b²-4ac))/2a &nbsp; • &nbsp; D = b²-4ac</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;text-align:center;font-size:8px;margin-top:3px">
+        <div style="background:white;border:1px solid #cbd5e1;border-radius:5px;padding:2px"><b>D>0</b><br>2 distinct</div>
+        <div style="background:white;border:1px solid #cbd5e1;border-radius:5px;padding:2px"><b>D=0</b><br>Equal = -b/2a</div>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:5px;padding:2px"><b>D&lt;0</b><br>No real</div>
+      </div>
+    </div>
+
+    <div class="box" style="border-color:#0891b2;background:#ecfeff">
+      <span class="tag" style="background:#0891b2">CH 5 • AP</span>
+      <div class="title">Arithmetic Progression</div>
+      <div class="f">aₙ = a + (n-1)d</div>
+      <div class="f">Sₙ = n/2[2a+(n-1)d] = n/2(a + l)</div>
+      <div class="f">2b = a + c <span style="font-weight:400;font-size:8px">if a,b,c in AP</span></div>
+      <div class="f2" style="text-align:center;margin-top:2px">3 terms: a-d, a, a+d &nbsp;•&nbsp; 4 terms: a-3d, a-d, a+d, a+3d</div>
+    </div>
+
+    <div class="box" style="border-color:#dc2626;background:#fef2f2">
+      <span class="tag" style="background:#dc2626">CH 6 • TRIANGLES</span>
+      <div class="title">Triangles</div>
+      <div class="f">DE∥BC ⇒ AD/DB = AE/EC <span style="font-weight:400;font-size:8px">BPT</span></div>
+      <div class="f">ar(Δ1)/ar(Δ2) = (side1/side2)² <span style="font-weight:400;font-size:8px">similar Δs</span></div>
+      <div class="f">Hyp² = Perp² + Base² <span style="font-weight:400;font-size:8px">Pythagoras, right Δ</span></div>
+      <div class="f2" style="text-align:center">Criteria: AA • SSS • SAS</div>
+    </div>
+
+    <div class="box" style="border-color:#0d9488;background:#f0fdfa">
+      <span class="tag" style="background:#0d9488">CH 7 • COORDINATE GEOMETRY</span>
+      <div class="title">Coordinate Geometry</div>
+      <div class="f">AB = √[(x₂-x₁)² + (y₂-y₁)²]</div>
+      <div class="f">P(m:n)= (mx₂+nx₁/m+n , my₂+ny₁/m+n) &nbsp;•&nbsp; Mid=(x₁+x₂/2 , y₁+y₂/2)</div>
+      <div class="f">ar Δ = ½| x₁(y₂-y₃)+x₂(y₃-y₁)+x₃(y₁-y₂) |</div>
+      <div class="f2" style="text-align:center">=0 → Collinear</div>
+    </div>
+
+    <div class="box" style="border-color:#3730a3;background:#eef2ff">
+      <span class="tag" style="background:#3730a3">CH 8 • TRIGONOMETRY</span>
+      <div class="title">Introduction to Trigonometry</div>
+      <div class="f">sin=P/H &nbsp; cos=B/H &nbsp; tan=P/B &nbsp; <span style="font-weight:400;font-size:8px">cot=B/P sec=H/B cosec=H/P</span></div>
+      <div style="display:grid;grid-template-columns:auto 1fr 1fr 1fr 1fr 1fr;gap:1px;font-size:7px;text-align:center;margin-top:3px">
+        <div style="background:#0f172a;color:white;padding:2px;border-radius:3px 0 0 3px"></div><div style="background:#0f172a;color:white;padding:2px">0°</div><div style="background:#0f172a;color:white;padding:2px">30°</div><div style="background:#0f172a;color:white;padding:2px">45°</div><div style="background:#0f172a;color:white;padding:2px">60°</div><div style="background:#0f172a;color:white;padding:2px;border-radius:0 3px 3px 0">90°</div>
+        <div style="background:#fefce8;padding:2px;border:1px solid #eee">sin</div><div style="background:white;border:1px solid #eee;padding:2px">0</div><div style="background:white;border:1px solid #eee;padding:2px">½</div><div style="background:white;border:1px solid #eee;padding:2px">1/√2</div><div style="background:white;border:1px solid #eee;padding:2px">√3/2</div><div style="background:white;border:1px solid #eee;padding:2px">1</div>
+        <div style="background:#eff6ff;padding:2px;border:1px solid #eee">cos</div><div style="background:white;border:1px solid #eee;padding:2px">1</div><div style="background:white;border:1px solid #eee;padding:2px">√3/2</div><div style="background:white;border:1px solid #eee;padding:2px">1/√2</div><div style="background:white;border:1px solid #eee;padding:2px">½</div><div style="background:white;border:1px solid #eee;padding:2px">0</div>
+        <div style="background:#fefce8;padding:2px;border:1px solid #eee">tan</div><div style="background:white;border:1px solid #eee;padding:2px">0</div><div style="background:white;border:1px solid #eee;padding:2px">1/√3</div><div style="background:white;border:1px solid #eee;padding:2px">1</div><div style="background:white;border:1px solid #eee;padding:2px">√3</div><div style="background:white;border:1px solid #eee;padding:2px">—</div>
+      </div>
+      <div class="f" style="margin-top:3px">sin²θ+cos²θ=1 &nbsp;•&nbsp; 1+tan²θ=sec²θ &nbsp;•&nbsp; 1+cot²θ=cosec²θ</div>
+    </div>
+
+    <div class="box" style="border-color:#0ea5e9;background:#f0f9ff">
+      <span class="tag" style="background:#0ea5e9">CH 9 • APPLICATIONS</span>
+      <div class="title">Heights & Distances</div>
+      <div class="f" style="font-size:12px">tan θ = Height / Distance</div>
+      <div class="f2" style="text-align:center;margin-top:3px">Angle of Elevation = up with horizontal<br>Angle of Depression = down with horizontal</div>
+      <div class="f2" style="text-align:center;color:#2563eb;margin-top:2px">Draw figure → tanθ = perp/base → solve</div>
+    </div>
+
+    <div class="box" style="border-color:#16a34a;background:#f0fdf4">
+      <span class="tag" style="background:#16a34a">CH 14 • PROBABILITY</span>
+      <div class="title">Probability</div>
+      <div class="f" style="font-size:12px">P(E) = Favourable / Total &nbsp; 0 ≤ P ≤ 1</div>
+      <div class="f">P(not E) = 1 - P(E)</div>
+      <div class="f2" style="text-align:center;margin-top:3px">Cards 52 = 26R+26B = 13♥13♦13♣13♠ • 4K 4Q 4J 4A • Face 12 • Dice 6 • Coins 2</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    PRINT ON A4 • MARGINS NONE • SCALE 100 • BACKGROUND GRAPHICS ON &nbsp;|&nbsp; KEEP IN PENCIL BOX • 2 MINS REVISION BEFORE EXAM = 20 MARKS EXTRA
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONE PAGE - All Formulas - Class 10 Half Yearly</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  @page{size:A4 portrait; margin:5mm}
+  *{box-sizing:border-box}
+  body{margin:0;background:#e8e9ef;font-family:'Patrick Hand',cursive;color:#0f172a}
+  .no-print{max-width:900px;margin:0 auto;padding:12px}
+  .bar{background:#0f172a;color:white;border-radius:12px;padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+  .bar h1{margin:0;font-family:'Caveat',cursive;font-size:22px}
+  .bar p{margin:2px 0 0;font-family:system-ui,sans-serif;font-size:11px;color:#cbd5e1}
+  .btn{background:#facc15;color:#422006;border:none;padding:8px 14px;border-radius:8px;font-weight:800;font-size:11px;cursor:pointer;font-family:system-ui,sans-serif}
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:10px auto;
+    background:white;
+    box-shadow:0 8px 24px rgba(15,23,42,0.14);
+    padding:5mm 5mm 4mm 5mm;
+    display:flex;flex-direction:column;
+  }
+  @media(max-width:860px){.sheet{width:96vw; min-height:auto; padding:3vw}}
+  @media print{
+    body{background:white}
+    .no-print{display:none}
+    .sheet{box-shadow:none;margin:0;width:auto;min-height:auto}
+  }
+  /* Header */
+  .header{
+    border:2.5px solid #0f172a;
+    border-radius:10px;
+    padding:6px 10px;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    background:#fffef0;
+  }
+  .header h2{margin:0;font-family:'Caveat',cursive;font-size:22px;line-height:1}
+  .header h2 span{border-bottom:3px solid #fde68a}
+  .badge{font-family:system-ui,sans-serif;font-size:7.5px;letter-spacing:0.12em;font-weight:800;background:#0f172a;color:white;padding:4px 7px;border-radius:999px;white-space:nowrap}
+  .subhead{font-family:system-ui,sans-serif;font-size:7px;letter-spacing:0.06em;color:#64748b;text-align:right;line-height:1.3}
+  /* Grid */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
+    margin-top:6px;
+    flex:1;
+  }
+  .box{
+    border:1.4px solid #1e293b;
+    border-radius:8px;
+    padding:5px 6px 5px 6px;
+    background:white;
+    position:relative;
+    display:flex;flex-direction:column;
+  }
+  .box.yellow{border-color:#ca8a04;background:#fefce8}
+  .box.blue{border-color:#2563eb;background:#f0f7ff}
+  .box.green{border-color:#16a34a;background:#f0fdf4}
+  .box.purple{border-color:#7c3aed;background:#f5f3ff}
+  .box.orange{border-color:#c2410c;background:#fff7ed}
+  .box.teal{border-color:#0d9488;background:#f0fdfa}
+  .box.red{border-color:#dc2626;background:#fef2f2}
+  .box.cyan{border-color:#0891b2;background:#ecfeff}
+  .box.indigo{border-color:#3730a3;background:#eef2ff}
+  .box.pink{border-color:#be185d;background:#fff1f2}
+  .chap{
+    font-family:system-ui,sans-serif;font-size:7px;font-weight:800;letter-spacing:0.08em;
+    color:white;padding:2px 5px;border-radius:999px;display:inline-block;line-height:1;
+    position:absolute;top:-7px;left:8px;
+  }
+  .ctitle{font-family:'Caveat',cursive;font-size:13px;font-weight:700;line-height:1;margin:4px 0 2px;color:#0f172a}
+  .ctitle small{font-family:system-ui,sans-serif;font-size:7px;color:#64748b;font-weight:700;letter-spacing:0.04em}
+  .content{font-size:10.2px;line-height:13.2px;font-family:'Patrick Hand',cursive}
+  .content b{font-family:'Kalam',cursive;font-weight:700}
+  .hl{background:linear-gradient(transparent 58%, #fef08a 58%);padding:0 1px}
+  .hlb{background:linear-gradient(transparent 58%, #dbeafe 58%)}
+  .formula{
+    font-family:'Kalam',cursive;font-weight:700;font-size:10.5px;
+    background:white;border:1px dashed #94a3b8;border-radius:6px;
+    padding:2px 4px;margin:3px 0;text-align:center;line-height:1.2;
+  }
+  .mini{font-size:8.5px;color:#475569;font-family:system-ui,sans-serif;line-height:1.25;margin-top:2px}
+  .ul{margin:2px 0 0 10px;padding:0}
+  .ul li{margin:0.5px 0}
+  .two{columns:2;column-gap:8px}
+  .footer{
+    margin-top:6px;
+    border:1.5px solid #0f172a;border-radius:8px;
+    padding:5px 8px;
+    background:#0f172a;color:white;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    gap:6px;
+    font-family:system-ui,sans-serif;font-size:7px;line-height:1.3;
+  }
+  .footer b{color:#facc15}
+  .cut{font-family:'Patrick Hand',cursive;font-size:8px;color:#94a3b8;text-align:center;margin-top:3px;letter-spacing:0.04em}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <div class="bar">
+    <div>
+      <h1>🗜️ ONE PAGE — All 10 Chapters Compressed</h1>
+      <p>Small font • Everything on 1 A4 • Print with Margins: None + Background graphics ON</p>
+    </div>
+    <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF (1 Page)</button>
+  </div>
+</div>
+
+<div class="sheet">
+
+  <div class="header">
+    <div>
+      <div class="badge">CLASS 10 • CBSE • HALF-YEARLY 2026 • MISSION JEET</div>
+      <h2><span>All Formulas + Concepts — ONE PAGE</span></h2>
+      <div style="font-family:'Patrick Hand',cursive;font-size:9px;color:#475569;margin-top:1px">10 Chapters • 10 Boxes • Every formula you need for 80/80 • <span style="background:#fef08a;padding:0 3px;border-radius:3px">Yellow = must ratta</span></div>
+    </div>
+    <div class="subhead">
+      PRINT → SAVE AS PDF<br>
+      Margins: <b>None</b><br>
+      Scale: <b>100</b><br>
+      ☑ Background graphics
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- CH1 -->
+    <div class="box yellow">
+      <span class="chap" style="background:#ca8a04">CH 1 • REAL NUMBERS</span>
+      <div class="ctitle">Real Numbers <small>• 6M fix</small></div>
+      <div class="content">
+        <div class="formula">a = bq + r , 0 ≤ r &lt; b &nbsp; • &nbsp; <span class="hl">HCF × LCM = a × b</span> (2 nos only)</div>
+        <ul class="ul">
+          <li><b>Euclid Algorithm:</b> HCF(a,b)=HCF(b,r) → repeat till r=0. Ex: 404,96 → HCF 4</li>
+          <li><b>FTA:</b> 140 = 2²·5·7. HCF=min power, LCM=max power</li>
+          <li><b>Terminating?</b> Denom = 2ⁿ·5ᵐ → Yes. Ex: 17/80=2⁴·5 → Terminating ✓ ; 29/343=7³ → Non-term</li>
+        </ul>
+        <div style="background:white;border-radius:5px;padding:2px 4px;margin-top:3px;border:1px solid #f59e0b;font-size:9px"><b>Irrational Proof (√2):</b> Assume √2=p/q → p²=2q² → p=2r → q²=2r² → q also ×2 → contradiction → irrational ■ <span style="color:#64748b">Same for √3, 3+2√5 (isolate √5)</span></div>
+      </div>
+    </div>
+
+    <!-- CH2 -->
+    <div class="box purple">
+      <span class="chap" style="background:#7c3aed">CH 2 • POLYNOMIALS</span>
+      <div class="ctitle">Polynomials <small>• Zeroes</small></div>
+      <div class="content">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="background:white;border-radius:5px;padding:3px;border:1px solid #ddd;text-align:center"><b>Quad</b> ax²+bx+c<br><span class="hl">α+β= -b/a</span><br><span class="hl">αβ= c/a</span></div>
+          <div style="background:white;border-radius:5px;padding:3px;border:1px solid #ddd;text-align:center"><b>Cubic</b> ax³+bx²+cx+d<br>α+β+γ= -b/a<br>αβ+βγ+γα= c/a<br>αβγ= -d/a</div>
+        </div>
+        <div class="formula" style="margin:3px 0">p(x)=k[ x² - Sx + P ] &nbsp; • &nbsp; <b>p = g·q + r</b></div>
+        <ul class="ul">
+          <li>Zeroes = where graph cuts x-axis. `a>0` U, `a<0` ∩</li>
+          <li>Find polynomial: S=3, P=-2 → x²-3x-2 (k=1)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CH3 -->
+    <div class="box blue">
+      <span class="chap" style="background:#2563eb">CH 3 • PAIR OF LINEAR EQS</span>
+      <div class="ctitle">Pair of Linear Eqs <small>• a₁x+b₁y+c₁=0</small></div>
+      <div class="content">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:2px;font-size:9px;text-align:center">
+          <div style="background:#0f172a;color:white;padding:2px 3px;border-radius:4px"><b>a₁/a₂ ≠ b₁/b₂</b></div><div style="background:white;border:1px solid #cbd5e1;border-radius:4px;padding:2px">Intersecting ☓ → <b>Unique</b> Consist.</div>
+          <div style="background:#ca8a04;color:white;padding:2px 3px;border-radius:4px"><b>= b₁/b₂ = c₁/c₂</b></div><div style="background:#fefce8;border:1px solid #f59e0b;border-radius:4px;padding:2px">Coincident ≡ → <b>Infinite</b></div>
+          <div style="background:#dc2626;color:white;padding:2px 3px;border-radius:4px"><b>= b₁/b₂ ≠ c₁/c₂</b></div><div style="background:#fef2f2;border:1px solid #fecaca;border-radius:4px;padding:2px">Parallel ∥ → <b>No sol</b> Inconsist.</div>
+        </div>
+        <div class="formula" style="font-size:9px">x/(b₁c₂-b₂c₁)= y/(c₁a₂-c₂a₁)=1/(a₁b₂-a₂b₁) <span style="font-weight:400">Cross</span></div>
+        <div class="mini">Methods: Substitution (coeff 1) • Elimination (make equal) • Cross. <b>Ex:</b> infinite for 2/(k+1)=3/(2k-1) → k=5</div>
+      </div>
+    </div>
+
+    <!-- CH4 -->
+    <div class="box orange">
+      <span class="chap" style="background:#c2410c">CH 4 • QUADRATIC EQS</span>
+      <div class="ctitle">Quadratic Equations <small>• ax²+bx+c=0</small></div>
+      <div class="content">
+        <div class="formula">x = (-b ± √(b²-4ac))/2a &nbsp; • &nbsp; <span class="hl">D = b²-4ac</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;text-align:center;font-size:9px">
+          <div style="background:white;border-radius:4px;padding:2px;border:1px solid #cbd5e1"><b>D>0</b><br>2 distinct</div>
+          <div style="background:white;border-radius:4px;padding:2px;border:1px solid #cbd5e1"><b>D=0</b><br>Equal = -b/2a</div>
+          <div style="background:#fef2f2;border-radius:4px;padding:2px;border:1px solid #fecaca"><b>D&lt;0</b><br>No real</div>
+        </div>
+        <ul class="ul">
+          <li><b>Factorization:</b> split b: product=a·c, sum=b. Ex: 2x²+7x+3 → 6 &1 → (2x+1)(x+3)=0</li>
+          <li><b>Equal roots?</b> Put D=0 → find k. Word: reject -ve root.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CH5 -->
+    <div class="box cyan">
+      <span class="chap" style="background:#0891b2">CH 5 • AP</span>
+      <div class="ctitle">Arithmetic Progression <small>• a, a+d, ...</small></div>
+      <div class="content">
+        <div class="formula">aₙ = a + (n-1)d &nbsp; • &nbsp; Sₙ = n/2[2a+(n-1)d] = n/2(a+l)</div>
+        <ul class="ul">
+          <li>a,b,c in AP → <span class="hl">2b = a+c</span></li>
+          <li>3 terms: <b>a-d, a, a+d</b> (sum 3a) • 4 terms: <b>a-3d,a-d,a+d,a+3d</b> (sum 4a)</li>
+          <li>Which term is -81? → aₙ=-81 → find n. If n not integer → not a term</li>
+        </ul>
+        <div class="mini"><b>Ex:</b> 3,1,-1... d=-2 → a₁₀=3+9(-2)=-15 • S₂₂ for 8,3,-2 = -979</div>
+      </div>
+    </div>
+
+    <!-- CH6 -->
+    <div class="box red">
+      <span class="chap" style="background:#dc2626">CH 6 • TRIANGLES</span>
+      <div class="ctitle">Triangles <small>• 5M proof</small></div>
+      <div class="content">
+        <div style="background:white;border-radius:5px;padding:3px;border:1px solid #fecaca;text-align:center"><b>BPT:</b> DE∥BC → <span class="hl">AD/DB = AE/EC</span> &nbsp; Converse true ★ Prove!</div>
+        <ul class="ul">
+          <li><b>Criteria:</b> <b>AA</b> (2 angles), <b>SSS</b> (3 sides prop.), <b>SAS</b> (1 angle + sides prop.)</li>
+          <li><span class="hlb">ar1/ar2 = (side1/side2)²</span> — similar triangles</li>
+          <li><b>Pythagoras:</b> Hyp² = Perp² + Base² (Right Δ) ★ Prove!</li>
+        </ul>
+        <div class="mini">GIVEN/TO PROVE/CONST/PROOF = full marks even if messy</div>
+      </div>
+    </div>
+
+    <!-- CH7 -->
+    <div class="box teal">
+      <span class="chap" style="background:#0d9488">CH 7 • COORDINATE</span>
+      <div class="ctitle">Coordinate Geometry</div>
+      <div class="content">
+        <div class="formula" style="font-size:9.5px">Dist=√[(x₂-x₁)²+(y₂-y₁)²] &nbsp;•&nbsp; Mid=((x₁+x₂)/2)</div>
+        <div class="formula" style="font-size:9.5px">P(m:n)= (mx₂+nx₁/m+n , my₂+ny₁/m+n) &nbsp; • &nbsp; <b>Area=½|x₁(y₂-y₃)+x₂(y₃-y₁)+x₃(y₁-y₂)|</b></div>
+        <ul class="ul">
+          <li>=0 → <b>collinear</b> • `AB+BC=AC` also collinear</li>
+          <li><b>Axis trick:</b> x-axis divides AB → put <b>y=0</b> → ratio k:1</li>
+          <li>Prove square: all sides equal + diagonals equal</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CH8 -->
+    <div class="box indigo">
+      <span class="chap" style="background:#3730a3">CH 8 • TRIGONOMETRY</span>
+      <div class="ctitle">Intro to Trigo <small>• Right Δ</small></div>
+      <div class="content">
+        <div style="background:white;border-radius:5px;padding:2px 3px;border:1px solid #ddd;text-align:center;font-size:10px"><b>sin=P/H</b> &nbsp; <b>cos=B/H</b> &nbsp; <b>tan=P/B</b> &nbsp; <span style="font-size:8px;color:#64748b">cosec=H/P sec=H/B cot=B/P</span></div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr 1fr 1fr 1fr;gap:1px;font-size:7.5px;text-align:center;margin:3px 0">
+          <div style="background:#fefce8;padding:2px;border:1px solid #eee"><b></b></div><div style="background:#0f172a;color:white;padding:2px"><b>0°</b></div><div style="background:#0f172a;color:white;padding:2px"><b>30°</b></div><div style="background:#0f172a;color:white;padding:2px"><b>45°</b></div><div style="background:#0f172a;color:white;padding:2px"><b>60°</b></div><div style="background:#0f172a;color:white;padding:2px"><b>90°</b></div>
+          <div style="background:#fefce8;padding:2px"><b>sin</b></div><div style="background:white;border:1px solid #eee;padding:2px">0</div><div style="background:white;border:1px solid #eee;padding:2px">½</div><div style="background:white;border:1px solid #eee;padding:2px">1/√2</div><div style="background:white;border:1px solid #eee;padding:2px">√3/2</div><div style="background:white;border:1px solid #eee;padding:2px">1</div>
+          <div style="background:#eff6ff;padding:2px"><b>cos</b></div><div style="background:white;border:1px solid #eee;padding:2px">1</div><div style="background:white;border:1px solid #eee;padding:2px">√3/2</div><div style="background:white;border:1px solid #eee;padding:2px">1/√2</div><div style="background:white;border:1px solid #eee;padding:2px">½</div><div style="background:white;border:1px solid #eee;padding:2px">0</div>
+          <div style="background:#fefce8;padding:2px"><b>tan</b></div><div style="background:white;border:1px solid #eee;padding:2px">0</div><div style="background:white;border:1px solid #eee;padding:2px">1/√3</div><div style="background:white;border:1px solid #eee;padding:2px">1</div><div style="background:white;border:1px solid #eee;padding:2px">√3</div><div style="background:white;border:1px solid #eee;padding:2px">∞</div>
+        </div>
+        <div class="formula" style="font-size:9px;padding:2px">sin²+cos²=1 &nbsp;•&nbsp; 1+tan²=sec² &nbsp;•&nbsp; 1+cot²=cosec²</div>
+        <div class="mini">Prove → convert to sin/cos • Complementary: sin(90-θ)=cosθ</div>
+      </div>
+    </div>
+
+    <!-- CH9 -->
+    <div class="box pink">
+      <span class="chap" style="background:#0ea5e9">CH 9 • APPLICATIONS</span>
+      <div class="ctitle">Heights & Distances <small>• tan only!</small></div>
+      <div class="content">
+        <div style="background:white;border-radius:5px;padding:3px;border:1px solid #fecaca;text-align:center"><b>Elevation ↗️</b> eye→up with horiz. &nbsp;|&nbsp; <b>Depression ↘️</b> eye→down &nbsp;•&nbsp; <span class="hl">tanθ = Height/Distance</span></div>
+        <ul class="ul">
+          <li><b>4 Types:</b> Single Δ → direct tan | Two Δ same base → 2 eqs | Broken tree/ladder → 2 right Δ | Building→building → 2 horizontals</li>
+          <li><b>Steps:</b> Neat figure + label θ → tanθ=perp/base → put √3 values → answer with <b>m</b></li>
+          <li>Depression from TOP → mark θ at top with horizontal → alternate angle at ground</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CH10 -->
+    <div class="box green">
+      <span class="chap" style="background:#16a34a">CH 14 • PROBABILITY</span>
+      <div class="ctitle">Probability <small>• Free 4M</small></div>
+      <div class="content">
+        <div class="formula" style="font-size:11px">P(E) = Favourable / Total &nbsp; <span style="font-weight:400;font-size:8px">0≤P≤1</span> &nbsp; • &nbsp; P(not E)=1-P(E)</div>
+        <ul class="ul">
+          <li><b>Totals:</b> Coin 2 (2 coins 4) • Dice 6 (2 dice 36) • <b>Cards 52</b>=26R+26B=13♥13♦13♣13♠ • 4K,4Q,4J,4A • <span class="hl">Face=12 (J,Q,K)</span></li>
+          <li><b>Ex:</b> P(king)=4/52=1/13 • P(not face)=40/52=10/13 • Die even=3/6=1/2</li>
+          <li>Impossible P=0, Sure P=1 • Leap year 366=52w+2d → P(53 Sundays)=2/7</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div><b>How to use:</b> Print → Stick on wall → Revise 10 mins daily. Exam morning: only read <span style="background:#facc15;color:#422006;padding:0 2px;border-radius:3px">yellow highlights</span> = 60% paper.</div>
+    <div><b>PYQ Hotspots:</b> BPT/Pythagoras proof 5M • D for equal roots 2M • x-axis ratio 3M • Cards 2M • √2 irrational 3M • AP n-term 2M</div>
+    <div><b>Tip:</b> Write trig table on last page first in exam! &nbsp; • &nbsp; Trace this page once by hand → 2× memory. &nbsp; <span style="background:white;color:#0f172a;padding:1px 4px;border-radius:4px;font-weight:800">Mission JEET • 14 Days Marathon</span></div>
+  </div>
+  <div class="cut">✂️ — — — Fold and keep in pocket — — 1 Page = 10 Chapters = Half-Yearly Done — — ✂️</div>
+
+</div>
+
+</body>
+</html>

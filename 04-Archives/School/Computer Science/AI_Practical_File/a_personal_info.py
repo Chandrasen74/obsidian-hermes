@@ -1,0 +1,8 @@
+name=input("Enter Name: ")
+father=input("Enter Father's Name: ")
+student_class=input("Enter Class: ")
+school=input("Enter School Name: ")
+print("Name:",name)
+print("Father's Name:",father)
+print("Class:",student_class)
+print("School Name:",school)
