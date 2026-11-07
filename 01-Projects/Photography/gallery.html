@@ -175,6 +175,7 @@ body.light .lb{background:oklch(0.96 0 0 / 98%)}
    <div class="decrow" id="lbdec" style="display:none"></div>
    <button onclick="showInFolder()">Show in folder</button>
    <button onclick="copyPath()">Copy path</button>
+   <button onclick="downloadFile()">Download</button>
    <button id="btnPh" onclick="openPhotos()">Open in Photos</button>
    <button id="btnFav" onclick="toggleFav()"></button>
    <button id="btnSlide" onclick="toggleSlide()">Slideshow</button>
@@ -510,6 +511,21 @@ function fallbackCopy(p,done){ const ta=document.createElement('textarea'); ta.v
 function copyPath(){
   const p=view[cur].f; const done=()=>flash('Path copied');
   if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(p).then(done).catch(()=>fallbackCopy(p,done)); } else fallbackCopy(p,done);
+}
+function downloadFile(){
+  if(!view[cur]) return;
+  const it=view[cur];
+  // Prefer display/playable path when available; fall back to original
+  let src = disp(it);
+  if(isVid(it)){ const p = playPath(it); if(p) src = p; else src = LIB + it.f; }
+  const name = (it.f.split('/').pop() || 'download');
+  const a = document.createElement('a');
+  a.href = src;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  flash('Download started');
 }
 function toggleSlide(){
   const b=document.getElementById('btnSlide');
